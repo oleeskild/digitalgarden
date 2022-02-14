@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{ page.fileSlug }}</title>
+    {%include "components/pageheader.njk"%} 
+  </head>
+  <body>
+
+    {%include "components/notegrowthhistory.njk"%}
+
+    <div class="content">
+      <a href="/">&larr; Back to garden entry</a>
+      {{ content | link | safe}}
+    </div>
+
+  </body>
+</html>

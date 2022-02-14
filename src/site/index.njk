@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{{ title }}</title>
+    {%include "components/pageheader.njk"%} 
+  </head>
+  <body>
+    {%include "components/notegrowthhistory.njk"%}
+    <div class="content">
+      {%- for garden in collections.gardenEntry -%}
+        {{garden.templateContent | link | safe }}
+      {%- endfor -%}
+    </div>
+  </body>
+</html>

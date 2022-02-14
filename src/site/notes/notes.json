@@ -1,0 +1,5 @@
+{
+    "layout" : "layouts/note.njk",
+    "tags" : "note",
+    "templateEngineOverride": "njk,md"
+ }

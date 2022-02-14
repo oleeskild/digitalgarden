@@ -1,0 +1,142 @@
+.content {
+    max-width: 900px;
+    margin: auto;
+    font-size: 22px;
+    line-height: 1.5;
+    color: white;
+}
+
+.content h1 {
+    color: #FFEF60;
+}
+
+.content h2 {
+    color: #F06449;
+}
+
+.content h3 {
+    color: #D4FCC3;
+}
+
+.content h4 {
+    color: #72DCFF;
+}
+
+.mermaid svg {
+    background: white;
+    border-radius: 25px;
+    padding: 20px;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+body {
+    background-color: rgb(32, 31, 31);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    padding-bottom: 3px;
+    border-bottom: 1px solid rgb(97, 186, 245);
+    color: rgb(97, 186, 245);
+}
+
+.font-bg {
+    font-size: 92px;
+}
+
+blockquote {
+    background: #ffffff17;
+    border-left: 10px solid #C1DBE3;
+    margin: 1.5em 10px;
+    padding: 0.5em 10px;
+    quotes: "\201C""\201D""\2018""\2019";
+}
+
+blockquote:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 4em;
+    line-height: 0.1em;
+    margin-right: 0.1em;
+    vertical-align: -0.4em;
+}
+
+blockquote p {
+    display: inline;
+}
+
+pre[class*="language-ad-"]::before {
+    display: block;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+code[class*="language-ad-"] {
+    font-family: 'Roboto', sans-serif;
+}
+
+pre[class*="language-ad-"] {
+    font-family: 'Roboto', sans-serif;
+    word-wrap: break-word;
+    background-color: #3b2e58;
+    border: 1px solid #3b2e58;
+    border-radius: 6px;
+    color: rgb(230, 230, 230);
+    display: block;
+    font-size: 1rem;
+    margin-top: 1rem;
+    outline-color: rgb(230, 230, 230);
+    padding: 1rem;
+    position: relative;
+    transition: height .5s ease-in, opacity .5s ease-in;
+    word-break: break-word;
+}
+
+pre.language-ad-note::before {
+    content: "🖊️ Note";
+}
+
+pre.language-ad-tip::before {
+    content: "💡 Tip";
+}
+
+pre.language-ad-warning::before {
+    content: "⚠️ Warning";
+}
+
+pre.language-ad-important::before {
+    content: "❗️ Important";
+}
+
+pre.language-ad-caution::before {
+    content: "⚠️ Caution";
+}
+
+pre.language-ad-tip {
+    background-color: rgb(5, 75, 22);
+    border-color: rgb(5, 75, 22);
+}
+
+pre.language-ad-warning {
+    background-color: rgb(106, 75, 22);
+    border-color: rgb(106, 75, 22);
+}
+
+pre.language-ad-important {
+    background-color: rgb(0, 65, 115);
+    border-color: rgb(0, 65, 115);
+}
+
+pre.language-ad-caution {
+    background-color: rgb(99, 0, 1);
+    border-color: rgb(99, 0, 1);
+}
