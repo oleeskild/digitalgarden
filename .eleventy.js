@@ -14,6 +14,10 @@ module.exports = function(eleventyConfig) {
                 const code = token.content.trim();
                 return `<pre class="mermaid">${code}</pre>`;
             }
+            if (token.info === 'transclusion') {
+                const code = token.content.trim();
+                return `<div class="transclusion">${md.render(code)}</div>`;
+            }
 
             // Other languages
             return origRule(tokens, idx, options, env, slf);

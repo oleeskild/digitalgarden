@@ -74,8 +74,9 @@ blockquote p {
     display: inline;
 }
 
-pre.language-transclusion{
-    white-space: normal;
+div.translusion{
+    border-left: 4px solid gray;
+    padding-left: 10px;
 }
 
 pre[class*="language-ad-"]::before {
