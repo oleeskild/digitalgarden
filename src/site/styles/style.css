@@ -103,7 +103,7 @@ pre[class*="language-ad-"] {
     position: relative;
     transition: height .5s ease-in, opacity .5s ease-in;
     word-break: break-word;
-    white-space: normal;
+    white-space: normal !important;
 }
 
 pre.language-ad-note::before {
