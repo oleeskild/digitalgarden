@@ -74,6 +74,10 @@ blockquote p {
     display: inline;
 }
 
+pre.language-transclusion{
+    white-space: normal;
+}
+
 pre[class*="language-ad-"]::before {
     display: block;
     font-size: 1.4rem;
@@ -99,6 +103,7 @@ pre[class*="language-ad-"] {
     position: relative;
     transition: height .5s ease-in, opacity .5s ease-in;
     word-break: break-word;
+    white-space: normal;
 }
 
 pre.language-ad-note::before {
