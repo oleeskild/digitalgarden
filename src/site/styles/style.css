@@ -74,6 +74,19 @@ blockquote p {
     display: inline;
 }
 
+.external-link::after {
+    content: '🔗';
+    position: absolute;
+    top: -4px;
+    right: -7px;
+    font-size: 12px;
+}
+
+.external-link {
+    padding-right: 8px;
+    position: relative;
+}
+
 div.translusion{
     border-left: 4px solid gray;
     padding-left: 10px;
