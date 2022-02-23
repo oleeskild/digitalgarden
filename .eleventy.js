@@ -1,11 +1,11 @@
 const eleventyPluginSyntaxHighlighter = require('@11ty/eleventy-plugin-syntaxhighlight');
 
-module.exports = function(eleventyConfig) {
+module.exports = function (eleventyConfig) {
 
     let markdownIt = require("markdown-it");
     let markdownLib = markdownIt({
         html: true,
-    }).use(function(md) {
+    }).use(function (md) {
         //https://github.com/DCsunset/markdown-it-mermaid-plugin
         const origRule = md.renderer.rules.fence.bind(md.renderer.rules);
         md.renderer.rules.fence = (tokens, idx, options, env, slf) => {
@@ -26,17 +26,40 @@ module.exports = function(eleventyConfig) {
             // Other languages
             return origRule(tokens, idx, options, env, slf);
         };
+
+        const defaultRender = md.renderer.rules.link_open || function (tokens, idx, options, env, self) {
+            return self.renderToken(tokens, idx, options);
+        };
+
+        md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+            const aIndex = tokens[idx].attrIndex('target');
+            const classIndex = tokens[idx].attrIndex('class');
+
+            if (aIndex < 0) {
+                tokens[idx].attrPush(['target', '_blank']); 
+            } else {
+                tokens[idx].attrs[aIndex][1] = '_blank';
+            }
+
+            if (classIndex< 0) {
+                tokens[idx].attrPush(['class', 'external-link']); 
+            } else {
+                tokens[idx].attrs[classIndex][1] = 'external-link';
+            }
+
+            return defaultRender(tokens, idx, options, env, self);
+        };
     });
 
     eleventyConfig.setLibrary("md", markdownLib);
 
 
-    eleventyConfig.addFilter('link', function(str) {
+    eleventyConfig.addFilter('link', function (str) {
         return str && str.replace(/\[\[(.*?)\]\]/g, '<a class="internal-link" href="/notes/$1">$1</a>');
     })
 
     eleventyConfig.addPlugin(eleventyPluginSyntaxHighlighter, {
-        init: function({ Prism }) {
+        init: function ({ Prism }) {
             Prism.languages['ad-note'] = Prism.languages.extend("markup", {});
             Prism.languages['ad-tip'] = Prism.languages.extend("markup", {});
             Prism.languages['ad-warning'] = Prism.languages.extend("markup", {});
