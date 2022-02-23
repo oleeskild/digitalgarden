@@ -32,7 +32,7 @@ module.exports = function(eleventyConfig) {
 
 
     eleventyConfig.addFilter('link', function(str) {
-        return str && str.replace(/\[\[(.*?)\]\]/g, '<a href="/notes/$1">$1</a>');
+        return str && str.replace(/\[\[(.*?)\]\]/g, '<a class="internal-link" href="/notes/$1">$1</a>');
     })
 
     eleventyConfig.addPlugin(eleventyPluginSyntaxHighlighter, {
