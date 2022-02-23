@@ -18,6 +18,10 @@ module.exports = function(eleventyConfig) {
                 const code = token.content.trim();
                 return `<div class="transclusion">${md.render(code)}</div>`;
             }
+            if (token.info.startsWith("ad-")) {
+                const code = token.content.trim();
+                return `<pre class="language-${token.info}">${md.render(code)}</pre>`;
+            }
 
             // Other languages
             return origRule(tokens, idx, options, env, slf);
