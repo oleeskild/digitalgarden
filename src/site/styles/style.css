@@ -121,6 +121,11 @@ pre.language-ad-caution::before {
     content: "⚠️ Caution";
 }
 
+pre.language-ad-info::before {
+    content: "ℹ Info";
+}
+
+
 pre.language-ad-tip {
     background-color: rgb(5, 75, 22);
     border-color: rgb(5, 75, 22);
@@ -139,4 +144,9 @@ pre.language-ad-important {
 pre.language-ad-caution {
     background-color: rgb(99, 0, 1);
     border-color: rgb(99, 0, 1);
+}
+
+pre.language-ad-info {
+    background-color: #2e5854;
+    border: 1px solid #2e5854;
 }

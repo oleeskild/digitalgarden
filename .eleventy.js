@@ -34,6 +34,8 @@ module.exports = function(eleventyConfig) {
             Prism.languages['ad-warning'] = Prism.languages.extend("markup", {});
             Prism.languages['ad-caution'] = Prism.languages.extend("markup", {});
             Prism.languages['ad-important'] = Prism.languages.extend("markup", {});
+            Prism.languages['ad-info'] = Prism.languages.extend("markup", {});
+            Prism.languages['transclusion'] = Prism.languages.extend("markup", {});
         }
     });
 
