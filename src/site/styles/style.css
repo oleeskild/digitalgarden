@@ -86,6 +86,7 @@ pre[class*="language-ad-"]::before {
 
 code[class*="language-ad-"] {
     font-family: 'Roboto', sans-serif;
+    white-space: normal !important;
 }
 
 pre[class*="language-ad-"] {
