@@ -1,10 +1,10 @@
-const eleventyPluginSyntaxHighlighter = require('@11ty/eleventy-plugin-syntaxhighlight');
 
 module.exports = function (eleventyConfig) {
 
     let markdownIt = require("markdown-it");
     let markdownLib = markdownIt({
-        html: true,
+        breaks: true,
+        html: true
     }).use(function (md) {
         //https://github.com/DCsunset/markdown-it-mermaid-plugin
         const origRule = md.renderer.rules.fence.bind(md.renderer.rules);
@@ -35,17 +35,20 @@ module.exports = function (eleventyConfig) {
             const aIndex = tokens[idx].attrIndex('target');
             const classIndex = tokens[idx].attrIndex('class');
 
+
             if (aIndex < 0) {
-                tokens[idx].attrPush(['target', '_blank']); 
+                tokens[idx].attrPush(['target', '_blank']);
             } else {
                 tokens[idx].attrs[aIndex][1] = '_blank';
             }
 
-            if (classIndex< 0) {
-                tokens[idx].attrPush(['class', 'external-link']); 
+            if (aIndex < 0) {
+                tokens[idx].attrPush(['target', '_blank']);
             } else {
-                tokens[idx].attrs[classIndex][1] = 'external-link';
+                tokens[idx].attrs[aIndex][1] = '_blank';
             }
+
+            tokens[idx].attrPush(['class', '_blank']);
 
             return defaultRender(tokens, idx, options, env, self);
         };
@@ -57,19 +60,6 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addFilter('link', function (str) {
         return str && str.replace(/\[\[(.*?)\]\]/g, '<a class="internal-link" href="/notes/$1">$1</a>');
     })
-
-    eleventyConfig.addPlugin(eleventyPluginSyntaxHighlighter, {
-        init: function ({ Prism }) {
-            Prism.languages['ad-note'] = Prism.languages.extend("markup", {});
-            Prism.languages['ad-tip'] = Prism.languages.extend("markup", {});
-            Prism.languages['ad-warning'] = Prism.languages.extend("markup", {});
-            Prism.languages['ad-caution'] = Prism.languages.extend("markup", {});
-            Prism.languages['ad-important'] = Prism.languages.extend("markup", {});
-            Prism.languages['ad-info'] = Prism.languages.extend("markup", {});
-            Prism.languages['transclusion'] = Prism.languages.extend("markup", {});
-        }
-    });
-
 
     return {
         dir: {
