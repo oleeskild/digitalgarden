@@ -8,7 +8,7 @@
     {%include "components/notegrowthhistory.njk"%}
     <div class="content">
       {%- for garden in collections.gardenEntry -%}
-        {{garden.templateContent | link | safe }}
+        {{garden.templateContent | safe }}
       {%- endfor -%}
     </div>
   </body>

@@ -20,6 +20,7 @@
         "@octokit/core": "^3.5.1",
         "@sindresorhus/slugify": "^1.1.0",
         "dotenv": "^10.0.0",
+        "front-matter": "^4.0.2",
         "markdown-it": "^12.3.2"
     }
 }

@@ -1,6 +1,8 @@
+const slugify = require("@sindresorhus/slugify");
+const markdownIt = require("markdown-it");
+const fs = require('fs');
+const fm = require('front-matter')
 module.exports = function(eleventyConfig) {
-    const slugify = require("@sindresorhus/slugify");
-    const markdownIt = require("markdown-it");
 
     let markdownLib = markdownIt({
         breaks: true,
@@ -56,10 +58,25 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.setLibrary("md", markdownLib);
 
-
-    eleventyConfig.addFilter('link', function(str) {
+    eleventyConfig.addTransform('link', function(str) {
         return str && str.replace(/\[\[(.*?)\]\]/g, function(match, p1) {
-            return `<a class="internal-link" href="/notes/${slugify(p1)}">${p1}</a>`;
+            const linksplit = p1.split("|");
+            const fileName = linksplit[0];
+
+            let permalink = linksplit.length > 1 ? linksplit[0] : `/notes/${slugify(linksplit[0])}`;
+            const title = linksplit.length > 1 ? p1.split("|")[1] : p1;
+
+            try {
+                const file = fs.readFileSync(`./src/site/notes/${fileName}.md`, 'utf8');
+                const fmdata = fm(file);
+                if (fmdata.attributes.permalink) {
+                    permalink = fmdata.attributes.permalink;
+                }
+            } catch {
+                //Ignore if file doesn't exist
+            }
+
+            return `<a class="internal-link" href="${permalink}">${title}</a>`;
         });
     })
 
