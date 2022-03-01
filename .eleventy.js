@@ -1,11 +1,11 @@
+module.exports = function(eleventyConfig) {
+    const slugify = require("@sindresorhus/slugify");
+    const markdownIt = require("markdown-it");
 
-module.exports = function (eleventyConfig) {
-
-    let markdownIt = require("markdown-it");
     let markdownLib = markdownIt({
         breaks: true,
         html: true
-    }).use(function (md) {
+    }).use(function(md) {
         //https://github.com/DCsunset/markdown-it-mermaid-plugin
         const origRule = md.renderer.rules.fence.bind(md.renderer.rules);
         md.renderer.rules.fence = (tokens, idx, options, env, slf) => {
@@ -27,11 +27,11 @@ module.exports = function (eleventyConfig) {
             return origRule(tokens, idx, options, env, slf);
         };
 
-        const defaultRender = md.renderer.rules.link_open || function (tokens, idx, options, env, self) {
+        const defaultRender = md.renderer.rules.link_open || function(tokens, idx, options, env, self) {
             return self.renderToken(tokens, idx, options);
         };
 
-        md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+        md.renderer.rules.link_open = function(tokens, idx, options, env, self) {
             const aIndex = tokens[idx].attrIndex('target');
             const classIndex = tokens[idx].attrIndex('class');
 
@@ -57,8 +57,10 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.setLibrary("md", markdownLib);
 
 
-    eleventyConfig.addFilter('link', function (str) {
-        return str && str.replace(/\[\[(.*?)\]\]/g, '<a class="internal-link" href="/notes/$1">$1</a>');
+    eleventyConfig.addFilter('link', function(str) {
+        return str && str.replace(/\[\[(.*?)\]\]/g, function(match, p1) {
+            return `<a class="internal-link" href="/notes/${slugify(p1)}">${p1}</a>`;
+        });
     })
 
     return {

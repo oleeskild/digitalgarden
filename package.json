@@ -18,6 +18,7 @@
     "dependencies": {
         "@azure/storage-blob": "^12.8.0",
         "@octokit/core": "^3.5.1",
+        "@sindresorhus/slugify": "^1.1.0",
         "dotenv": "^10.0.0",
         "markdown-it": "^12.3.2"
     }
