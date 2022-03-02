@@ -1,7 +1,7 @@
 const slugify = require("@sindresorhus/slugify");
 const markdownIt = require("markdown-it");
 const fs = require('fs');
-const fm = require('front-matter')
+const matter = require('gray-matter')
 module.exports = function(eleventyConfig) {
 
     let markdownLib = markdownIt({
@@ -68,9 +68,9 @@ module.exports = function(eleventyConfig) {
 
             try {
                 const file = fs.readFileSync(`./src/site/notes/${fileName}.md`, 'utf8');
-                const fmdata = fm(file);
-                if (fmdata.attributes.permalink) {
-                    permalink = fmdata.attributes.permalink;
+                const frontMatter = matter(file);
+                if (frontMatter.data.permalink) {
+                    permalink = frontMatter.data.permalink;
                 }
             } catch {
                 //Ignore if file doesn't exist
