@@ -9,7 +9,9 @@ module.exports = function(eleventyConfig) {
         html: true
     }).use(function(md) {
         //https://github.com/DCsunset/markdown-it-mermaid-plugin
-        const origRule = md.renderer.rules.fence.bind(md.renderer.rules);
+        const origFenceRule = md.renderer.rules.fence || function(tokens, idx, options, env, self) {
+            return self.renderToken(tokens, idx, options, env, self);
+        };
         md.renderer.rules.fence = (tokens, idx, options, env, slf) => {
             const token = tokens[idx];
             if (token.info === 'mermaid') {
@@ -26,33 +28,51 @@ module.exports = function(eleventyConfig) {
             }
 
             // Other languages
-            return origRule(tokens, idx, options, env, slf);
+            return origFenceRule(tokens, idx, options, env, slf);
         };
 
-        const defaultRender = md.renderer.rules.link_open || function(tokens, idx, options, env, self) {
-            return self.renderToken(tokens, idx, options);
+
+
+        const defaultImageRule = md.renderer.rules.image || function(tokens, idx, options, env, self) {
+            return self.renderToken(tokens, idx, options, env, self);
+        };
+        md.renderer.rules.image = (tokens, idx, options, env, self) => {
+            const imageName = tokens[idx].content;
+            const [fileName, width] = imageName.split("|");
+            if (width) {
+                const widthIndex = tokens[idx].attrIndex('width');
+                const widthAttr = `${width}px`;
+                if (widthIndex < 0) {
+                    tokens[idx].attrPush(['width', widthAttr]);
+                } else {
+                    tokens[idx].attrs[widthIndex][1] = widthAttr;
+                }
+            }
+
+            return defaultImageRule(tokens, idx, options, env, self);
         };
 
+
+        const defaultLinkRule = md.renderer.rules.link_open || function(tokens, idx, options, env, self) {
+            return self.renderToken(tokens, idx, options, env, self);
+        };
         md.renderer.rules.link_open = function(tokens, idx, options, env, self) {
             const aIndex = tokens[idx].attrIndex('target');
             const classIndex = tokens[idx].attrIndex('class');
 
-
             if (aIndex < 0) {
                 tokens[idx].attrPush(['target', '_blank']);
             } else {
                 tokens[idx].attrs[aIndex][1] = '_blank';
             }
 
-            if (aIndex < 0) {
-                tokens[idx].attrPush(['target', '_blank']);
+            if (classIndex < 0) {
+                tokens[idx].attrPush(['class', 'external-link']);
             } else {
-                tokens[idx].attrs[aIndex][1] = '_blank';
+                tokens[idx].attrs[classIndex][1] = 'external-link';
             }
 
-            tokens[idx].attrPush(['class', '_blank']);
-
-            return defaultRender(tokens, idx, options, env, self);
+            return defaultLinkRule(tokens, idx, options, env, self);
         };
     });
 
@@ -63,7 +83,7 @@ module.exports = function(eleventyConfig) {
             const linksplit = p1.split("|");
             const fileName = linksplit[0];
 
-            let permalink = linksplit.length > 1 ? linksplit[0] : `/notes/${slugify(linksplit[0])}`;
+            let permalink = `/notes/${slugify(linksplit[0])}`;
             const title = linksplit.length > 1 ? p1.split("|")[1] : p1;
 
             try {
