@@ -80,11 +80,10 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.addTransform('link', function(str) {
         return str && str.replace(/\[\[(.*?)\]\]/g, function(match, p1) {
-            const linksplit = p1.split("|");
-            const fileName = linksplit[0];
+            const [fileName, linkTitle] = p1.split("|");
 
-            let permalink = `/notes/${slugify(linksplit[0])}`;
-            const title = linksplit.length > 1 ? p1.split("|")[1] : p1;
+            let permalink = `/notes/${slugify(fileName)}`;
+            const title = linkTitle ? linkTitle : fileName;
 
             try {
                 const file = fs.readFileSync(`./src/site/notes/${fileName}.md`, 'utf8');
