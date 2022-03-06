@@ -6,16 +6,14 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
 <html lang="en">
   <head>
     <title>{{ page.fileSlug }}</title>
-    {%include "components/pageheader.njk"%} 
+    {%include "components/pageheader.njk"%}
   </head>
   <body>
-
     {%include "components/notegrowthhistory.njk"%}
 
     <div class="content">
-      <a href="/">&larr; Back to garden entry</a>
+      <a href="/">🏡 Back Home</a>
       {{ content | safe}}
     </div>
-
   </body>
 </html>

@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     <title>{{ item.title }}</title>
-    {%include "components/pageheader.njk"%} 
+    {%include "components/pageheader.njk"%}
   </head>
   <body>
     <div class="content">
       {%- if item.tags !== 'Garden' -%}
-        <a href="/">&larr; Back to Garden Entry</a>
-      {%endif%}
-      {{ item.content | safe}}
-    </div>
-  </body>
-</html>
+        <a href="/">🏡 Back Home</a>
+        {%endif%}
+        {{ item.content | safe}}
+      </div>
+    </body>
+  </html>
