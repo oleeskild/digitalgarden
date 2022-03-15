@@ -26,7 +26,14 @@ module.exports = function(eleventyConfig) {
                 }
                 if (token.info.startsWith("ad-")) {
                     const code = token.content.trim();
-                    return `<pre class="language-${token.info}">${md.render(code)}</pre>`;
+                    if (code && code.toLowerCase().startsWith("title:")) {
+                        const title = `<div class="admonition-title">${code.substring(6, code.indexOf("\n"))}</div>`;
+                        return `<div class="language-${token.info} admonition admonition-example admonition-plugin">${title}${md.render(code.slice(code.indexOf("\n")))}</div>`;
+                    }
+
+                    const title = `<div class="admonition-title">${token.info.charAt(3).toUpperCase()}${token.info.substring(4).toLowerCase()}</div>`;
+                    return `<div class="language-${token.info} admonition admonition-example admonition-plugin">${title}${md.render(code)}</div>`;
+
                 }
 
                 // Other languages
@@ -106,7 +113,6 @@ module.exports = function(eleventyConfig) {
     })
 
     eleventyConfig.addTransform('highlight', function(str) {
-        //replace ==random text== with <mark>random text</mark>
         return str && str.replace(/\=\=(.*?)\=\=/g, function(match, p1) {
             return `<mark>${p1}</mark>`;
         });
