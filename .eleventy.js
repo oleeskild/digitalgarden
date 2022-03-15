@@ -83,7 +83,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addTransform('link', function(str) {
         return str && str.replace(/\[\[(.*?)\]\]/g, function(match, p1) {
             //Check if it is an embedded excalidraw drawing or mathjax javascript
-            if (p1.indexOf("],[") > -1 || p1.indexOf('"$"')) {
+            if (p1.indexOf("],[") > -1 || p1.indexOf('"$"')>-1) {
                 return match;
             }
             const [fileName, linkTitle] = p1.split("|");
