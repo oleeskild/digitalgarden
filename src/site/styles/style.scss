@@ -41,9 +41,15 @@ h4 {
     text-align: center;
 }
 
-body {
-    background-color: rgb(32, 31, 31);
+.theme-dark {
+    background: rgb(32, 31, 31);
     color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.theme-light {
+    background: white;
+    color: black;
     font-family: 'Roboto', sans-serif;
 }
 
