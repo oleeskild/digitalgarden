@@ -21,7 +21,7 @@
 
 <link href="/styles/style.css" rel="stylesheet">
 {%-if meta.themeStyle%}
-    {{meta.themeStyle}}
+    {{meta.themeStyle | safe}}
 {%endif%}
 <link href="/styles/custom-style.css" rel="stylesheet">
 

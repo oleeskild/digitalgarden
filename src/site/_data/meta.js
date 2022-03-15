@@ -1,13 +1,18 @@
 require("dotenv").config();
-let themeStyle = "";
-if (process.env.THEME) {
-    fetch(process.env.THEME).then(response => response.text()).then(text => {
-        themeStyle = "<style>" + text + "</style>";
-    });
-}
-module.exports = {
-    env: process.env.ELEVENTY_ENV,
-    theme: process.env.THEME,
-    themeStyle: themeStyle,
-    baseTheme: process.env.BASE_THEME || "dark"
+const axios = require("axios");
+
+
+module.exports = async() => {
+    let themeStyle = "";
+    if (process.env.THEME) {
+        const res = await axios.get(process.env.THEME)
+        themeStyle = `<style>${res.data}</style>`;
+    }
+    return {
+        env: process.env.ELEVENTY_ENV,
+        theme: process.env.THEME,
+        themeStyle: themeStyle,
+        baseTheme: process.env.BASE_THEME || "dark"
+    }
+
 };
