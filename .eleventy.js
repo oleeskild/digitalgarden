@@ -118,6 +118,8 @@ module.exports = function(eleventyConfig) {
         });
     });
 
+    eleventyConfig.addPassthroughCopy("src/site/img");
+
     return {
         dir: {
             input: "src/site",

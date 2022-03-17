@@ -2,7 +2,6 @@
 <script>
     mermaid.initialize({
         startOnLoad: true,
-        theme: "forest"
     });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js" integrity="sha512-hpZ5pDCF2bRCweL5WoA0/N1elet1KYL5mx3LP555Eg/0ZguaHawxNvEjF6O3rufAChs16HVNhEc6blF/rZoowQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -19,10 +18,14 @@
 </script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
-<link href="/styles/style.css" rel="stylesheet">
+<link href="/styles/digital-garden-base.css" rel="stylesheet">
 {%-if meta.themeStyle%}
+    <link href="/styles/obsidian-base.css" rel="stylesheet">
     {{meta.themeStyle | safe}}
+{% else %}
+    <link href="/styles/style.css" rel="stylesheet">
 {%endif%}
+
 <link href="/styles/custom-style.css" rel="stylesheet">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
