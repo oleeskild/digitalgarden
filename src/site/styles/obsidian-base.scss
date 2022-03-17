@@ -4624,16 +4624,6 @@ mjx-container {
     outline: none;
 }
 
-.external-link {
-    background-position: center right;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(transparent, transparent), url('/img/outgoing.svg');
-    background-size: 13px;
-    padding-right: 16px;
-    background-position-y: 4px;
-    cursor: pointer;
-}
-
 .published-container {
     width: 100%;
     height: 100%;
