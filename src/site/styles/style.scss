@@ -68,16 +68,3 @@ blockquote:before {
 blockquote p {
     display: inline;
 }
-
-.external-link::after {
-    content: 'U+1F855';
-    position: absolute;
-    top: -4px;
-    right: -7px;
-    font-size: 12px;
-}
-
-.external-link {
-    padding-right: 10px;
-    position: relative;
-}
