@@ -1,7 +1,8 @@
 const slugify = require("@sindresorhus/slugify");
 const markdownIt = require("markdown-it");
 const fs = require('fs');
-const matter = require('gray-matter')
+const matter = require('gray-matter');
+const faviconPlugin = require('eleventy-favicon');
 module.exports = function(eleventyConfig) {
 
     let markdownLib = markdownIt({
@@ -119,6 +120,7 @@ module.exports = function(eleventyConfig) {
     });
 
     eleventyConfig.addPassthroughCopy("src/site/img");
+    eleventyConfig.addPlugin(faviconPlugin, {destination: 'dist'});
 
     return {
         dir: {
