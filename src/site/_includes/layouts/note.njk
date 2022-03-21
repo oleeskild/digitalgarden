@@ -12,7 +12,9 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
     {%include "components/notegrowthhistory.njk"%}
 
     <div class="content">
-      <a href="/">🏡 Back Home</a>
+      {% if dgHomeLink !== false%}
+        <a href="/">🏡 Back Home</a>
+      {% endif %}
       {{ content | safe}}
     </div>
   </body>
