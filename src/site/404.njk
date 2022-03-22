@@ -3,20 +3,29 @@
 <html lang="en">
     <head>
         <title>Nothing here</title>
-        <link href="/styles/style.css" rel="stylesheet">
-        <link href="/styles/custom-style.css" rel="stylesheet">
+        <link href="/styles/digital-garden-base.css" rel="stylesheet">
+        {%-if meta.themeStyle%}
+            <link href="/styles/obsidian-base.css" rel="stylesheet">
+            {{meta.themeStyle | safe}}
+        {% else %}
+            <link href="/styles/style.css" rel="stylesheet">
+        {%endif%}
 
+        <link href="/styles/custom-style.css" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
     </head>
-    <body>
+    <body class="theme-{{meta.baseTheme}} markdown-preview-view">
         <div class="content centered">
-            <div class="font-bg"> &#x1F60E; </div>
+
+            {%-if not meta.themeStyle%}
+                <div class="font-bg"> &#x1F60E; </div>
+            {%endif%}
             <h1>There is nothing here</h1>
             <p>If you got here from a link, this note is probably not made public</p>
-            <a href="/">Go back to garden entry</a>
+            <a href="/">Go back home</a>
         </div>
     </body>
 </html>

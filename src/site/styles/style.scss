@@ -3,14 +3,6 @@
 * MODIFY THE custom-style.scss FILE INSTEAD.
 ***/
 
-.content {
-    max-width: 900px;
-    margin: auto;
-    font-size: 22px;
-    line-height: 1.5;
-    color: white;
-}
-
 h1 {
     color: #FFEF60;
 }
@@ -27,12 +19,6 @@ h4 {
     color: #72DCFF;
 }
 
-.mermaid svg {
-    background: white;
-    border-radius: 25px;
-    padding: 20px;
-}
-
 .centered {
     position: absolute;
     top: 50%;
@@ -41,16 +27,20 @@ h4 {
     text-align: center;
 }
 
-body {
-    background-color: rgb(32, 31, 31);
+.theme-dark {
+    background: rgb(32, 31, 31);
     color: white;
     font-family: 'Roboto', sans-serif;
 }
 
+.theme-light {
+    background: white;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+}
+
 a {
-    text-decoration: none;
-    padding-bottom: 3px;
-    border-bottom: 1px solid rgb(97, 186, 245);
+    text-decoration: underline;
     color: rgb(97, 186, 245);
 }
 
@@ -77,100 +67,4 @@ blockquote:before {
 
 blockquote p {
     display: inline;
-}
-
-.external-link::after {
-    content: '🔗';
-    position: absolute;
-    top: -4px;
-    right: -7px;
-    font-size: 12px;
-}
-
-.external-link {
-    padding-right: 10px;
-    position: relative;
-}
-
-div.translusion {
-    border-left: 4px solid gray;
-    padding-left: 10px;
-}
-
-pre[class*="language-ad-"]::before {
-    display: block;
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-}
-
-code[class*="language-ad-"] {
-    font-family: 'Roboto', sans-serif;
-    white-space: normal !important;
-}
-
-pre[class*="language-ad-"] {
-    font-family: 'Roboto', sans-serif;
-    word-wrap: break-word;
-    background-color: #3b2e58;
-    border: 1px solid #3b2e58;
-    border-radius: 6px;
-    color: rgb(230, 230, 230);
-    display: block;
-    font-size: 1rem;
-    margin-top: 1rem;
-    outline-color: rgb(230, 230, 230);
-    padding: 1rem;
-    position: relative;
-    transition: height .5s ease-in, opacity .5s ease-in;
-    word-break: break-word;
-    white-space: normal !important;
-}
-
-pre.language-ad-note::before {
-    content: "🖊️ Note";
-}
-
-pre.language-ad-tip::before {
-    content: "💡 Tip";
-}
-
-pre.language-ad-warning::before {
-    content: "⚠️ Warning";
-}
-
-pre.language-ad-important::before {
-    content: "❗️ Important";
-}
-
-pre.language-ad-caution::before {
-    content: "⚠️ Caution";
-}
-
-pre.language-ad-info::before {
-    content: "ℹ Info";
-}
-
-pre.language-ad-tip {
-    background-color: rgb(5, 75, 22);
-    border-color: rgb(5, 75, 22);
-}
-
-pre.language-ad-warning {
-    background-color: rgb(106, 75, 22);
-    border-color: rgb(106, 75, 22);
-}
-
-pre.language-ad-important {
-    background-color: rgb(0, 65, 115);
-    border-color: rgb(0, 65, 115);
-}
-
-pre.language-ad-caution {
-    background-color: rgb(99, 0, 1);
-    border-color: rgb(99, 0, 1);
-}
-
-pre.language-ad-info {
-    background-color: #2e5854;
-    border: 1px solid #2e5854;
 }

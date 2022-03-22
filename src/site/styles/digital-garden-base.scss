@@ -1,0 +1,298 @@
+/***
+* DO NOT ADD/MODIFY STYLING HERE. IT WILL BE OVERWRITTEN IF YOU UPDATE THE TEMPLATE VERSION.
+* MODIFY THE custom-style.scss FILE INSTEAD.
+***/
+
+.content {
+    max-width: 900px;
+    margin: auto;
+    font-size: 22px;
+    line-height: 1.5;
+}
+
+.external-link {
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-image: linear-gradient(transparent, transparent), url('/img/outgoing.svg');
+    background-size: 13px;
+    padding-right: 16px;
+    background-position-y: 4px;
+    cursor: pointer;
+}
+
+.markdown-preview-view pre.mermaid {
+    background: white;
+    border-radius: 25px;
+}
+
+div.translusion {
+    border-left: 4px solid gray;
+    padding-left: 10px;
+}
+
+.admonition-title {
+    font-size: 1.4rem;
+}
+
+div[class*="language-ad-"] .admonition-title::befforee {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+code[class*="language-ad-"] {
+    font-family: 'Roboto', sans-serif;
+    white-space: normal !important;
+}
+
+.theme-light div[class*="language-ad-"] {
+    color: rgb(12, 12, 12);
+}
+
+.theme-dark div[class*="language-ad-"] {
+    color: rgb(230, 230, 230);
+}
+
+ul.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+div[class*="language-ad-"] {
+    font-family: 'Roboto', sans-serif;
+    word-wrap: break-word;
+    border-radius: 6px;
+    display: block;
+    font-size: 1rem;
+    margin-top: 1rem;
+    outline-color: rgb(230, 230, 230);
+    padding: 1rem;
+    position: relative;
+    transition: height .5s ease-in, opacity .5s ease-in;
+    word-break: break-word;
+    white-space: normal !important;
+}
+
+div.language-ad-note .admonition-title::before {
+    content: "🖊️";
+}
+
+div.language-ad-tip .admonition-title::before {
+    content: "💡";
+}
+
+div.language-ad-warning .admonition-title::before {
+    content: "⚠️";
+}
+
+div.language-ad-important .admonition-title::before {
+    content: "❗️";
+}
+
+div.language-ad-caution .admonition-title::before {
+    content: "⚠️";
+}
+
+div.language-ad-info .admonition-title::before {
+    content: "ℹ";
+}
+
+div.language-ad-example .admonition-title::before {
+    content: "🗒️";
+}
+
+div.language-ad-seealso .admonition-title::before {
+    content: "🖊️";
+}
+
+div.language-ad-abstract .admonition-title::before {
+    content: '📚'
+}
+
+div.language-ad-summary .admonition-title::before {
+    content: '📚'
+}
+
+div.language-ad-tldr .admonition-title::before {
+    content: '📚'
+}
+
+div.language-ad-todo .admonition-title::before {
+    content: '☑️'
+}
+
+div.language-ad-hint .admonition-title::before {
+    content: '🔥'
+}
+
+div.language-ad-success .admonition-title::before {
+    content: ✅
+}
+
+div.language-ad-check .admonition-title::before {
+    content: '✅'
+}
+
+div.language-ad-done .admonition-title::before {
+    content: '✅'
+}
+
+div.language-ad-question .admonition-title::before {
+    content: '❓'
+}
+
+div.language-ad-help .admonition-title::before {
+    content: '❓'
+}
+
+div.language-ad-faq .admonition-title::before {
+    content: '❓'
+}
+
+div.language-ad-attention .admonition-title::before {
+    content: '⚠️'
+}
+
+div.language-ad-failure .admonition-title::before {
+    content: '❌'
+}
+
+div.language-ad-fail .admonition-title::before {
+    content: '❌'
+}
+
+div.language-ad-missing .admonition-title::before {
+    content: '❌'
+}
+
+div.language-ad-danger .admonition-title::before {
+    content: '⚡'
+}
+
+div.language-ad-error .admonition-title::before {
+    content: '⚡'
+}
+
+div.language-ad-bug .admonition-title::before {
+    content: '🐞'
+}
+
+div.language-ad-quote .admonition-title::before {
+    content: '💬'
+}
+
+div.language-ad-cite .admonition-title::before {
+    content: '💬'
+}
+
+div.language-ad-note {
+    background-color: rgba(68, 138, 255, .5)
+}
+
+div.language-ad-seealso {
+    background-color: rgba(68, 138, 255, .5)
+}
+
+div.language-ad-abstract {
+    background-color: rgba(0, 176, 255, .5)
+}
+
+div.language-ad-summary {
+    background-color: rgba(0, 176, 255, .5)
+}
+
+div.language-ad-tldr {
+    background-color: rgba(0, 176, 255, .5)
+}
+
+div.language-ad-info {
+    background-color: rgba(0, 184, 212, .5)
+}
+
+div.language-ad-todo {
+    background-color: rgba(0, 184, 212, .5)
+}
+
+div.language-ad-tip {
+    background-color: rgba(0, 191, 165, .5)
+}
+
+div.language-ad-hint {
+    background-color: rgba(0, 191, 165, .5)
+}
+
+div.language-ad-important {
+    background-color: rgba(0, 191, 165, .5)
+}
+
+div.language-ad-success {
+    background-color: rgba(0, 200, 83, .5)
+}
+
+div.language-ad-check {
+    background-color: rgba(0, 200, 83, .5)
+}
+
+div.language-ad-done {
+    background-color: rgba(0, 200, 83, .5)
+}
+
+div.language-ad-question {
+    background-color: rgba(100, 221, 23, .5)
+}
+
+div.language-ad-help {
+    background-color: rgba(100, 221, 23, .5)
+}
+
+div.language-ad-faq {
+    background-color: rgba(100, 221, 23, .5)
+}
+
+div.language-ad-warning {
+    background-color: rgba(255, 145, 0, .5)
+}
+
+div.language-ad-caution {
+    background-color: rgba(255, 145, 0, .5)
+}
+
+div.language-ad-attention {
+    background-color: rgba(255, 145, 0, .5)
+}
+
+div.language-ad-failure {
+    background-color: rgba(255, 82, 82, .5)
+}
+
+div.language-ad-fail {
+    background-color: rgba(255, 82, 82, .5)
+}
+
+div.language-ad-missing {
+    background-color: rgba(255, 82, 82, .5)
+}
+
+div.language-ad-danger {
+    background-color: rgba(255, 23, 68, .5)
+}
+
+div.language-ad-error {
+    background-color: rgba(255, 23, 68, .5)
+}
+
+div.language-ad-bug {
+    background-color: rgba(245, 0, 87, .5)
+}
+
+div.language-ad-example {
+    background-color: rgba(124, 77, 255, .5)
+}
+
+div.language-ad-quote {
+    background-color: rgba(158, 158, 158, .5)
+}
+
+div.language-ad-cite {
+    background-color: rgba(158, 158, 158, .5)
+}
