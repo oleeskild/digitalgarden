@@ -10,6 +10,14 @@ module.exports = function(eleventyConfig) {
             html: true
         })
         .use(require("markdown-it-footnote"))
+        .use(require('markdown-it-task-checkbox'), {
+            disabled: true,
+            divWrap: false,
+            divClass: 'checkbox',
+            idPrefix: 'cbx_',
+            ulClass: 'task-list',
+            liClass: 'task-list-item'
+        })
         .use(function(md) {
             //https://github.com/DCsunset/markdown-it-mermaid-plugin
             const origFenceRule = md.renderer.rules.fence || function(tokens, idx, options, env, self) {
@@ -28,8 +36,9 @@ module.exports = function(eleventyConfig) {
                 if (token.info.startsWith("ad-")) {
                     const code = token.content.trim();
                     if (code && code.toLowerCase().startsWith("title:")) {
-                        const title = `<div class="admonition-title">${code.substring(6, code.indexOf("\n"))}</div>`;
-                        return `<div class="language-${token.info} admonition admonition-example admonition-plugin">${title}${md.render(code.slice(code.indexOf("\n")))}</div>`;
+                        const title = code.substring(6, code.indexOf("\n"));
+                        const titleDiv = title ? `<div class="admonition-title">${title}</div>` : '';
+                        return `<div class="language-${token.info} admonition admonition-example admonition-plugin">${titleDiv}${md.render(code.slice(code.indexOf("\n")))}</div>`;
                     }
 
                     const title = `<div class="admonition-title">${token.info.charAt(3).toUpperCase()}${token.info.substring(4).toLowerCase()}</div>`;
@@ -91,7 +100,7 @@ module.exports = function(eleventyConfig) {
     eleventyConfig.addTransform('link', function(str) {
         return str && str.replace(/\[\[(.*?)\]\]/g, function(match, p1) {
             //Check if it is an embedded excalidraw drawing or mathjax javascript
-            if (p1.indexOf("],[") > -1 || p1.indexOf('"$"')>-1) {
+            if (p1.indexOf("],[") > -1 || p1.indexOf('"$"') > -1) {
                 return match;
             }
             const [fileName, linkTitle] = p1.split("|");
@@ -120,7 +129,7 @@ module.exports = function(eleventyConfig) {
     });
 
     eleventyConfig.addPassthroughCopy("src/site/img");
-    eleventyConfig.addPlugin(faviconPlugin, {destination: 'dist'});
+    eleventyConfig.addPlugin(faviconPlugin, { destination: 'dist' });
 
     return {
         dir: {

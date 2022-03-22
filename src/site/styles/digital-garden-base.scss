@@ -31,16 +31,13 @@ div.translusion {
 }
 
 .admonition-title {
-    position: absolute;
-    top: 16px;
-    left: 55px;
     font-size: 1.4rem;
 }
 
-div[class*="language-ad-"]::before {
-    display: block;
+div[class*="language-ad-"] .admonition-title::befforee {
     font-size: 1.4rem;
     margin-bottom: 10px;
+    margin-right: 10px;
 }
 
 code[class*="language-ad-"] {
@@ -54,6 +51,11 @@ code[class*="language-ad-"] {
 
 .theme-dark div[class*="language-ad-"] {
     color: rgb(230, 230, 230);
+}
+
+ul.task-list {
+    list-style: none;
+    padding: 0;
 }
 
 div[class*="language-ad-"] {
@@ -71,115 +73,115 @@ div[class*="language-ad-"] {
     white-space: normal !important;
 }
 
-div.language-ad-note::before {
+div.language-ad-note .admonition-title::before {
     content: "🖊️";
 }
 
-div.language-ad-tip::before {
+div.language-ad-tip .admonition-title::before {
     content: "💡";
 }
 
-div.language-ad-warning::before {
+div.language-ad-warning .admonition-title::before {
     content: "⚠️";
 }
 
-div.language-ad-important::before {
+div.language-ad-important .admonition-title::before {
     content: "❗️";
 }
 
-div.language-ad-caution::before {
+div.language-ad-caution .admonition-title::before {
     content: "⚠️";
 }
 
-div.language-ad-info::before {
+div.language-ad-info .admonition-title::before {
     content: "ℹ";
 }
 
-div.language-ad-example::before {
+div.language-ad-example .admonition-title::before {
     content: "🗒️";
 }
 
-div.language-ad-seealso::before {
+div.language-ad-seealso .admonition-title::before {
     content: "🖊️";
 }
 
-div.language-ad-abstract::before {
+div.language-ad-abstract .admonition-title::before {
     content: '📚'
 }
 
-div.language-ad-summary::before {
+div.language-ad-summary .admonition-title::before {
     content: '📚'
 }
 
-div.language-ad-tldr::before {
+div.language-ad-tldr .admonition-title::before {
     content: '📚'
 }
 
-div.language-ad-todo::before {
+div.language-ad-todo .admonition-title::before {
     content: '☑️'
 }
 
-div.language-ad-hint::before {
+div.language-ad-hint .admonition-title::before {
     content: '🔥'
 }
 
-div.language-ad-success::before {
+div.language-ad-success .admonition-title::before {
     content: ✅
 }
 
-div.language-ad-check::before {
+div.language-ad-check .admonition-title::before {
     content: '✅'
 }
 
-div.language-ad-done::before {
+div.language-ad-done .admonition-title::before {
     content: '✅'
 }
 
-div.language-ad-question::before {
+div.language-ad-question .admonition-title::before {
     content: '❓'
 }
 
-div.language-ad-help::before {
+div.language-ad-help .admonition-title::before {
     content: '❓'
 }
 
-div.language-ad-faq::before {
+div.language-ad-faq .admonition-title::before {
     content: '❓'
 }
 
-div.language-ad-attention::before {
+div.language-ad-attention .admonition-title::before {
     content: '⚠️'
 }
 
-div.language-ad-failure::before {
+div.language-ad-failure .admonition-title::before {
     content: '❌'
 }
 
-div.language-ad-fail::before {
+div.language-ad-fail .admonition-title::before {
     content: '❌'
 }
 
-div.language-ad-missing::before {
+div.language-ad-missing .admonition-title::before {
     content: '❌'
 }
 
-div.language-ad-danger::before {
+div.language-ad-danger .admonition-title::before {
     content: '⚡'
 }
 
-div.language-ad-error::before {
+div.language-ad-error .admonition-title::before {
     content: '⚡'
 }
 
-div.language-ad-bug::before {
+div.language-ad-bug .admonition-title::before {
     content: '🐞'
 }
 
-div.language-ad-quote::before {
+div.language-ad-quote .admonition-title::before {
     content: '💬'
 }
 
-div.language-ad-cite::before {
+div.language-ad-cite .admonition-title::before {
     content: '💬'
 }
 
