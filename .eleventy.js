@@ -19,6 +19,7 @@ module.exports = function(eleventyConfig) {
             ulClass: 'task-list',
             liClass: 'task-list-item'
         })
+        .use(namedHeadingsFilter)
         .use(function(md) {
             //https://github.com/DCsunset/markdown-it-mermaid-plugin
             const origFenceRule = md.renderer.rules.fence || function(tokens, idx, options, env, self) {
@@ -104,10 +105,19 @@ module.exports = function(eleventyConfig) {
             if (p1.indexOf("],[") > -1 || p1.indexOf('"$"') > -1) {
                 return match;
             }
-            const [fileName, linkTitle] = p1.split("|");
+            const [fileLink, linkTitle] = p1.split("|");
+
+            let fileName = fileLink;
+            let header = "";
+            let headerLinkPath = "";
+            if(fileLink.includes("#")){
+                [fileName, header] = fileLink.split("#");
+                headerLinkPath = `#${headerToId(header)}`;
+            } 
 
             let permalink = `/notes/${slugify(fileName)}`;
             const title = linkTitle ? linkTitle : fileName;
+            
 
             try {
                 const file = fs.readFileSync(`./src/site/notes/${fileName}.md`, 'utf8');
@@ -119,7 +129,7 @@ module.exports = function(eleventyConfig) {
                 //Ignore if file doesn't exist
             }
 
-            return `<a class="internal-link" href="${permalink}">${title}</a>`;
+            return `<a class="internal-link" href="${permalink}${headerLinkPath}">${title}</a>`;
         });
     })
 
@@ -145,3 +155,47 @@ module.exports = function(eleventyConfig) {
     };
 
 };
+
+function headerToId(heading){
+    return slugify(heading);
+}
+
+//https://github.com/rstacruz/markdown-it-named-headings/blob/master/index.js
+function namedHeadingsFilter(md, options){
+    md.core.ruler.push('named_headings', namedHeadings.bind(null, md));
+}
+
+function namedHeadings (md, state) {
+
+  var ids = {}
+
+  state.tokens.forEach(function (token, i) {
+    if (token.type === 'heading_open') {
+      var text = md.renderer.render(state.tokens[i + 1].children, md.options)
+      var id = headerToId(text);
+      var uniqId = uncollide(ids, id)
+      ids[uniqId] = true
+      setAttr(token, 'id', uniqId)
+    }
+  })
+}
+
+function uncollide (ids, id) {
+  if (!ids[id]) return id
+  var i = 1
+  while (ids[id + '-' + i]) { i++ }
+  return id + '-' + i
+}
+
+function setAttr (token, attr, value, options) {
+  var idx = token.attrIndex(attr)
+
+  if (idx === -1) {
+    token.attrPush([ attr, value ])
+  } else if (options && options.append) {
+    token.attrs[idx][1] =
+      token.attrs[idx][1] + ' ' + value
+  } else {
+    token.attrs[idx][1] = value
+  }
+}
