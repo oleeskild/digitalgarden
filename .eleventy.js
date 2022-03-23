@@ -10,7 +10,6 @@ module.exports = function(eleventyConfig) {
             html: true
         })
         .use(require("markdown-it-footnote"))
-        .use(require('markdown-it-named-headings'))
         .use(require('markdown-it-task-checkbox'), {
             disabled: true,
             divWrap: false,
