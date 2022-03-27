@@ -10,6 +10,14 @@ module.exports = function(eleventyConfig) {
             html: true
         })
         .use(require("markdown-it-footnote"))
+        .use(require('markdown-it-mathjax3'), {
+            tex: {
+                inlineMath: [["$", "$"]]
+            },
+            options: {
+                skipHtmlTags: {'[-]': ['pre']}
+            }
+        })
         .use(require('markdown-it-task-checkbox'), {
             disabled: true,
             divWrap: false,
