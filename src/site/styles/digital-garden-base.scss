@@ -23,6 +23,7 @@
 .markdown-preview-view pre.mermaid {
     background: white;
     border-radius: 25px;
+    padding: 10px;
 }
 
 div.translusion {
@@ -34,7 +35,8 @@ div.translusion {
     font-size: 1.4rem;
 }
 
-div[class*="language-ad-"] .admonition-title::befforee {
+div[class*="language-ad-"] .admonition-title::before,
+div[class*="callout-"] .admonition-title::before {
     font-size: 1.4rem;
     margin-bottom: 10px;
     margin-right: 10px;
@@ -58,7 +60,8 @@ ul.task-list {
     padding: 0;
 }
 
-div[class*="language-ad-"] {
+div[class*="language-ad-"],
+div[class*="callout-"] {
     font-family: 'Roboto', sans-serif;
     word-wrap: break-word;
     border-radius: 6px;
@@ -73,226 +76,338 @@ div[class*="language-ad-"] {
     white-space: normal !important;
 }
 
-div.language-ad-note .admonition-title::before {
-    content: "🖊️";
+div.language-ad-note,
+div.callout-note {
+    .admonition-title::before {
+        content: "🖊️";
+    }
 }
 
-div.language-ad-tip .admonition-title::before {
-    content: "💡";
+div.language-ad-tip,
+div.callout-tip {
+    .admonition-title::before {
+        content: "💡";
+    }
 }
 
-div.language-ad-warning .admonition-title::before {
-    content: "⚠️";
+div.language-ad-warning,
+div.callout-warning {
+    .admonition-title::before {
+        content: "⚠️";
+    }
 }
 
-div.language-ad-important .admonition-title::before {
-    content: "❗️";
+div.language-ad-important,
+div.callout-important {
+    .admonition-title::before {
+        content: "❗️";
+    }
 }
 
-div.language-ad-caution .admonition-title::before {
-    content: "⚠️";
+div.language-ad-caution,
+div.callout-caution {
+    .admonition-title::before {
+        content: "⚠️";
+    }
 }
 
-div.language-ad-info .admonition-title::before {
-    content: "ℹ";
+div.language-ad-info,
+div.callout-info {
+    .admonition-title::before {
+        content: "ℹ";
+    }
 }
 
-div.language-ad-example .admonition-title::before {
-    content: "🗒️";
+div.language-ad-example,
+div.callout-example {
+    .admonition-title::before {
+        content: "🗒️";
+    }
 }
 
-div.language-ad-seealso .admonition-title::before {
-    content: "🖊️";
+div.language-ad-seealso,
+div.callout-seealso {
+    .admonition-title::before {
+        content: "🖊️";
+    }
 }
 
-div.language-ad-abstract .admonition-title::before {
-    content: '📚'
+div.language-ad-abstract,
+div.callout-abstract {
+    .admonition-title::before {
+        content: '📚'
+    }
 }
 
-div.language-ad-summary .admonition-title::before {
-    content: '📚'
+div.language-ad-summary,
+div.callout-summary {
+    .admonition-title::before {
+        content: '📚'
+    }
 }
 
-div.language-ad-tldr .admonition-title::before {
-    content: '📚'
+div.language-ad-tldr,
+div.callout-tldr {
+    .admonition-title::before {
+        content: '📚'
+    }
 }
 
-div.language-ad-todo .admonition-title::before {
-    content: '☑️'
+div.language-ad-todo,
+div.callout-todo {
+    .admonition-title::before {
+        content: '☑️'
+    }
 }
 
-div.language-ad-hint .admonition-title::before {
-    content: '🔥'
+div.language-ad-hint,
+div.callout-hint {
+    .admonition-title::before {
+        content: '🔥'
+    }
 }
 
-div.language-ad-success .admonition-title::before {
-    content: ✅
+div.language-ad-success,
+div.callout-success {
+    .admonition-title::before {
+        content: ✅
+    }
 }
 
-div.language-ad-check .admonition-title::before {
-    content: '✅'
+div.language-ad-check,
+div.callout-check {
+    .admonition-title::before {
+        content: '✅'
+    }
 }
 
-div.language-ad-done .admonition-title::before {
-    content: '✅'
+div.language-ad-done,
+div.callout-done {
+    .admonition-title::before {
+        content: '✅'
+    }
 }
 
-div.language-ad-question .admonition-title::before {
-    content: '❓'
+div.language-ad-question,
+div.callout-question {
+    .admonition-title::before {
+        content: '❓'
+    }
 }
 
-div.language-ad-help .admonition-title::before {
-    content: '❓'
+div.language-ad-help,
+div.callout-help {
+    .admonition-title::before {
+        content: '❓'
+    }
 }
 
-div.language-ad-faq .admonition-title::before {
-    content: '❓'
+div.language-ad-faq,
+div.callout-faq {
+    .admonition-title::before {
+        content: '❓'
+    }
 }
 
-div.language-ad-attention .admonition-title::before {
-    content: '⚠️'
+div.language-ad-attention,
+div.callout-attention {
+    .admonition-title::before {
+        content: '⚠️'
+    }
 }
 
-div.language-ad-failure .admonition-title::before {
-    content: '❌'
+div.language-ad-failure,
+div.callout-failure {
+    .admonition-title::before {
+        content: '❌'
+    }
 }
 
-div.language-ad-fail .admonition-title::before {
-    content: '❌'
+div.language-ad-fail,
+div.callout-fail {
+    .admonition-title::before {
+        content: '❌'
+    }
 }
 
-div.language-ad-missing .admonition-title::before {
-    content: '❌'
+div.language-ad-missing,
+div.callout-missing {
+    .admonition-title::before {
+        content: '❌'
+    }
 }
 
-div.language-ad-danger .admonition-title::before {
-    content: '⚡'
+div.language-ad-danger,
+div.callout-danger {
+    .admonition-title::before {
+        content: '⚡'
+    }
 }
 
-div.language-ad-error .admonition-title::before {
-    content: '⚡'
+div.language-ad-error,
+div.callout-error {
+    .admonition-title::before {
+        content: '⚡'
+    }
 }
 
-div.language-ad-bug .admonition-title::before {
-    content: '🐞'
+div.language-ad-bug,
+div.callout-bug {
+    .admonition-title::before {
+        content: '🐞'
+    }
 }
 
-div.language-ad-quote .admonition-title::before {
-    content: '💬'
+div.language-ad-quote,
+div.callout-quote {
+    .admonition-title::before {
+        content: '💬'
+    }
 }
 
-div.language-ad-cite .admonition-title::before {
-    content: '💬'
+div.language-ad-cite,
+div.callout-cite {
+    .admonition-title::before {
+        content: '💬'
+    }
 }
 
-div.language-ad-note {
+div.language-ad-note,
+div.callout-note {
     background-color: rgba(68, 138, 255, .5)
 }
 
-div.language-ad-seealso {
+div.language-ad-seealso,
+div.callout-seealso {
     background-color: rgba(68, 138, 255, .5)
 }
 
-div.language-ad-abstract {
+div.language-ad-abstract,
+div.callout-abstract {
     background-color: rgba(0, 176, 255, .5)
 }
 
-div.language-ad-summary {
+div.language-ad-summary,
+div.callout-summary {
     background-color: rgba(0, 176, 255, .5)
 }
 
-div.language-ad-tldr {
+div.language-ad-tldr,
+div.callout-tldr {
     background-color: rgba(0, 176, 255, .5)
 }
 
-div.language-ad-info {
+div.language-ad-info,
+div.callout-info {
     background-color: rgba(0, 184, 212, .5)
 }
 
-div.language-ad-todo {
+div.language-ad-todo,
+div.callout-todo {
     background-color: rgba(0, 184, 212, .5)
 }
 
-div.language-ad-tip {
+div.language-ad-tip,
+div.callout-tip {
     background-color: rgba(0, 191, 165, .5)
 }
 
-div.language-ad-hint {
+div.language-ad-hint,
+div.callout-hint {
     background-color: rgba(0, 191, 165, .5)
 }
 
-div.language-ad-important {
+div.language-ad-important,
+div.callout-important {
     background-color: rgba(0, 191, 165, .5)
 }
 
-div.language-ad-success {
+div.language-ad-success,
+div.callout-success {
     background-color: rgba(0, 200, 83, .5)
 }
 
-div.language-ad-check {
+div.language-ad-check,
+div.callout-check {
     background-color: rgba(0, 200, 83, .5)
 }
 
-div.language-ad-done {
+div.language-ad-done,
+div.callout-done {
     background-color: rgba(0, 200, 83, .5)
 }
 
-div.language-ad-question {
+div.language-ad-question,
+div.callout-question {
     background-color: rgba(100, 221, 23, .5)
 }
 
-div.language-ad-help {
+div.language-ad-help,
+div.callout-help {
     background-color: rgba(100, 221, 23, .5)
 }
 
-div.language-ad-faq {
+div.language-ad-faq,
+div.callout-faq {
     background-color: rgba(100, 221, 23, .5)
 }
 
-div.language-ad-warning {
+div.language-ad-warning,
+div.callout-warning {
     background-color: rgba(255, 145, 0, .5)
 }
 
-div.language-ad-caution {
+div.language-ad-caution,
+div.callout-caution {
     background-color: rgba(255, 145, 0, .5)
 }
 
-div.language-ad-attention {
+div.language-ad-attention,
+div.callout-attention {
     background-color: rgba(255, 145, 0, .5)
 }
 
-div.language-ad-failure {
+div.language-ad-failure,
+div.callout-failure {
     background-color: rgba(255, 82, 82, .5)
 }
 
-div.language-ad-fail {
+div.language-ad-fail,
+div.callout-fail {
     background-color: rgba(255, 82, 82, .5)
 }
 
-div.language-ad-missing {
+div.language-ad-missing,
+div.callout-missing {
     background-color: rgba(255, 82, 82, .5)
 }
 
-div.language-ad-danger {
+div.language-ad-danger,
+div.callout-danger {
     background-color: rgba(255, 23, 68, .5)
 }
 
-div.language-ad-error {
+div.language-ad-error,
+div.callout-error {
     background-color: rgba(255, 23, 68, .5)
 }
 
-div.language-ad-bug {
+div.language-ad-bug,
+div.callout-bug {
     background-color: rgba(245, 0, 87, .5)
 }
 
-div.language-ad-example {
+div.language-ad-example,
+div.callout-example {
     background-color: rgba(124, 77, 255, .5)
 }
 
-div.language-ad-quote {
+div.language-ad-quote,
+div.callout-quote {
     background-color: rgba(158, 158, 158, .5)
 }
 
-div.language-ad-cite {
+div.language-ad-cite,
+div.callout-cite {
     background-color: rgba(158, 158, 158, .5)
 }
