@@ -151,10 +151,15 @@ module.exports = function(eleventyConfig) {
 
 
     eleventyConfig.addTransform('callout-block', function(str) {
-        return str && str.replace(/<blockquote>((.|\n)*)<\/blockquote>/g, function(match, content) {
+        return str && str.replace(/<blockquote>((.|\n)*?)<\/blockquote>/g, function(match, content) {
             let titleDiv = "";
             let calloutType = "";
-            content = content.replace(/\[!(\w*)\](\s?.*)/g, function(metaInfoMatch, callout, title) {
+            const calloutMeta = /\[!(\w*)\](\s?.*)/g;
+            if(!content.match(calloutMeta)){
+                return match;
+            }
+
+            content = content.replace(calloutMeta, function(metaInfoMatch, callout, title) {
                 calloutType = callout;
                 titleDiv = title.replace("<br>", "") ?
                     `<div class="admonition-title">${title}</div>` :
