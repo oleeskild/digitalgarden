@@ -68,3 +68,9 @@ blockquote:before {
 blockquote p {
     display: inline;
 }
+
+p>code {
+    //Inline code
+    color: #c7254e;
+    background-color: #1a1a1a;
+}

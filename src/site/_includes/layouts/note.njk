@@ -15,7 +15,7 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
       {% if dgHomeLink !== false%}
         <a href="/">🏡 Back Home</a>
       {% endif %}
-      {{ content | safe}}
+      {{ content | link | highlight | safe}}
     </div>
   </body>
 </html>

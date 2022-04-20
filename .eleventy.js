@@ -109,7 +109,7 @@ module.exports = function(eleventyConfig) {
 
     eleventyConfig.setLibrary("md", markdownLib);
 
-    eleventyConfig.addTransform('link', function(str) {
+    eleventyConfig.addFilter('link', function(str) {
         return str && str.replace(/\[\[(.*?\|.*?)\]\]/g, function(match, p1) {
             //Check if it is an embedded excalidraw drawing or mathjax javascript
             if (p1.indexOf("],[") > -1 || p1.indexOf('"$"') > -1) {
@@ -143,7 +143,7 @@ module.exports = function(eleventyConfig) {
         });
     })
 
-    eleventyConfig.addTransform('highlight', function(str) {
+    eleventyConfig.addFilter('highlight', function(str) {
         return str && str.replace(/\=\=(.*?)\=\=/g, function(match, p1) {
             return `<mark>${p1}</mark>`;
         });
@@ -155,7 +155,7 @@ module.exports = function(eleventyConfig) {
             let titleDiv = "";
             let calloutType = "";
             const calloutMeta = /\[!(\w*)\](\s?.*)/g;
-            if(!content.match(calloutMeta)){
+            if (!content.match(calloutMeta)) {
                 return match;
             }
 
