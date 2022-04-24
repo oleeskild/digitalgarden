@@ -167,7 +167,7 @@ module.exports = function(eleventyConfig) {
                 return "";
             });
 
-            return `<div class="callout-${calloutType} admonition admonition-example admonition-plugin">
+            return `<div class="callout-${calloutType?.toLowerCase()} admonition admonition-example admonition-plugin">
                 ${titleDiv}
                 ${content}
             </div>`;
