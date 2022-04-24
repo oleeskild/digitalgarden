@@ -105,6 +105,21 @@
     font-display: swap;
 }
 
+body {
+  --font-default: var(--default-font, 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif);
+  --font-interface-override: '';
+  --font-interface-theme: '';
+  --font-interface: var(--font-interface-override), var(--font-interface-theme), var(--font-default);
+  --font-text-override: '';
+  --font-text-theme: '';
+  --font-text: var(--font-text-override), var(--font-text-theme), var(--font-interface);
+  --font-monospace-override: '';
+  --font-monospace-theme: '';
+  --font-monospace: var(--font-monospace-override), var(--font-monospace-theme), 'Source Code Pro', monospace;
+  --font-text-size: 16px;
+  --font-mermaid: var(--font-text);
+}
+
  :root {
     --default-font: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft YaHei Light", sans-serif;
     --mermaid-font: var(--default-font);
