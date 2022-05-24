@@ -127,6 +127,7 @@ module.exports = function(eleventyConfig) {
 
             let permalink = `/notes/${slugify(fileName)}`;
             const title = linkTitle ? linkTitle : fileName;
+            let deadLink = false;
 
 
             try {
@@ -136,10 +137,10 @@ module.exports = function(eleventyConfig) {
                     permalink = frontMatter.data.permalink;
                 }
             } catch {
-                //Ignore if file doesn't exist
+                deadLink = true;
             }
 
-            return `<a class="internal-link" href="${permalink}${headerLinkPath}">${title}</a>`;
+            return `<a class="internal-link ${deadLink?'is-unresolved':''}" href="${permalink}${headerLinkPath}">${title}</a>`;
         });
     })
 
