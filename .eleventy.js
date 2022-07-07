@@ -28,6 +28,10 @@ module.exports = function(eleventyConfig) {
             ulClass: 'task-list',
             liClass: 'task-list-item'
         })
+        .use(require('markdown-it-plantuml'), {
+            openMarker: '```plantuml',
+            closeMarker: '```'
+        })
         .use(namedHeadingsFilter)
         .use(function(md) {
             //https://github.com/DCsunset/markdown-it-mermaid-plugin
