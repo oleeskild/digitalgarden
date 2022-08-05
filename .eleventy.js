@@ -135,7 +135,11 @@ module.exports = function(eleventyConfig) {
 
 
             try {
-                const file = fs.readFileSync(`./src/site/notes/${fileName}.md`, 'utf8');
+                const startPath = './src/site/notes/';
+                const fullPath = fileName.endsWith('.md') ? 
+                    `${startPath}${fileName}`
+                    :`${startPath}${fileName}.md`;
+                const file = fs.readFileSync(fullPath, 'utf8');
                 const frontMatter = matter(file);
                 if (frontMatter.data.permalink) {
                     permalink = frontMatter.data.permalink;
