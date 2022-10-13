@@ -6,12 +6,12 @@
             <div x-show="isDesktop" class="expand-line">
 
                   <button style="font-size: 48px; background: transparent;" @click="toggleOpen()">
-                        <i x-show="open" class="fa fa-caret-right"></i>
+                        <i x-show="open" style="display: none;" class="fa fa-caret-right"></i>
                         <i x-show="!open" class="fa fa-caret-left"></i>
                   </button>
             </div>
 
-            <div x-show="open || !isDesktop" class="sidebar-container">
+            <div x-show="open || !isDesktop" class="sidebar-container" style="display: none;">
 
                   {%if dgShowLocalGraph === true%}
                         <div x-show="isDesktop">
