@@ -3,6 +3,14 @@
 * MODIFY THE custom-style.scss FILE INSTEAD.
 ***/
 
+
+body{
+    --background-primary: rgb(32, 31, 31);
+    --background-secondary: rgb(57, 56, 56);
+    --text-normal: #dcddde;
+    --text-accent: rgb(97, 186, 245);
+}
+
 h1 {
     color: #FFEF60;
 }
@@ -19,6 +27,12 @@ h4 {
     color: #72DCFF;
 }
 
+button {
+    border: none;
+    color: white;
+    padding: 5px 15px;
+}
+
 .centered {
     position: absolute;
     top: 50%;
@@ -28,8 +42,8 @@ h4 {
 }
 
 .theme-dark {
-    background: rgb(32, 31, 31);
-    color: white;
+    background: var(--background-primary);
+    color: var(--text-normal);
     font-family: 'Roboto', sans-serif;
 }
 
@@ -44,7 +58,7 @@ a.is-unresolved{
 }
 a {
     text-decoration: underline;
-    color: rgb(97, 186, 245);
+    color: var(--text-accent)
 }
 
 .font-bg {

@@ -7,9 +7,14 @@
   <body class="theme-{{meta.baseTheme}} markdown-preview-view">
     {%include "components/notegrowthhistory.njk"%}
     <div class="content">
+
       {%- for garden in collections.gardenEntry -%}
         {{garden.templateContent | link | highlight | safe }}
       {%- endfor -%}
-    </div>
-  </body>
-</html>
+
+      {%if collections.gardenEntry[0].data.dgShowBacklinks === true or collections.gardenEntry[0].data.dgShowLocalGraph === true%}
+        {%include "components/sidebar.njk" %}
+      {%endif%}
+      </div>
+    </body>
+  </html>

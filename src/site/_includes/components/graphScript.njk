@@ -1,0 +1,117 @@
+<script>
+
+    const getCssVar = (variable) => getComputedStyle(document.documentElement).getPropertyValue(variable);
+
+    function htmlDecode(input) {
+        var doc = new DOMParser().parseFromString(input, "text/html");
+        return doc.documentElement.textContent;
+    }
+
+    const backLinks = [
+
+        {%- for backlink in backlinks -%}
+            {
+                id: {{backlink.id}},
+                title: "{{backlink.title | safe}}",
+                url: "{{backlink.url}}"
+            },
+        {%- endfor -%}
+    ];
+
+    const outbound = [
+
+        {%- for out in outbound -%}
+            {
+                id: {{out.id}},
+                title: "{{out.title | safe}}",
+                url: "{{out.url}}"
+            },
+        {%- endfor -%}
+    ].map(x => {
+        x.id += backLinks.length;
+        return x;
+    });
+
+    const currentNode = {
+        title: "{{page.fileSlug}}",
+        id: 0,
+        url: "{{page.url}}"
+    };
+
+    const gData = {
+        nodes: [
+            currentNode, ...backLinks,
+            ...outbound
+        ],
+        links: [
+            ...backLinks.map(backlink => ({source: backlink.id, target: 0})),
+            ...outbound.map(outlink => ({source: 0, target: outlink.id}))
+        ]
+    };
+
+    gData
+        .links
+        .forEach(link => {
+            const a = gData.nodes[link.source];
+            const b = gData.nodes[link.target];
+            !a.neighbors && (a.neighbors = []);
+            !b.neighbors && (b.neighbors = []);
+            a
+                .neighbors
+                .push(b);
+            b
+                .neighbors
+                .push(a);
+
+            !a.links && (a.links = []);
+            !b.links && (b.links = []);
+            a
+                .links
+                .push(link);
+            b
+                .links
+                .push(link);
+        });
+
+    let Graph;
+    function renderGraph(width, height) {
+
+        if (Graph) {
+            Graph
+                .width(width)
+                .height(height);
+
+            Graph.zoomToFit()
+            Graph.zoom(3)
+            return;
+        }
+
+        Graph = ForceGraph()(document.getElementById('link-graph'))
+            .width(width)
+            .height(height)
+            .nodeCanvasObject((node, ctx) => {
+                const nodeR = Math.min(7, Math.max((node.links.length + node.neighbors.length)/2, 2));
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, nodeR, 0, 2 * Math.PI, false);
+                ctx.fillStyle = getCssVar("--text-accent");
+                ctx.fill();
+
+                const label = htmlDecode(node.title)
+                const fontSize = 6;
+                ctx.font = `${fontSize}px Sans-Serif`;
+
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                ctx.fillStyle = getCssVar("--text-accent");
+                ctx.fillText(label, node.x, node.y + nodeR + 2);
+            })
+            .linkColor(() => getCssVar("--text-normal"))
+            .graphData(gData)
+            .onNodeClick(node => {
+                window.location = node.url;
+            });
+
+        Graph.zoomToFit()
+        Graph.zoom(3)
+    }
+</script>

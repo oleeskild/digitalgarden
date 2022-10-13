@@ -16,6 +16,10 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
         <a href="/">🏡 Back Home</a>
       {% endif %}
       {{ content | link | highlight | safe}}
+
+      {% if dgShowBacklinks === true or dgShowLocalGraph === true%}
+        {%include "components/sidebar.njk"%}
+      {% endif %}
     </div>
   </body>
 </html>

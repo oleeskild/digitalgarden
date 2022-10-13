@@ -60,6 +60,49 @@ ul.task-list {
     padding-left: 15px;
 }
 
+
+.sidebar {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    height: 100%;
+    background-color: var(--background-secondary);
+    min-width: 25px;
+    display: flex;
+}
+
+.expand-line {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sidebar-container {
+    padding: 20px;
+    width: 100%;
+    overflow-y: auto;
+}
+
+.backlink-card {
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    background-color: var(--background-primary);
+    width: 100%;
+
+}
+
+@media(max-width: 1100px) {
+    .sidebar {
+        position: relative;
+        transform: none;
+        border-radius: 4px;
+    }
+
+}
+
+
 div[class*="language-ad-"],
 div[class*="callout-"] {
     font-family: 'Roboto', sans-serif;
