@@ -32,6 +32,8 @@
         return x;
     });
 
+    const outboundDuplicatesRemoved = outbound.filter(x=>!backLinks.find(b=>b.url === x.url));
+
     const title = "{{page.fileSlug}}" || "Home"
     const currentNode = {
         title,
@@ -41,12 +43,13 @@
 
     const gData = {
         nodes: [
-            currentNode, ...backLinks,
-            ...outbound
+            currentNode, 
+            ...backLinks,
+            ...outboundDuplicatesRemoved
         ],
         links: [
             ...backLinks.map(backlink => ({source: backlink.id, target: 0})),
-            ...outbound.map(outlink => ({source: 0, target: outlink.id}))
+            ...outboundDuplicatesRemoved.map(outlink => ({source: 0, target: outlink.id}))
         ]
     };
 
