@@ -32,8 +32,9 @@
         return x;
     });
 
+    const title = "{{page.fileSlug}}" || "Home"
     const currentNode = {
-        title: "{{page.fileSlug}}",
+        title,
         id: 0,
         url: "{{page.url}}"
     };
