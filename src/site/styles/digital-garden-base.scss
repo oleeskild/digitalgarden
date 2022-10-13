@@ -70,6 +70,7 @@ ul.task-list {
     background-color: var(--background-secondary);
     min-width: 25px;
     display: flex;
+    z-index: 3;
 }
 
 .expand-line {
@@ -82,7 +83,6 @@ ul.task-list {
     padding: 20px;
     width: 100%;
     overflow-y: auto;
-    z-index: 3;
 }
 
 .backlink-card {
