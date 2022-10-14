@@ -94,7 +94,9 @@
             .width(width)
             .height(height)
             .nodeCanvasObject((node, ctx) => {
-                const nodeR = Math.min(7, Math.max((node.links.length + node.neighbors.length)/2, 2));
+                const numberOfLinks = (node.links && node.links.length) || 2;
+                const numberOfNeighbours = (node.neighbors && node.neighbors.length) || 2;
+                const nodeR = Math.min(7, Math.max((numberOfLinks + numberOfNeighbours)/2, 2));
                 ctx.beginPath();
                 ctx.arc(node.x, node.y, nodeR, 0, 2 * Math.PI, false);
                 ctx.fillStyle = getCssVar("--text-accent");
