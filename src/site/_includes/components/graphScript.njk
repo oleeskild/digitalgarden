@@ -1,6 +1,6 @@
 <script>
 
-    const getCssVar = (variable) => getComputedStyle(document.documentElement).getPropertyValue(variable);
+    const getCssVar = (variable) => getComputedStyle(document.body).getPropertyValue(variable);
 
     function htmlDecode(input) {
         var doc = new DOMParser().parseFromString(input, "text/html");
