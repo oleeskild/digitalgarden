@@ -15,6 +15,9 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
       {% if dgHomeLink !== false%}
         <a href="/">🏡 Back Home</a>
       {% endif %}
+      {% if dgShowInlineTitle === true %}
+        <h1>{{ page.fileSlug }}</h1>
+      {% endif %}
       {{ content | link | highlight | safe}}
 
       {% if dgShowBacklinks === true or dgShowLocalGraph === true%}

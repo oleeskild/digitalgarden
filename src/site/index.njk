@@ -8,9 +8,13 @@
     {%include "components/notegrowthhistory.njk"%}
     <div class="content">
 
+      {% if collections.gardenEntry[0].dgShowInlineTitle === true %}
+        <h1>{{ collections.gardenEntry[0].fileSlug }}</h1>
+      {% endif %}
       {%- for garden in collections.gardenEntry -%}
         {{garden.templateContent | link | highlight | safe }}
       {%- endfor -%}
+
 
       {%if collections.gardenEntry[0].data.dgShowBacklinks === true or collections.gardenEntry[0].data.dgShowLocalGraph === true%}
         {%include "components/sidebar.njk" %}
