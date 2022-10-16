@@ -7,22 +7,23 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
   <head>
     <title>{{ page.fileSlug }}</title>
     {%include "components/pageheader.njk"%}
+    {%include "components/wrapTagsScript.njk"%}
   </head>
   <body class="theme-{{meta.baseTheme}} markdown-preview-view">
     {%include "components/notegrowthhistory.njk"%}
 
-    <div class="content">
+    <div class="content cm-s-obsidian">
       {% if dgHomeLink !== false%}
         <a href="/">🏡 Back Home</a>
+        <a href="/search" style="margin-left: 10px">🔎 Search</a>
       {% endif %}
       {% if dgShowInlineTitle === true %}
         <h1>{{ page.fileSlug }}</h1>
       {% endif %}
       {{ content | link | highlight | safe}}
-
-      {% if dgShowBacklinks === true or dgShowLocalGraph === true%}
-        {%include "components/sidebar.njk"%}
-      {% endif %}
     </div>
+    {% if dgShowBacklinks === true or dgShowLocalGraph === true%}
+      {%include "components/sidebar.njk"%}
+    {% endif %}
   </body>
 </html>

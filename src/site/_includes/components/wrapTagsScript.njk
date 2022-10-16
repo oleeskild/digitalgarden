@@ -1,0 +1,8 @@
+<script>
+  document.addEventListener('DOMContentLoaded', init, false);
+  async function init() {
+    const content = document.body.querySelector('.content');
+    content.innerHTML = content.innerHTML.replaceAll(/\s\#(\w+)/gm, 
+    `<span class="cm-formatting cm-formatting-hashtag cm-hashtag cm-hashtag-begin cm-meta">#</span><span class="cm-hashtag cm-hashtag-end cm-meta"><a href="/search?q=%23$1~1">$1</a></span>`);
+  }
+</script>
