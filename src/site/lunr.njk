@@ -1,0 +1,12 @@
+---
+permalink: netlify/functions/search/data.json
+permalinkBypassOutputDir: true
+---
+[{% for post in collections.note %}
+{
+		"title": {{post.fileSlug | jsonify | safe }},
+		"date":"{{ post.date }}",
+		"url":"{{ post.url }}",
+		"content": {{ post.templateContent | striptags(true) | jsonify | safe  }}
+}{% if not loop.last %},{% endif %}
+{% endfor %}]
