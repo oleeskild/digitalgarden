@@ -5,7 +5,8 @@
       <div class="sidebar" :style="open && isDesktop ? 'box-shadow: -5px 0 15px rgba(0,0,0,0.3);' : ''">
             <div x-show="isDesktop" class="expand-line">
 
-                  <button style="font-size: 48px; background: transparent;" @click="toggleOpen()">
+                  <button style="font-size: 48px; background: transparent; border:none; box-shadow: none;" @click="toggleOpen()">
+
                         <i x-show="open" style="display: none;" class="fa fa-caret-right"></i>
                         <i x-show="!open" class="fa fa-caret-left"></i>
                   </button>
