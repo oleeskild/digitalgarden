@@ -1,15 +1,25 @@
 
+require("dotenv").config();
 const wikilink = /\[\[(.*?\|.*?)\]\]/g
 
 function caselessCompare(a, b) {
     return a.toLowerCase() === b.toLowerCase();
 }
 
+//Duplicated in notes.11tydata.js because new files means I need to update the plugin 
+const allSettings = [
+    "dgHomeLink",
+    "dgPassFrontmatter",
+    "dgShowBacklinks",
+    "dgShowLocalGraph",
+    "dgShowInlineTitle"
+];
+
 module.exports = {
     eleventyComputed: {
         backlinks: (data) => {
             const notes = data.collections.note;
-            if(!notes){
+            if (!notes) {
                 return [];
             }
             const currentFileSlug = data.page.filePathStem.replace('/notes/', '');
@@ -45,12 +55,12 @@ module.exports = {
         outbound: (data) => {
             const notes = data.collections.note;
 
-            if(!notes || notes.length == 0){
+            if (!notes || notes.length == 0) {
                 return [];
             }
 
             const currentNote = data.collections.gardenEntry && data.collections.gardenEntry[0];
-            if(!currentNote){
+            if (!currentNote) {
                 return [];
             }
 
@@ -68,7 +78,7 @@ module.exports = {
 
             let outbound = outboundLinks.map(fileslug => {
                 var outboundNote = notes.find(x => caselessCompare(x.data.page.filePathStem.replace("/notes/", ""), fileslug));
-                if(!outboundNote){
+                if (!outboundNote) {
                     return null;
                 }
 
@@ -77,25 +87,33 @@ module.exports = {
                     title: outboundNote.data.page.fileSlug,
                     id: counter++
                 }
-            }).filter(x=>x);
+            }).filter(x => x);
 
             return outbound;
 
         },
-        dgShowLocalGraph: (data) => {
-            const currentNote = data.collections.gardenEntry && data.collections.gardenEntry[0];
-            if(currentNote && currentNote.data && currentNote.data.dgShowLocalGraph){
-                return true;
-            }
-
-            return false;
-        },
-        dgShowBacklinks: (data) =>{
+        settings: (data) => {
             const currentnote = data.collections.gardenEntry && data.collections.gardenEntry[0];
-            if(currentnote && currentnote.data && currentnote.data.dgShowLocalGraph){
-                    return true;
+            if (currentnote && currentnote.data) {
+                const noteSettings = {};
+                allSettings.forEach(setting => {
+                    let noteSetting = currentnote.data[setting];
+                    let globalSetting = process.env[setting];
+
+                    let settingValue = (noteSetting || (globalSetting === 'true' && noteSetting !== false));
+                    noteSettings[setting] = settingValue;
+                });
+                return noteSettings;
+
             }
-            return false;
+            return {};
+        },
+        noteTitle: (data) => {
+            const currentnote = data.collections.gardenEntry && data.collections.gardenEntry[0];
+            if (currentnote && currentnote.data) {
+                return currentnote.data.page.fileSlug;
+            }
+            return "";
         }
     }
 }

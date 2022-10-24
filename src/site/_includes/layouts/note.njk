@@ -12,15 +12,16 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
     {%include "components/notegrowthhistory.njk"%}
 
     <div class="content">
-      {% if dgHomeLink !== false%}
+      {% if settings.dgHomeLink !== false%}
         <a href="/">🏡 Back Home</a>
       {% endif %}
-      {% if dgShowInlineTitle === true %}
+      {# Dra dette opp i en egen greie for hver setting. Definer disse settingene i en klasse og lag en settings.js lik meta.js. Gå gjennom hver key og kjør denne logikken for å sette den.  #}
+      {% if settings.dgShowInlineTitle === true %}
         <h1>{{ page.fileSlug }}</h1>
       {% endif %}
       {{ content | link | highlight | safe}}
 
-      {% if dgShowBacklinks === true or dgShowLocalGraph === true%}
+      {% if settings.dgShowBacklinks === true or settings.dgShowLocalGraph === true%}
         {%include "components/sidebar.njk"%}
       {% endif %}
     </div>
