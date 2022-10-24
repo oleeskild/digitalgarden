@@ -8,7 +8,7 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
     <title>{{ page.fileSlug }}</title>
     {%include "components/pageheader.njk"%}
   </head>
-  <body class="theme-{{meta.baseTheme}} markdown-preview-view markdown-rendered">
+  <body class="theme-{{meta.baseTheme}} markdown-preview-view markdown-rendered markdown-preview-section">
     {%include "components/notegrowthhistory.njk"%}
 
     <div class="content">
