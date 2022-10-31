@@ -32,7 +32,7 @@
         return x;
     });
 
-    const outboundDuplicatesRemoved = outbound.filter(x=>!backLinks.find(b=>b.url === x.url));
+    const outboundDuplicatesRemoved = outbound.filter(x => !backLinks.find(b => b.url === x.url));
 
     const title = "{{page.fileSlug}}" || "Home"
     const currentNode = {
@@ -56,25 +56,32 @@
     gData
         .links
         .forEach(link => {
-            const a = gData.nodes[link.source];
-            const b = gData.nodes[link.target];
-            !a.neighbors && (a.neighbors = []);
-            !b.neighbors && (b.neighbors = []);
-            a
-                .neighbors
-                .push(b);
-            b
-                .neighbors
-                .push(a);
+            const a = gData
+                .nodes
+                .find(x => x.id === link.source);
+            const b = gData
+                .nodes
+                .find(x => x.id === link.target);
+            if (a && b) {
 
-            !a.links && (a.links = []);
-            !b.links && (b.links = []);
-            a
-                .links
-                .push(link);
-            b
-                .links
-                .push(link);
+                !a.neighbors && (a.neighbors = []);
+                !b.neighbors && (b.neighbors = []);
+                a
+                    .neighbors
+                    .push(b);
+                b
+                    .neighbors
+                    .push(a);
+
+                !a.links && (a.links = []);
+                !b.links && (b.links = []);
+                a
+                    .links
+                    .push(link);
+                b
+                    .links
+                    .push(link);
+            }
         });
 
     let Graph;
@@ -96,7 +103,7 @@
             .nodeCanvasObject((node, ctx) => {
                 const numberOfLinks = (node.links && node.links.length) || 2;
                 const numberOfNeighbours = (node.neighbors && node.neighbors.length) || 2;
-                const nodeR = Math.min(7, Math.max((numberOfLinks + numberOfNeighbours)/2, 2));
+                const nodeR = Math.min(7, Math.max((numberOfLinks + numberOfNeighbours) / 2, 2));
                 ctx.beginPath();
                 ctx.arc(node.x, node.y, nodeR, 0, 2 * Math.PI, false);
                 ctx.fillStyle = getCssVar("--text-accent");
