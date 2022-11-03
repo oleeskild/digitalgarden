@@ -6,6 +6,11 @@
   </head>
   <body class="theme-{{meta.baseTheme}} markdown-preview-view markdown-rendered markdown-preview-section">
     {%include "components/notegrowthhistory.njk"%}
+    {% if settings.dgShowFileTree !== true %}
+      {%include "components/navbar.njk"%}
+    {%else%}
+      {%include "components/filetree.njk"%}
+    {% endif %}
     <div class="content">
 
       {% if settings.dgShowInlineTitle === true %}

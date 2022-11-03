@@ -4,10 +4,11 @@
 ***/
 
 .content {
-    max-width: 900px;
+    max-width: 870px;
     margin: auto;
     font-size: 22px;
     line-height: 1.5;
+    margin-top: 75px;
 }
 
 .external-link {
@@ -60,17 +61,17 @@ ul.task-list {
     padding-left: 15px;
 }
 
-
 .sidebar {
     position: fixed;
     top: 50%;
     transform: translateY(-50%);
     right: 0;
     height: 100%;
-    background-color: var(--background-secondary);
     min-width: 25px;
     display: flex;
     z-index: 3;
+    max-width: 350px;
+    margin-top: 75px;
 }
 
 .expand-line {
@@ -80,27 +81,120 @@ ul.task-list {
 }
 
 .sidebar-container {
-    padding: 20px;
+    padding-right: 20px;
     width: 100%;
     overflow-y: auto;
 }
 
-.backlink-card {
-    padding: 20px;
-    border-radius: 4px;
-    margin-bottom: 20px;
-    background-color: var(--background-primary);
-    width: 100%;
+.backlinks {
+    margin-top: 50px;
+    background-color: var(--background-secondary);
+    border-radius: 10px;
+    padding: 10px;
 
+    .backlink-title {
+        margin: 4px 0;
+        font-size: 18px !important;
+    }
 }
 
-@media(max-width: 1100px) {
+.backlink-card {
+    padding-bottom: 4px;
+    border-radius: 4px;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.graph{
+    .graph-title{
+        width: fit-content;
+        background-color: var(--background-secondary);
+        margin: 10px 0 0 0;
+        padding: 12px;
+        font-size: 18px !important;
+        border-radius: 10px 10px 0 0;
+    }
+}
+
+#link-graph {
+    background-color: var(--background-secondary);
+    margin-bottom: 20px;
+    border-radius: 10px 0 10px 10px;
+    width: fit-content;
+}
+
+@media(max-width: 1490px) {
     .sidebar {
         position: relative;
         transform: none;
         border-radius: 4px;
+        margin-top: 50px;
     }
 
+    .graph{
+        display: none;
+    }
+    .backlinks {
+        margin-top: 0;
+    }
+}
+
+.filetree-sidebar {
+    margin: 0;
+    z-index: 10;
+    padding: 10px; 
+    top:0px; 
+    left:0; 
+    position: fixed; 
+    height: 100%; 
+    background-color: var(--background-secondary); 
+    color: var(--text-muted); 
+    overflow-y:auto; 
+    width: 250px;
+}
+
+.navbar {
+    background-color: var(--background-secondary);
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    padding-left: var(--file-margins);
+
+    .navbar-inner {
+        display: flex; 
+        align-items: center; 
+        cursor: pointer;
+    }
+}
+
+.notelink {
+    padding: 2px 0 2px 25px;
+}
+
+.foldername {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.inner-folder {
+    padding: 3px 0 3px 10px;
+}
+
+.filelist {
+    border-left: 1px solid var(--text-mark);
+}
+
+.fullpage-overlay{
+    background-color: rgba(0,0,0,0.5); 
+    position: absolute; 
+    top:0; 
+    right:0; 
+    left:0; 
+    bottom:0; 
+    z-index: 5
 }
 
 

@@ -10,12 +10,14 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
   </head>
   <body class="theme-{{meta.baseTheme}} markdown-preview-view markdown-rendered markdown-preview-section">
     {%include "components/notegrowthhistory.njk"%}
+    
+    {% if settings.dgShowFileTree !== true %}
+      {%include "components/navbar.njk"%}
+    {%else%}
+      {%include "components/filetree.njk"%}
+    {% endif %}
 
     <div class="content">
-      {% if settings.dgHomeLink !== false%}
-        <a href="/">🏡 Back Home</a>
-      {% endif %}
-      {# Dra dette opp i en egen greie for hver setting. Definer disse settingene i en klasse og lag en settings.js lik meta.js. Gå gjennom hver key og kjør denne logikken for å sette den.  #}
       {% if settings.dgShowInlineTitle === true %}
         <h1>{{ page.fileSlug }}</h1>
       {% endif %}
