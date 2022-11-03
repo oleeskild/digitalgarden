@@ -29,6 +29,7 @@ module.exports = {
                     link.slice(2, -2)
                         .split("|")[0]
                         .replace(/.(md|markdown)\s?$/i, "")
+                        .replace("\\", "")
                         .trim()
                 ));
 
@@ -68,6 +69,7 @@ module.exports = {
                 link.slice(2, -2)
                     .split("|")[0]
                     .replace(/.(md|markdown)\s?$/i, "")
+                    .replace("\\", "")
                     .trim()
             ));
 
