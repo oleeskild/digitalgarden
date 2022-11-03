@@ -110,7 +110,7 @@
                 ctx.fill();
 
                 const label = htmlDecode(node.title)
-                const fontSize = 6;
+                const fontSize = 3.5;
                 ctx.font = `${fontSize}px Sans-Serif`;
 
                 ctx.textAlign = 'center';
@@ -124,7 +124,11 @@
                 window.location = node.url;
             });
 
-        Graph.zoomToFit()
-        Graph.zoom(3)
+            setTimeout(() => {
+                Graph.zoomToFit();
+                Graph.zoom(3);
+            }, 10);
     }
+
+    renderGraph(330,300);
 </script>

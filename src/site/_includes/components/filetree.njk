@@ -1,0 +1,44 @@
+{% macro menuItem(fileOrFolderName, fileOrFolder, step) %}
+    {%if fileOrFolder.isNote or fileOrFolder.isFolder%}
+        <div x-show="isOpen" style="display:none" class="{{'filelist' if step>0}}">
+            {%if fileOrFolder.isNote %}
+                <div class="notelink">
+                    <a class="filename" href="{{fileOrFolder.permalink}}">{{fileOrFolder.name}}</a>
+                </div>
+            {% elif fileOrFolder.isFolder%}
+                <div class="folder inner-folder"  x-data="{isOpen: false}" @click.stop="isOpen=!isOpen">
+                    <i x-show="isOpen" style="display: none;" class="fa fa-caret-down"></i>
+                    <i x-show="!isOpen" class="fa fa-caret-right"></i>
+                    <span class="foldername">{{fileOrFolderName}}</span>
+                    {% for fileOrFolderName, child in fileOrFolder %}
+                        {{menuItem(fileOrFolderName, child, step+1)}}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+        {%endif%}
+    {% endmacro %}
+    
+    <div x-init="isDesktop = window.innerWidth>=1490;" 
+            x-on:resize.window="isDesktop = (window.innerWidth>=1490) ? true : false;" 
+            x-data="{isDesktop: true, showFilesMobile: false}">
+
+        <div x-show="!isDesktop">
+            {%include "components/filetreeNavbar.njk"%}
+        </div>
+        
+        <div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none;" class="fullpage-overlay"></div>
+
+      <nav class="filetree-sidebar" style="display:none;" x-show="isDesktop || showFilesMobile">
+
+         <a href="/" style="text-decoration: none;">
+               <h1 style="text-align:center;">{{meta.siteName}}</h1>
+         </a>
+
+         <div class="folder" x-data="{isOpen: true}">
+               {%- for fileOrFolderName, fileOrFolder in filetree -%}
+                  {{menuItem(fileOrFolderName, fileOrFolder, 0)}}
+               {%- endfor -%}
+         </div>
+      </nav>
+    </div>

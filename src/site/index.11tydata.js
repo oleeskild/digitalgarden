@@ -1,19 +1,14 @@
 
 require("dotenv").config();
+const settings = require("../helpers/constants");
+
 const wikilink = /\[\[(.*?\|.*?)\]\]/g
 
 function caselessCompare(a, b) {
     return a.toLowerCase() === b.toLowerCase();
 }
 
-//Duplicated in notes.11tydata.js because new files means I need to update the plugin 
-const allSettings = [
-    "dgHomeLink",
-    "dgPassFrontmatter",
-    "dgShowBacklinks",
-    "dgShowLocalGraph",
-    "dgShowInlineTitle"
-];
+const allSettings = settings.ALL_NOTE_SETTINGS;
 
 module.exports = {
     eleventyComputed: {
