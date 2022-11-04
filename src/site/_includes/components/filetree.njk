@@ -3,7 +3,7 @@
         <div x-show="isOpen" style="display:none" class="{{'filelist' if step>0}}">
             {%if fileOrFolder.isNote %}
                 <div class="notelink">
-                    <a class="filename" href="{{fileOrFolder.permalink}}">{{fileOrFolder.name}}</a>
+                    <a style="text-decoration: none;" class="filename" href="{{fileOrFolder.permalink}}">{{fileOrFolder.name}}</a>
                 </div>
             {% elif fileOrFolder.isFolder%}
                 <div class="folder inner-folder"  x-data="{isOpen: false}" @click.stop="isOpen=!isOpen">
