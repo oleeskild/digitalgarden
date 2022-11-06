@@ -1,0 +1,148 @@
+<script>
+    document.addEventListener('DOMContentLoaded', init, false);
+    document.addEventListener('DOMContentLoaded', setCorrectShortcut, false);
+
+    window.toggleSearch=function(){
+        if(document.getElementById('globalsearch').classList.contains('active')){
+            document.getElementById('globalsearch').classList.remove('active');
+        }else{
+
+            document.getElementById('globalsearch').classList.add('active');
+            document.getElementById('term').focus();
+        }
+    }
+    
+
+    function debounce(func, timeout = 300) {
+        let timer;
+        return(...args) => {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                func.apply();
+            }, timeout);
+        };
+    }
+
+    function setCorrectShortcut(){
+        if(navigator.platform.toUpperCase().indexOf('MAC')>=0){
+            document.querySelectorAll(".search-keys").forEach(x=>x.innerHTML = "⌘ + K");
+        }
+    }
+
+    async function init() {
+
+        //open searchmodal when ctrl + k is pressed, cmd + k on mac
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                toggleSearch();
+            }
+            if (e.key === 'Escape') {
+                document.getElementById('globalsearch').classList.remove('active');
+            }
+
+            //navigate search results with arrow keys
+            if (document.getElementById('globalsearch').classList.contains('active')) {
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    let active = document.querySelector('.searchresult.active');
+                    if (active) {
+                        active.classList.remove('active');
+                        if (active.nextElementSibling) {
+                            active.nextElementSibling.classList.add('active');
+                        } else {
+                            document.querySelector('.searchresult').classList.add('active');
+                        }
+                    } else {
+                        document.querySelector('.searchresult').classList.add('active');
+                    }
+                    
+                    let currentActive = document.querySelector('.searchresult.active');
+                    if (currentActive) {
+                        currentActive .scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'nearest',
+                            inline: 'start',
+                        });
+                    }
+                }
+                if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    let active = document.querySelector('.searchresult.active');
+                    if (active) {
+                        active.classList.remove('active');
+                        if (active.previousElementSibling) {
+                            active.previousElementSibling.classList.add('active');
+                        } else {
+                            document.querySelectorAll('.searchresult').forEach((el) => {
+                                if (!el.nextElementSibling) {
+                                    el.classList.add('active');
+                                }
+                            });
+                        }
+                    } else {
+                        document.querySelectorAll('.searchresult').forEach((el) => {
+                            if (el.nextElementSibling) {
+                                el.classList.add('active');
+                            }
+                        });
+                    }
+
+                    let currentActive = document.querySelector('.searchresult.active');
+                    if (currentActive) {
+                        currentActive .scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'nearest',
+                            inline: 'start',
+                        });
+                    }
+
+                }
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    let active = document.querySelector('.searchresult.active');
+                    if (active) {
+                        window.location.href = active.querySelector("a").href;
+                    }
+                }
+            }
+        });
+
+        field = document.querySelector('#term');
+        field.addEventListener('keydown', (e) => {
+            if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') {
+                debounce(()=>search())();
+            }
+        });
+        resultsDiv = document.querySelector('#search-results');
+
+        const params = new URL(location.href).searchParams;
+        if (params.get('q')) {
+            field.setAttribute('value', params.get('q'));
+            search();
+        }
+    }
+    async function search() {
+        let search = field
+            .value
+            .trim();
+        if (!search) 
+            return;
+        console.log(`search for ${search}`);
+        let searchRequest = await fetch(`/api/search?term=${encodeURIComponent(search)}`);
+        let results = await searchRequest.json();
+        let resultsHTML = '';
+        if (!results.length) {
+            resultsHTML += `<p>No results for "${search}"</p>`;
+            resultsDiv.innerHTML = resultsHTML;
+            return;
+        }
+        resultsHTML += '<ul>';
+        // we need to add title, url from ref
+        results.forEach(r => {
+            resultsHTML += `<li class="searchresult"><a class="search-link" href="${r.url}">${r.title}</a><span onclick="window.location='${r.url}'">${r.content}</span></li>`;
+        });
+        resultsHTML += '</ul>';
+        resultsDiv.innerHTML = resultsHTML;
+    }
+</script>

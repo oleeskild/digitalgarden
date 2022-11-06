@@ -7,7 +7,6 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
   <head>
     <title>{{ page.fileSlug }}</title>
     {%include "components/pageheader.njk"%}
-    {%include "components/wrapTagsScript.njk"%}
   </head>
   <body class="theme-{{meta.baseTheme}} markdown-preview-view markdown-rendered markdown-preview-section">
     {%include "components/notegrowthhistory.njk"%}
@@ -18,7 +17,11 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
       {%include "components/filetree.njk"%}
     {% endif %}
 
-    <div class="content">
+    {% if settings.dgEnableSearch === true %}
+      {%include "components/searchContainer.njk"%}
+    {% endif %}
+
+    <div class="content cm-s-obsidian">
       {% if settings.dgShowInlineTitle === true %}
         <h1>{{ page.fileSlug }}</h1>
       {% endif %}

@@ -11,7 +11,10 @@
     {%else%}
       {%include "components/filetree.njk"%}
     {% endif %}
-    <div class="content">
+    {% if settings.dgEnableSearch === true %}
+      {%include "components/searchContainer.njk"%}
+    {% endif %}
+    <div class="content cm-s-obsidian">
 
       {% if settings.dgShowInlineTitle === true %}
         <h1>{{ noteTitle  }}</h1>

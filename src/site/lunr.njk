@@ -7,6 +7,6 @@ permalinkBypassOutputDir: true
 		"title": {{post.fileSlug | jsonify | safe }},
 		"date":"{{ post.date }}",
 		"url":"{{ post.url }}",
-		"content": {{ post.templateContent | striptags(true) | jsonify | safe  }}
+		"content": {{ post.templateContent | striptags(true) | link | jsonify | safe  }}
 }{% if not loop.last %},{% endif %}
 {% endfor %}]

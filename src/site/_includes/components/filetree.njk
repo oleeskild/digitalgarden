@@ -19,22 +19,26 @@
         {%endif%}
     {% endmacro %}
     
-    <div x-init="isDesktop = window.innerWidth>=1490;" 
+    <div x-init="isDesktop = (window.innerWidth>=1490) ? true: false;" 
             x-on:resize.window="isDesktop = (window.innerWidth>=1490) ? true : false;" 
             x-data="{isDesktop: true, showFilesMobile: false}">
 
-        <div x-show="!isDesktop">
+        <div x-show.important="!isDesktop">
             {%include "components/filetreeNavbar.njk"%}
         </div>
         
         <div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none;" class="fullpage-overlay"></div>
 
-      <nav class="filetree-sidebar" style="display:none;" x-show="isDesktop || showFilesMobile">
+      <nav class="filetree-sidebar"  x-show.important="isDesktop || showFilesMobile">
 
          <a href="/" style="text-decoration: none;">
                <h1 style="text-align:center;">{{meta.siteName}}</h1>
          </a>
-
+        {% if settings.dgEnableSearch === true%}
+            <div style="display: flex; justify-content: center;">
+                {% include "components/searchButton.njk" %}
+            </div>
+        {%endif%}
          <div class="folder" x-data="{isOpen: true}">
                {%- for fileOrFolderName, fileOrFolder in filetree -%}
                   {{menuItem(fileOrFolderName, fileOrFolder, 0)}}
