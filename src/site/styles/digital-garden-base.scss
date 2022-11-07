@@ -156,6 +156,20 @@ ul.task-list {
     width: 250px;
 }
 
+.empty-navbar {
+    display: flex; 
+    justify-content: flex-end; 
+    margin-bottom: -60px;
+
+    @media(max-width: 800px) {
+        justify-content: center; 
+    }
+
+    .search-button {
+        margin: 10px 65px 10px 65px;
+    }
+}
+
 .navbar {
     background-color: var(--background-secondary);
     position: absolute;
@@ -298,6 +312,7 @@ ul.task-list {
     align-items: center;
     min-width: 150px;
     margin: 10px 65px;
+    border: 1px solid var(--text-normal);
     cursor: pointer;
     >span{
         padding: 3px 3px 3px 15px;
@@ -308,6 +323,18 @@ ul.task-list {
 
     &:hover{
         border: 1px solid var(--text-accent);
+    }
+
+    @media(max-width: 800px) {
+        min-width: 120px;
+        margin: 10px 50px 10px 25px;
+    }
+
+}
+
+.search-keys {
+    @media(max-width: 800px) {
+        display: none;
     }
 }
 
