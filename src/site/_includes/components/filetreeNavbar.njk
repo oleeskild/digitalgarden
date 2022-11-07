@@ -5,4 +5,8 @@
             <h1>{{meta.siteName}}</h1>
         </a>
     </div>
+    
+    {% if settings.dgEnableSearch === true%}
+        {% include "components/searchButton.njk" %}
+    {%endif%}
 </nav>

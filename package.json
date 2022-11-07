@@ -9,7 +9,8 @@
         "watch:eleventy": "cross-env ELEVENTY_ENV=dev eleventy --serve",
         "build:eleventy": "cross-env ELEVENTY_ENV=prod NODE_OPTIONS=--max-old-space-size=4096 eleventy",
         "build:sass": "sass src/site/styles:dist/styles",
-        "build": "npm-run-all build:*"
+        "build": "npm-run-all build:*",
+        "postbuild": "node src/site/lunr-index.js"
     },
     "keywords": [],
     "author": "",
@@ -29,6 +30,7 @@
         "eleventy-favicon": "^1.1.2",
         "fs-file-tree": "^1.1.1",
         "gray-matter": "^4.0.3",
+        "lunr": "^2.3.9",
         "markdown-it": "^12.3.2",
         "markdown-it-footnote": "^3.0.3",
         "markdown-it-mathjax3": "^4.3.1",
