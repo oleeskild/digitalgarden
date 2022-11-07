@@ -236,7 +236,7 @@ ul.task-list {
 }
 
 .search-box {
-    transform: translateY(200px);
+    transform: translateY(100px);
     background-color: var(--background-primary);
     max-width: 80%;
     width: 900px;
@@ -265,7 +265,7 @@ ul.task-list {
     padding: 20px;
     display: flex;
     justify-content: center;
-    max-height: 500px;
+    max-height: 50vh;
 }
 
 #search-results ul {
@@ -281,10 +281,14 @@ ul.task-list {
     border-radius: 10px;
     font-size: 1.2rem;
     cursor: pointer;
-}
 
-.searchresult.active {
-    border: 2px solid var(--text-accent);
+    &:hover {
+        border: 2px solid var(--text-accent);
+    }
+
+    &.active{
+        border: 2px solid var(--text-accent);
+    }
 }
 
 .search-box-footer {
