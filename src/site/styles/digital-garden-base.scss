@@ -11,7 +11,7 @@ body {
     margin: auto;
     font-size: 22px;
     line-height: 1.5;
-    margin-top: 75px;
+    margin-top: 90px;
 }
 
 .external-link {
@@ -188,6 +188,14 @@ ul.task-list {
         align-items: center; 
         cursor: pointer;
     }
+
+    .search-button{
+
+        @media(max-width: 800px) {
+            min-width: 120px;
+            margin: 10px 50px 10px 25px;
+        }
+    }
 }
 
 .notelink {
@@ -329,12 +337,10 @@ ul.task-list {
         border: 1px solid var(--text-accent);
     }
 
-    @media(max-width: 800px) {
-        min-width: 120px;
-        margin: 10px 50px 10px 25px;
-    }
 
 }
+
+
 
 .search-keys {
     @media(max-width: 800px) {
