@@ -16,8 +16,6 @@ function createIndex(posts) {
   });
 }
 
-if (process.env.dgEnableSearch) {
-  const data = require('../../netlify/functions/search/data.json');
-  const index = createIndex(data);
-  require('fs').writeFileSync(path.join(__dirname, '../../netlify/functions/search/index.json'), JSON.stringify(index));
-}
+const data = require('../../netlify/functions/search/data.json');
+const index = createIndex(data);
+require('fs').writeFileSync(path.join(__dirname, '../../netlify/functions/search/index.json'), JSON.stringify(index));
