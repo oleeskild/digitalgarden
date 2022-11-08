@@ -1,15 +1,7 @@
 const lunrjs = require('lunr');
-require('dotenv').config();
 
 const handler = async (event) => {
   try {
-
-    if (!process.env.dgEnableSearch) {
-      return {
-        statusCode: 200,
-        body: JSON.stringify([])
-      }
-    }
 
     const search = event.queryStringParameters.term;
     if(!search) throw('Missing term query parameter');
