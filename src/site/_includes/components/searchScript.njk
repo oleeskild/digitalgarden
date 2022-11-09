@@ -6,22 +6,25 @@
         if(document.getElementById('globalsearch').classList.contains('active')){
             document.getElementById('globalsearch').classList.remove('active');
         }else{
-
             document.getElementById('globalsearch').classList.add('active');
             document.getElementById('term').focus();
         }
     }
-    
 
-    function debounce(func, timeout = 300) {
-        let timer;
-        return(...args) => {
-            clearTimeout(timer);
-            timer = setTimeout(() => {
-                func.apply();
-            }, timeout);
+    function debounce(func, wait, immediate) {
+        var timeout;
+        return function() {
+            var context = this, args = arguments;
+            var later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
         };
-    }
+    };
 
     function setCorrectShortcut(){
         if(navigator.platform.toUpperCase().indexOf('MAC')>=0){
@@ -111,7 +114,7 @@
         field = document.querySelector('#term');
         field.addEventListener('keydown', (e) => {
             if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') {
-                debounce(()=>search())();
+                debounce(search, 500, false)();
             }
         });
         resultsDiv = document.querySelector('#search-results');
@@ -119,16 +122,20 @@
         const params = new URL(location.href).searchParams;
         if (params.get('q')) {
             field.setAttribute('value', params.get('q'));
+            toggleSearch();
             search();
         }
     }
+    window.lastSearch = '';
     async function search() {
         let search = field
             .value
             .trim();
         if (!search) 
             return;
+        if(search == lastSearch) return;
         console.log(`search for ${search}`);
+        window.lastSearch = search;
         let searchRequest = await fetch(`/api/search?term=${encodeURIComponent(search)}`);
         let results = await searchRequest.json();
         let resultsHTML = '';
