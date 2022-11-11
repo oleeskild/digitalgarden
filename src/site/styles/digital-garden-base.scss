@@ -12,6 +12,11 @@ body {
     font-size: 22px;
     line-height: 1.5;
     margin-top: 90px;
+
+    @media(max-width: 800px) {
+        margin-top: 150px;
+    }
+
 }
 
 .external-link {
