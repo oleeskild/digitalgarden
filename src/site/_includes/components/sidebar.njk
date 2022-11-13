@@ -5,7 +5,7 @@
                   {%if settings.dgShowLocalGraph === true%}
                         <div class="graph">
                               <div style="display: flex; justify-content: flex-end;">
-                                    <h6 class="graph-title">Interactive graph</h6>
+                                    <div class="graph-title">Interactive graph</div>
                               </div>
                               <div id="link-graph"></div>
                         </div>
@@ -13,7 +13,7 @@
 
                   {%if settings.dgShowBacklinks === true %}
                         <div class="backlinks">
-                              <h6 class="backlink-title" style="margin: 4px 0 !important;">Links to this page</h6>
+                              <div class="backlink-title" style="margin: 4px 0 !important;">Links to this page</div>
                               {%- if backlinks.length === 0 -%}
                                     <div class="backlink-card">
                                           No backlinks
