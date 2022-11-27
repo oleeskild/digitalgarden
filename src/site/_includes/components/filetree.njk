@@ -2,7 +2,7 @@
     {%if fileOrFolder.isNote or fileOrFolder.isFolder%}
         <div x-show="isOpen" style="display:none" class="{{'filelist' if step>0}}">
             {%if fileOrFolder.isNote %}
-                <div class="notelink">
+                <div @click.stop class="notelink">
                     <a style="text-decoration: none;" class="filename" href="{{fileOrFolder.permalink}}">{{fileOrFolder.name}}</a>
                 </div>
             {% elif fileOrFolder.isFolder%}
