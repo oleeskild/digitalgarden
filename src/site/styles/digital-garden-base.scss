@@ -206,12 +206,12 @@ ul.task-list {
 }
 
 .notelink {
-    padding: 2px 0 2px 25px;
+    padding: 5px 0 5px 25px;
 }
 
-.foldername {
-    margin-left: 5px;
+.foldername-wrapper {
     cursor: pointer;
+    margin: 4px 0 4px 2px;
 }
 
 .inner-folder {
@@ -220,6 +220,15 @@ ul.task-list {
 
 .filelist {
     border-left: 1px solid var(--text-mark);
+}
+
+.notelink.active-note{
+    a{
+        color: var(--text-accent);
+    }
+    color: var(--text-accent);
+    background-color: var(--background-primary);
+    transform: translateX(10px);
 }
 
 .fullpage-overlay{
