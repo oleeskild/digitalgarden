@@ -117,7 +117,7 @@
                 ctx.textBaseline = 'top';
                 ctx.fillText(label, node.x, node.y + nodeR + 2);
             })
-            .linkColor(() => getCssVar("--text-normal"))
+            .linkColor(() => getCssVar("--text-muted") || getCssVar("--text-normal"))
             .graphData(gData)
             .onNodeClick(node => {
                 window.location = node.url;

@@ -5,32 +5,53 @@
                   {%if settings.dgShowLocalGraph === true%}
                         <div class="graph">
                               <div style="display: flex; justify-content: flex-end;">
-                                    <div class="graph-title">Interactive graph</div>
+                                    <div class="graph-title">Connected Pages</div>
                               </div>
                               <div id="link-graph"></div>
                         </div>
-                  {%endif%}
+                        {%endif%}
 
-                  {%if settings.dgShowBacklinks === true %}
-                        <div class="backlinks">
-                              <div class="backlink-title" style="margin: 4px 0 !important;">Links to this page</div>
-                              {%- if backlinks.length === 0 -%}
-                                    <div class="backlink-card">
-                                          No backlinks
+                        {%if settings.dgShowToc === true%}
+                              {%set tocHtml= (content and (content|toc)) %}
+                              {%if tocHtml %}
+                                    <div class="toc">
+                                          <div class="toc-title-container">
+                                                <div class="toc-title">
+                                                      On this page
+                                                </div>
+                                          </div>
+                                          <div class="toc-container">
+                                                {{ tocHtml | safe }}
+                                          </div>
                                     </div>
-                              {%- endif -%}
+                              {%endif%}
 
-                              {%- for backlink in backlinks -%}
-                                    <div class="backlink-card">
-                                          <a href="{{backlink.url}}">{{backlink.title}}</a>
+                        {%endif%}
+
+                              {%if settings.dgShowBacklinks === true %}
+                                    <div class="backlinks">
+                                          <div class="backlink-title" style="margin: 4px 0 !important;">Pages mentioning this page</div>
+                                                <div class="backlink-list">
+
+                                                {%- if backlinks.length === 0 -%}
+                                                      <div class="backlink-card">
+                                                            <span class="no-backlinks-message">No other pages mentions this page</span>
+                                                      </div>
+                                                {%- endif -%}
+
+                                                {%- for backlink in backlinks -%}
+                                                      <div class="backlink-card">
+                                                            <i class="fa fa-link"></i> <a href="{{backlink.url}}">{{backlink.title}}</a>
+                                                      </div>
+                                                {%- endfor -%}
+
+                                                </div>
                                     </div>
-                              {%- endfor -%}
+                                    {%endif%}
+                              </div>
                         </div>
-                  {%endif%}
-            </div>
-      </div>
-</div>
+                  </div>
 
-{%if settings.dgShowLocalGraph === true %}
-      {%include "components/graphScript.njk"%}
-{% endif %}
+                  {%if settings.dgShowLocalGraph === true %}
+                        {%include "components/graphScript.njk"%}
+                  {% endif %}

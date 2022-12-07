@@ -28,6 +28,7 @@
         "axios": "^0.26.1",
         "dotenv": "^10.0.0",
         "eleventy-favicon": "^1.1.2",
+        "eleventy-plugin-toc": "^1.1.5",
         "fs-file-tree": "^1.1.1",
         "gray-matter": "^4.0.3",
         "lunr": "^2.3.9",

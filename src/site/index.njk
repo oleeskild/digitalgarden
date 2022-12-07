@@ -24,7 +24,7 @@
       {%- endfor -%}
 
 
-      {%if settings.dgShowBacklinks === true or settings.dgShowLocalGraph === true%}
+      {% if settings.dgShowBacklinks === true or settings.dgShowLocalGraph === true or settings.dgShowToc === true%}
         {%include "components/sidebar.njk" %}
       {%endif%}
       </div>
