@@ -6,6 +6,7 @@
 body {
     overflow-x: hidden;
 }
+
 .content {
     max-width: 800px;
     margin: auto;
@@ -72,14 +73,13 @@ ul.task-list {
 .sidebar {
     position: fixed;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(calc(-50% + 75px));
     right: 0;
     height: 100%;
     min-width: 25px;
     display: flex;
     z-index: 3;
     max-width: 350px;
-    margin-top: 75px;
 }
 
 .expand-line {
@@ -92,11 +92,67 @@ ul.task-list {
     padding-right: 20px;
     width: 100%;
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 87%;
+}
+
+.toc {
+    padding-right: 5px;
+    background-color: var(--background-primary);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.toc-container {
+    font-size: 1rem; 
+    max-height: 220px; 
+    overflow-y: auto;
+    margin-bottom:10px;
+    border-left: 1px solid var(--text-accent);
+    ul {
+        list-style-type: none;
+        padding-inline-start: 15px !important;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    ul:not(:first-child) {
+        margin-bottom:3px;
+    }
+
+    li{
+        padding-top: 4px;
+        &::before{
+            content: '# ' !important;
+            color: var(--text-accent);
+            font-size: 0.8rem;
+        }
+        a{
+            text-decoration: none;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.toc-title-container {
+    display: flex;
+    justify-content: flex-start;
+    .toc-title {
+        font-size: 1.2rem !important;
+        color: var(--h6-color);
+        width: fit-content;
+        padding: 3px 7px 3px 0;
+        border-radius: 10px 10px 0 0;
+    }
 }
 
 .backlinks {
-    margin-top: 50px;
-    background-color: var(--background-secondary);
+    flex: 1;
+    margin-top: 10px;
+    background-color: var(--background-primary);
     border-radius: 10px;
     padding: 10px;
 
@@ -107,20 +163,37 @@ ul.task-list {
     }
 }
 
+.backlink-list {
+    border-left: 1px solid var(--text-accent);
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x:hidden;
+}
+
 .backlink-card {
-    padding-bottom: 4px;
+    padding-bottom: 8px;
     border-radius: 4px;
     width: 100%;
     font-size: 1rem;
+    margin-left: 10px;
+    color: var(--text-accent);
+    i {
+        font-size: 0.8rem;
+    }
 }
 
-.graph{
-    .graph-title{
+.no-backlinks-message{
+    font-size: 0.8rem;
+    color: var(--text-normal);
+}
+
+.graph {
+    .graph-title {
         width: fit-content;
         background-color: var(--background-secondary);
         margin: 10px 0 0 0;
-        padding: 12px;
-        font-size: 18px !important;
+        padding: 3px 7px;
+        font-size: 1.2rem !important;
         border-radius: 10px 10px 0 0;
         color: var(--h6-color);
     }
@@ -141,9 +214,10 @@ ul.task-list {
         margin-top: 50px;
     }
 
-    .graph{
+    .graph {
         display: none;
     }
+
     .backlinks {
         margin-top: 0;
     }
@@ -152,24 +226,24 @@ ul.task-list {
 .filetree-sidebar {
     margin: 0;
     z-index: 10;
-    padding: 10px; 
-    top:0px; 
-    left:0; 
-    position: fixed; 
-    height: 100%; 
-    background-color: var(--background-secondary); 
-    color: var(--text-muted); 
-    overflow-y:auto; 
+    padding: 10px;
+    top: 0px;
+    left: 0;
+    position: fixed;
+    height: 100%;
+    background-color: var(--background-secondary);
+    color: var(--text-muted);
+    overflow-y: auto;
     width: 250px;
 }
 
 .empty-navbar {
-    display: flex; 
-    justify-content: flex-end; 
+    display: flex;
+    justify-content: flex-end;
     margin-bottom: -60px;
 
     @media(max-width: 800px) {
-        justify-content: center; 
+        justify-content: center;
     }
 
     .search-button {
@@ -191,12 +265,12 @@ ul.task-list {
     align-items: center;
 
     .navbar-inner {
-        display: flex; 
-        align-items: center; 
+        display: flex;
+        align-items: center;
         cursor: pointer;
     }
 
-    .search-button{
+    .search-button {
 
         @media(max-width: 800px) {
             min-width: 120px;
@@ -207,6 +281,11 @@ ul.task-list {
 
 .notelink {
     padding: 5px 0 5px 25px;
+    a{
+        &:hover {
+            text-decoration: underline !important;
+        }
+    }
 }
 
 .foldername-wrapper {
@@ -219,31 +298,31 @@ ul.task-list {
 }
 
 .filelist {
-    border-left: 1px solid var(--text-accent);
 }
 
-.notelink.active-note{
-    a{
+.notelink.active-note {
+    a {
         color: var(--text-accent);
     }
+
     color: var(--text-accent);
     background-color: var(--background-primary);
     transform: translateX(10px);
 }
 
-.fullpage-overlay{
-    background-color: rgba(0,0,0,0.5); 
-    position: absolute; 
-    top:0; 
-    right:0; 
-    left:0; 
-    bottom:0; 
+.fullpage-overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
     z-index: 5
 }
 
 
 .search-container {
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     position: fixed;
     top: 0;
     right: 0;
@@ -279,6 +358,7 @@ ul.task-list {
     color: var(--text-primary);
 
 }
+
 .search-box input:focus {
     outline: none;
 }
@@ -317,6 +397,7 @@ ul.task-list {
     color: var(--text-secondary);
     margin-right: 20px;
 }
+
 .search-link {
     display: block;
     margin-bottom: 4px;
@@ -333,14 +414,16 @@ ul.task-list {
     margin: 10px 65px;
     border: 1px solid var(--text-normal);
     cursor: pointer;
-    >span{
+
+    >span {
         padding: 3px 3px 3px 10px;
     }
-    >i{
+
+    >i {
         margin-left: 10px;
     }
 
-    &:hover{
+    &:hover {
         border: 1px solid var(--text-accent);
     }
 

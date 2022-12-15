@@ -99,6 +99,6 @@ module.exports = {
                 noteSettings[setting] = settingValue;
             });
             return noteSettings;
-        } 
+        }
     }
 }

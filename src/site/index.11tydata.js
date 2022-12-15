@@ -4,6 +4,11 @@ const settings = require("../helpers/constants");
 
 const wikilink = /\[\[(.*?\|.*?)\]\]/g
 
+const markdownIt = require("markdown-it");
+const md = markdownIt({
+    html: true,
+}).use(require("../helpers/utils").namedHeadingsFilter);
+
 function caselessCompare(a, b) {
     return a.toLowerCase() === b.toLowerCase();
 }
@@ -109,6 +114,13 @@ module.exports = {
             const currentnote = data.collections.gardenEntry && data.collections.gardenEntry[0];
             if (currentnote && currentnote.data) {
                 return currentnote.data.page.fileSlug;
+            }
+            return "";
+        },
+        content: (data) => {
+            const currentnote = data.collections.gardenEntry && data.collections.gardenEntry[0];
+            if (currentnote && currentnote.template && currentnote.template.frontMatter && currentnote.template.frontMatter.content) {
+                return md.render(currentnote.template.frontMatter.content);
             }
             return "";
         }
