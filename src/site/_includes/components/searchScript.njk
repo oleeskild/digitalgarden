@@ -111,10 +111,11 @@
             }
         });
 
+        const debouncedSearch = debounce(search, 250, false);
         field = document.querySelector('#term');
         field.addEventListener('keydown', (e) => {
             if (e.key !== 'ArrowDown' && e.key !== 'ArrowUp') {
-                debounce(search, 500, false)();
+                debouncedSearch();
             }
         });
         resultsDiv = document.querySelector('#search-results');
@@ -144,12 +145,12 @@
             resultsDiv.innerHTML = resultsHTML;
             return;
         }
-        resultsHTML += '<ul>';
+        resultsHTML += '<div>';
         // we need to add title, url from ref
         results.forEach(r => {
-            resultsHTML += `<li class="searchresult"><a class="search-link" href="${r.url}">${r.title}</a><span onclick="window.location='${r.url}'">${r.content}</span></li>`;
+            resultsHTML += `<div class="searchresult"><a class="search-link" href="${r.url}">${r.title}</a><span onclick="window.location='${r.url}'">${r.content}</span></div>`;
         });
-        resultsHTML += '</ul>';
+        resultsHTML += '</div>';
         resultsDiv.innerHTML = resultsHTML;
     }
 </script>

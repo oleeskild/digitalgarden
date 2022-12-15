@@ -292,11 +292,6 @@ ul.task-list {
     max-height: 50vh;
 }
 
-#search-results ul {
-    padding-inline-start: 0;
-    width: 100%;
-}
-
 #search-results .searchresult {
     margin-bottom: 15px;
     list-style: none;
@@ -305,10 +300,6 @@ ul.task-list {
     border-radius: 10px;
     font-size: 1.2rem;
     cursor: pointer;
-
-    &:hover {
-        border: 2px solid var(--text-accent);
-    }
 
     &.active{
         border: 2px solid var(--text-accent);
@@ -329,7 +320,7 @@ ul.task-list {
 .search-link {
     display: block;
     margin-bottom: 4px;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
 }
 
 .search-button {
