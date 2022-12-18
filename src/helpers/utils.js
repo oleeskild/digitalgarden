@@ -1,7 +1,11 @@
 const slugify = require("@sindresorhus/slugify");
 
 function headerToId(heading) {
-    return slugify(heading);
+    var slugifiedHeader = slugify(heading);
+    if(!slugifiedHeader){
+        return heading;
+    }
+    return slugifiedHeader;
 }
 
 function namedHeadings(md, state) {
