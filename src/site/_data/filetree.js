@@ -47,7 +47,7 @@ function getPermalinkAndName(path, key) {
         //ignore
     }
 
-    return permalink;
+    return {permalink, name};
 }
 
 function populateWithPermalink(tree) {
