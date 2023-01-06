@@ -31,13 +31,17 @@ module.exports = async () => {
     return orderedTree;
 }
 
-function getPermalink(path) {
+function getPermalinkAndName(path) {
     let permalink = "/"
+    let name = key.replace(".md", "");
     try {
         const file = fs.readFileSync(`${path}`, 'utf8');
         const frontMatter = matter(file);
         if (frontMatter.data.permalink) {
             permalink = frontMatter.data.permalink;
+        }
+        if (frontMatter.data.title){
+            name = frontMatter.data.title
         }
     } catch {
         //ignore
@@ -52,8 +56,9 @@ function populateWithPermalink(tree) {
             const isNote = tree[key].path.endsWith(".md");
             tree[key].isNote = isNote;
             if (isNote) {
-                tree[key].permalink = getPermalink(tree[key].path);
-                tree[key].name = key.replace(".md", "");
+                let { permalink, name } = getPermalinkAndName(tree[key].path);
+                tree[key].permalink = permalink
+                tree[key].name = name
             }
         } else {
             tree[key].isFolder = true;
