@@ -40,6 +40,12 @@ body {
 div.translusion {
     border-left: 4px solid gray;
     padding-left: 10px;
+    position: relative;
+    .markdown-embed-link {
+        z-index: 99;
+        display: block;
+        width: auto !important;
+    }
 }
 
 .admonition-title {
