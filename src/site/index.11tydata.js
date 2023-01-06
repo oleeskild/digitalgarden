@@ -33,7 +33,7 @@ module.exports = {
         noteTitle: (data) => {
             const currentnote = data.collections.gardenEntry && data.collections.gardenEntry[0];
             if (currentnote && currentnote.data) {
-                return currentNote.data.title || currentnote.data.page.fileSlug;
+                return currentnote.data.title || currentnote.data.page.fileSlug;
             }
             return "";
         },
