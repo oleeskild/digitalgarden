@@ -37,7 +37,8 @@ function getBacklinks(data) {
     let counter = 1;
 
     for (const otherNote of notes) {
-        const backLinks = extractLinks(otherNote.template.frontMatter.content);
+        const noteContent = otherNote.template.frontMatter.content;
+        const backLinks = extractLinks(noteContent);
 
         if (!uniqueLinks.has(otherNote.url) && backLinks.some(link => caselessCompare(link, currentFileSlug) ||
         currentURL == link.split("#")[0])) {
