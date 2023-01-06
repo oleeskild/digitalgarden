@@ -5,7 +5,7 @@ eleventyExcludeFromCollections: true
 ---
 [{% for post in collections.note %}
 {
-		"title": {{post.fileSlug | jsonify | safe }},
+		"title": {% if post.data.title %}{{post.data.title | jsonify | safe }}{% else %}{{post.fileSlug | jsonify | safe }}{% endif %},
 		"date":"{{ post.date }}",
 		"url":"{{ post.url }}",
 		"content": {{ post.templateContent | striptags(true) | link | jsonify | safe  }}

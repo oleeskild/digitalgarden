@@ -1,11 +1,11 @@
 ---
-title: "/{{ page.fileSlug }}/"
+title: "/{% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}/"
 permalink: "notes/{{ page.fileSlug | slugify }}/"
 ---
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{{ page.fileSlug }}</title>
+    <title>{% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}</title>
     {%include "components/pageheader.njk"%}
   </head>
   <body class="theme-{{meta.baseTheme}} markdown-preview-view markdown-rendered markdown-preview-section">
@@ -23,7 +23,7 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
 
     <div class="content cm-s-obsidian">
       {% if settings.dgShowInlineTitle === true %}
-        <h1>{{ page.fileSlug }}</h1>
+        <h1>{% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}</h1>
       {% endif %}
       {{ content | link | highlight | safe}}
     </div>
