@@ -156,7 +156,9 @@
         resultsHTML += '<div>';
         // we need to add title, url from ref
         results.forEach(r => {
-            resultsHTML += `<div class="searchresult"><a class="search-link" href="${r.url}">${r.title}</a><span onclick="window.location='${r.url}'">${r.content}</span></div>`;
+            resultsHTML += `<div class="searchresult"><a class="search-link" href="${r.url}">${r.title}</a><span onclick="window.location='${r.url}'"><div class="header-meta">
+        {% if tags %}<div class="header-tags">{% for tag in tags %}<a class="tag" href="JavaScript:Void(0);">#{{tag}}</div>{% endfor %}</a>{% endif %}
+      </div>${r.content}</span></div>`;
         });
         resultsHTML += '</div>';
         resultsDiv.innerHTML = resultsHTML;
