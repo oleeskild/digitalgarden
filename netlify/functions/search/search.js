@@ -13,6 +13,11 @@ const handler = async (event) => {
 
     let results = index.search(search);
 
+    let results =
+      search[0] == "#"
+        ? index.search(`tags:${search.substring(1)}`)
+        : index.search(search);
+
     results.forEach(r => {
       r.title = data[r.ref].title;
       r.content = truncate(data[r.ref].content, 400);

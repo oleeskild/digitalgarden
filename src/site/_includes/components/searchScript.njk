@@ -11,6 +11,14 @@
         }
     }
 
+    window.toggleTagSearch=function(evt) {
+        console.log(evt.textContent);
+        const term = evt.textContent;
+        window.document.getElementById('term').value = term;
+        window.toggleSearch();
+        window.search();
+    }
+
     function debounce(func, wait, immediate) {
         var timeout;
         return function() {
