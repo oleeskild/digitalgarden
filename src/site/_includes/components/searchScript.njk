@@ -11,17 +11,6 @@
         }
     }
 
-
-    window.toggleInlineTagSearch=function(evt) {
-        console.log(evt.textContent);
-        const term = evt.textContent;
-        if(term){
-            window.document.getElementById('term').value = '>' + term.trim();
-            window.toggleSearch();
-            window.search();
-        }
-    }
-
     window.toggleTagSearch=function(evt) {
         console.log(evt.textContent);
         const term = evt.textContent;

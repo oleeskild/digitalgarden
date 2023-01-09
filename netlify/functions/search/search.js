@@ -13,11 +13,11 @@ const handler = async (event) => {
 
     let results;
     if(search[0] == "#" && search.length > 1){
-      results = index.search(`tags:${search.substring(1)}`)
+      results = index.search(`${search.substring(1)}`)
     }else if(search.length > 2 && search[0] == ">" && search[1] == "#"){
       results = index.search(`${search.substring(2)}`)
     }else{
-      results = index.search(search);
+      results = index.search(search+"*");
     }
 
     results.forEach(r => {
