@@ -12,7 +12,7 @@ const handler = async (event) => {
     console.log('index made');
 
     let results =
-      search[0] == "#"
+      search[0] == "#" && search.length > 1
         ? index.search(`tags:${search.substring(1)}`)
         : index.search(search);
 
@@ -21,7 +21,7 @@ const handler = async (event) => {
       r.content = truncate(data[r.ref].content, 400);
       r.date = data[r.ref].date;
       r.url = data[r.ref].url;
-      r.tags = data[r.ref].tags;
+      r.tags = data[r.ref].tags.filter(x=>x!="gardenEntry" && x!="note");//Note is automatically added by 11ty. GardenEntry is used internally to mark the home page
       
       delete r.ref;
     });

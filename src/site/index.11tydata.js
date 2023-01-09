@@ -37,6 +37,13 @@ module.exports = {
             }
             return "";
         },
+        tags: (data) => {
+            const currentnote = data.collections.gardenEntry && data.collections.gardenEntry[0];
+            if (currentnote && currentnote.data) {
+                return currentnote.data.tags;
+            }
+            return [];
+        },
         content: (data) => {
             const currentnote = data.collections.gardenEntry && data.collections.gardenEntry[0];
             if (currentnote && currentnote.template && currentnote.template.frontMatter && currentnote.template.frontMatter.content) {

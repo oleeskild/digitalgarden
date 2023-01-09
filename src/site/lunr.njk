@@ -9,6 +9,6 @@ eleventyExcludeFromCollections: true
 		"date":"{{ post.date }}",
 		"url":"{{ post.url }}",
 		"content": {{ post.templateContent | striptags(true) | link | jsonify | safe  }},
-		"tags": [{% if post.data.tags %}{% for tag in post.data.tags %}{% if tag != 'gardenEntry' %}"{{tag}}"{% endif %}{% if not loop.last %},{% endif %}{% endfor %}{% endif %}]
+		"tags": [{% if post.data.tags %}{% for tag in post.data.tags %}"{{tag}}"{% if not loop.last %},{% endif %}{% endfor %}{% endif %}]
 }{% if not loop.last %},{% endif %}
 {% endfor %}]

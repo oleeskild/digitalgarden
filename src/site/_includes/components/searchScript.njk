@@ -14,9 +14,11 @@
     window.toggleTagSearch=function(evt) {
         console.log(evt.textContent);
         const term = evt.textContent;
-        window.document.getElementById('term').value = term;
-        window.toggleSearch();
-        window.search();
+        if(term){
+            window.document.getElementById('term').value = term.trim();
+            window.toggleSearch();
+            window.search();
+        }
     }
 
     const loadingSvg = `
@@ -201,17 +203,26 @@
         resultsHTML += '<div>';
         // we need to add title, url from ref
         results.forEach(r => {
-            resultsHTML += `<div class="searchresult">
-                <a class="search-link" href="${r.url}">${r.title}</a>
-                <div onclick="window.location='${r.url}'">
-                    <div class="header-meta">
-                        <div class="header-tags">
-                            ${r.tags.map(tag=>'<a class="tag" href="JavaScript:Void(0);">#'+tag+'</a>').join("")}
+            if(r.tags && r.tags.length > 0){
+                resultsHTML += `<div class="searchresult">
+                    <a class="search-link" href="${r.url}">${r.title}</a>
+                    <div onclick="window.location='${r.url}'">
+                        <div class="header-meta">
+                            <div class="header-tags">
+                                ${r.tags.map(tag=>'<a class="tag" href="JavaScript:Void(0);">#'+tag+'</a>').join("")}
+                            </div>
                         </div>
+                        ${r.content}
                     </div>
-                    ${r.content}
-                </div>
-            </div>`;
+                </div>`;
+            } else {
+                resultsHTML += `<div class="searchresult">
+                    <a class="search-link" href="${r.url}">${r.title}</a>
+                    <div onclick="window.location='${r.url}'">
+                        ${r.content}
+                    </div>
+                </div>`;
+            }
         });
         resultsHTML += '</div>';
         resultsDiv.innerHTML = resultsHTML;

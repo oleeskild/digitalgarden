@@ -7,5 +7,6 @@ exports.ALL_NOTE_SETTINGS= [
     "dgShowFileTree",
     "dgEnableSearch",
     "dgShowToc",
-    "dgLinkPreview"
+    "dgLinkPreview",
+    "dgShowTags"
 ];
