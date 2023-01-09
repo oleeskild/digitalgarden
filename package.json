@@ -32,7 +32,7 @@
         "fs-file-tree": "^1.1.1",
         "gray-matter": "^4.0.3",
         "lunr": "^2.3.9",
-        "markdown-it": "^12.3.2",
+        "markdown-it": "^13.0.1",
         "markdown-it-attrs": "^4.1.6",
         "markdown-it-footnote": "^3.0.3",
         "markdown-it-hashtag": "^0.4.0",
