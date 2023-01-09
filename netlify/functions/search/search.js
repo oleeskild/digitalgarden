@@ -11,14 +11,10 @@ const handler = async (event) => {
     const index = lunrjs.Index.load(indexJson);
     console.log('index made');
 
-    let results;
-    if(search[0] == "#" && search.length > 1){
-      results = index.search(`${search.substring(1)}`)
-    }else if(search.length > 2 && search[0] == ">" && search[1] == "#"){
-      results = index.search(`${search.substring(2)}`)
-    }else{
-      results = index.search(search+"*");
-    }
+    let results = 
+      search[0] == "#" && search.length > 1
+      ? index.search(`${search.substring(1)}`)
+      : index.search(search+"*");
 
     results.forEach(r => {
       r.title = data[r.ref].title;
