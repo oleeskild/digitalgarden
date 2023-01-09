@@ -18,7 +18,7 @@ module.exports = function(eleventyConfig) {
         .use(require("markdown-it-hashtag"))
         .use(function(md){
             md.renderer.rules.hashtag_open  = function(tokens, idx) {
-                return '<a class="tag" onclick="toggleSearch(this)">'
+                return '<a class="tag" onclick="toggleTagSearch(this)">'
             }
         })
         .use(require('markdown-it-mathjax3'), {
