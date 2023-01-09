@@ -206,12 +206,8 @@
                 <a class="search-link" href="${r.url}">${r.title}</a>
                 <div onclick="window.location='${r.url}'">
                     <div class="header-meta">
-                        {% if tags %}
                         <div class="header-tags">
-                            {% for tag in tags %}
-                            <a class="tag" href="JavaScript:Void(0);">#{{tag}}</a>
-                            {% endfor %}</a>
-                            {% endif %}
+                            ${r.tags.map(tag=>'<a class="tag" href="JavaScript:Void(0);">#'+tag+'</a>').join("")}
                         </div>
                     </div>
                     ${r.content}

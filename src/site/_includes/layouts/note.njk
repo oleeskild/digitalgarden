@@ -25,7 +25,17 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
         <h1>{% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}</h1>
       {% endif %}
       <div class="header-meta">
-        {% if tags %}<div class="header-tags">{% for tag in tags %}<a class="tag" onclick="toggleTagSearch(this)">#{{tag}}</a>{% endfor %}</div>{% endif %}
+        {% if tags %}
+          <div class="header-tags">
+            {% for tag in tags %}
+              {% if tag != 'gardenEntry' %}
+                <a class="tag" onclick="toggleTagSearch(this)">
+                  #{{tag}}
+                </a>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
       </div>
       {{ content | link | highlight | safe}}
     </div>

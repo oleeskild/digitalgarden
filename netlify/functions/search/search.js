@@ -11,8 +11,6 @@ const handler = async (event) => {
     const index = lunrjs.Index.load(indexJson);
     console.log('index made');
 
-    let results = index.search(search);
-
     let results =
       search[0] == "#"
         ? index.search(`tags:${search.substring(1)}`)
@@ -23,6 +21,7 @@ const handler = async (event) => {
       r.content = truncate(data[r.ref].content, 400);
       r.date = data[r.ref].date;
       r.url = data[r.ref].url;
+      r.tags = data[r.ref].tags;
       
       delete r.ref;
     });
