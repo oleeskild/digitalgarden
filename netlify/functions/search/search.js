@@ -11,13 +11,17 @@ const handler = async (event) => {
     const index = lunrjs.Index.load(indexJson);
     console.log('index made');
 
-    let results = index.search(search);
+    let results =
+      search[0] == "#" && search.length > 1
+        ? index.search(`tags:${search.substring(1)}`)
+        : index.search(search);
 
     results.forEach(r => {
       r.title = data[r.ref].title;
       r.content = truncate(data[r.ref].content, 400);
       r.date = data[r.ref].date;
       r.url = data[r.ref].url;
+      r.tags = data[r.ref].tags.filter(x=>x!="gardenEntry" && x!="note");//Note is automatically added by 11ty. GardenEntry is used internally to mark the home page
       
       delete r.ref;
     });

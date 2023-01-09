@@ -11,47 +11,58 @@
         }
     }
 
-    const loadingSvg = `<svg width="100" height="100" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" stroke="#d9d9d9">
-    <g fill="none" fill-rule="evenodd" transform="translate(1 1)" stroke-width="2">
-        <circle cx="22" cy="22" r="6" stroke-opacity="0">
-            <animate attributeName="r"
-                 begin="1.5s" dur="3s"
-                 values="6;22"
-                 calcMode="linear"
-                 repeatCount="indefinite" />
-            <animate attributeName="stroke-opacity"
-                 begin="1.5s" dur="3s"
-                 values="1;0" calcMode="linear"
-                 repeatCount="indefinite" />
-            <animate attributeName="stroke-width"
-                 begin="1.5s" dur="3s"
-                 values="2;0" calcMode="linear"
-                 repeatCount="indefinite" />
-        </circle>
-        <circle cx="22" cy="22" r="6" stroke-opacity="0">
-            <animate attributeName="r"
-                 begin="3s" dur="3s"
-                 values="6;22"
-                 calcMode="linear"
-                 repeatCount="indefinite" />
-            <animate attributeName="stroke-opacity"
-                 begin="3s" dur="3s"
-                 values="1;0" calcMode="linear"
-                 repeatCount="indefinite" />
-            <animate attributeName="stroke-width"
-                 begin="3s" dur="3s"
-                 values="2;0" calcMode="linear"
-                 repeatCount="indefinite" />
-        </circle>
-        <circle cx="22" cy="22" r="8">
-            <animate attributeName="r"
-                 begin="0s" dur="1.5s"
-                 values="6;1;2;3;4;5;6"
-                 calcMode="linear"
-                 repeatCount="indefinite" />
-        </circle>
-    </g>
-</svg>`;
+    window.toggleTagSearch=function(evt) {
+        console.log(evt.textContent);
+        const term = evt.textContent;
+        if(term){
+            window.document.getElementById('term').value = term.trim();
+            window.toggleSearch();
+            window.search();
+        }
+    }
+
+    const loadingSvg = `
+    <svg width="100" height="100" viewBox="0 0 45 45" xmlns="http://www.w3.org/2000/svg" stroke="#fff">
+      <g fill="none" fill-rule="evenodd" transform="translate(1 1)" stroke-width="2">
+          <circle cx="22" cy="22" r="6" stroke-opacity="0">
+              <animate attributeName="r"
+                   begin="1.5s" dur="3s"
+                   values="6;22"
+                   calcMode="linear"
+                   repeatCount="indefinite" />
+              <animate attributeName="stroke-opacity"
+                   begin="1.5s" dur="3s"
+                   values="1;0" calcMode="linear"
+                   repeatCount="indefinite" />
+              <animate attributeName="stroke-width"
+                   begin="1.5s" dur="3s"
+                   values="2;0" calcMode="linear"
+                   repeatCount="indefinite" />
+          </circle>
+          <circle cx="22" cy="22" r="6" stroke-opacity="0">
+              <animate attributeName="r"
+                   begin="3s" dur="3s"
+                   values="6;22"
+                   calcMode="linear"
+                   repeatCount="indefinite" />
+              <animate attributeName="stroke-opacity"
+                   begin="3s" dur="3s"
+                   values="1;0" calcMode="linear"
+                   repeatCount="indefinite" />
+              <animate attributeName="stroke-width"
+                   begin="3s" dur="3s"
+                   values="2;0" calcMode="linear"
+                   repeatCount="indefinite" />
+          </circle>
+          <circle cx="22" cy="22" r="8">
+              <animate attributeName="r"
+                   begin="0s" dur="1.5s"
+                   values="6;1;2;3;4;5;6"
+                   calcMode="linear"
+                   repeatCount="indefinite" />
+          </circle>
+      </g>
+  </svg>`;
 
     function debounce(func, wait, immediate) {
         var timeout;
@@ -192,7 +203,26 @@
         resultsHTML += '<div>';
         // we need to add title, url from ref
         results.forEach(r => {
-            resultsHTML += `<div class="searchresult"><a class="search-link" href="${r.url}">${r.title}</a><span onclick="window.location='${r.url}'">${r.content}</span></div>`;
+            if(r.tags && r.tags.length > 0){
+                resultsHTML += `<div class="searchresult">
+                    <a class="search-link" href="${r.url}">${r.title}</a>
+                    <div onclick="window.location='${r.url}'">
+                        <div class="header-meta">
+                            <div class="header-tags">
+                                ${r.tags.map(tag=>'<a class="tag" href="JavaScript:Void(0);">#'+tag+'</a>').join("")}
+                            </div>
+                        </div>
+                        ${r.content}
+                    </div>
+                </div>`;
+            } else {
+                resultsHTML += `<div class="searchresult">
+                    <a class="search-link" href="${r.url}">${r.title}</a>
+                    <div onclick="window.location='${r.url}'">
+                        ${r.content}
+                    </div>
+                </div>`;
+            }
         });
         resultsHTML += '</div>';
         resultsDiv.innerHTML = resultsHTML;

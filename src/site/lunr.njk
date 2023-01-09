@@ -8,6 +8,7 @@ eleventyExcludeFromCollections: true
 		"title": {% if post.data.title %}{{post.data.title | jsonify | safe }}{% else %}{{post.fileSlug | jsonify | safe }}{% endif %},
 		"date":"{{ post.date }}",
 		"url":"{{ post.url }}",
-		"content": {{ post.templateContent | striptags(true) | link | jsonify | safe  }}
+		"content": {{ post.templateContent | striptags(true) | link | jsonify | safe  }},
+		"tags": [{% if post.data.tags %}{% for tag in post.data.tags %}"{{tag}}"{% if not loop.last %},{% endif %}{% endfor %}{% endif %}]
 }{% if not loop.last %},{% endif %}
 {% endfor %}]

@@ -8,6 +8,7 @@ function createIndex(posts) {
     this.field('title');
     this.field('content');
     this.field('date');
+    this.field("tags");
 
     posts.forEach((p, idx) => {
       p.id = idx;
