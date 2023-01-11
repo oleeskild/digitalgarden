@@ -183,28 +183,30 @@ module.exports = function(eleventyConfig) {
 
                 let titleDiv = "";
                 let calloutType = "";
-                const calloutMeta = /\[!(\w*)\](\s?.*)/;
+                let isCollapsable;
+                let isCollapsed;
+                const calloutMeta = /\[!(\w*)\](\+|\-){0,1}(\s?.*)/;
                 if (!content.match(calloutMeta)) {
                     continue;
                 }
     
-                content = content.replace(calloutMeta, function(metaInfoMatch, callout, title) {
+                content = content.replace(calloutMeta, function(metaInfoMatch, callout, collapse, title) {
+                    isCollapsable = Boolean(collapse);
+                    isCollapsed = collapse === "-"
+                    const titleText = title.replace(/(<\/{0,1}\w+>)/, "") ? title : `${callout.charAt(0).toUpperCase()}${callout.substring(1).toLowerCase()}`
+                    const fold = isCollapsable ? `<div class="callout-fold"><i icon-name="chevron-down"></i></div>` : ``
+    
                     calloutType = callout;
-                    titleDiv = title.replace("<br>", "") ?
-                        `<div class="admonition-title">${title}</div>` :
-                        `<div class="admonition-title">${callout.charAt(0).toUpperCase()}${callout.substring(1).toLowerCase()}</div>`;
+                    titleDiv = `<div class="callout-title"><div class="callout-title-inner">${titleText}</div>${fold}</div>`
                     return "";
                 });
     
                 blockquote.tagName = "div";
-                blockquote.classList.add(
-                    `callout-${calloutType.toLowerCase()}`,
-                    "admonition",
-                    "admonition-example",
-                    "admonition-plugin",
-                );
+                blockquote.classList.add("callout");
+                blockquote.classList.add(isCollapsable ? "is-collapsible" : "")
+                blockquote.classList.add(isCollapsed ? "is-collapsed" : "")
                 blockquote.setAttribute("data-callout", calloutType.toLowerCase());
-                blockquote.innerHTML = `${titleDiv}\n${content}`;
+                blockquote.innerHTML = `${titleDiv}\n<div class="callout-content">${content}</div>`;
             }
         }
 
