@@ -4,6 +4,7 @@ const fs = require('fs');
 const matter = require('gray-matter');
 const faviconPlugin = require('eleventy-favicon');
 const tocPlugin = require('eleventy-plugin-toc');
+const {parse} = require("node-html-parser")
 
 const {headerToId, namedHeadingsFilter} = require("./src/helpers/utils") 
 
@@ -172,27 +173,44 @@ module.exports = function(eleventyConfig) {
 
 
     eleventyConfig.addTransform('callout-block', function(str) {
-        return str && str.replace(/<blockquote>((.|\n)*?)<\/blockquote>/g, function(match, content) {
-            let titleDiv = "";
-            let calloutType = "";
-            const calloutMeta = /\[!(\w*)\](\s?.*)/g;
-            if (!content.match(calloutMeta)) {
-                return match;
+        const parsed = parse(str);
+
+        const transformCalloutBlocks = (blockquotes = parsed.querySelectorAll("blockquote")) => {
+            for (const blockquote of blockquotes) {
+                transformCalloutBlocks(blockquote.querySelectorAll("blockquote"))
+    
+                let content = blockquote.innerHTML;
+
+                let titleDiv = "";
+                let calloutType = "";
+                const calloutMeta = /\[!(\w*)\](\s?.*)/;
+                if (!content.match(calloutMeta)) {
+                    continue;
+                }
+    
+                content = content.replace(calloutMeta, function(metaInfoMatch, callout, title) {
+                    calloutType = callout;
+                    titleDiv = title.replace("<br>", "") ?
+                        `<div class="admonition-title">${title}</div>` :
+                        `<div class="admonition-title">${callout.charAt(0).toUpperCase()}${callout.substring(1).toLowerCase()}</div>`;
+                    return "";
+                });
+    
+                blockquote.tagName = "div";
+                blockquote.classList.add(
+                    `callout-${calloutType.toLowerCase()}`,
+                    "admonition",
+                    "admonition-example",
+                    "admonition-plugin",
+                );
+                blockquote.setAttribute("data-callout", calloutType.toLowerCase());
+                blockquote.innerHTML = `${titleDiv}\n${content}`;
             }
+        }
 
-            content = content.replace(calloutMeta, function(metaInfoMatch, callout, title) {
-                calloutType = callout;
-                titleDiv = title.replace("<br>", "") ?
-                    `<div class="admonition-title">${title}</div>` :
-                    `<div class="admonition-title">${callout.charAt(0).toUpperCase()}${callout.substring(1).toLowerCase()}</div>`;
-                return "";
-            });
-
-            return `<div class="callout-${calloutType?.toLowerCase()} admonition admonition-example admonition-plugin">
-                ${titleDiv}
-                ${content}
-            </div>`;
-        });
+        transformCalloutBlocks();
+        
+        return str && parsed.innerHTML;
     });
 
     eleventyConfig.addPassthroughCopy("src/site/img");
