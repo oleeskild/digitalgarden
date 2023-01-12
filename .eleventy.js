@@ -66,13 +66,16 @@ module.exports = function(eleventyConfig) {
                     const code = token.content.trim();
                     if (code && code.toLowerCase().startsWith("title:")) {
                         const title = code.substring(6, code.indexOf("\n"));
-                        const titleDiv = title ? `<div class="admonition-title">${title}</div>` : '';
-                        return `<div class="language-${token.info} admonition admonition-example admonition-plugin">${titleDiv}${md.render(code.slice(code.indexOf("\n")))}</div>`;
+                        const titleDiv = title ? `<div class="callout-title"><div class="callout-title-inner">${title}</div></div>` : '';
+
+                        return `<div class="callout" data-callout="${token.info}">${titleDiv}\n<div class="callout-content">${md.render(code.slice(code.indexOf("\n")))}</div></div>`;
                     }
 
-                    const title = `<div class="admonition-title">${token.info.charAt(3).toUpperCase()}${token.info.substring(4).toLowerCase()}</div>`;
-                    return `<div class="language-${token.info} admonition admonition-example admonition-plugin">${title}${md.render(code)}</div>`;
+                    const title = `<div class="callout-title"><div class="callout-title-inner">${
+                        token.info.charAt(3).toUpperCase()}${token.info.substring(4).toLowerCase()
+                    }</div></div>`
 
+                    return `<div class="callout" data-callout="${token.info}">${title}\n<div class="callout-content">${md.render(code)}</div></div>`;
                 }
 
                 // Other languages

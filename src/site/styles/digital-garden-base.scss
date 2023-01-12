@@ -47,30 +47,6 @@ div.transclusion {
     }
 }
 
-.admonition-title {
-    font-size: 1.4rem;
-}
-
-div[class*="language-ad-"] .admonition-title::before,
-div[class*="callout-"] .admonition-title::before {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    margin-right: 10px;
-}
-
-code[class*="language-ad-"] {
-    font-family: 'Roboto', sans-serif;
-    white-space: normal !important;
-}
-
-.theme-light div[class*="language-ad-"] {
-    color: rgb(12, 12, 12);
-}
-
-.theme-dark div[class*="language-ad-"] {
-    color: rgb(230, 230, 230);
-}
-
 ul.task-list {
     list-style: none;
     padding-left: 15px;
