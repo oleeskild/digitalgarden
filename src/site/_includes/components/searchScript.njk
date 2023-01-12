@@ -200,7 +200,7 @@
             resultsDiv.innerHTML = resultsHTML;
             return;
         }
-        resultsHTML += '<div>';
+        resultsHTML += '<div style="max-width:100%;">';
         // we need to add title, url from ref
         results.forEach(r => {
             if(r.tags && r.tags.length > 0){
