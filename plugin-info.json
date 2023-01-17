@@ -1,0 +1,52 @@
+{
+
+    "filesToDelete": [
+        "src/site/styles/style.css"
+    ],
+    "filesToAdd": [
+        "src/site/styles/custom-style.scss",
+        ".env",
+        "src/site/favicon.svg"
+    ],
+    "filesToModify": [
+            ".eleventy.js",
+            ".eleventyignore",
+            "README.md",
+            "netlify.toml",
+            "package-lock.json",
+            "package.json",
+            "src/site/404.njk",
+            "src/site/index.njk",
+            "src/site/sitemap.njk",
+            "src/site/index.11tydata.js",
+            "src/site/versionednote.njk",
+            "src/site/styles/style.scss",
+            "src/site/styles/digital-garden-base.scss",
+            "src/site/styles/obsidian-base.scss",
+            "src/site/notes/notes.json",
+            "src/site/notes/notes.11tydata.js",
+            "src/site/_includes/layouts/note.njk",
+            "src/site/_includes/layouts/versionednote.njk",
+            "src/site/_includes/components/notegrowthhistory.njk",
+            "src/site/_includes/components/pageheader.njk",
+            "src/site/_includes/components/linkPreview.njk",
+            "src/site/_includes/components/sidebar.njk",
+            "src/site/_includes/components/graphScript.njk",
+            "src/site/_includes/components/filetree.njk",
+            "src/site/_includes/components/filetreeNavbar.njk",
+            "src/site/_includes/components/navbar.njk",
+            "src/site/_includes/components/searchButton.njk",
+            "src/site/_includes/components/searchContainer.njk",
+            "src/site/_includes/components/searchScript.njk",
+            "src/site/lunr-index.js",
+            "src/site/lunr.njk",
+            "src/site/_data/versionednotes.js",
+            "src/site/_data/meta.js",
+            "src/site/_data/filetree.js",
+            "src/site/img/outgoing.svg",
+            "src/helpers/constants.js",
+            "src/helpers/utils.js",
+            "src/helpers/linkUtils.js",
+            "netlify/functions/search/search.js"
+        ]
+}
