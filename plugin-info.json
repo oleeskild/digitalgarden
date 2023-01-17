@@ -38,6 +38,7 @@
             "src/site/_includes/components/searchButton.njk",
             "src/site/_includes/components/searchContainer.njk",
             "src/site/_includes/components/searchScript.njk",
+            "src/site/_includes/components/calloutScript.njk",
             "src/site/lunr-index.js",
             "src/site/lunr.njk",
             "src/site/_data/versionednotes.js",
