@@ -1,4 +1,8 @@
 {
+
+    "filesToDelete": [
+        "src/site/styles/style.css"
+    ],
     "filesToAdd": [
         "src/site/styles/custom-style.scss",
         ".env",
