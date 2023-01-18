@@ -16,8 +16,9 @@ module.exports = function(eleventyConfig) {
         })
         .use(require("markdown-it-footnote"))
         .use(require("markdown-it-attrs"))
-        .use(require("markdown-it-hashtag"),{
-            hashtagRegExp: `[^\\s!@#$%^&*()=+.,\[{\\]};:'"?><]+`
+        .use(require("markdown-it-hashtag"), {
+            hashtagRegExp: `[^\\s!@\\#\\$%\\^&\\*\\(\\)=\\+\\.,\\[\\{\\]\\};:'"\\?><]+`,
+            preceding: "^|\\s\\{",
         })
         .use(function(md){
             md.renderer.rules.hashtag_open  = function(tokens, idx) {
