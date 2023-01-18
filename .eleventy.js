@@ -15,9 +15,8 @@ module.exports = function(eleventyConfig) {
             html: true
         })
         .use(require("markdown-it-footnote"))
-        .use(require("markdown-it-attrs"))
         .use(require("markdown-it-hashtag"), {
-            hashtagRegExp: `[^\\s!@\\#\\$%\\^&\\*\\(\\)=\\+\\.,\\[\\{\\]\\};:'"\\?><]+(?!(.*\\}))`,
+            hashtagRegExp: `[^\\s!@\\#\\$%\\^&\\*\\(\\)=\\+\\.,\\[\\{\\]\\};:'"\\?><]+`,
             preceding: "^|\\s",
         })
         .use(function(md){
@@ -35,6 +34,7 @@ module.exports = function(eleventyConfig) {
                 skipHtmlTags: { '[-]': ['pre'] }
             }
         })
+        .use(require("markdown-it-attrs"))
         .use(require('markdown-it-task-checkbox'), {
             disabled: true,
             divWrap: false,
