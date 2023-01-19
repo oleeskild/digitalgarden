@@ -194,9 +194,9 @@ module.exports = function (eleventyConfig) {
     return (
       str &&
       str.replace(
-        /(#[^\s!@#$%^&*()=+\.\/,\[{\]};:'"?><]+)(?!([^<]*>))/g,
-        function (match, tag) {
-          return `<a class="tag" onclick="toggleTagSearch(this)">${tag}</a>`;
+        /(^|\s|\>)(#[^\s!@#$%^&*()=+\.\/,\[{\]};:'"?><]+)(?!([^<]*>))/g,
+        function (match, precede, tag) {
+          return `${precede}<a class="tag" onclick="toggleTagSearch(this)">${tag}</a>`;
         }
       )
     );
