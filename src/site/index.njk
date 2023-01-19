@@ -35,7 +35,7 @@
       </div>
 
       {%- for garden in collections.gardenEntry -%}
-        {{garden.templateContent | link | highlight | safe }}
+        {{garden.templateContent | link | taggify | highlight | safe }}
       {%- endfor -%}
     </div>
 
