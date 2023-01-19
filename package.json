@@ -4,12 +4,13 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "npm-run-all build:sass --parallel watch:*",
+        "start": "npm-run-all get-theme build:sass --parallel watch:*",
         "watch:sass": "sass --watch src/site/styles:dist/styles",
         "watch:eleventy": "cross-env ELEVENTY_ENV=dev eleventy --serve",
         "build:eleventy": "cross-env ELEVENTY_ENV=prod NODE_OPTIONS=--max-old-space-size=4096 eleventy",
         "build:sass": "sass src/site/styles:dist/styles",
-        "build": "npm-run-all build:*",
+        "get-theme": "node src/site/get-theme.js",
+        "build": "npm-run-all get-theme build:*",
         "postbuild": "node src/site/lunr-index.js"
     },
     "keywords": [],
@@ -31,6 +32,7 @@
         "eleventy-favicon": "^1.1.2",
         "eleventy-plugin-toc": "^1.1.5",
         "fs-file-tree": "^1.1.1",
+        "glob": "^8.1.0",
         "gray-matter": "^4.0.3",
         "lunr": "^2.3.9",
         "markdown-it": "^13.0.1",
