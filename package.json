@@ -36,7 +36,6 @@
         "markdown-it": "^13.0.1",
         "markdown-it-attrs": "^4.1.6",
         "markdown-it-footnote": "^3.0.3",
-        "markdown-it-hashtag": "^0.4.0",
         "markdown-it-mathjax3": "^4.3.1",
         "markdown-it-plantuml": "^1.4.1",
         "markdown-it-task-checkbox": "^1.0.6"

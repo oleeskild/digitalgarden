@@ -37,7 +37,7 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
           </div>
         {% endif %}
       </div>
-      {{ content | link | highlight | safe}}
+      {{ content | link | taggify | highlight | safe}}
     </div>
 
     {% if settings.dgShowBacklinks === true or settings.dgShowLocalGraph === true or settings.dgShowToc === true%}
