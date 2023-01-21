@@ -2,33 +2,45 @@ const fsFileTree = require("fs-file-tree");
 const matter = require('gray-matter');
 const fs = require('fs');
 
-module.exports = async () => {
-    const tree = await fsFileTree("src/site/notes");
-    populateWithPermalink(tree);
-    
+const sortTree = (unsorted) => {
     //Sort by folder before file, then by name
-    const orderedTree = Object.keys(tree).sort((a,b)=>{
-        if(a.indexOf(".md") > -1 && b.indexOf(".md") === -1){
+    const orderedTree = Object.keys(unsorted).sort((a,b)=>{
+        if (a.indexOf(".md") > -1 && b.indexOf(".md") === -1){
             return 1;
         }
 
-        if(a.indexOf(".md") === -1 && b.indexOf(".md") > -1){
+        if (a.indexOf(".md") === -1 && b.indexOf(".md") > -1){
             return -1;
         }
 
-        if(a>b){
+        if (a.toLowerCase() > b.toLowerCase()){
             return 1;
         }
 
         return -1;
     }).reduce(
         (obj, key) => {
-            obj[key] = tree[key];
+            obj[key] = unsorted[key];
+
             return obj;
         },
         {}
     );
+
+    for (const key of Object.keys(orderedTree)) {
+        if (!orderedTree[key].path) {
+            orderedTree[key] = sortTree(orderedTree[key])
+        }
+    }
+
     return orderedTree;
+}
+
+module.exports = async () => {
+    const tree = await fsFileTree("src/site/notes");
+    populateWithPermalink(tree);
+    
+    return sortTree(tree);
 }
 
 function getPermalinkAndName(path, key) {
