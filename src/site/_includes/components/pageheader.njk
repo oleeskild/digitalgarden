@@ -23,7 +23,7 @@
 <link href="/styles/digital-garden-base.css" rel="stylesheet">
 {%-if meta.themeStyle%}
     <link href="/styles/obsidian-base.css" rel="stylesheet">
-    {{meta.themeStyle | safe}}
+    <link href="{{meta.themeStyle}}" rel="stylesheet">
 {% else %}
     <link href="/styles/style.css" rel="stylesheet">
 {%endif%}

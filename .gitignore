@@ -2,6 +2,7 @@ node_modules
 dist
 netlify/functions/search/data.json
 netlify/functions/search/index.json
+src/site/styles/theme.*.css
 # Local Netlify folder
 .netlify
 .idea/
