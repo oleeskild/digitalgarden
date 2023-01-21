@@ -8,6 +8,8 @@ const { parse } = require("node-html-parser");
 
 const { headerToId, namedHeadingsFilter } = require("./src/helpers/utils");
 
+const tagRegex = /(^|\s|\>)(#[^\s!@#$%^&*()=+\.,\[{\]};:'"?><]+)(?!([^<]*>))/g;
+
 module.exports = function (eleventyConfig) {
   let markdownLib = markdownIt({
     breaks: true,
@@ -194,7 +196,7 @@ module.exports = function (eleventyConfig) {
     return (
       str &&
       str.replace(
-        /(^|\s|\>)(#[^\s!@#$%^&*()=+\.\/,\[{\]};:'"?><]+)(?!([^<]*>))/g,
+        tagRegex,
         function (match, precede, tag) {
           return `${precede}<a class="tag" onclick="toggleTagSearch(this)">${tag}</a>`;
         }
@@ -207,7 +209,7 @@ module.exports = function (eleventyConfig) {
     let match =
       str &&
       str.match(
-        /(^|\s|\>)(#[^\s!@#$%^&*()=+\.\/,\[{\]};:'"?><]+)(?!([^<]*>))/g
+        tagRegex,
       );
     if (match) {
       tags = match
