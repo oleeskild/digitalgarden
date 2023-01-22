@@ -50,6 +50,7 @@
             "src/helpers/linkUtils.js",
             "netlify/functions/search/search.js",
             "src/site/get-theme.js",
-            "api/search.js"
+            "api/search.js",
+            "vercel.json"
         ]
 }
