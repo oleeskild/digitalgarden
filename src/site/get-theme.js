@@ -21,7 +21,7 @@ async function getTheme() {
 
     const res = await axios.get(themeUrl);
     try {
-      const existing = glob.sync("src/site/styles/theme.*.css");
+      const existing = glob.sync("src/site/styles/_theme.*.css");
       existing.forEach((file) => {
         fs.rmSync(file);
       });
@@ -30,7 +30,7 @@ async function getTheme() {
     hashSum.update(res.data);
     const hex = hashSum.digest("hex");
     fs.writeFileSync(
-      `src/site/styles/theme.${hex.substring(0, 8)}.css`,
+      `src/site/styles/_theme.${hex.substring(0, 8)}.css`,
       res.data
     );
   }
