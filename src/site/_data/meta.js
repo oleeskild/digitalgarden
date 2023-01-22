@@ -9,7 +9,7 @@ module.exports = async () => {
   if (baseUrl && !baseUrl.startsWith("http")) {
     baseUrl = "https://" + baseUrl;
   }
-  let themeStyle = glob.sync("src/site/styles/theme.*.css")[0] || "";
+  let themeStyle = glob.sync("src/site/styles/_theme.*.css")[0] || "";
   if (themeStyle) {
     themeStyle = themeStyle.split("site")[1];
   }
