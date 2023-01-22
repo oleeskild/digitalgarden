@@ -49,6 +49,7 @@
             "src/helpers/utils.js",
             "src/helpers/linkUtils.js",
             "netlify/functions/search/search.js",
-            "src/site/get-theme.js"
+            "src/site/get-theme.js",
+            "api/search.js"
         ]
 }
