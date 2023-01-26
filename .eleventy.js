@@ -289,6 +289,15 @@ module.exports = function (eleventyConfig) {
     return JSON.stringify(variable) || '""';
   });
 
+  eleventyConfig.addFilter('validJson', function (variable) {
+    if(Array.isArray((variable))){
+        return variable.map(x=>x.replaceAll("\\", "\\\\")).join(",");
+  }else if(typeof(variable) === 'string'){
+        return variable.replaceAll("\\", "\\\\"); 
+    }
+    return variable;
+  });
+
   return {
     dir: {
       input: "src/site",

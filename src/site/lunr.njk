@@ -9,6 +9,6 @@ eleventyExcludeFromCollections: true
 		"date":"{{ post.date }}",
 		"url":"{{ post.url }}",
 		"content": {{ post.templateContent | striptags(true) | link | jsonify | safe  }},
-		"tags": [{{post.templateContent | link | searchableTags | safe }} {% if post.data.tags %}{% for tag in post.data.tags %}"{{tag}}"{% if not loop.last %},{% endif %}{% endfor %}{% endif %}]
+		"tags": [{{post.templateContent | link | searchableTags | safe }} {% if post.data.tags %}{% for tag in post.data.tags %}"{{tag|validJson}}"{% if not loop.last %},{% endif %}{% endfor %}{% endif %}]
 }{% if not loop.last %},{% endif %}
 {% endfor %}]
