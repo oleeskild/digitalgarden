@@ -280,6 +280,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy("src/site/img");
+  eleventyConfig.addPassthroughCopy("src/site/styles/_theme.*.css");
   eleventyConfig.addPlugin(faviconPlugin, { destination: "dist" });
   eleventyConfig.addPlugin(tocPlugin, {
     ul: true,
@@ -304,7 +305,7 @@ module.exports = function (eleventyConfig) {
       output: "dist",
       data: `_data`,
     },
-    templateFormats: ["njk", "md", "11ty.js", "css"],
+    templateFormats: ["njk", "md", "11ty.js"],
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk",
     passthroughFileCopy: true,
