@@ -30,6 +30,7 @@
             let home = Object.values(remaining).find((v) => v.home);
             delete remaining[home.url];
         }
+        currentNode.current = true;
         let existing = {};
         existing[currentNode.url] = currentNode;
         for (let i = 0; i < window.maxGraphDepth; i++) {
@@ -62,25 +63,33 @@
             .height(height)
             .linkDirectionalArrowLength(2)
             .linkDirectionalArrowRelPos(0.5)
-            .nodeCanvasObject((node, ctx) => {
-                const numberOfLinks = (node.outBound && node.outBound.length) || 2;
-                    const numberOfNeighbours = (node.neighbors && node.neighbors.length) || 2;
-                    const nodeR = Math.min(7, Math.max((numberOfLinks + numberOfNeighbours) / 2, 2));
-                    ctx.beginPath();
-                    ctx.arc(node.x, node.y, nodeR, 0, 2 * Math.PI, false);
-                    ctx.fillStyle = getCssVar("--text-accent");
-                    ctx.fill();
-
-                    const label = htmlDecode(node.title)
-                    const fontSize = 3.5;
-                    ctx.font = `${fontSize}px Sans-Serif`;
-
-                    ctx.textAlign = 'center';
-                    ctx.textBaseline = 'top';
-                    ctx.fillText(label, node.x, node.y + nodeR + 2);
-                })
-                
             .linkColor(() => getCssVar("--text-muted") || getCssVar("--text-normal"))
+            .nodeCanvasObject((node, ctx) => {
+                const color = getCssVar("--text-accent");
+                const numberOfNeighbours = (node.neighbors && node.neighbors.length) || 2;
+                const nodeR = Math.min(7, Math.max(numberOfNeighbours / 2, 2));
+                
+                ctx.beginPath();
+                ctx.arc(node.x, node.y, nodeR, 0, 2 * Math.PI, false);
+                ctx.fillStyle = color;
+                ctx.fill();
+                
+                if (node.current) {
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, nodeR + 1, 0, 2 * Math.PI, false);
+                    ctx.lineWidth = 0.5;
+                    ctx.strokeStyle = color;
+                    ctx.stroke();
+                }
+
+                const label = htmlDecode(node.title)
+                const fontSize = 3.5;
+                ctx.font = `${fontSize}px Sans-Serif`;
+
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'top';
+                ctx.fillText(label, node.x, node.y + nodeR + 2);
+            })
             .onNodeClick(node => {
                     window.location = node.url;
                 });
