@@ -49,13 +49,17 @@
 
     var Graph;
 
-    function renderGraph(graphData, id, width, height) {
+    function renderGraph(graphData, id, width, height, delay) {
         let Graph = ForceGraph()
         (document.getElementById(id))
             .graphData(graphData)
             .nodeId('id')
             .nodeLabel('title')
             .linkSource('source')
+            .linkTarget('target')
+            .d3AlphaDecay(0.10)
+            .width(width)
+            .height(height)
             .linkDirectionalArrowLength(2)
             .linkDirectionalArrowRelPos(0.5)
             .nodeCanvasObject((node, ctx) => {
@@ -79,8 +83,10 @@
             .linkColor(() => getCssVar("--text-muted") || getCssVar("--text-normal"))
             .onNodeClick(node => {
                     window.location = node.url;
-                })
-            .linkTarget('target').width(width).height(height);
+                });
+                setTimeout(() => {
+                    Graph.zoomToFit(5, 75);
+                }, delay);
         return Graph;
     }
 
@@ -102,7 +108,7 @@
             Graph._destructor();
             Graph = null;
         }
-        renderGraph(filterToDepth(JSON.parse(JSON.stringify(window.graphData))), "link-graph", 330, 330);
+        renderGraph(filterToDepth(JSON.parse(JSON.stringify(window.graphData))), "link-graph", 330, 330, 1);
     })
 
     window.fullGraph = null;
@@ -118,8 +124,7 @@
             g.classList.add('show');
             document.body.appendChild(g);
             g.innerHTML = '<i class="fa fa-times" id="full-graph-close" aria-hidden="true"></i><div id="full-graph-container"></div>';
-            
-            window.fullGraph = renderGraph(graphData, "full-graph-container", g.offsetWidth, g.offsetHeight);
+            window.fullGraph = renderGraph(graphData, "full-graph-container", g.offsetWidth, g.offsetHeight, 200);
             document.getElementById('full-graph-close').addEventListener('click', (evt) => {
                 g.classList.remove('show');
                 window.fullGraph._destructor();
