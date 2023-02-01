@@ -14,8 +14,8 @@
     {% if settings.dgEnableSearch === true %}
       {%include "components/searchContainer.njk"%}
     {% endif %}
-    <div class="content cm-s-obsidian">
-
+    <main class="content cm-s-obsidian">
+      <header>
       {% if settings.dgShowInlineTitle === true %}
         <h1>{{ noteTitle  }}</h1>
       {% endif %}
@@ -33,11 +33,11 @@
           </div>
         {% endif %}
       </div>
-
+      </header>
       {%- for garden in collections.gardenEntry -%}
         {{garden.templateContent | link | taggify | highlight | safe }}
       {%- endfor -%}
-    </div>
+    </main>
 
     {% if settings.dgShowBacklinks === true or settings.dgShowLocalGraph === true or settings.dgShowToc === true%}
       {%include "components/sidebar.njk" %}
