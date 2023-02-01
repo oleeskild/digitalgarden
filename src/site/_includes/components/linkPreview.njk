@@ -81,7 +81,10 @@
             tooltipWrapper.style.opacity = 1;
             if (url.indexOf("#") != -1) {
               let id = url.split('#')[1];
-              tooltipWrapper.querySelector(`[id='${id}']`).scrollIntoView({behavior: 'smooth'}, true)
+              const focus = tooltipWrapper.querySelector(`[id='${id}']`);
+              focus.classList.add('referred');
+              console.log(focus);
+              focus.scrollIntoView({behavior: 'smooth'}, true)
             } else {
               tooltipWrapper.scroll(0, 0);
             }
@@ -94,7 +97,10 @@
           tooltipWrapper.style.opacity = 1;
           if (url.indexOf("#") != -1) {
               let id = url.split('#')[1];
-              tooltipWrapper.querySelector(`[id='${id}']`).scrollIntoView({behavior: 'smooth'}, true)
+              const focus = tooltipWrapper.querySelector(`[id='${id}']`);
+              focus.classList.add('referred');
+              console.log(focus);
+              focus.scrollIntoView({behavior: 'smooth'}, true)
           } else {
               tooltipWrapper.scroll(0, 0);
           }

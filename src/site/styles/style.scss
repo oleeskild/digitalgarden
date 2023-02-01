@@ -218,3 +218,12 @@ p>code {
 .callout.is-collapsed .callout-fold .svg-icon {
     transform: rotate(-90deg);
 }
+
+
+.referred {
+    border: 1px dashed;
+    border-color: var(--text-accent);
+    padding: 10px;  
+    margin-left: -10px;
+    margin-right: -10px; 
+}
