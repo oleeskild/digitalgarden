@@ -12,9 +12,6 @@
           document.getElementById(newParts[1]).classList.add('referred');
         }
       }, false);
-      document.querySelectorAll('.human-date').forEach(function (el) {
-        el.innerHTML = dayjs(el.getAttribute('data-date') || el.innerText).format('MMM D, YYYY h:mm A');
-      });
       const url_parts = window.location.href.split("#")
       const url = url_parts[0];
       const referrence = url_parts[1];
