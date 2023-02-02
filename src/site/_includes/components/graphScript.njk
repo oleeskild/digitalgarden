@@ -102,7 +102,7 @@
     }
 
     function fetchGraphData() {
-        fetch('/graph').then(res => res.json()).then(data => {
+        fetch('/graph.json').then(res => res.json()).then(data => {
             window.graphData = data;
             Graph = renderGraph(filterToDepth(JSON.parse(JSON.stringify(data))), "link-graph", 330, 330);
         });

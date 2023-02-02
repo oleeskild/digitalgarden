@@ -30,47 +30,63 @@ function extractLinks(content) {
   ];
 }
 
-function getBacklinks(data) {
-  const notes = data.collections.note;
-  if (!notes) {
-    return [];
-  }
-  const currentFileSlug = data.page.filePathStem
-    .replace("/notes/", "")
-    .split("#")[0];
-  const currentURL = data.page.url;
-
-  let backlinks = [];
-  let uniqueLinks = new Set();
-  let counter = 1;
-
-  for (const otherNote of notes) {
-    const noteContent = otherNote.template.frontMatter.content;
-    const backLinks = extractLinks(noteContent);
-
-    if (
-      !uniqueLinks.has(otherNote.url) &&
-      backLinks.some(
-        (link) =>
-          caselessCompare(link, currentFileSlug) ||
-          currentURL == link.split("#")[0]
-      )
-    ) {
-      let preview = noteContent.slice(0, 240);
-      backlinks.push({
-        url: otherNote.url,
-        title: otherNote.data.title || otherNote.data.page.fileSlug,
-        preview,
-        id: counter++,
-        isHome: otherNote.data["dg-home"] || false,
-      });
-      uniqueLinks.add(otherNote.url);
+function getGraph(data) {
+  let nodes = {};
+  let links = [];
+  let stemURLs = {};
+  let homeAlias = "/";
+  data.collections.note.forEach((v, idx) => {
+    let fpath = v.filePathStem.replace("/notes/", "");
+    let parts = fpath.split("/");
+    let group = "none";
+    if (parts.length >= 3) {
+      group = parts[parts.length - 2];
     }
-  }
-  return backlinks;
+    nodes[v.url] = {
+      id: idx,
+      title: v.data.title || v.fileSlug,
+      url: v.url,
+      group,
+      home: v.data["dg-home"] || false,
+      outBound: extractLinks(v.template.frontMatter.content),
+      neighbors: new Set(),
+      backLinks: new Set(),
+    };
+    stemURLs[fpath] = v.url;
+    if (v.data["dg-home"]) {
+      homeAlias = v.url;
+    }
+  });
+  Object.values(nodes).forEach((node) => {
+    let outBound = new Set();
+    node.outBound.forEach((olink) => {
+      let link = (stemURLs[olink] || olink).split("#")[0];
+      outBound.add(link);
+    });
+    node.outBound = Array.from(outBound);
+    node.outBound.forEach((link) => {
+      let n = nodes[link];
+      if (n) {
+        n.neighbors.add(node.url);
+        n.backLinks.add(node.url);
+        node.neighbors.add(n.url);
+        links.push({ source: node.id, target: n.id });
+      }
+    });
+  });
+  Object.keys(nodes).map((k) => {
+    nodes[k].neighbors = Array.from(nodes[k].neighbors);
+    nodes[k].backLinks = Array.from(nodes[k].backLinks);
+    nodes[k].size = nodes[k].neighbors.length;
+  });
+  return {
+    homeAlias,
+    nodes,
+    links,
+  };
 }
 
 exports.wikiLinkRegex = wikiLinkRegex;
 exports.internalLinkRegex = internalLinkRegex;
 exports.extractLinks = extractLinks;
-exports.getBacklinks = getBacklinks;
+exports.getGraph = getGraph;

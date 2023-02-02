@@ -5,12 +5,10 @@ const markdownIt = require("markdown-it");
 const md = markdownIt({
   html: true,
 }).use(require("../helpers/utils").namedHeadingsFilter);
-const { getBacklinks } = require("../helpers/linkUtils");
 const allSettings = settings.ALL_NOTE_SETTINGS;
 
 module.exports = {
   eleventyComputed: {
-    backlinks: (data) => getBacklinks(data),
     settings: (data) => {
       const currentnote =
         data.collections.gardenEntry && data.collections.gardenEntry[0];
