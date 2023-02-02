@@ -93,7 +93,7 @@
             .onNodeClick(node => {
                     window.location = node.url;
                 });
-                if (delay != null) {
+                if (delay != null && graphData.nodes.length > 2) {
                     setTimeout(() => {
                         Graph.zoomToFit(5, 75);
                     }, delay);
@@ -104,7 +104,7 @@
     function fetchGraphData() {
         fetch('/graph.json').then(res => res.json()).then(data => {
             window.graphData = data;
-            Graph = renderGraph(filterToDepth(JSON.parse(JSON.stringify(data))), "link-graph", 330, 330);
+            Graph = renderGraph(filterToDepth(JSON.parse(JSON.stringify(data))), "link-graph", 330, 330, 1);
         });
     }
 
@@ -119,7 +119,7 @@
             Graph._destructor();
             Graph = null;
         }
-        renderGraph(filterToDepth(JSON.parse(JSON.stringify(window.graphData))), "link-graph", 330, 330, null);
+        renderGraph(filterToDepth(JSON.parse(JSON.stringify(window.graphData))), "link-graph", 330, 330, 1);
     })
 
     window.fullGraph = null;
