@@ -6,6 +6,21 @@
                         <div class="graph">
                               <div class="graph-title-container">
                                     <div class="graph-title">Connected Pages</div>
+                                    <div id="graph-controls">
+                                          <div class="depth-control">
+                                                <label for="graph-depth">Depth</label>
+                                                <div class="slider">
+                                                      <input name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth"/>
+                                                <datalist id="depthmarkers">
+                                                      <option value="1" label="1"></option>
+                                                      <option value="2" label="2"></option>
+                                                      <option value="3" label="3"></option>
+                                                </datalist>
+                                                </div>
+                                                <span id="depth-display"></span>
+                                          </div>
+                                          <i class="fa fa-arrows-alt" id="graph-full-btn" aria-hidden="true"></i>
+                                    </div>
                               </div>
                               <div id="link-graph"></div>
                         </div>
@@ -29,25 +44,41 @@
                         {%endif%}
 
                               {%if settings.dgShowBacklinks === true %}
+                                    {%if settings.dgShowBacklinks === true %}
                                     <div class="backlinks">
                                           <div class="backlink-title" style="margin: 4px 0 !important;">Pages mentioning this page</div>
                                                 <div class="backlink-list">
-
-                                                {%- if backlinks.length === 0 -%}
+                                                {%- if page.url == "/" -%}
+                                                      {%- if graph.nodes[graph.homeAlias].backLinks.length === 0 -%}
+                                                            <div class="backlink-card">
+                                                                  <span class="no-backlinks-message">No other pages mentions this page</span>
+                                                            </div>
+                                                      {%- endif -%}
+                                                {%- for backlink in graph.nodes[graph.homeAlias].backLinks -%}
+                                                      {%- if graph.nodes[backlink].url != graph.homeAlias -%}
                                                       <div class="backlink-card">
-                                                            <span class="no-backlinks-message">No other pages mentions this page</span>
+                                                            <i class="fa fa-link"></i> <a href="{{graph.nodes[backlink].url}}">{{graph.nodes[backlink].title}}</a>
                                                       </div>
-                                                {%- endif -%}
-
-                                                {%- for backlink in backlinks -%}
-                                                      <div class="backlink-card">
-                                                            <i class="fa fa-link"></i> <a href="{{backlink.url}}">{{backlink.title}}</a>
-                                                      </div>
+                                                      {%- endif -%}
                                                 {%- endfor -%}
-
+                                                {%- else -%}
+                                                      {%- if graph.nodes[page.url].backLinks.length === 0 -%}
+                                                            <div class="backlink-card">
+                                                                  <span class="no-backlinks-message">No other pages mentions this page</span>
+                                                            </div>
+                                                      {%- endif -%}
+                                                {%- for backlink in graph.nodes[page.url].backLinks -%}
+                                                      {%- if graph.nodes[backlink].url != page.url -%}
+                                                      <div class="backlink-card">
+                                                            <i class="fa fa-link"></i> <a href="{{graph.nodes[backlink].url}}">{{graph.nodes[backlink].title}}</a>
+                                                      </div>
+                                                      {%- endif -%}
+                                                {%- endfor -%}
+                                                {%- endif -%}
                                                 </div>
-                                    </div>
+                                          </div>
                                     {%endif%}
+                              {%endif%}
                               </div>
                         </div>
                   </div>
