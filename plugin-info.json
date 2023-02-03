@@ -52,6 +52,7 @@
             "src/site/get-theme.js",
             "api/search.js",
             "vercel.json",
-            "src/site/_data/eleventyComputed.js"
+            "src/site/_data/eleventyComputed.js",
+            "src/site/graph.njk"
         ]
 }
