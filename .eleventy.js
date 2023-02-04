@@ -195,22 +195,15 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("taggify", function (str) {
     return (
       str &&
-      str.replace(
-        tagRegex,
-        function (match, precede, tag) {
-          return `${precede}<a class="tag" onclick="toggleTagSearch(this)">${tag}</a>`;
-        }
-      )
+      str.replace(tagRegex, function (match, precede, tag) {
+        return `${precede}<a class="tag" onclick="toggleTagSearch(this)">${tag}</a>`;
+      })
     );
   });
 
   eleventyConfig.addFilter("searchableTags", function (str) {
     let tags;
-    let match =
-      str &&
-      str.match(
-        tagRegex,
-      );
+    let match = str && str.match(tagRegex);
     if (match) {
       tags = match
         .map((m) => {
@@ -223,6 +216,15 @@ module.exports = function (eleventyConfig) {
     } else {
       return "";
     }
+  });
+
+  eleventyConfig.addFilter("hideDataview", function (str) {
+    return (
+      str &&
+      str.replace(/\(\S+\:\:(.*)\)/g, function (_, value) {
+        return value.trim();
+      })
+    );
   });
 
   eleventyConfig.addTransform("callout-block", function (str) {
@@ -280,6 +282,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy("src/site/img");
+  eleventyConfig.addPassthroughCopy("src/site/styles/_theme.*.css");
   eleventyConfig.addPlugin(faviconPlugin, { destination: "dist" });
   eleventyConfig.addPlugin(tocPlugin, {
     ul: true,
@@ -289,11 +292,11 @@ module.exports = function (eleventyConfig) {
     return JSON.stringify(variable) || '""';
   });
 
-  eleventyConfig.addFilter('validJson', function (variable) {
-    if(Array.isArray((variable))){
-        return variable.map(x=>x.replaceAll("\\", "\\\\")).join(",");
-  }else if(typeof(variable) === 'string'){
-        return variable.replaceAll("\\", "\\\\"); 
+  eleventyConfig.addFilter("validJson", function (variable) {
+    if (Array.isArray(variable)) {
+      return variable.map((x) => x.replaceAll("\\", "\\\\")).join(",");
+    } else if (typeof variable === "string") {
+      return variable.replaceAll("\\", "\\\\");
     }
     return variable;
   });
@@ -304,7 +307,7 @@ module.exports = function (eleventyConfig) {
       output: "dist",
       data: `_data`,
     },
-    templateFormats: ["njk", "md", "11ty.js", "css"],
+    templateFormats: ["njk", "md", "11ty.js"],
     htmlTemplateEngine: "njk",
     markdownTemplateEngine: "njk",
     passthroughFileCopy: true,
