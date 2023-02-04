@@ -1,4 +1,4 @@
-<!-- All credit for the link preview implementation goes to https://github.com/maximevaillancourt/digital-garden-jekyll-template/blob/master/_includes/link-previews.html -->
+<!-- Credit for the link preview implementation goes to https://github.com/maximevaillancourt/digital-garden-jekyll-template/blob/master/_includes/link-previews.html -->
 <style>
 #tooltip-wrapper {
   background: var(--background-primary);
@@ -64,26 +64,45 @@
     var elem = event.target;
     var elem_props = elem.getClientRects()[elem.getClientRects().length - 1];
     var top = window.pageYOffset || document.documentElement.scrollTop;
-    if (event.target.getAttribute("href").indexOf("http") === -1 || event.target.getAttribute("href").indexOf(window.location.host) !== -1) {
-      if (!linkHistories[event.target.getAttribute("href")]) {
-        iframe.src = event.target.getAttribute("href")
+    var url = event.target.getAttribute("href");
+    if (url.indexOf("http") === -1 || url.indexOf(window.location.host) !== -1) {
+      let contentURL = url.split('#')[0]
+      if (!linkHistories[contentURL]) {
+        iframe.src = contentURL
         iframe.onload = function () {
           tooltipContentHtml = ''
           tooltipContentHtml += '<div style="font-weight: bold; unicode-bidi: plaintext;">' + iframe.contentWindow.document.querySelector('h1').innerHTML + '</div>'
           tooltipContentHtml += iframe.contentWindow.document.querySelector('.content').innerHTML
           tooltipContent.innerHTML = tooltipContentHtml
-          linkHistories[event.target.getAttribute("href")] = tooltipContentHtml
+          linkHistories[contentURL] = tooltipContentHtml
           tooltipWrapper.style.display = 'block';
           tooltipWrapper.scrollTop = 0;
           setTimeout(function () {
             tooltipWrapper.style.opacity = 1;
+            if (url.indexOf("#") != -1) {
+              let id = url.split('#')[1];
+              const focus = tooltipWrapper.querySelector(`[id='${id}']`);
+              focus.classList.add('referred');
+              console.log(focus);
+              focus.scrollIntoView({behavior: 'smooth'}, true)
+            } else {
+              tooltipWrapper.scroll(0, 0);
+            }
           }, 1)
         }
       } else {
-        tooltipContent.innerHTML = linkHistories[event.target.getAttribute("href")]
+        tooltipContent.innerHTML = linkHistories[contentURL]
         tooltipWrapper.style.display = 'block';
         setTimeout(function () {
           tooltipWrapper.style.opacity = 1;
+          if (url.indexOf("#") != -1) {
+              let id = url.split('#')[1];
+              const focus = tooltipWrapper.querySelector(`[id='${id}']`);
+              focus.classList.add('referred');
+              focus.scrollIntoView({behavior: 'smooth'}, true)
+          } else {
+              tooltipWrapper.scroll(0, 0);
+          }
         }, 1)
       }
 

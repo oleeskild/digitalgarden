@@ -49,5 +49,6 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
     {% if settings.dgLinkPreview === true %}
       {%include "components/linkPreview.njk"%}
     {% endif %}
+    {% include "components/references.njk" %}
   </body>
 </html>
