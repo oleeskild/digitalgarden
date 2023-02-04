@@ -35,7 +35,7 @@ function getGraph(data) {
   let links = [];
   let stemURLs = {};
   let homeAlias = "/";
-  data.collections.note.forEach((v, idx) => {
+  (data.collections.note||[]).forEach((v, idx) => {
     let fpath = v.filePathStem.replace("/notes/", "");
     let parts = fpath.split("/");
     let group = "none";
