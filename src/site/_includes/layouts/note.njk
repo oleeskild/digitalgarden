@@ -39,7 +39,7 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
           {% endif %}
         </div>
       </header>
-      {{ content | hideDataView | link | taggify | highlight | safe}}
+      {{ content | hideDataview | link | taggify | highlight | safe}}
     </main>
 
     {% if settings.dgShowBacklinks === true or settings.dgShowLocalGraph === true or settings.dgShowToc === true%}
