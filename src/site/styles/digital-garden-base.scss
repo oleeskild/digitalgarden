@@ -521,31 +521,6 @@ ul.task-list {
     transition: transform 100ms ease-in-out;
 }
 
-.cm-s-obsidian > *[id] {
-    position: relative;
-    cursor: pointer;
-    &:hover {
-        border: 1px dotted;
-        border-color: var(--text-accent);
-        margin-left: -10px;
-        margin-right: -10px;
-        padding: 10px;
-    }
-    &:hover::before {
-        content: "Double-click to copy link";
-        position: absolute;
-        right: 0;
-        top: -1.55em;
-        font-weight: normal;
-        font-size: 12px;
-        color: var(--text-accent);
-        font-variant: initial;
-        letter-spacing: 0.24px;
-        line-height: 14px;
-        
-    }
-}
-
 .referred {
     border: 1px dashed;
     border-color: var(--text-accent);
