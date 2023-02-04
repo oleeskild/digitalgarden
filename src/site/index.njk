@@ -35,7 +35,7 @@
       </div>
       </header>
       {%- for garden in collections.gardenEntry -%}
-        {{garden.templateContent | link | taggify | highlight | safe }}
+        {{garden.templateContent | hideDataview | link | taggify | highlight | safe }}
       {%- endfor -%}
     </main>
 

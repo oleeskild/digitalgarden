@@ -22,24 +22,24 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
 
     <main class="content cm-s-obsidian">
       <header>
-      {% if settings.dgShowInlineTitle === true %}
-        <h1>{% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}</h1>
-      {% endif %}
-      <div class="header-meta">
-        {% if settings.dgShowTags === true and tags %}
-          <div class="header-tags">
-            {% for tag in tags %}
-              {% if tag != 'gardenEntry' and tag !='note' %}
-                <a class="tag" onclick="toggleTagSearch(this)">
-                  #{{tag}}
-                </a>
-              {% endif %}
-            {% endfor %}
-          </div>
+        {% if settings.dgShowInlineTitle === true %}
+          <h1>{% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}</h1>
         {% endif %}
-      </div>
+        <div class="header-meta">
+          {% if settings.dgShowTags === true and tags %}
+            <div class="header-tags">
+              {% for tag in tags %}
+                {% if tag != 'gardenEntry' and tag !='note' %}
+                  <a class="tag" onclick="toggleTagSearch(this)">
+                    #{{tag}}
+                  </a>
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
       </header>
-      {{ content | link | taggify | highlight | safe}}
+      {{ content | hideDataview | link | taggify | highlight | safe}}
     </main>
 
     {% if settings.dgShowBacklinks === true or settings.dgShowLocalGraph === true or settings.dgShowToc === true%}

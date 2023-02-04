@@ -195,22 +195,15 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("taggify", function (str) {
     return (
       str &&
-      str.replace(
-        tagRegex,
-        function (match, precede, tag) {
-          return `${precede}<a class="tag" onclick="toggleTagSearch(this)">${tag}</a>`;
-        }
-      )
+      str.replace(tagRegex, function (match, precede, tag) {
+        return `${precede}<a class="tag" onclick="toggleTagSearch(this)">${tag}</a>`;
+      })
     );
   });
 
   eleventyConfig.addFilter("searchableTags", function (str) {
     let tags;
-    let match =
-      str &&
-      str.match(
-        tagRegex,
-      );
+    let match = str && str.match(tagRegex);
     if (match) {
       tags = match
         .map((m) => {
@@ -223,6 +216,15 @@ module.exports = function (eleventyConfig) {
     } else {
       return "";
     }
+  });
+
+  eleventyConfig.addFilter("hideDataview", function (str) {
+    return (
+      str &&
+      str.replace(/\(\S+\:\:(.*)\)/g, function (_, value) {
+        return value.trim();
+      })
+    );
   });
 
   eleventyConfig.addTransform("callout-block", function (str) {
@@ -290,11 +292,11 @@ module.exports = function (eleventyConfig) {
     return JSON.stringify(variable) || '""';
   });
 
-  eleventyConfig.addFilter('validJson', function (variable) {
-    if(Array.isArray((variable))){
-        return variable.map(x=>x.replaceAll("\\", "\\\\")).join(",");
-  }else if(typeof(variable) === 'string'){
-        return variable.replaceAll("\\", "\\\\"); 
+  eleventyConfig.addFilter("validJson", function (variable) {
+    if (Array.isArray(variable)) {
+      return variable.map((x) => x.replaceAll("\\", "\\\\")).join(",");
+    } else if (typeof variable === "string") {
+      return variable.replaceAll("\\", "\\\\");
     }
     return variable;
   });
