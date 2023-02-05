@@ -150,7 +150,7 @@ module.exports = function (eleventyConfig) {
         }
         const [fileLink, linkTitle] = p1.split("|");
 
-        let fileName = fileLink;
+        let fileName = fileLink.replaceAll("&amp;", "&");
         let header = "";
         let headerLinkPath = "";
         if (fileLink.includes("#")) {
