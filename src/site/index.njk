@@ -33,10 +33,22 @@
           </div>
         {% endif %}
       </div>
+      {% for imp in dynamics.common.header %}
+        {% include imp %}
+      {% endfor %}
+      {% for imp in dynamics.index.header %}
+        {% include imp %}
+      {% endfor %}
       </header>
       {%- for garden in collections.gardenEntry -%}
         {{garden.templateContent | hideDataview | link | taggify | highlight | safe }}
       {%- endfor -%}
+      {% for imp in dynamics.common.afterContent %}
+        {% include imp %}
+      {% endfor %}
+      {% for imp in dynamics.index.afterContent %}
+        {% include imp %}
+      {% endfor %}
     </main>
 
     {% if settings.dgShowBacklinks === true or settings.dgShowLocalGraph === true or settings.dgShowToc === true%}
@@ -46,5 +58,11 @@
     {% if settings.dgLinkPreview === true %}
       {%include "components/linkPreview.njk"%}
     {% endif %}
+    {% for imp in dynamics.common.footer %}
+      {% include imp %}
+    {% endfor %}
+    {% for imp in dynamics.index.footer %}
+      {% include imp %}
+    {% endfor %}
     </body>
   </html>

@@ -38,8 +38,20 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
             </div>
           {% endif %}
         </div>
+      {% for imp in dynamics.common.header %}
+        {% include imp %}
+      {% endfor %}
+      {% for imp in dynamics.notes.header %}
+        {% include imp %}
+      {% endfor %}
       </header>
       {{ content | hideDataview | link | taggify | highlight | safe}}
+      {% for imp in dynamics.common.afterContent %}
+        {% include imp %}
+      {% endfor %}
+      {% for imp in dynamics.notes.afterContent %}
+        {% include imp %}
+      {% endfor %}
     </main>
 
     {% if settings.dgShowBacklinks === true or settings.dgShowLocalGraph === true or settings.dgShowToc === true%}
@@ -50,5 +62,11 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
       {%include "components/linkPreview.njk"%}
     {% endif %}
     {% include "components/references.njk" %}
+    {% for imp in dynamics.common.footer %}
+      {% include imp %}
+    {% endfor %}
+    {% for imp in dynamics.notes.footer %}
+      {% include imp %}
+    {% endfor %}
   </body>
 </html>
