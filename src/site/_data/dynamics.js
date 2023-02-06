@@ -9,7 +9,6 @@ const generateComponentPaths = async (namespace) => {
     for (let index = 0; index < SLOTS.length; index++) {
         const slot = SLOTS[index];
         try {
-            console.log(`${BASE_PATH}/${namespace}/${slot}`);
             const tree = await fsFileTree(`${BASE_PATH}/${namespace}/${slot}`);
             let comps = Object.keys(tree).filter((p) => p.indexOf(".njk") != -1).map((p) => `components/user/${namespace}/${slot}/${p}`);
             comps.sort()
@@ -28,6 +27,5 @@ module.exports = async () => {
         const ns = NAMESPACES[index];
         data[ns] = await generateComponentPaths(ns);
     }
-    console.log(data);
     return data;
 }
