@@ -11,6 +11,9 @@ const { headerToId, namedHeadingsFilter } = require("./src/helpers/utils");
 const tagRegex = /(^|\s|\>)(#[^\s!@#$%^&*()=+\.,\[{\]};:'"?><]+)(?!([^<]*>))/g;
 
 module.exports = function (eleventyConfig) {
+  eleventyConfig.setLiquidOptions({
+    dynamicPartials: true,
+  });
   let markdownLib = markdownIt({
     breaks: true,
     html: true,

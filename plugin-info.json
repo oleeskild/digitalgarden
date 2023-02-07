@@ -45,6 +45,7 @@
             "src/site/_data/versionednotes.js",
             "src/site/_data/meta.js",
             "src/site/_data/filetree.js",
+            "src/site/_data/dynamics.js",
             "src/site/img/outgoing.svg",
             "src/helpers/constants.js",
             "src/helpers/utils.js",
