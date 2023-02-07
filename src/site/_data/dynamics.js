@@ -24,7 +24,7 @@ const generateComponentPaths = async (namespace) => {
 const generateStylesPaths = async () => {
     try {
         const tree = await fsFileTree(`${STYLE_PATH}`);
-        let comps = Object.keys(tree).map((p) => `/styles/user/${p}`);
+        let comps = Object.keys(tree).map((p) => `/styles/user/${p}`.replace('.scss', '.css'));
         comps.sort()
         return comps
     } catch {
