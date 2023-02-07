@@ -29,6 +29,9 @@
 {%endif%}
 
 <link href="/styles/custom-style.css" rel="stylesheet">
+{%- for style in dynamics.styles -%}
+<link href="{{style}}" rel="stylesheet">
+{%- endfor -%}
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

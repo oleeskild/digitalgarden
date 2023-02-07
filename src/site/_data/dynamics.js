@@ -1,6 +1,7 @@
 const fsFileTree = require("fs-file-tree");
 
 const BASE_PATH = "src/site/_includes/components/user"
+const STYLE_PATH = "src/site/styles/user"
 const NAMESPACES = ["index", "notes", "common"];
 const SLOTS = ["header", "afterContent", "footer"]
 
@@ -20,6 +21,17 @@ const generateComponentPaths = async (namespace) => {
     return data;
 }
 
+const generateStylesPaths = async () => {
+    try {
+        const tree = await fsFileTree(`${STYLE_PATH}`);
+        let comps = Object.keys(tree).map((p) => `/styles/user/${p}`);
+        comps.sort()
+        return comps
+    } catch {
+        return [];
+    }
+}
+
 
 module.exports = async () => {
     const data = {};
@@ -27,5 +39,6 @@ module.exports = async () => {
         const ns = NAMESPACES[index];
         data[ns] = await generateComponentPaths(ns);
     }
+    data['styles'] = await generateStylesPaths()
     return data;
 }
