@@ -3,8 +3,7 @@
 * MODIFY THE custom-style.scss FILE INSTEAD.
 ***/
 
-
-:root{
+:root {
     --background-primary: rgb(32, 31, 31);
     --background-secondary: rgb(57, 56, 56);
     --text-normal: #dcddde;
@@ -19,22 +18,26 @@
     --callout-title-padding: 0;
     --callout-title-size: inherit;
     --callout-content-padding: 0;
+
+    --maturity-icon-1: url(/img/tree-1.svg);
+    --maturity-icon-2: url(/img/tree-2.svg);
+    --maturity-icon-3: url(/img/tree-3.svg);
 }
 
 h1 {
-    color: #FFEF60;
+    color: #ffef60;
 }
 
 h2 {
-    color: #F06449;
+    color: #f06449;
 }
 
 h3 {
-    color: #D4FCC3;
+    color: #d4fcc3;
 }
 
 h4 {
-    color: #72DCFF;
+    color: #72dcff;
 }
 
 button {
@@ -54,21 +57,21 @@ button {
 .theme-dark {
     background: var(--background-primary);
     color: var(--text-normal);
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
 .theme-light {
     background: white;
     color: black;
-    font-family: 'Roboto', sans-serif;
+    font-family: "Roboto", sans-serif;
 }
 
-a.is-unresolved{
- color: rgb(97 186 245 / 65%);
+a.is-unresolved {
+    color: rgb(97 186 245 / 65%);
 }
 a {
     text-decoration: underline;
-    color: var(--text-accent)
+    color: var(--text-accent);
 }
 
 .font-bg {
@@ -77,7 +80,7 @@ a {
 
 blockquote {
     background: #ffffff17;
-    border-left: 10px solid #C1DBE3;
+    border-left: 10px solid #c1dbe3;
     margin: 1.5em 10px;
     padding: 0.5em 10px;
     quotes: "\201C""\201D""\2018""\2019";
@@ -96,7 +99,7 @@ blockquote p {
     display: inline;
 }
 
-p>code {
+p > code {
     //Inline code
     color: #c7254e;
     background-color: #1a1a1a;
@@ -217,4 +220,33 @@ p>code {
 }
 .callout.is-collapsed .callout-fold .svg-icon {
     transform: rotate(-90deg);
+}
+
+body.title-maturity .cm-s-obsidian > header > h1[data-maturity]::before,
+body.filetree-maturity .filename[data-maturity]::before,
+body.links-maturity .internal-link[data-maturity]::before {
+    content: " ";
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+body.title-maturity .cm-s-obsidian > header > h1[data-maturity="1"]::before,
+body.filetree-maturity .filename[data-maturity="1"]::before,
+body.links-maturity .internal-link[data-maturity="1"]::before {
+    background-image: var(--maturity-icon-1);
+}
+
+body.title-maturity .cm-s-obsidian > header > h1[data-maturity="2"]::before,
+body.filetree-maturity .filename[data-maturity="2"]::before,
+body.links-maturity .internal-link[data-maturity="2"]::before {
+    background-image: var(--maturity-icon-2);
+}
+
+body.title-maturity .cm-s-obsidian > header > h1[data-maturity="3"]::before,
+body.filetree-maturity .filename[data-maturity="3"]::before,
+body.links-maturity .internal-link[data-maturity="3"]::before {
+    background-image: var(--maturity-icon-3);
 }
