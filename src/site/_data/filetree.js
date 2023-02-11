@@ -77,7 +77,7 @@ function populateWithPermalink(tree) {
         );
         tree[key].permalink = permalink;
         tree[key].name = name;
-        tree[kye].maturity = maturity;
+        tree[key].maturity = maturity;
       }
     } else {
       tree[key].isFolder = true;
