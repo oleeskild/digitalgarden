@@ -20,15 +20,21 @@ module.exports = async () => {
     title: false,
     default: process.env.MATURITY_DEFAULT,
   };
-  if (process.env.MATURITY_TITLE) {
+  if (process.env.MATURITY_TITLE && process.env.MATURITY_TITLE == "true") {
     bodyClasses.push("title-maturity");
     maturitySettings.title = true;
   }
-  if (process.env.MATURITY_FILETREE) {
+  if (
+    process.env.MATURITY_FILETREE &&
+    process.env.MATURITY_FILETREE == "true"
+  ) {
     bodyClasses.push("filetree-maturity");
     maturitySettings.filetree = true;
   }
-  if (process.env.MATURITY_INTERNAL_LINKS) {
+  if (
+    process.env.MATURITY_INTERNAL_LINKS &&
+    process.env.MATURITY_INTERNAL_LINKS == "true"
+  ) {
     bodyClasses.push("links-maturity");
     maturitySettings.links = true;
   }
