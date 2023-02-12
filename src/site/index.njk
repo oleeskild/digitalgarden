@@ -3,6 +3,12 @@
   <head>
     <title>{{ noteTitle }}</title>
     {%include "components/pageheader.njk"%}
+    {% for imp in dynamics.common.head %}
+      {% include imp %}
+    {% endfor %}
+    {% for imp in dynamics.index.head %}
+      {% include imp %}
+    {% endfor %}
   </head>
   <body class="theme-{{meta.baseTheme}} markdown-preview-view markdown-rendered markdown-preview-section">
     {%include "components/notegrowthhistory.njk"%}
@@ -40,6 +46,12 @@
         {% include imp %}
       {% endfor %}
       </header>
+      {% for imp in dynamics.common.beforeContent %}
+        {% include imp %}
+      {% endfor %}
+      {% for imp in dynamics.index.beforeContent %}
+        {% include imp %}
+      {% endfor %}
       {%- for garden in collections.gardenEntry -%}
         {{garden.templateContent | hideDataview | link | taggify | highlight | safe }}
       {%- endfor -%}
