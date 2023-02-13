@@ -162,7 +162,7 @@ module.exports = function (eleventyConfig) {
         }
 
         let permalink = `/notes/${slugify(fileName)}`;
-        let maturity = process.env.MATURITY_DEFAULT;
+        let noteIcon = process.env.NOTE_ICON_DEFAULT;
         const title = linkTitle ? linkTitle : fileName;
         let deadLink = false;
 
@@ -176,8 +176,8 @@ module.exports = function (eleventyConfig) {
           if (frontMatter.data.permalink) {
             permalink = frontMatter.data.permalink;
           }
-          if (frontMatter.data.maturity) {
-            maturity = frontMatter.data.maturity;
+          if (frontMatter.data.noteIcon) {
+            noteIcon = frontMatter.data.noteIcon;
           }
         } catch {
           deadLink = true;
@@ -185,7 +185,7 @@ module.exports = function (eleventyConfig) {
 
         return `<a class="internal-link ${
           deadLink ? "is-unresolved" : ""
-        }" ${deadLink ? "" : 'data-maturity="' + maturity + '"'} href="${permalink}${headerLinkPath}">${title}</a>`;
+        }" ${deadLink ? "" : 'data-note-icon="' + noteIcon + '"'} href="${permalink}${headerLinkPath}">${title}</a>`;
       })
     );
   });

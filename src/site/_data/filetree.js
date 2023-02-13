@@ -45,7 +45,7 @@ const sortTree = (unsorted) => {
 function getPermalinkMeta(path, key) {
   let permalink = "/";
   let name = key.replace(".md", "");
-  let maturity = process.env.MATURITY_DEFAULT;
+  let noteIcon = process.env.NOTE_ICON_DEFAULT;
   try {
     const file = fs.readFileSync(`${path}`, "utf8");
     const frontMatter = matter(file);
@@ -55,14 +55,14 @@ function getPermalinkMeta(path, key) {
     if (frontMatter.data.title) {
       name = frontMatter.data.title;
     }
-    if (frontMatter.data.maturity) {
-      maturity = frontMatter.data.maturity;
+    if (frontMatter.data.noteIcon) {
+      noteIcon = frontMatter.data.noteIcon;
     }
   } catch {
     //ignore
   }
 
-  return { permalink, name, maturity };
+  return { permalink, name, noteIcon };
 }
 
 function populateWithPermalink(tree) {
@@ -71,13 +71,13 @@ function populateWithPermalink(tree) {
       const isNote = tree[key].path.endsWith(".md");
       tree[key].isNote = isNote;
       if (isNote) {
-        let { permalink, name, maturity } = getPermalinkMeta(
+        let { permalink, name, noteIcon } = getPermalinkMeta(
           tree[key].path,
           key
         );
         tree[key].permalink = permalink;
         tree[key].name = name;
-        tree[key].maturity = maturity;
+        tree[key].noteIcon = noteIcon;
       }
     } else {
       tree[key].isFolder = true;
