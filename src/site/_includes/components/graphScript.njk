@@ -145,18 +145,21 @@
     }
 
     fetchGraphData();
-        window.document.getElementById('graph-depth').value = window.maxGraphDepth;
-        window.document.getElementById('depth-display').innerText = window.maxGraphDepth;
-        window.document.getElementById('graph-depth').addEventListener('input', (evt) => {
-            
-        window.maxGraphDepth = evt.target.value;
-        window.document.getElementById('depth-display').innerText = window.maxGraphDepth;
+    window.document.getElementById('graph-depth').value = window.maxGraphDepth;
+    window.document.getElementById('depth-display').innerText = window.maxGraphDepth;
+    window.document.getElementById('graph-depth').addEventListener('input', (evt) => {
+        
+    window.maxGraphDepth = evt.target.value;
+    window.document.getElementById('depth-display').innerText = window.maxGraphDepth;
         if (Graph != null) {
             Graph._destructor();
             Graph = null;
         }
-        renderGraph(filterToDepth(JSON.parse(JSON.stringify(window.graphData))), "link-graph", 1);
-    })
+        Graph = renderGraph(filterToDepth(JSON.parse(JSON.stringify(window.graphData))), "link-graph", 1);
+        setTimeout(() => {
+            Graph.zoomToFit(5, 75);
+        }, 1);
+    });
 
     window.fullGraph = null;
     function renderFullGraph() {
@@ -186,11 +189,14 @@
         const el = document.querySelector('.graph');
         if (el.classList.contains('graph-fs')) {
             el.classList.remove('graph-fs');
-            Graph.width(el.offsetWidth).height(el.offsetHeight);
+            Graph.width(el.offsetWidth).height(el.offsetWidth);
         } else {
             el.classList.add('graph-fs');
-            Graph.width(el.offsetWidth).height(el.offsetHeight);
+            Graph.width(el.offsetWidth).height(el.offsetWidth);
         }
+        setTimeout(() => {
+            Graph.zoomToFit(5, 75);
+        }, 1);
         
     });
 
