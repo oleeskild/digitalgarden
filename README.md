@@ -5,5 +5,5 @@ See the README in the plugin repo for information on how to set it up.
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/oleeskild/digitalgarden)
 
 ---
-## Custom Styling
-I encourage you to change the default styling to make the site your own. Please modify the custom-style.scss when doing so to avoid future conflict when updating the template.
+## Docs
+Docs are available at [dg-docs.ole.dev](https://dg-docs.ole.dev/)
