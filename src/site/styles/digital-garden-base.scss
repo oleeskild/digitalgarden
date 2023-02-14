@@ -239,6 +239,12 @@ ul.task-list {
         border-radius: 0;
         border-top: 2px solid var(--background-secondary);
         justify-content: space-between;
+
+        @media (max-width: 1400px) {
+            .graph-fs {
+                transform: translate(-50%, -50%);
+            }
+        }
     }
 
     .sidebar-container {
