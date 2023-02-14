@@ -50,15 +50,17 @@
 
     var Graph;
 
-    function renderGraph(graphData, id, width, height, delay) {
-
+    function renderGraph(graphData, id, delay) {
+        const el = document.getElementById(id);
+        width = el.offsetWidth;
+        height = el.offsetHeight;
         const highlightNodes = new Set();
         let hoverNode = null;
         const color = getCssVar("--text-accent");
         const mutedColor = getCssVar("--text-faint");
 
         let Graph = ForceGraph()
-        (document.getElementById(id))
+        (el)
             .graphData(graphData)
             .nodeId('id')
             .nodeLabel('title')
@@ -138,7 +140,7 @@
     function fetchGraphData() {
         fetch('/graph.json').then(res => res.json()).then(data => {
             window.graphData = data;
-            Graph = renderGraph(filterToDepth(JSON.parse(JSON.stringify(data))), "link-graph", 320, 320, 1);
+            Graph = renderGraph(filterToDepth(JSON.parse(JSON.stringify(data))), "link-graph", 1);
         });
     }
 
@@ -153,7 +155,7 @@
             Graph._destructor();
             Graph = null;
         }
-        renderGraph(filterToDepth(JSON.parse(JSON.stringify(window.graphData))), "link-graph", 320, 320, 1);
+        renderGraph(filterToDepth(JSON.parse(JSON.stringify(window.graphData))), "link-graph", 1);
     })
 
     window.fullGraph = null;
@@ -169,7 +171,7 @@
             g.classList.add('show');
             document.body.appendChild(g);
             g.innerHTML = '<i class="fa fa-times" id="full-graph-close" aria-hidden="true"></i><div id="full-graph-container"></div>';
-            window.fullGraph = renderGraph(graphData, "full-graph-container", g.offsetWidth, g.offsetHeight, 200);
+            window.fullGraph = renderGraph(graphData, "full-graph-container", 200);
             document.getElementById('full-graph-close').addEventListener('click', (evt) => {
                 g.classList.remove('show');
                 window.fullGraph._destructor();
@@ -180,8 +182,20 @@
         
     }
 
-    document.getElementById('graph-full-btn').addEventListener('click', (evt) => {
-        if (!fullGraph) {
+    document.getElementById('graph-fs-btn').addEventListener('click', (evt) => {
+        const el = document.querySelector('.graph');
+        if (el.classList.contains('graph-fs')) {
+            el.classList.remove('graph-fs');
+            Graph.width(el.offsetWidth).height(el.offsetHeight);
+        } else {
+            el.classList.add('graph-fs');
+            Graph.width(el.offsetWidth).height(el.offsetHeight);
+        }
+        
+    });
+
+    document.getElementById('global-graph-btn').addEventListener('click', (evt) => {
+        if (!window.fullGraph) {
             renderFullGraph();
         }
     });
