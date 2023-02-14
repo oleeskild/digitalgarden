@@ -29,11 +29,7 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
     <main class="content cm-s-obsidian">
       <header>
         {% if settings.dgShowInlineTitle === true %}
-<<<<<<< HEAD
           <h1 data-note-icon="{% if noteIcon %}{{noteIcon}}{% else %}{{meta.noteIconsSettings.default}}{% endif %}">{% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}</h1>
-=======
-          <h1 data-maturity="{% if maturity %}{{maturity}}{% else %}{{meta.maturitySettings.default}}{% endif %}">{% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}</h1>
->>>>>>> d6a8455 (maturity visualization)
         {% endif %}
         <div class="header-meta">
           {% if settings.dgShowTags === true and tags %}
