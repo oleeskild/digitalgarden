@@ -51,6 +51,12 @@
     var Graph;
 
     function renderGraph(graphData, id, width, height, delay) {
+
+        const highlightNodes = new Set();
+        let hoverNode = null;
+        const color = getCssVar("--text-accent");
+        const mutedColor = getCssVar("--text-faint");
+
         let Graph = ForceGraph()
         (document.getElementById(id))
             .graphData(graphData)
@@ -63,15 +69,34 @@
             .height(height)
             .linkDirectionalArrowLength(2)
             .linkDirectionalArrowRelPos(0.5)
-            .linkColor(() => getCssVar("--text-muted") || getCssVar("--text-normal"))
+            .autoPauseRedraw(false)
+            .linkColor((link) => {
+                if (hoverNode == null) {
+                    return color;
+                }
+                if (link.source.id == hoverNode.id || link.target.id == hoverNode.id) {
+                    return color;
+                } else {
+                    return mutedColor;
+                }
+                
+            })
             .nodeCanvasObject((node, ctx) => {
-                const color = getCssVar("--text-accent");
                 const numberOfNeighbours = (node.neighbors && node.neighbors.length) || 2;
                 const nodeR = Math.min(7, Math.max(numberOfNeighbours / 2, 2));
                 
                 ctx.beginPath();
                 ctx.arc(node.x, node.y, nodeR, 0, 2 * Math.PI, false);
-                ctx.fillStyle = color;
+                if (hoverNode == null) {
+                    ctx.fillStyle = color;
+                } else {
+                    if (node == hoverNode || highlightNodes.has(node.url)) {
+                        ctx.fillStyle = color;
+                    } else {
+                        ctx.fillStyle = mutedColor;
+                    }
+                }
+                 
                 ctx.fill();
                 
                 if (node.current) {
@@ -91,13 +116,22 @@
                 ctx.fillText(label, node.x, node.y + nodeR + 2);
             })
             .onNodeClick(node => {
-                    window.location = node.url;
-                });
-                if (delay != null && graphData.nodes.length > 2) {
-                    setTimeout(() => {
-                        Graph.zoomToFit(5, 75);
-                    }, delay);
+                window.location = node.url;
+            })
+            .onNodeHover(node => {
+                highlightNodes.clear();
+                if (node) {
+                highlightNodes.add(node);
+                node.neighbors.forEach(neighbor => highlightNodes.add(neighbor));
                 }
+                hoverNode = node || null;
+                
+            });
+            if (delay != null && graphData.nodes.length > 4) {
+                setTimeout(() => {
+                    Graph.zoomToFit(5, 75);
+                }, delay);
+            }
         return Graph;
     }
 
