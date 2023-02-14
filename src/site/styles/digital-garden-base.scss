@@ -68,11 +68,11 @@ ul.task-list {
 
     .graph {
         width: 320px;
-        height: 320px;
+        min-height: 320px;
 
         #link-graph {
-            width: 100%;
-            height: 100%;
+            width: 320px;
+            height: 320px;
         }
     }
     .graph-fs {
@@ -83,10 +83,15 @@ ul.task-list {
         width: calc(100vmin - 100px);
         min-height: 350px;
         min-width: 350px;
-        transform: translate(-50%, -50%);
+        transform: translate(-112%, -58%);
         z-index: 9999;
-        display: none;
+        display: block;
         background-color: var(--background-secondary);
+
+        #link-graph {
+            width: 100%;
+            height: 100%;
+        }
 
         .graph-title {
             display: none;
