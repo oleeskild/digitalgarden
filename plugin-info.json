@@ -6,7 +6,11 @@
     "filesToAdd": [
         "src/site/styles/custom-style.scss",
         ".env",
-        "src/site/favicon.svg"
+        "src/site/favicon.svg",
+        "src/site/img/default-note-icon.svg",
+        "src/site/img/tree-1.svg",
+        "src/site/img/tree-2.svg",
+        "src/site/img/tree-3.svg"
     ],
     "filesToModify": [
             ".eleventy.js",

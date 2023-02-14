@@ -162,6 +162,7 @@ module.exports = function (eleventyConfig) {
         }
 
         let permalink = `/notes/${slugify(fileName)}`;
+        let noteIcon = process.env.NOTE_ICON_DEFAULT;
         const title = linkTitle ? linkTitle : fileName;
         let deadLink = false;
 
@@ -175,13 +176,16 @@ module.exports = function (eleventyConfig) {
           if (frontMatter.data.permalink) {
             permalink = frontMatter.data.permalink;
           }
+          if (frontMatter.data.noteIcon) {
+            noteIcon = frontMatter.data.noteIcon;
+          }
         } catch {
           deadLink = true;
         }
 
         return `<a class="internal-link ${
           deadLink ? "is-unresolved" : ""
-        }" href="${permalink}${headerLinkPath}">${title}</a>`;
+        }" ${deadLink ? "" : 'data-note-icon="' + noteIcon + '"'} href="${permalink}${headerLinkPath}">${title}</a>`;
       })
     );
   });

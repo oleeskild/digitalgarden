@@ -5,6 +5,10 @@
 
 body {
     overflow-x: hidden;
+    --note-icon-1: url(/img/tree-1.svg);
+    --note-icon-2: url(/img/tree-2.svg);
+    --note-icon-3: url(/img/tree-3.svg);
+    --note-icon-fallback: url(/img/default-note-icon.svg);
 }
 
 .content {
@@ -95,7 +99,7 @@ ul.task-list {
             height: 100%;
         }
 
-        #graph-controls{
+        #graph-controls {
             margin-top: 10px;
         }
 
@@ -378,7 +382,8 @@ ul.task-list {
     padding: 3px 0 3px 10px;
 }
 
-.filelist {
+.filename {
+    margin-left: 5px;
 }
 
 .notelink.active-note {
@@ -660,4 +665,35 @@ ul.task-list {
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     margin-top: -10px;
+}
+
+body.title-note-icon .cm-s-obsidian > header > h1[data-note-icon]::before,
+body.filetree-note-icon .filename[data-note-icon]::before,
+body.links-note-icon .internal-link[data-note-icon]::before {
+    content: " ";
+    display: inline-block;
+    width: 0.9em;
+    height: 1em;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-image: var(--note-icon-fallback);
+}
+
+body.title-note-icon .cm-s-obsidian > header > h1[data-note-icon="1"]::before,
+body.filetree-note-icon .filename[data-note-icon="1"]::before,
+body.links-note-icon .internal-link[data-note-icon="1"]::before {
+    background-image: var(--note-icon-1);
+}
+
+body.title-note-icon .cm-s-obsidian > header > h1[data-note-icon="2"]::before,
+body.filetree-note-icon .filename[data-note-icon="2"]::before,
+body.links-note-icon .internal-link[data-note-icon="2"]::before {
+    background-image: var(--note-icon-2);
+}
+
+body.title-note-icon .cm-s-obsidian > header > h1[data-note-icon="3"]::before,
+body.filetree-note-icon .filename[data-note-icon="3"]::before,
+body.links-note-icon .internal-link[data-note-icon="3"]::before {
+    background-image: var(--note-icon-3);
 }
