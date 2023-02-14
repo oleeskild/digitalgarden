@@ -57,8 +57,7 @@ ul.task-list {
 
 .sidebar {
     position: fixed;
-    top: 50%;
-    transform: translateY(calc(-50% + 75px));
+    top: 75px;
     right: 0;
     height: 100%;
     min-width: 25px;
@@ -83,7 +82,7 @@ ul.task-list {
         width: calc(100vmin - 100px);
         min-height: 350px;
         min-width: 350px;
-        transform: translate(-112%, -58%);
+        transform: translate(-50%, -50%);
         z-index: 9999;
         display: block;
         background-color: var(--background-secondary);
@@ -243,12 +242,6 @@ ul.task-list {
         border-radius: 0;
         border-top: 2px solid var(--background-secondary);
         justify-content: space-between;
-
-        @media (max-width: 1400px) {
-            .graph-fs {
-                transform: translate(-50%, -50%);
-            }
-        }
     }
 
     .sidebar-container {
