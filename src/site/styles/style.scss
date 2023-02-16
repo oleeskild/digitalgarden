@@ -20,6 +20,11 @@
     --callout-content-padding: 0;
 }
 
+body {
+    --graph-main: var(--text-accent);
+    --graph-muted: var(--text-muted);
+}
+
 h1 {
     color: #ffef60;
 }
