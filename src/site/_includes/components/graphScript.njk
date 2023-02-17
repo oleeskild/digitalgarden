@@ -23,7 +23,7 @@
 
     function filterToDepth(data) {
         let remaining = JSON.parse(JSON.stringify(data.nodes));
-        let currentLink = window.location.pathname;
+        let currentLink = decodeURI(window.location.pathname);
         let currentNode = remaining[currentLink] || Object.values(remaining).find((v) => v.home);
         delete remaining[currentNode.url];
         if (!currentNode.home) {
