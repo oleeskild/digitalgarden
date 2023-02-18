@@ -4,7 +4,7 @@ const fs = require("fs");
 const crypto = require("crypto");
 const glob = require("glob");
 
-module.exports = async () => {
+module.exports = async (data) => {
   let baseUrl = process.env.SITE_BASE_URL || "";
   if (baseUrl && !baseUrl.startsWith("http")) {
     baseUrl = "https://" + baseUrl;
@@ -48,6 +48,8 @@ module.exports = async () => {
     siteName: process.env.SITE_NAME_HEADER || "Digital Garden",
     siteBaseUrl: baseUrl,
   };
+  // console.log("META: ");
+  // console.log(data.collections['searchIndex']);
 
   return meta;
 };
