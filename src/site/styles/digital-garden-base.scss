@@ -132,6 +132,17 @@ ul.task-list {
     background-color: var(--background-primary);
     padding: 10px;
     border-radius: 10px;
+
+    ol {
+        list-style: none;
+        padding-left: 10px;
+        border-left: 2px solid var(--background-secondary);
+    }
+
+    & > ol {
+        padding-left: 0;
+        border-left: none;
+    }
 }
 
 .toc-container {
