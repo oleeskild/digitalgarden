@@ -279,7 +279,10 @@ module.exports = function (eleventyConfig) {
         blockquote.classList.add(isCollapsable ? "is-collapsible" : "");
         blockquote.classList.add(isCollapsed ? "is-collapsed" : "");
         blockquote.setAttribute("data-callout", calloutType.toLowerCase());
-        blockquote.innerHTML = `${titleDiv}\n<div class="callout-content">${content}</div>`;
+        const contentDiv = content.replace(/<[^>]*>|[\n\r\s]+/g, "")
+          ? `\n<div class="callout-content">${content}</div>`   
+          : "";
+        blockquote.innerHTML = `${titleDiv}${contentDiv}</div>`;
       }
     };
 
