@@ -41,6 +41,7 @@ module.exports = async () => {
   const meta = {
     env: process.env.ELEVENTY_ENV,
     theme: process.env.THEME,
+    allowGoogleFontCDN: process.env.ALLOW_GOOGLE_FONT == "true",
     themeStyle,
     bodyClasses: bodyClasses.join(" "),
     noteIconsSettings,
