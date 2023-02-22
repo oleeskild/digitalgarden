@@ -53,7 +53,7 @@
         {% include imp %}
       {% endfor %}
       {%- for garden in collections.gardenEntry -%}
-        {{garden.templateContent | hideDataview | link | taggify | highlight | safe }}
+        {{garden.templateContent | hideDataview | link | taggify | safe }}
       {%- endfor -%}
       {% for imp in dynamics.common.afterContent %}
         {% include imp %}
