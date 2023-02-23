@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>{{ noteTitle }}</title>
+    <title>{% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}</title>
     {%include "components/pageheader.njk"%}
     {% for imp in dynamics.common.head %}
       {% include imp %}
@@ -52,9 +52,7 @@
       {% for imp in dynamics.index.beforeContent %}
         {% include imp %}
       {% endfor %}
-      {%- for garden in collections.gardenEntry -%}
-        {{garden.templateContent | hideDataview | link | taggify | safe }}
-      {%- endfor -%}
+      {{ content | hideDataview | link | taggify | safe}}
       {% for imp in dynamics.common.afterContent %}
         {% include imp %}
       {% endfor %}
