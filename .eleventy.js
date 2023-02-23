@@ -18,6 +18,7 @@ module.exports = function (eleventyConfig) {
     breaks: true,
     html: true,
   })
+    .use(require("markdown-it-mark"))
     .use(require("markdown-it-footnote"))
     .use(function (md) {
       md.renderer.rules.hashtag_open = function (tokens, idx) {
@@ -186,15 +187,6 @@ module.exports = function (eleventyConfig) {
         return `<a class="internal-link ${
           deadLink ? "is-unresolved" : ""
         }" ${deadLink ? "" : 'data-note-icon="' + noteIcon + '"'} href="${permalink}${headerLinkPath}">${title}</a>`;
-      })
-    );
-  });
-
-  eleventyConfig.addFilter("highlight", function (str) {
-    return (
-      str &&
-      str.replace(/\=\=(.*?)\=\=/g, function (match, p1) {
-        return `<mark>${p1}</mark>`;
       })
     );
   });
