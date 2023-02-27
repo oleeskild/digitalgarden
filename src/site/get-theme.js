@@ -4,6 +4,8 @@ const fs = require("fs");
 const crypto = require("crypto");
 const glob = require("glob");
 
+const themeCommentRegex = /\/\*[\s\S]*?\*\//g;
+
 async function getTheme() {
   let themeUrl = process.env.THEME;
   if (themeUrl) {
@@ -26,13 +28,19 @@ async function getTheme() {
         fs.rmSync(file);
       });
     } catch {}
+    let skippedFirstComment = false;
+    const data = res.data.replace(themeCommentRegex, (match) => {
+      if (skippedFirstComment) {
+        return "";
+      } else {
+        skippedFirstComment = true;
+        return match;
+      }
+    });
     const hashSum = crypto.createHash("sha256");
-    hashSum.update(res.data);
+    hashSum.update(data);
     const hex = hashSum.digest("hex");
-    fs.writeFileSync(
-      `src/site/styles/_theme.${hex.substring(0, 8)}.css`,
-      res.data
-    );
+    fs.writeFileSync(`src/site/styles/_theme.${hex.substring(0, 8)}.css`, data);
   }
 }
 
