@@ -198,7 +198,7 @@ module.exports = function (eleventyConfig) {
     return (
       str &&
       str.replace(tagRegex, function (match, precede, tag) {
-        return `${precede}<a class="tag" onclick="toggleTagSearch(this)">${tag}</a>`;
+        return `${precede}<a class="tag" onclick="toggleTagSearch(this)" data-content="${tag}">${tag}</a>`;
       })
     );
   });
