@@ -23,6 +23,9 @@ module.exports = function (eleventyConfig) {
     breaks: true,
     html: true,
   })
+    .use(require("markdown-it-anchor"), {
+      slugify: headerToId,
+    })
     .use(require("markdown-it-mark"))
     .use(require("markdown-it-footnote"))
     .use(function (md) {
@@ -144,22 +147,6 @@ module.exports = function (eleventyConfig) {
         }
 
         return defaultLinkRule(tokens, idx, options, env, self);
-      };
-      // Footnote heading fix (till the upstream releases the fix)
-      md.renderer.rules.render_footnote_anchor_name = (
-        tokens,
-        idx,
-        options,
-        env
-      ) => {
-        var n = Number(tokens[idx].meta.id + 1).toString();
-        var prefix = "";
-
-        if (env && typeof env.docId === "string") {
-          prefix = "-" + env.docId + "-";
-        }
-
-        return prefix + n;
       };
     })
     .use(userMarkdownSetup);
