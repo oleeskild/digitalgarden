@@ -1,6 +1,8 @@
 {
     "filesToDelete": [
-        "src/site/styles/style.css"
+        "src/site/styles/style.css",
+        "src/site/index.njk",
+        "src/site/index.11tydata.js"
     ],
     "filesToAdd": [
         "src/site/styles/custom-style.scss",
@@ -10,7 +12,8 @@
         "src/site/img/tree-1.svg",
         "src/site/img/tree-2.svg",
         "src/site/img/tree-3.svg",
-        "src/helpers/userUtils.js"
+        "src/helpers/userUtils.js",
+        "src/site/_includes/layouts/index.njk"
     ],
     "filesToModify": [
         ".eleventy.js",
@@ -20,9 +23,7 @@
         "package-lock.json",
         "package.json",
         "src/site/404.njk",
-        "src/site/index.njk",
         "src/site/sitemap.njk",
-        "src/site/index.11tydata.js",
         "src/site/versionednote.njk",
         "src/site/styles/style.scss",
         "src/site/styles/digital-garden-base.scss",
@@ -30,6 +31,7 @@
         "src/site/notes/notes.json",
         "src/site/notes/notes.11tydata.js",
         "src/site/_includes/layouts/note.njk",
+        "src/site/_includes/layouts/index.njk",
         "src/site/_includes/layouts/versionednote.njk",
         "src/site/_includes/components/notegrowthhistory.njk",
         "src/site/_includes/components/pageheader.njk",
