@@ -523,6 +523,10 @@ ul.task-list {
     &:hover {
         border: 1px solid var(--text-accent);
     }
+
+    .search-icon {
+        display: flex;
+    }
 }
 
 .search-keys {

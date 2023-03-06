@@ -1,6 +1,6 @@
 <nav class="navbar">
     <div class="navbar-inner">
-        <i style="font-size: 1.5rem; margin-right: 10px;" @click="showFilesMobile=!showFilesMobile" class="fa fa-bars"></i>
+        <span style="font-size: 1.5rem; margin-right: 10px;" @click="showFilesMobile=!showFilesMobile"><i class="svg-icon" icon-name="menu"></i></span>
         {% for imp in dynamics.filetree.beforeTitle %}
             {% include imp %}
         {% endfor %}

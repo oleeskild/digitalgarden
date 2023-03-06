@@ -173,7 +173,12 @@
             g.id = 'full-graph';
             g.classList.add('show');
             document.body.appendChild(g);
-            g.innerHTML = '<i class="fa fa-times" id="full-graph-close" aria-hidden="true"></i><div id="full-graph-container"></div>';
+            g.innerHTML = '<span id="full-graph-close"><i icon-name="x" class="svg-icon" aria-hidden="true"></i></span><div id="full-graph-container"></div>';
+            lucide.createIcons({
+                attrs: {
+                    class: ["svg-icon"]
+                }
+            });
             window.fullGraph = renderGraph(graphData, "full-graph-container", 200);
             document.getElementById('full-graph-close').addEventListener('click', (evt) => {
                 g.classList.remove('show');
