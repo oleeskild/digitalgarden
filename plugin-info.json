@@ -12,7 +12,8 @@
         "src/site/img/tree-1.svg",
         "src/site/img/tree-2.svg",
         "src/site/img/tree-3.svg",
-        "src/helpers/userUtils.js"
+        "src/helpers/userUtils.js",
+        "src/helpers/userSetup.js"
     ],
     "filesToModify": [
         ".eleventy.js",

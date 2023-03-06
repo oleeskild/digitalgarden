@@ -7,6 +7,10 @@ const tocPlugin = require("eleventy-plugin-nesting-toc");
 const { parse } = require("node-html-parser");
 
 const { headerToId, namedHeadingsFilter } = require("./src/helpers/utils");
+const {
+  userMarkdownSetup,
+  userEleventySetup,
+} = require("./src/helpers/userSetup");
 
 const tagRegex = /(^|\s|\>)(#[^\s!@#$%^&*()=+\.,\[{\]};:'"?><]+)(?!([^<]*>))/g;
 
@@ -156,7 +160,8 @@ module.exports = function (eleventyConfig) {
 
         return prefix + n;
       };
-    });
+    })
+    .use(userMarkdownSetup);
 
   eleventyConfig.setLibrary("md", markdownLib);
 
@@ -319,6 +324,8 @@ module.exports = function (eleventyConfig) {
     }
     return variable;
   });
+
+  userEleventySetup(eleventyConfig);
 
   return {
     dir: {
