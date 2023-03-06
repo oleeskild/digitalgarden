@@ -719,3 +719,19 @@ body.filetree-note-icon .filename[data-note-icon="3"]::before,
 body.links-note-icon .internal-link[data-note-icon="3"]::before {
     background-image: var(--note-icon-3);
 }
+
+.timestamps {
+    display: flex;
+    flex-direction: row;
+    font-size: 0.8em;
+    color: var(--text-muted);
+    gap: 10px;
+    margin-top: 20px;
+
+    div {
+        display: flex;
+        flex-direction: row;
+        gap: 3px;
+        align-items: center;
+    }
+}
