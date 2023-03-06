@@ -379,10 +379,15 @@ ul.task-list {
 
 .notelink {
     padding: 5px 0 5px 25px;
+    display: flex;
+    align-items: center;
     a {
         &:hover {
             text-decoration: underline !important;
         }
+    }
+    svg {
+        flex-shrink: 0;
     }
 }
 
@@ -522,6 +527,10 @@ ul.task-list {
 
     &:hover {
         border: 1px solid var(--text-accent);
+    }
+
+    .search-icon {
+        display: flex;
     }
 }
 
