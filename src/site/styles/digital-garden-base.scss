@@ -554,7 +554,7 @@ ul.task-list {
 }
 
 .callout {
-    font-family: "Roboto", sans-serif;
+    font-family: var(--font-default);
     word-wrap: break-word;
     display: block;
     font-size: 1rem;
