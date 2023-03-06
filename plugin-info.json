@@ -47,6 +47,7 @@
         "src/site/_includes/components/searchScript.njk",
         "src/site/_includes/components/calloutScript.njk",
         "src/site/_includes/components/lucideIcons.njk",
+        "src/site/_includes/components/timestamps.njk",
         "src/site/lunr-index.js",
         "src/site/lunr.njk",
         "src/site/_data/versionednotes.js",
