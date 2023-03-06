@@ -8,8 +8,8 @@
             {% elif fileOrFolder.isFolder%}
                 <div class="folder inner-folder"  x-data="{isOpen: $persist(false).as('{{currentPath}}')}" @click.stop="isOpen=!isOpen">
                     <div class="foldername-wrapper">
-                    <i x-show="isOpen" style="display: none;" class="svg-icon" icon-name="chevron-down"></i>
-                    <i x-show="!isOpen" class="svg-icon" icon-name="chevron-right"></i>
+                    <i x-show="isOpen" style="display: none;"  icon-name="chevron-down"></i>
+                    <i x-show="!isOpen"  icon-name="chevron-right"></i>
                     <span class="foldername">{{fileOrFolderName}}</span>
                     </div>
                     {% for fileOrFolderName, child in fileOrFolder %}
