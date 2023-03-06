@@ -379,10 +379,15 @@ ul.task-list {
 
 .notelink {
     padding: 5px 0 5px 25px;
+    display: flex;
+    align-items: center;
     a {
         &:hover {
             text-decoration: underline !important;
         }
+    }
+    svg {
+        flex-shrink: 0;
     }
 }
 
