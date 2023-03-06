@@ -52,6 +52,9 @@ function getPermalinkMeta(path, key) {
     if (frontMatter.data.permalink) {
       permalink = frontMatter.data.permalink;
     }
+    if (frontMatter.data.tags.indexOf("gardenEntry") != -1) {
+      permalink = "/";
+    }
     if (frontMatter.data.title) {
       name = frontMatter.data.title;
     }
