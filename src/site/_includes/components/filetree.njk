@@ -8,7 +8,7 @@
                 </div>
             {% elif fileOrFolder.isFolder%}
                 <div class="folder inner-folder"  x-data="{isOpen: $persist(false).as('{{currentPath}}')}" @click.stop="isOpen=!isOpen">
-                    <div class="foldername-wrapper">
+                    <div class="foldername-wrapper align-icon">
                     <i x-show="isOpen" style="display: none;"  icon-name="chevron-down"></i>
                     <i x-show="!isOpen"  icon-name="chevron-right"></i>
                     <span class="foldername">{{fileOrFolderName}}</span>
