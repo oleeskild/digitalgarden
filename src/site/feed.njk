@@ -18,7 +18,7 @@
                 {% else %}{{ note.fileSlug }}
                 {% endif %}
             </title>
-            <updated>{{ (note.updated or note.date ) | dateToRfc3339 }}</updated>
+            <updated>{%if note.data.updated %}{{ note.data.updated | dateToZulu }}{%else%}{{ note.date | dateToRfc3339 }}{%endif%}</updated>
             <id>{{ meta.siteBaseUrl }}{{note.url | url }}</id>
             <content type="html">
                 {{ note.templateContent | hideDataview | link | taggify | htmlToAbsoluteUrls(meta.siteBaseUrl) }}

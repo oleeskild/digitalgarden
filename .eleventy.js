@@ -325,6 +325,11 @@ module.exports = function (eleventyConfig) {
       singleTags: ["link"]
     }  
   });
+
+  eleventyConfig.addFilter("dateToZulu", function(date){
+    if(!date) return "";
+    return new Date(date).toISOString("dd-MM-yyyyTHH:mm:ssZ");
+  });
   eleventyConfig.addFilter("jsonify", function (variable) {
     return JSON.stringify(variable) || '""';
   });
