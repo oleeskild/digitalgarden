@@ -38,6 +38,13 @@ module.exports = async () => {
     bodyClasses.push("links-note-icon");
     noteIconsSettings.links = true;
   }
+  if (
+    process.env.NOTE_ICON_BACK_LINKS &&
+    process.env.NOTE_ICON_BACK_LINKS == "true"
+  ) {
+    bodyClasses.push("backlinks-note-icon");
+    noteIconsSettings.backlinks = true;
+  }
   let timestampSettings = {
     timestampFormat: process.env.TIMESTAMP_FORMAT || "MMM dd, yyyy h:mm a",
     showCreated: process.env.SHOW_CREATED_TIMESTAMP == "true",

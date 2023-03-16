@@ -62,7 +62,7 @@
                                           {%- for backlink in graph.nodes[graph.homeAlias].backLinks -%}
                                                 {%- if graph.nodes[backlink].url != graph.homeAlias -%}
                                                 <div class="backlink-card">
-                                                      <i  icon-name="link"></i> <a href="{{graph.nodes[backlink].url}}">{{graph.nodes[backlink].title}}</a>
+                                                      {%- if not meta.noteIconsSettings.backlinks -%}<i  icon-name="link"></i> {%- endif -%}<a href="{{graph.nodes[backlink].url}}" data-note-icon="{{graph.nodes[backlink].noteIcon}}" class="backlink">{{graph.nodes[backlink].title}}</a>
                                                 </div>
                                                 {%- endif -%}
                                           {%- endfor -%}
@@ -75,7 +75,7 @@
                                           {%- for backlink in graph.nodes[page.url].backLinks -%}
                                                 {%- if graph.nodes[backlink].url != page.url -%}
                                                 <div class="backlink-card">
-                                                      <i  icon-name="link"></i> <a href="{{graph.nodes[backlink].url}}">{{graph.nodes[backlink].title}}</a>
+                                                      {%- if not meta.noteIconsSettings.backlinks -%}<i  icon-name="link"></i> {%- endif -%}<a href="{{graph.nodes[backlink].url}}" data-note-icon="{{graph.nodes[backlink].noteIcon}}" class="backlink">{{graph.nodes[backlink].title}}</a>
                                                 </div>
                                                 {%- endif -%}
                                           {%- endfor -%}
