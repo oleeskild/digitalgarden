@@ -46,6 +46,7 @@ function getPermalinkMeta(path, key) {
   let permalink = "/";
   let name = key.replace(".md", "");
   let noteIcon = process.env.NOTE_ICON_DEFAULT;
+  let hide = false;
   try {
     const file = fs.readFileSync(`${path}`, "utf8");
     const frontMatter = matter(file);
@@ -61,11 +62,16 @@ function getPermalinkMeta(path, key) {
     if (frontMatter.data.noteIcon) {
       noteIcon = frontMatter.data.noteIcon;
     }
+    // Reason for adding the hide flag instead of removing completely from file tree is to
+    // allow users to use the filetree data elsewhere without the fear of losing any data.
+    if (frontMatter.data.hide) {
+      hide = frontMatter.data.hide;
+    }
   } catch {
     //ignore
   }
 
-  return { permalink, name, noteIcon };
+  return { permalink, name, noteIcon, hide };
 }
 
 function populateWithPermalink(tree) {
@@ -74,13 +80,8 @@ function populateWithPermalink(tree) {
       const isNote = tree[key].path.endsWith(".md");
       tree[key].isNote = isNote;
       if (isNote) {
-        let { permalink, name, noteIcon } = getPermalinkMeta(
-          tree[key].path,
-          key
-        );
-        tree[key].permalink = permalink;
-        tree[key].name = name;
-        tree[key].noteIcon = noteIcon;
+        let meta = getPermalinkMeta(tree[key].path, key);
+        Object.assign(tree[key], meta);
       }
     } else {
       tree[key].isFolder = true;
