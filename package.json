@@ -18,6 +18,7 @@
     "license": "ISC",
     "devDependencies": {
         "@11ty/eleventy": "^2.0.0",
+        "@11ty/eleventy-plugin-rss": "^1.2.0",
         "cross-env": "^7.0.3",
         "html-minifier": "^4.0.0",
         "node-html-parser": "^6.1.4",
