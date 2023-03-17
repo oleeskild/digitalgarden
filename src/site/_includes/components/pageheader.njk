@@ -39,3 +39,11 @@
         <meta name="{{ name }}" content="{{ content }}">
     {% endfor %}
 {% endif %}
+
+{% if meta.styleSettingsCss %}
+    <style>
+        {{ meta.styleSettingsCss | safe }}
+    </style>
+{% endif %}
+<style>
+</style>
