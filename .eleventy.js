@@ -254,7 +254,7 @@ module.exports = function (eleventyConfig) {
         let calloutType = "";
         let isCollapsable;
         let isCollapsed;
-        const calloutMeta = /\[!(\w*)\](\+|\-){0,1}(\s?.*)/;
+        const calloutMeta = /\[!([\w-]*)\](\+|\-){0,1}(\s?.*)/;;
         if (!content.match(calloutMeta)) {
           continue;
         }
