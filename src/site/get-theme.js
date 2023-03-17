@@ -2,7 +2,7 @@ require("dotenv").config();
 const axios = require("axios");
 const fs = require("fs");
 const crypto = require("crypto");
-const glob = require("glob");
+const {globSync} = require("glob");
 
 const themeCommentRegex = /\/\*[\s\S]*?\*\//g;
 
@@ -23,7 +23,7 @@ async function getTheme() {
 
     const res = await axios.get(themeUrl);
     try {
-      const existing = glob.sync("src/site/styles/_theme.*.css");
+      const existing = globSync("src/site/styles/_theme.*.css");
       existing.forEach((file) => {
         fs.rmSync(file);
       });
