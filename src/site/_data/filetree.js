@@ -13,6 +13,15 @@ const sortTree = (unsorted) => {
   //Sort by folder before file, then by name
   const orderedTree = Object.keys(unsorted)
     .sort((a, b) => {
+      let a_pinned = unsorted[a].pinned;
+      let b_pinned = unsorted[b].pinned;
+      if (a_pinned != b_pinned) {
+        if (a_pinned) {
+          return -1;
+        } else {
+          return 1;
+        }
+      }
       if (a.indexOf(".md") > -1 && b.indexOf(".md") === -1) {
         return 1;
       }
@@ -47,13 +56,17 @@ function getPermalinkMeta(path, key) {
   let name = key.replace(".md", "");
   let noteIcon = process.env.NOTE_ICON_DEFAULT;
   let hide = false;
+  let pinned = false;
   try {
     const file = fs.readFileSync(`${path}`, "utf8");
     const frontMatter = matter(file);
     if (frontMatter.data.permalink) {
       permalink = frontMatter.data.permalink;
     }
-    if (frontMatter.data.tags && frontMatter.data.tags.indexOf("gardenEntry") != -1) {
+    if (
+      frontMatter.data.tags &&
+      frontMatter.data.tags.indexOf("gardenEntry") != -1
+    ) {
       permalink = "/";
     }
     if (frontMatter.data.title) {
@@ -67,11 +80,14 @@ function getPermalinkMeta(path, key) {
     if (frontMatter.data.hide) {
       hide = frontMatter.data.hide;
     }
+    if (frontMatter.data.pinned) {
+      pinned = frontMatter.data.pinned;
+    }
   } catch {
     //ignore
   }
 
-  return { permalink, name, noteIcon, hide };
+  return { permalink, name, noteIcon, hide, pinned };
 }
 
 function populateWithPermalink(tree) {
