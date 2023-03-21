@@ -12,7 +12,9 @@
         const keys = Object.values(existing).map((n) => n.neighbors).flat();
         const n_remaining = Object.keys(remaining).reduce((acc, key) => {
                 if (keys.indexOf(key) != -1) {
-                    existing[key] = remaining[key];
+                    if (!remaining[key].hide) {
+                        existing[key] = remaining[key];
+                    }
                 } else {
                     acc[key] = remaining[key];
                 }
