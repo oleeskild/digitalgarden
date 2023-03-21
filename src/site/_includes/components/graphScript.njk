@@ -166,9 +166,10 @@
     window.fullGraph = null;
     function renderFullGraph() {
         if (!window.fullGraph) {
+            const hiddens = Object.values(window.graphData.nodes).filter((n) => n.hide).map((n) => n.id);
             const graphData = {
-                links: JSON.parse(JSON.stringify(window.graphData.links)),
-                nodes: [...Object.values(window.graphData.nodes)]
+                links: JSON.parse(JSON.stringify(window.graphData.links)).filter((l) => hiddens.indexOf(l.source) == -1 && hiddens.indexOf(l.target) == -1),
+                nodes: [...Object.values(window.graphData.nodes).filter((n) => !n.hide)]
             }
             
             let g = document.createElement('div');
