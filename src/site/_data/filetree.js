@@ -13,8 +13,8 @@ const sortTree = (unsorted) => {
   //Sort by folder before file, then by name
   const orderedTree = Object.keys(unsorted)
     .sort((a, b) => {
-      let a_pinned = unsorted[a].pinned;
-      let b_pinned = unsorted[b].pinned;
+      let a_pinned = unsorted[a].pinned || false;
+      let b_pinned = unsorted[b].pinned || false;
       if (a_pinned != b_pinned) {
         if (a_pinned) {
           return -1;
