@@ -35,8 +35,10 @@ function getGraph(data) {
   let links = [];
   let stemURLs = {};
   let homeAlias = "/";
-  (data.collections.note||[]).forEach((v, idx) => {
-    let fpath = v.filePathStem.replace("/notes/", "");
+  (data.collections.note || []).forEach((v, idx) => {
+    let fpath = v.data["dg-path"]
+      ? v.data["dg-path"].split(".md")[0]
+      : v.filePathStem.replace("/notes/", "");
     let parts = fpath.split("/");
     let group = "none";
     if (parts.length >= 3) {
@@ -47,14 +49,20 @@ function getGraph(data) {
       title: v.data.title || v.fileSlug,
       url: v.url,
       group,
-      home: v.data["dg-home"] || (v.data.tags && v.data.tags.indexOf("gardenEntry") > -1)|| false,
+      home:
+        v.data["dg-home"] ||
+        (v.data.tags && v.data.tags.indexOf("gardenEntry") > -1) ||
+        false,
       outBound: extractLinks(v.template.frontMatter.content),
       neighbors: new Set(),
       backLinks: new Set(),
-      noteIcon: v.data.noteIcon || process.env.NOTE_ICON_DEFAULT
+      noteIcon: v.data.noteIcon || process.env.NOTE_ICON_DEFAULT,
     };
     stemURLs[fpath] = v.url;
-    if (v.data["dg-home"] || (v.data.tags && v.data.tags.indexOf("gardenEntry") > -1)) {
+    if (
+      v.data["dg-home"] ||
+      (v.data.tags && v.data.tags.indexOf("gardenEntry") > -1)
+    ) {
       homeAlias = v.url;
     }
   });
