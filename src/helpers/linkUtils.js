@@ -57,6 +57,7 @@ function getGraph(data) {
       neighbors: new Set(),
       backLinks: new Set(),
       noteIcon: v.data.noteIcon || process.env.NOTE_ICON_DEFAULT,
+      hide: v.data.hideInGraph || false,
     };
     stemURLs[fpath] = v.url;
     if (

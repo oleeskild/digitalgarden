@@ -77,8 +77,8 @@ function getPermalinkMeta(note, key) {
     if (note.data.hide) {
       hide = note.data.hide;
     }
-    if (frontMatter.data.pinned) {
-      pinned = frontMatter.data.pinned;
+    if (note.data.pinned) {
+      pinned = note.data.pinned;
     }
     if (note.data["dg-path"]) {
       folders = note.data["dg-path"].split("/");
