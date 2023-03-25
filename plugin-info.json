@@ -2,7 +2,8 @@
     "filesToDelete": [
         "src/site/styles/style.css",
         "src/site/index.njk",
-        "src/site/index.11tydata.js"
+        "src/site/index.11tydata.js",
+        "src/site/_data/filetree.js"
     ],
     "filesToAdd": [
         "src/site/styles/custom-style.scss",
@@ -53,11 +54,11 @@
         "src/site/lunr.njk",
         "src/site/_data/versionednotes.js",
         "src/site/_data/meta.js",
-        "src/site/_data/filetree.js",
         "src/site/_data/dynamics.js",
         "src/site/img/outgoing.svg",
         "src/helpers/constants.js",
         "src/helpers/utils.js",
+        "src/helpers/filetreeUtils.js",
         "src/helpers/linkUtils.js",
         "netlify/functions/search/search.js",
         "src/site/get-theme.js",

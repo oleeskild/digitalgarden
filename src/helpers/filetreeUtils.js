@@ -2,6 +2,17 @@ const sortTree = (unsorted) => {
   //Sort by folder before file, then by name
   const orderedTree = Object.keys(unsorted)
     .sort((a, b) => {
+
+      let a_pinned = unsorted[a].pinned || false;
+      let b_pinned = unsorted[b].pinned || false;
+      if (a_pinned != b_pinned) {
+        if (a_pinned) {
+          return -1;
+        } else {
+          return 1;
+        }
+      }
+
       const a_is_note = a.indexOf(".md") > -1;
       const b_is_note = b.indexOf(".md") > -1;
 
@@ -46,6 +57,7 @@ function getPermalinkMeta(note, key) {
   let name = parts[parts.length - 1];
   let noteIcon = process.env.NOTE_ICON_DEFAULT;
   let hide = false;
+  let pinned = false;
   let folders = null;
   try {
     if (note.data.permalink) {
@@ -65,6 +77,9 @@ function getPermalinkMeta(note, key) {
     if (note.data.hide) {
       hide = note.data.hide;
     }
+    if (frontMatter.data.pinned) {
+      pinned = frontMatter.data.pinned;
+    }
     if (note.data["dg-path"]) {
       folders = note.data["dg-path"].split("/");
     } else {
@@ -77,7 +92,7 @@ function getPermalinkMeta(note, key) {
     //ignore
   }
 
-  return [{ permalink, name, noteIcon, hide }, folders];
+  return [{ permalink, name, noteIcon, hide, pinned }, folders];
 }
 
 function assignNested(obj, keyPath, value) {
