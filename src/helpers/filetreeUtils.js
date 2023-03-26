@@ -88,6 +88,7 @@ function getPermalinkMeta(note, key) {
         .split("/")
         .map(toTitleCase);
     }
+    folders[folders.length - 1]+= ".md";
   } catch {
     //ignore
   }
