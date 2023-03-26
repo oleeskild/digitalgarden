@@ -517,13 +517,9 @@ ul.task-list {
     display: flex;
     align-items: center;
     min-width: 150px;
-    margin: 10px 40px 10px 10px;
+    margin: 10px 40px; 
     border: 1px solid var(--text-normal);
     cursor: pointer;
-
-    > span {
-        padding: 3px 3px 3px 10px;
-    }
 
     > i {
         margin-left: 10px;
@@ -748,4 +744,5 @@ body.backlinks-note-icon .backlink[data-note-icon="3"]::before {
 .align-icon {
     display: inline-flex;
     align-items: center;
+    justify-content: space-evenly;
 }
