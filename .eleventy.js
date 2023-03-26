@@ -187,7 +187,10 @@ module.exports = function (eleventyConfig) {
           if (frontMatter.data.permalink) {
             permalink = frontMatter.data.permalink;
           }
-          if (frontMatter.data.tags && frontMatter.data.tags.indexOf("gardenEntry") != -1) {
+          if (
+            frontMatter.data.tags &&
+            frontMatter.data.tags.indexOf("gardenEntry") != -1
+          ) {
             permalink = "/";
           }
           if (frontMatter.data.noteIcon) {
@@ -254,7 +257,7 @@ module.exports = function (eleventyConfig) {
         let calloutType = "";
         let isCollapsable;
         let isCollapsed;
-        const calloutMeta = /\[!([\w-]*)\](\+|\-){0,1}(\s?.*)/;;
+        const calloutMeta = /\[!([\w-]*)\](\+|\-){0,1}(\s?.*)/;
         if (!content.match(calloutMeta)) {
           continue;
         }
@@ -293,6 +296,17 @@ module.exports = function (eleventyConfig) {
     return str && parsed.innerHTML;
   });
 
+  eleventyConfig.addTransform("table", function (str) {
+    const parsed = parse(str);
+    for (const t of parsed.querySelectorAll(".cm-s-obsidian > table")) {
+      let inner = t.innerHTML;
+      t.tagName = "div";
+      t.classList.add("table-wrapper");
+      t.innerHTML = `<table>${inner}</table>`;
+    }
+    return str && parsed.innerHTML;
+  });
+
   eleventyConfig.addTransform("htmlMinifier", (content, outputPath) => {
     if (
       process.env.NODE_ENV === "production" &&
@@ -322,12 +336,12 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss, {
     posthtmlRenderOptions: {
       closingSingleTag: "slash",
-      singleTags: ["link"]
-    }  
+      singleTags: ["link"],
+    },
   });
 
-  eleventyConfig.addFilter("dateToZulu", function(date){
-    if(!date) return "";
+  eleventyConfig.addFilter("dateToZulu", function (date) {
+    if (!date) return "";
     return new Date(date).toISOString("dd-MM-yyyyTHH:mm:ssZ");
   });
   eleventyConfig.addFilter("jsonify", function (variable) {
@@ -341,6 +355,17 @@ module.exports = function (eleventyConfig) {
       return variable.replaceAll("\\", "\\\\");
     }
     return variable;
+  });
+
+  eleventyConfig.addTransform("table", function (str) {
+    const parsed = parse(str);
+    for (const t of parsed.querySelectorAll(".cm-s-obsidian > table")) {
+      let inner = t.innerHTML;
+      t.tagName = "div";
+      t.classList.add("table-wrapper");
+      t.innerHTML = `<table>${inner}</table>`;
+    }
+    return str && parsed.innerHTML;
   });
 
   userEleventySetup(eleventyConfig);
