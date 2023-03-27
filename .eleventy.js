@@ -314,23 +314,22 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addTransform("picture", function (str) {
     const parsed = parse(str);
     for (const t of parsed.querySelectorAll(".cm-s-obsidian img")) {
-      // try {
-
-      // } catch {}
-      const src = t.getAttribute("src");
-      const cls = t.classList;
-      const alt = t.getAttribute("alt");
       if (src && src.startsWith("/") && !src.endsWith(".svg")) {
-        const meta = transformImage(
-          "./src/site" + decodeURI(t.getAttribute("src")),
-          cls.toString(),
-          alt,
-          ["(max-width: 480px)", "(max-width: 1024px)"]
-        );
+        const src = t.getAttribute("src");
+        const cls = t.classList;
+        const alt = t.getAttribute("alt");
 
-        if (meta) {
-          t.tagName = "picture";
-          t.innerHTML = `<source
+        try {
+          const meta = transformImage(
+            "./src/site" + decodeURI(t.getAttribute("src")),
+            cls.toString(),
+            alt,
+            ["(max-width: 480px)", "(max-width: 1024px)"]
+          );
+
+          if (meta) {
+            t.tagName = "picture";
+            t.innerHTML = `<source
       media="(max-width:480px)"
       srcset="${meta.webp[0].url}"
       type="image/webp"
@@ -353,6 +352,9 @@ module.exports = function (eleventyConfig) {
       src="${src}"
       alt="${alt}"
     />`;
+          }
+        } catch {
+          // Make it fault tolarent.
         }
       }
     }
