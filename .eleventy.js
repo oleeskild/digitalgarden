@@ -314,8 +314,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addTransform("picture", function (str) {
     const parsed = parse(str);
     for (const t of parsed.querySelectorAll(".cm-s-obsidian img")) {
+      const src = t.getAttribute("src");
       if (src && src.startsWith("/") && !src.endsWith(".svg")) {
-        const src = t.getAttribute("src");
         const cls = t.classList;
         const alt = t.getAttribute("alt");
 
