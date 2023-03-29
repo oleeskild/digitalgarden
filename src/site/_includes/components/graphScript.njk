@@ -70,7 +70,6 @@
         let hoverNode = null;
         const color = getCssVar("--graph-main");
         const mutedColor = getCssVar("--graph-muted");
-        console.log(width, height);
         let Graph = ForceGraph()
         (el)
             .graphData(graphData)
@@ -150,12 +149,14 @@
     }
 
     function renderLocalGraph(graphData, depth, fullScreen) {
+        if (window.graph){
+            window.graph._destructor();
+        }
         const data = filterLocalGraphData(graphData, depth);
         return renderGraph(data, 'link-graph', null, fullScreen);
     }
 
     function filterFullGraphData(graphData) {
-        console.log(graphData);
         if (graphData == null) {
             return null;
         }
@@ -165,7 +166,6 @@
             links: JSON.parse(JSON.stringify(graphData.links)).filter((l) => hiddens.indexOf(l.source) == -1 && hiddens.indexOf(l.target) == -1),
             nodes: [...Object.values(graphData.nodes).filter((n) => !n.hide)]
         }
-        console.log(data);
         return data
     }
 
@@ -185,7 +185,7 @@
         return null;
     }
 </script>
-<div x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+<div  x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
     <div class="graph-title-container">
         <div class="graph-title">Connected Pages</div>
         <div id="graph-controls">
@@ -207,7 +207,7 @@
                 </div>
         </div>
     </div>
-    <div x-effect="graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph" ></div>
+    <div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph" ></div>
     <div x-show="showFullGraph" id="full-graph" class="show">
         <span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
     </div>
