@@ -180,7 +180,6 @@ module.exports = function (eleventyConfig) {
             if (!fs.existsSync(fullPath)){
                 deadLink = true;
             }
-            
         }else{
             let header = "";
             headerLinkPath = "";
