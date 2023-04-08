@@ -159,9 +159,11 @@ module.exports = function (eleventyConfig) {
       str &&
       str.replace(/\[\[(.*?\|?.*?)\]\]/g, function (match, p1) {
         //Check if it is an embedded excalidraw drawing or mathjax javascript
+        
         if (p1.indexOf("],[") > -1 || p1.indexOf('"$"') > -1) {
           return match;
         }
+        
         const [fileLink, linkTitle] = p1.split("|");
         let fileName = fileLink.replaceAll("&amp;", "&");
         const title = linkTitle ? linkTitle : fileName;
