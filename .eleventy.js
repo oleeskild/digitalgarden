@@ -157,46 +157,62 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter("link", function (str) {
     return (
       str &&
-      str.replace(/\[\[(.*?\|.*?)\]\]/g, function (match, p1) {
+      str.replace(/\[\[(.*?\|?.*?)\]\]/g, function (match, p1) {
         //Check if it is an embedded excalidraw drawing or mathjax javascript
         if (p1.indexOf("],[") > -1 || p1.indexOf('"$"') > -1) {
           return match;
         }
         const [fileLink, linkTitle] = p1.split("|");
-
         let fileName = fileLink.replaceAll("&amp;", "&");
-        let header = "";
-        let headerLinkPath = "";
-        if (fileLink.includes("#")) {
-          [fileName, header] = fileLink.split("#");
-          headerLinkPath = `#${headerToId(header)}`;
-        }
-
-        let permalink = `/notes/${slugify(fileName)}`;
-        let noteIcon = process.env.NOTE_ICON_DEFAULT;
         const title = linkTitle ? linkTitle : fileName;
         let deadLink = false;
+        let noteIcon = process.env.NOTE_ICON_DEFAULT;
+        let permalink;
+        let headerLinkPath;
+        
+          
+        if (fileLink.slice(-5).includes(".") && fileLink.slice(-3)!=".md"){
+            //which would imply it's a file
+            headerLinkPath = "";
+            permalink = "/etc/" + fileLink
+            const startPath = "./src/site/etc/";
+            const fullPath = `${startPath}${fileName}`
+            if (!fs.existsSync(fullPath)){
+                deadLink = true;
+            }
+            
+        }else{
+            let header = "";
+            headerLinkPath = "";
+            if (fileLink.includes("#")) {
+              [fileName, header] = fileLink.split("#");
+              headerLinkPath = `#${headerToId(header)}`;
+            }
 
-        try {
-          const startPath = "./src/site/notes/";
-          const fullPath = fileName.endsWith(".md")
-            ? `${startPath}${fileName}`
-            : `${startPath}${fileName}.md`;
-          const file = fs.readFileSync(fullPath, "utf8");
-          const frontMatter = matter(file);
-          if (frontMatter.data.permalink) {
-            permalink = frontMatter.data.permalink;
-          }
-          if (frontMatter.data.tags && frontMatter.data.tags.indexOf("gardenEntry") != -1) {
-            permalink = "/";
-          }
-          if (frontMatter.data.noteIcon) {
-            noteIcon = frontMatter.data.noteIcon;
-          }
-        } catch {
-          deadLink = true;
+            permalink = `/notes/${slugify(fileName)}`;
+            
+            try {
+              const startPath = "./src/site/notes/";
+              const fullPath = fileName.endsWith(".md")
+                ? `${startPath}${fileName}`
+                : `${startPath}${fileName}.md`;
+              const file = fs.readFileSync(fullPath, "utf8");
+              const frontMatter = matter(file);
+              if (frontMatter.data.permalink) {
+                permalink = frontMatter.data.permalink;
+              }
+              if (frontMatter.data.tags && frontMatter.data.tags.indexOf("gardenEntry") != -1) {
+                permalink = "/";
+              }
+              if (frontMatter.data.noteIcon) {
+                noteIcon = frontMatter.data.noteIcon;
+              }
+            } catch {
+              deadLink = true;
+            }
+                        
         }
-
+                
         return `<a class="internal-link ${
           deadLink ? "is-unresolved" : ""
         }" ${deadLink ? "" : 'data-note-icon="' + noteIcon + '"'} href="${permalink}${headerLinkPath}">${title}</a>`;
@@ -314,6 +330,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/site/img");
   eleventyConfig.addPassthroughCopy("src/site/scripts");
   eleventyConfig.addPassthroughCopy("src/site/styles/_theme.*.css");
+  eleventyConfig.addPassthroughCopy("src/site/etc");
   eleventyConfig.addPlugin(faviconPlugin, { destination: "dist" });
   eleventyConfig.addPlugin(tocPlugin, {
     ul: true,
