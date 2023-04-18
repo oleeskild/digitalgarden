@@ -15,13 +15,13 @@
         "src/site/img/tree-3.svg",
         "src/helpers/userUtils.js",
         "src/helpers/userSetup.js",
-        "vercel.json"
+        "vercel.json",
+        "netlify.toml"
     ],
     "filesToModify": [
         ".eleventy.js",
         ".eleventyignore",
         "README.md",
-        "netlify.toml",
         "package-lock.json",
         "package.json",
         "src/site/404.njk",
