@@ -517,7 +517,7 @@ ul.task-list {
     display: flex;
     align-items: center;
     min-width: 150px;
-    margin: 10px 40px; 
+    margin: 10px 40px;
     border: 1px solid var(--text-normal);
     cursor: pointer;
 
@@ -740,9 +740,14 @@ body.backlinks-note-icon .backlink[data-note-icon="3"]::before {
     }
 }
 
-
 .align-icon {
     display: inline-flex;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.cm-s-obsidian {
+    .table-wrapper {
+        overflow-x: auto;
+    }
 }
