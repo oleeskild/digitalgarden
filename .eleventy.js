@@ -361,6 +361,17 @@ module.exports = function (eleventyConfig) {
     return str && parsed.innerHTML;
   });
 
+  eleventyConfig.addTransform("table", function (str) {
+    const parsed = parse(str);
+    for (const t of parsed.querySelectorAll(".cm-s-obsidian > table")) {
+      let inner = t.innerHTML;
+      t.tagName = "div";
+      t.classList.add("table-wrapper");
+      t.innerHTML = `<table>${inner}</table>`;
+    }
+    return str && parsed.innerHTML;
+  });
+
   eleventyConfig.addTransform("htmlMinifier", (content, outputPath) => {
     if (
       process.env.NODE_ENV === "production" &&
