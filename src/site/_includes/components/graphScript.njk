@@ -1,12 +1,9 @@
 <script>
-    const getCssVar = (variable) => getComputedStyle(document.body).getPropertyValue(variable);
-
-    function htmlDecode(input) {
-        var doc = new DOMParser().parseFromString(input, "text/html");
-        return doc.documentElement.textContent;
+    async function fetchGraphData() {
+        const graphData = await fetch('/graph.json').then(res => res.json());
+        const fullGraphData  = filterFullGraphData(graphData);
+        return {graphData, fullGraphData}
     }
-    window.graphData = null;
-    window.maxGraphDepth = 1;
 
     function getNextLevelNeighbours(existing, remaining) {
         const keys = Object.values(existing).map((n) => n.neighbors).flat();
@@ -23,8 +20,12 @@
         return existing, n_remaining;
     }
 
-    function filterToDepth(data) {
-        let remaining = JSON.parse(JSON.stringify(data.nodes));
+    function filterLocalGraphData(graphData, depth) {
+        if (graphData == null) {
+            return null;
+        }
+        let remaining = JSON.parse(JSON.stringify(graphData.nodes));
+        let links = JSON.parse(JSON.stringify(graphData.links));
         let currentLink = decodeURI(window.location.pathname);
         let currentNode = remaining[currentLink] || Object.values(remaining).find((v) => v.home);
         delete remaining[currentNode.url];
@@ -35,7 +36,7 @@
         currentNode.current = true;
         let existing = {};
         existing[currentNode.url] = currentNode;
-        for (let i = 0; i < window.maxGraphDepth; i++) {
+        for (let i = 0; i < depth; i++) {
             existing, remaining = getNextLevelNeighbours(existing, remaining);
         }
         nodes = Object.values(existing);
@@ -43,16 +44,25 @@
             nodes = nodes.filter(n => !n.home);
         }
         let ids = nodes.map((n) => n.id);
-        let graphData = {
+        return {
             nodes,
-            links: data.links.filter((con) => ids.indexOf(con.target) > -1 && ids.indexOf(con.source) > -1),
+            links: links.filter(function (con) {
+                return ids.indexOf(con.target) > -1 && ids.indexOf(con.source) > -1;
+            }),
         }
-        return graphData;
     }
 
-    var Graph;
+    function getCssVar(variable) {return getComputedStyle(document.body).getPropertyValue(variable)}
 
-    function renderGraph(graphData, id, delay) {
+    function htmlDecode(input) {
+        var doc = new DOMParser().parseFromString(input, "text/html");
+        return doc.documentElement.textContent;
+    }
+
+    function renderGraph(graphData, id, delay, fullScreen) {
+        if (graphData == null) {
+            return;
+        }
         const el = document.getElementById(id);
         width = el.offsetWidth;
         height = el.offsetHeight;
@@ -60,7 +70,6 @@
         let hoverNode = null;
         const color = getCssVar("--graph-main");
         const mutedColor = getCssVar("--graph-muted");
-
         let Graph = ForceGraph()
         (el)
             .graphData(graphData)
@@ -131,86 +140,75 @@
                 hoverNode = node || null;
                 
             });
-            if (delay != null && graphData.nodes.length > 4) {
+            if (fullScreen || (delay != null && graphData.nodes.length > 4)) {
                 setTimeout(() => {
                     Graph.zoomToFit(5, 75);
-                }, delay);
+                }, delay || 200);
             }
         return Graph;
     }
 
-    function fetchGraphData() {
-        fetch('/graph.json').then(res => res.json()).then(data => {
-            window.graphData = data;
-            Graph = renderGraph(filterToDepth(JSON.parse(JSON.stringify(data))), "link-graph", 1);
-        });
+    function renderLocalGraph(graphData, depth, fullScreen) {
+        if (window.graph){
+            window.graph._destructor();
+        }
+        const data = filterLocalGraphData(graphData, depth);
+        return renderGraph(data, 'link-graph', null, fullScreen);
     }
 
-    fetchGraphData();
-    window.document.getElementById('graph-depth').value = window.maxGraphDepth;
-    window.document.getElementById('depth-display').innerText = window.maxGraphDepth;
-    window.document.getElementById('graph-depth').addEventListener('input', (evt) => {
-        
-    window.maxGraphDepth = evt.target.value;
-    window.document.getElementById('depth-display').innerText = window.maxGraphDepth;
-        if (Graph != null) {
-            Graph._destructor();
-            Graph = null;
+    function filterFullGraphData(graphData) {
+        if (graphData == null) {
+            return null;
         }
-        Graph = renderGraph(filterToDepth(JSON.parse(JSON.stringify(window.graphData))), "link-graph", 1);
-        setTimeout(() => {
-            Graph.zoomToFit(5, 75);
-        }, 1);
-    });
+        graphData = JSON.parse(JSON.stringify(graphData));
+        const hiddens = Object.values(graphData.nodes).filter((n) => n.hide).map((n) => n.id);
+        const data = {
+            links: JSON.parse(JSON.stringify(graphData.links)).filter((l) => hiddens.indexOf(l.source) == -1 && hiddens.indexOf(l.target) == -1),
+            nodes: [...Object.values(graphData.nodes).filter((n) => !n.hide)]
+        }
+        return data
+    }
 
-    window.fullGraph = null;
-    function renderFullGraph() {
-        if (!window.fullGraph) {
-            const hiddens = Object.values(window.graphData.nodes).filter((n) => n.hide).map((n) => n.id);
-            const graphData = {
-                links: JSON.parse(JSON.stringify(window.graphData.links)).filter((l) => hiddens.indexOf(l.source) == -1 && hiddens.indexOf(l.target) == -1),
-                nodes: [...Object.values(window.graphData.nodes).filter((n) => !n.hide)]
-            }
-            
-            let g = document.createElement('div');
-            g.id = 'full-graph';
-            g.classList.add('show');
-            document.body.appendChild(g);
-            g.innerHTML = '<span id="full-graph-close"><i icon-name="x"  aria-hidden="true"></i></span><div id="full-graph-container"></div>';
-            lucide.createIcons({
+    function openFullGraph(fullGraphData) {
+        lucide.createIcons({
                 attrs: {
                     class: ["svg-icon"]
                 }
             });
-            window.fullGraph = renderGraph(graphData, "full-graph-container", 200);
-            document.getElementById('full-graph-close').addEventListener('click', (evt) => {
-                g.classList.remove('show');
-                window.fullGraph._destructor();
-                window.fullGraph = null;
-                document.getElementById('full-graph').remove()
-            });
-        }
-        
+        return renderGraph(fullGraphData, "full-graph-container", 200, false);;
     }
 
-    document.getElementById('graph-fs-btn').addEventListener('click', (evt) => {
-        const el = document.querySelector('.graph');
-        if (el.classList.contains('graph-fs')) {
-            el.classList.remove('graph-fs');
-            Graph.width(el.offsetWidth).height(el.offsetWidth);
-        } else {
-            el.classList.add('graph-fs');
-            Graph.width(el.offsetWidth).height(el.offsetWidth);
+    function closefullGraph(fullGraph) {
+        if (fullGraph) {
+            fullGraph._destructor();
         }
-        setTimeout(() => {
-            Graph.zoomToFit(5, 75);
-        }, 1);
-        
-    });
-
-    document.getElementById('global-graph-btn').addEventListener('click', (evt) => {
-        if (!window.fullGraph) {
-            renderFullGraph();
-        }
-    });
+        return null;
+    }
 </script>
+<div  x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
+    <div class="graph-title-container">
+        <div class="graph-title">Connected Pages</div>
+        <div id="graph-controls">
+                <div class="depth-control">
+                    <label for="graph-depth">Depth</label>
+                    <div class="slider">
+                            <input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth"/>
+                    <datalist id="depthmarkers">
+                            <option value="1" label="1"></option>
+                            <option value="2" label="2"></option>
+                            <option value="3" label="3"></option>
+                    </datalist>
+                    </div>
+                    <span id="depth-display" x-text="depth"></span>
+                </div>
+                <div class="ctrl-right">
+                    <span id="global-graph-btn" x-on:click="showFullGraph = true; setTimeout(() => {fullGraph = openFullGraph(fullGraphData)}, 100)"><i  icon-name="globe" aria-hidden="true"></i></span>
+                    <span  id="graph-fs-btn"  x-on:click="fullScreen = !fullScreen"><i  icon-name="expand" aria-hidden="true"></i></span>
+                </div>
+        </div>
+    </div>
+    <div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph" ></div>
+    <div x-show="showFullGraph" id="full-graph" class="show">
+        <span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
+    </div>
+</div>

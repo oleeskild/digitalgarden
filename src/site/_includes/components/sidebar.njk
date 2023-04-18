@@ -5,30 +5,7 @@
                         {% include imp %}
                   {% endfor %}
                   {%if settings.dgShowLocalGraph === true%}
-                        <div class="graph">
-                              <div class="graph-title-container">
-                                    <div class="graph-title">Connected Pages</div>
-                                    <div id="graph-controls">
-                                          <div class="depth-control">
-                                                <label for="graph-depth">Depth</label>
-                                                <div class="slider">
-                                                      <input name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth"/>
-                                                <datalist id="depthmarkers">
-                                                      <option value="1" label="1"></option>
-                                                      <option value="2" label="2"></option>
-                                                      <option value="3" label="3"></option>
-                                                </datalist>
-                                                </div>
-                                                <span id="depth-display"></span>
-                                          </div>
-                                          <div class="ctrl-right">
-                                                <span id="global-graph-btn"><i  icon-name="globe" aria-hidden="true"></i></span>
-                                                <span  id="graph-fs-btn"><i  icon-name="expand" aria-hidden="true"></i></span>
-                                          </div>
-                                    </div>
-                              </div>
-                              <div id="link-graph"></div>
-                        </div>
+                        {%include "components/graphScript.njk"%}
                   {%endif%}
 
                   {%if settings.dgShowToc === true%}
@@ -90,7 +67,3 @@
             </div>
       </div>
 </aside>
-
-{%if settings.dgShowLocalGraph === true %}
-      {%include "components/graphScript.njk"%}
-{% endif %}
