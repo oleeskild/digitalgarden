@@ -369,6 +369,15 @@ module.exports = function (eleventyConfig) {
       t.classList.add("table-wrapper");
       t.innerHTML = `<table>${inner}</table>`;
     }
+
+    for (const t of parsed.querySelectorAll(
+      ".cm-s-obsidian > .block-language-dataview > table"
+    )) {
+      t.classList.add("dataview");
+      t.classList.add("table-view-table");
+      t.querySelector("thead").classList.add("table-view-thead");
+      t.querySelector("tbody").classList.add("table-view-tbody");
+    }
     return str && parsed.innerHTML;
   });
 
