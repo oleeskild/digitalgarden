@@ -377,6 +377,12 @@ module.exports = function (eleventyConfig) {
       t.classList.add("table-view-table");
       t.querySelector("thead").classList.add("table-view-thead");
       t.querySelector("tbody").classList.add("table-view-tbody");
+      t.querySelectorAll("thead > tr").forEach((tr) => {
+        tr.classList.add("table-view-tr-header");
+      });
+      t.querySelectorAll("thead > tr > th").forEach((th) => {
+        th.classList.add("table-view-th");
+      });
     }
     return str && parsed.innerHTML;
   });
