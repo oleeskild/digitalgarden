@@ -196,8 +196,10 @@
         let results = await searchRequest.json();
         let resultsHTML = '';
         if (!results.length) {
-            resultsHTML += `<p>No results for "${search}"</p>`;
-            resultsDiv.innerHTML = resultsHTML;
+            let resultParagraph = document.createElement("p");
+            resultParagraph.innerText = `No results for "${search}"`;
+            resultsDiv.innerHTML = '';
+            resultsDiv.appendChild(resultParagraph);
             return;
         }
         resultsHTML += '<div style="max-width:100%;">';
