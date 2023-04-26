@@ -3,4 +3,8 @@
 ---
 
 
-Welcome to my digital garden - an online notebook and knowledge base where I share and cultivate notes and knowledge in public. Contrary to a blog, where articles and essays have a publication date and start decaying as soon as they are published, my digital garden is evergreen: I continuously edit and refine its documents.
+Welcome to my digital garden - a space where I share and cultivate notes and knowledge in public. Unlike a blog, where articles start decaying as soon as they are published, my digital garden is evergreen; documents are continuously edited and refined. 
+
+Thanks for visiting. I hope you find something useful here.
+
+
