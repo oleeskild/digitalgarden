@@ -45,12 +45,6 @@ const sortTree = (unsorted) => {
   return orderedTree;
 };
 
-function toTitleCase(str) {
-  return str.replace(/\w\S*/g, function (txt) {
-    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-  });
-}
-
 function getPermalinkMeta(note, key) {
   let permalink = "/";
   let parts = note.filePathStem.split("/");
@@ -65,8 +59,7 @@ function getPermalinkMeta(note, key) {
     }
     if (note.data.tags && note.data.tags.indexOf("gardenEntry") != -1) {
       permalink = "/";
-    }
-    if (note.data.title) {
+    }    if (note.data.title) {
       name = note.data.title;
     }
     if (note.data.noteIcon) {
@@ -85,8 +78,8 @@ function getPermalinkMeta(note, key) {
     } else {
       folders = note.filePathStem
         .split("notes/")[1]
-        .split("/")
-        .map(toTitleCase);
+        .split("/");
+        // .map(toTitleCase);
     }
     folders[folders.length - 1]+= ".md";
   } catch {
