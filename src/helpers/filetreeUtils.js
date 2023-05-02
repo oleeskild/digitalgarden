@@ -59,7 +59,8 @@ function getPermalinkMeta(note, key) {
     }
     if (note.data.tags && note.data.tags.indexOf("gardenEntry") != -1) {
       permalink = "/";
-    }    if (note.data.title) {
+    }    
+    if (note.data.title) {
       name = note.data.title;
     }
     if (note.data.noteIcon) {
@@ -79,7 +80,6 @@ function getPermalinkMeta(note, key) {
       folders = note.filePathStem
         .split("notes/")[1]
         .split("/");
-        // .map(toTitleCase);
     }
     folders[folders.length - 1]+= ".md";
   } catch {
