@@ -7,6 +7,7 @@ const tocPlugin = require("eleventy-plugin-nesting-toc");
 const { parse } = require("node-html-parser");
 const htmlMinifier = require("html-minifier");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const cheerio = require('cheerio');
 
 const { headerToId, namedHeadingsFilter } = require("./src/helpers/utils");
 const {
@@ -257,58 +258,58 @@ module.exports = function (eleventyConfig) {
     );
   });
 
-  eleventyConfig.addTransform("callout-block", function (str) {
-    const parsed = parse(str);
-
-    const transformCalloutBlocks = (
-      blockquotes = parsed.querySelectorAll("blockquote")
-    ) => {
-      for (const blockquote of blockquotes) {
-        transformCalloutBlocks(blockquote.querySelectorAll("blockquote"));
-
-        let content = blockquote.innerHTML;
-
-        let titleDiv = "";
-        let calloutType = "";
-        let isCollapsable;
-        let isCollapsed;
-        const calloutMeta = /\[!([\w-]*)\](\+|\-){0,1}(\s?.*)/;
-        if (!content.match(calloutMeta)) {
-          continue;
-        }
-
-        content = content.replace(
-          calloutMeta,
-          function (metaInfoMatch, callout, collapse, title) {
-            isCollapsable = Boolean(collapse);
-            isCollapsed = collapse === "-";
-            const titleText = title.replace(/(<\/{0,1}\w+>)/, "")
-              ? title
-              : `${callout.charAt(0).toUpperCase()}${callout
-                  .substring(1)
-                  .toLowerCase()}`;
-            const fold = isCollapsable
-              ? `<div class="callout-fold"><i icon-name="chevron-down"></i></div>`
-              : ``;
-
-            calloutType = callout;
-            titleDiv = `<div class="callout-title"><div class="callout-title-inner">${titleText}</div>${fold}</div>`;
-            return "";
-          }
-        );
-
-        blockquote.tagName = "div";
-        blockquote.classList.add("callout");
-        blockquote.classList.add(isCollapsable ? "is-collapsible" : "");
-        blockquote.classList.add(isCollapsed ? "is-collapsed" : "");
-        blockquote.setAttribute("data-callout", calloutType.toLowerCase());
-        blockquote.innerHTML = `${titleDiv}\n<div class="callout-content">${content}</div>`;
+  const transformCalloutBlocks = async (block) => {
+      let content = block.prop('innerHTML');
+      let titleDiv = "";
+      let calloutType = "";
+      let isCollapsable;
+      let isCollapsed;
+      const calloutMeta = /\[!([\w-]*)\](\+|\-){0,1}(\s?.*)/;
+      if (!content.match(calloutMeta)) {
+        return;
       }
-    };
+      content = content.replace(
+        calloutMeta,
+        function (metaInfoMatch, callout, collapse, title) {
+          isCollapsable = Boolean(collapse);
+          isCollapsed = collapse === "-";
+          const titleText = title.replace(/(<\/{0,1}\w+>)/, "")
+            ? title
+            : `${callout.charAt(0).toUpperCase()}${callout
+                .substring(1)
+                .toLowerCase()}`;
+          const fold = isCollapsable
+            ? `<div class="callout-fold"><i icon-name="chevron-down"></i></div>`
+            : ``;
+          calloutType = callout;
+          titleDiv = `<div class="callout-title"><div class="callout-title-inner">${titleText}</div>${fold}</div>`;
+          return "";
+        }
+      );
+      block.addClass('callout')
+      block.addClass(isCollapsable ? "is-collapsible" : "")
+      block.addClass(isCollapsed ? "is-collapsed" : "")
+      block.attr("data-callout", calloutType.toLowerCase())
+      block.html(`${titleDiv}\n<div class="callout-content">${content}</div>`)
+      block.replaceWith(`<div class="${block.attr('class')}" data-callout="${block.attr('data-callout')}">${block.prop('innerHTML')}</div>`)
+  };
 
-    transformCalloutBlocks();
-
-    return str && parsed.innerHTML;
+  eleventyConfig.addTransform("callout-block", async function (str) {
+    try {
+      const parsed = cheerio.load(str);
+      let blockquotes = parsed('blockquote')
+      if (blockquotes.length > 0) {
+        blockquotes.toArray().map(it => {
+          let block = parsed(it)
+          transformCalloutBlocks(block, parsed);
+        })
+        return str && parsed.html();
+      } else {
+        return str;
+      }
+    } catch (error) {
+      console.log(error)
+    }
   });
 
   eleventyConfig.addTransform("picture", function (str) {
