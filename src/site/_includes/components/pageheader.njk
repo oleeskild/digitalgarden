@@ -1,4 +1,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{%-if settings.dgEnableOfflineSearch === true %}
+<script src="https://unpkg.com/lunr/lunr.js"></script>
+{%endif%}
+
 <script src="https://cdn.jsdelivr.net/npm/mermaid@9.4.0/dist/mermaid.min.js"></script>
 <script>
     mermaid.initialize({

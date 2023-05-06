@@ -20,4 +20,9 @@
         </footer>
     </div>
 </div>
+
+{%-if settings.dgEnableOfflineSearch === true %}
+{%include "components/searchOfflineScript.njk"%}
+{% endif %}
+
 {%include "components/searchScript.njk"%}

@@ -1,0 +1,50 @@
+<script>
+
+  window.isOfflineSearchEnabled = true;
+  console.log("Offline search is on.");
+  function createIndex(posts) {
+    return lunr(function () {
+      this.ref('id');
+      this.field('title');
+      this.field('content');
+      this.field('date');
+      this.field("tags");
+
+      posts.forEach((p, idx) => {
+        p.id = idx;
+        this.add(p);
+      });
+    });
+  }
+  window.createIndex = createIndex;
+
+  function truncate(str, size) {
+    //first, remove HTML
+    str = str.replace(/<.*?>/g, '');
+    if (str.length < size) return str;
+    return str.substring(0, size - 3) + '...';
+  }
+
+  function offlineSearch(search) {
+    let data = window.docs;
+    let index = window.index;
+    let results =
+      search[0] == "#" && search.length > 1
+        ? index.search(`${search.substring(1)}`)
+        : index.search(search + "*");
+
+    results.forEach(r => {
+      r.title = data[r.ref].title;
+      r.content = truncate(data[r.ref].content, 400);
+      r.date = data[r.ref].date;
+      r.url = data[r.ref].url;
+      r.tags = data[r.ref].tags.filter(x => x != "gardenEntry" && x != "note");//Note is automatically added by 11ty. GardenEntry is used internally to mark the home page
+
+      delete r.ref;
+    });
+
+    return results;
+  }
+  window.offlineSearch = offlineSearch
+
+</script>

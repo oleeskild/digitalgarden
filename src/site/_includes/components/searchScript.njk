@@ -87,6 +87,14 @@
 
     async function init() {
 
+        // init offline search index 
+        if(window.isOfflineSearchEnabled == true) {
+            let docs = await (await fetch('/index.json')).json();  
+            let index = window.createIndex(docs);
+            window.docs = docs;
+            window.index = index;
+        }
+
         //open searchmodal when ctrl + k is pressed, cmd + k on mac
         document.addEventListener('keydown', (e) => {
             if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
@@ -192,8 +200,16 @@
         window.lastSearch = search;
 
         resultsDiv.innerHTML = loadingSvg;
-        let searchRequest = await fetch(`/api/search?term=${encodeURIComponent(search)}`);
-        let results = await searchRequest.json();
+        
+        let results;
+        if (window.isOfflineSearchEnabled == true) {
+            results = window.offlineSearch(search)
+        }
+        else {
+            let searchRequest = await fetch(`/api/search?term=${encodeURIComponent(search)}`);
+            results = await searchRequest.json();
+        }
+
         let resultsHTML = '';
         if (!results.length) {
             let resultParagraph = document.createElement("p");
