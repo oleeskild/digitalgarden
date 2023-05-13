@@ -404,7 +404,7 @@ module.exports = function (eleventyConfig) {
     }
     return content;
   });
-
+  eleventyConfig.addPassthroughCopy({ "src/site/cloudflare/": "/" });
   eleventyConfig.addPassthroughCopy("src/site/img");
   eleventyConfig.addPassthroughCopy("src/site/scripts");
   eleventyConfig.addPassthroughCopy("src/site/styles/_theme.*.css");
