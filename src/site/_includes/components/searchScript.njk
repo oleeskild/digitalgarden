@@ -138,16 +138,15 @@
         //init offline search index
 
         const searchIndexDate = '{{meta.buildDate|isoDate}}';
-        let shouldFetch = false;
+        let shouldFetch = true;
         if(localStorage.getItem("searchIndex")) {
             let {date, docs}= JSON.parse(localStorage.getItem('searchIndex'));
             if(date === searchIndexDate){
+                shouldFetch = false;
                 let index = createIndex(docs);
                 window.docs = docs
                 window.index = index;
-            }else{
-                shouldFetch = true;
-            }
+            }        
         }
         if(shouldFetch){
             let docs = await(await fetch('/searchIndex.json?v={{meta.buildDate|isoDate}}')).json();
