@@ -137,10 +137,25 @@
     async function init() {
         //init offline search index
 
-        let docs = await(await fetch('/searchIndex.json')).json();
-        let index = createIndex(docs);
-        window.docs = docs
-        window.index = index;
+        const searchIndexDate = '{{buildDate|fileDate}}';
+        let shouldFetch = false;
+        if(sessionStorage.getItem("searchIndex")) {
+            let {date, docs}= JSON.parse(sessionStorage.getItem('searchIndex'));
+            if(date === searchIndexDate){
+                let index = createIndex(docs);
+                window.docs = docs
+                window.index = index;
+            }else{
+                shouldFetch = true;
+            }
+        }
+        if(shouldFetch){
+            let docs = await(await fetch('/searchIndex.json?v={{buildDate|fileDate}}')).json();
+            let index = createIndex(docs);
+            sessionStorage.setItem("searchIndex", JSON.stringify({date: '{{buildDate|fileDate}}', docs}));
+            window.docs = docs
+            window.index = index;
+        }
 
         //open searchmodal when ctrl + k is pressed, cmd + k on mac
         document.addEventListener('keydown', (e) => {
