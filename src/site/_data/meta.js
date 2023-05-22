@@ -67,10 +67,9 @@ module.exports = async (data) => {
     baseTheme: process.env.BASE_THEME || "dark",
     siteName: process.env.SITE_NAME_HEADER || "Digital Garden",
     siteBaseUrl: baseUrl,
-    styleSettingsCss
+    styleSettingsCss,
+    buildDate: new Date(),
   };
-  // console.log("META: ");
-  // console.log(data.collections['searchIndex']);
 
   return meta;
 };
