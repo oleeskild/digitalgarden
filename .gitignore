@@ -9,4 +9,5 @@ src/site/styles/_theme.*.css
 .idea/
 .vercel
 .cache
+_site
 **/.DS_Store
