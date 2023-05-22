@@ -90,30 +90,55 @@ module.exports = function (eleventyConfig) {
         }
         if (token.info.startsWith("ad-")) {
           const code = token.content.trim();
-          if (code && code.toLowerCase().startsWith("title:")) {
-            const title = code.substring(6, code.indexOf("\n"));
-            const titleDiv = title
-              ? `<div class="callout-title"><div class="callout-title-inner">${title}</div></div>`
+          const parts = code.split("\n")
+          let titleLine;
+          let collapse;
+          let collapsible = false
+          let collapsed = true
+          let icon;
+          let color;
+          let nbLinesToSkip = 0
+          for (let i = 0; i<4; i++) {
+            if (parts[i] && parts[i].trim()) {
+              let line = parts[i] && parts[i].trim().toLowerCase()
+              if (line.startsWith("title:")) {
+                titleLine = line.substring(6);
+                nbLinesToSkip ++;
+              } else if (line.startsWith("icon:")) {
+                icon = line.substring(5);
+                nbLinesToSkip ++;
+              } else if (line.startsWith("collapse:")) {
+                collapsible = true
+                collapse = line.substring(9);
+                if (collapse && collapse.trim().toLowerCase() == 'open') {
+                  collapsed = false
+                }
+                nbLinesToSkip ++;
+              } else if (line.startsWith("color:")) {
+                color = line.substring(6);
+                nbLinesToSkip ++;
+              }
+            }
+          }
+          const foldDiv = collapsible ? `<div class="callout-fold">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-chevron-down">
+              <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+          </div>` : "";
+          const titleDiv = titleLine
+              ? `<div class="callout-title"><div class="callout-title-inner">${titleLine}</div>${foldDiv}</div>`
               : "";
-
-            return `<div class="callout" data-callout="${
-              token.info
-            }">${titleDiv}\n<div class="callout-content">${md.render(
-              code.slice(code.indexOf("\n"))
-            )}</div></div>`;
+          let collapseClasses = titleLine && collapsible ? 'is-collapsible' : ''
+          if (collapsible && collapsed) {
+            collapseClasses += " is-collapsed"
           }
 
-          const title = `<div class="callout-title"><div class="callout-title-inner">${token.info
-            .charAt(3)
-            .toUpperCase()}${token.info
-            .substring(4)
-            .toLowerCase()}</div></div>`;
-
-          return `<div class="callout" data-callout="${
-            token.info
-          }">${title}\n<div class="callout-content">${md.render(
-            code
+          let res = `<div data-callout-metadata class="callout ${collapseClasses}" data-callout="${
+            token.info.substring(3)
+          }">${titleDiv}\n<div class="callout-content">${md.render(
+            parts.slice(nbLinesToSkip).join("\n")
           )}</div></div>`;
+          return res
         }
 
         // Other languages
