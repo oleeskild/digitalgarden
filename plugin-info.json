@@ -3,7 +3,15 @@
         "src/site/styles/style.css",
         "src/site/index.njk",
         "src/site/index.11tydata.js",
-        "src/site/_data/filetree.js"
+        "src/site/_data/filetree.js",
+        "api/search.js",
+        "netlify/functions/search/search.js",
+        "src/site/versionednote.njk",
+        "src/site/_includes/layouts/versionednote.njk",
+        "src/site/lunr-index.js",
+        "src/site/_data/versionednotes.js",
+        "src/site/lunr.njk"
+        
     ],
     "filesToAdd": [
         "src/site/styles/custom-style.scss",
@@ -27,7 +35,6 @@
         "src/site/404.njk",
         "src/site/sitemap.njk",
         "src/site/feed.njk",
-        "src/site/versionednote.njk",
         "src/site/styles/style.scss",
         "src/site/styles/digital-garden-base.scss",
         "src/site/styles/obsidian-base.scss",
@@ -35,7 +42,6 @@
         "src/site/notes/notes.11tydata.js",
         "src/site/_includes/layouts/note.njk",
         "src/site/_includes/layouts/index.njk",
-        "src/site/_includes/layouts/versionednote.njk",
         "src/site/_includes/components/notegrowthhistory.njk",
         "src/site/_includes/components/pageheader.njk",
         "src/site/_includes/components/linkPreview.njk",
@@ -51,9 +57,6 @@
         "src/site/_includes/components/calloutScript.njk",
         "src/site/_includes/components/lucideIcons.njk",
         "src/site/_includes/components/timestamps.njk",
-        "src/site/lunr-index.js",
-        "src/site/lunr.njk",
-        "src/site/_data/versionednotes.js",
         "src/site/_data/meta.js",
         "src/site/_data/dynamics.js",
         "src/site/img/outgoing.svg",
@@ -61,10 +64,9 @@
         "src/helpers/utils.js",
         "src/helpers/filetreeUtils.js",
         "src/helpers/linkUtils.js",
-        "netlify/functions/search/search.js",
         "src/site/get-theme.js",
-        "api/search.js",
         "src/site/_data/eleventyComputed.js",
-        "src/site/graph.njk"
+        "src/site/graph.njk",
+        "src/site/search-index.njk"
     ]
 }

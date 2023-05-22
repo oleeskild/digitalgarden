@@ -194,7 +194,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.setLibrary("md", markdownLib);
 
-  eleventyConfig.addFilter("fileDate", function (date) {
+  eleventyConfig.addFilter("isoDate", function (date) {
     return date && date.toISOString();
   });
 
