@@ -21,15 +21,11 @@
             }
         });
 
-        lucide.createIcons({
-            attrs: {
-                class: ["svg-icon"]
-            }
-        });
+        lucide.createIcons();
 
         // Collapse callouts
         Array.from(document.querySelectorAll(".callout.is-collapsible")).forEach((elem) => {
-            elem.addEventListener("click", (event) => {
+            elem.querySelector('.callout-title').addEventListener("click", (event) => {
                 if (elem.classList.contains("is-collapsed")) {
                     elem.classList.remove("is-collapsed");
                 } else {

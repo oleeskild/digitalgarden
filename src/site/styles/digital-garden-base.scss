@@ -132,6 +132,17 @@ ul.task-list {
     background-color: var(--background-primary);
     padding: 10px;
     border-radius: 10px;
+
+    ol {
+        list-style: none;
+        padding-left: 10px;
+        border-left: 2px solid var(--background-secondary);
+    }
+
+    & > ol {
+        padding-left: 0;
+        border-left: none;
+    }
 }
 
 .toc-container {
@@ -208,6 +219,10 @@ ul.task-list {
     color: var(--text-accent);
     i {
         font-size: 0.8rem;
+    }
+
+    .backlink {
+        margin-left: 5px;
     }
 }
 
@@ -368,10 +383,15 @@ ul.task-list {
 
 .notelink {
     padding: 5px 0 5px 25px;
+    display: flex;
+    align-items: center;
     a {
         &:hover {
             text-decoration: underline !important;
         }
+    }
+    svg {
+        flex-shrink: 0;
     }
 }
 
@@ -497,13 +517,9 @@ ul.task-list {
     display: flex;
     align-items: center;
     min-width: 150px;
-    margin: 10px 40px 10px 10px;
+    margin: 10px 40px;
     border: 1px solid var(--text-normal);
     cursor: pointer;
-
-    > span {
-        padding: 3px 3px 3px 10px;
-    }
 
     > i {
         margin-left: 10px;
@@ -511,6 +527,10 @@ ul.task-list {
 
     &:hover {
         border: 1px solid var(--text-accent);
+    }
+
+    .search-icon {
+        display: flex;
     }
 }
 
@@ -539,7 +559,7 @@ ul.task-list {
 }
 
 .callout {
-    font-family: "Roboto", sans-serif;
+    font-family: var(--font-default);
     word-wrap: break-word;
     display: block;
     font-size: 1rem;
@@ -671,7 +691,8 @@ input[type="range"]::-webkit-slider-thumb {
 
 body.title-note-icon .cm-s-obsidian > header > h1[data-note-icon]::before,
 body.filetree-note-icon .filename[data-note-icon]::before,
-body.links-note-icon .internal-link[data-note-icon]::before {
+body.links-note-icon .internal-link[data-note-icon]::before,
+body.backlinks-note-icon .backlink[data-note-icon]::before {
     content: " ";
     display: inline-block;
     width: 0.9em;
@@ -684,18 +705,49 @@ body.links-note-icon .internal-link[data-note-icon]::before {
 
 body.title-note-icon .cm-s-obsidian > header > h1[data-note-icon="1"]::before,
 body.filetree-note-icon .filename[data-note-icon="1"]::before,
-body.links-note-icon .internal-link[data-note-icon="1"]::before {
+body.links-note-icon .internal-link[data-note-icon="1"]::before,
+body.backlinks-note-icon .backlink[data-note-icon="1"]::before {
     background-image: var(--note-icon-1);
 }
 
 body.title-note-icon .cm-s-obsidian > header > h1[data-note-icon="2"]::before,
 body.filetree-note-icon .filename[data-note-icon="2"]::before,
-body.links-note-icon .internal-link[data-note-icon="2"]::before {
+body.links-note-icon .internal-link[data-note-icon="2"]::before,
+body.backlinks-note-icon .backlink[data-note-icon="2"]::before {
     background-image: var(--note-icon-2);
 }
 
 body.title-note-icon .cm-s-obsidian > header > h1[data-note-icon="3"]::before,
 body.filetree-note-icon .filename[data-note-icon="3"]::before,
-body.links-note-icon .internal-link[data-note-icon="3"]::before {
+body.links-note-icon .internal-link[data-note-icon="3"]::before,
+body.backlinks-note-icon .backlink[data-note-icon="3"]::before {
     background-image: var(--note-icon-3);
+}
+
+.timestamps {
+    display: flex;
+    flex-direction: row;
+    font-size: 0.8em;
+    color: var(--text-muted);
+    gap: 10px;
+    margin-top: 20px;
+
+    div {
+        display: flex;
+        flex-direction: row;
+        gap: 3px;
+        align-items: center;
+    }
+}
+
+.align-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.cm-s-obsidian {
+    .table-wrapper {
+        overflow-x: auto;
+    }
 }

@@ -5,30 +5,7 @@
                         {% include imp %}
                   {% endfor %}
                   {%if settings.dgShowLocalGraph === true%}
-                        <div class="graph">
-                              <div class="graph-title-container">
-                                    <div class="graph-title">Connected Pages</div>
-                                    <div id="graph-controls">
-                                          <div class="depth-control">
-                                                <label for="graph-depth">Depth</label>
-                                                <div class="slider">
-                                                      <input name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth"/>
-                                                <datalist id="depthmarkers">
-                                                      <option value="1" label="1"></option>
-                                                      <option value="2" label="2"></option>
-                                                      <option value="3" label="3"></option>
-                                                </datalist>
-                                                </div>
-                                                <span id="depth-display"></span>
-                                          </div>
-                                          <div class="ctrl-right">
-                                                <i class="fa fa-globe" id="global-graph-btn" aria-hidden="true"></i>
-                                                <i class="fa fa-arrows-alt" id="graph-fs-btn" aria-hidden="true"></i>
-                                          </div>
-                                    </div>
-                              </div>
-                              <div id="link-graph"></div>
-                        </div>
+                        {%include "components/graphScript.njk"%}
                   {%endif%}
 
                   {%if settings.dgShowToc === true%}
@@ -62,7 +39,7 @@
                                           {%- for backlink in graph.nodes[graph.homeAlias].backLinks -%}
                                                 {%- if graph.nodes[backlink].url != graph.homeAlias -%}
                                                 <div class="backlink-card">
-                                                      <i class="fa fa-link"></i> <a href="{{graph.nodes[backlink].url}}">{{graph.nodes[backlink].title}}</a>
+                                                      {%- if not meta.noteIconsSettings.backlinks -%}<i  icon-name="link"></i> {%- endif -%}<a href="{{graph.nodes[backlink].url}}" data-note-icon="{{graph.nodes[backlink].noteIcon}}" class="backlink">{{graph.nodes[backlink].title}}</a>
                                                 </div>
                                                 {%- endif -%}
                                           {%- endfor -%}
@@ -75,7 +52,7 @@
                                           {%- for backlink in graph.nodes[page.url].backLinks -%}
                                                 {%- if graph.nodes[backlink].url != page.url -%}
                                                 <div class="backlink-card">
-                                                      <i class="fa fa-link"></i> <a href="{{graph.nodes[backlink].url}}">{{graph.nodes[backlink].title}}</a>
+                                                      {%- if not meta.noteIconsSettings.backlinks -%}<i  icon-name="link"></i> {%- endif -%}<a href="{{graph.nodes[backlink].url}}" data-note-icon="{{graph.nodes[backlink].noteIcon}}" class="backlink">{{graph.nodes[backlink].title}}</a>
                                                 </div>
                                                 {%- endif -%}
                                           {%- endfor -%}
@@ -90,7 +67,3 @@
             </div>
       </div>
 </aside>
-
-{%if settings.dgShowLocalGraph === true %}
-      {%include "components/graphScript.njk"%}
-{% endif %}
