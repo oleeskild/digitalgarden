@@ -10,8 +10,7 @@
         "build:eleventy": "cross-env ELEVENTY_ENV=prod NODE_OPTIONS=--max-old-space-size=4096 eleventy",
         "build:sass": "sass src/site/styles:dist/styles --style compressed",
         "get-theme": "node src/site/get-theme.js",
-        "build": "npm-run-all get-theme build:*",
-        "postbuild": "node src/site/lunr-index.js"
+        "build": "npm-run-all get-theme build:*"
     },
     "keywords": [],
     "author": "",

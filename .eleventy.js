@@ -194,6 +194,11 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.setLibrary("md", markdownLib);
 
+  eleventyConfig.addFilter("isoDate", function (date) {
+    return date && date.toISOString();
+  });
+
+
   eleventyConfig.addFilter("link", function (str) {
     return (
       str &&
@@ -240,9 +245,10 @@ module.exports = function (eleventyConfig) {
           deadLink = true;
         }
 
-        return `<a class="internal-link ${
-          deadLink ? "is-unresolved" : ""
-        }" ${deadLink ? "" : 'data-note-icon="' + noteIcon + '"'} href="${permalink}${headerLinkPath}">${title}</a>`;
+        if(deadLink){
+          return `<a class="internal-link is-unresolved" href="/404">${title}</a>`;
+        }
+        return `<a class="internal-link data-note-icon="${noteIcon}" href="${permalink}${headerLinkPath}">${title}</a>`;
       })
     );
   });
