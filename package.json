@@ -4,13 +4,13 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "start": "npm-run-all get-theme build:sass --parallel watch:*",
+        "start": "concurrently npm:get-theme npm:build:sass --parallel npm:watch:*",
         "watch:sass": "sass --watch src/site/styles:dist/styles",
         "watch:eleventy": "cross-env ELEVENTY_ENV=dev eleventy --serve",
         "build:eleventy": "cross-env ELEVENTY_ENV=prod NODE_OPTIONS=--max-old-space-size=4096 eleventy",
         "build:sass": "sass src/site/styles:dist/styles --style compressed",
         "get-theme": "node src/site/get-theme.js",
-        "build": "npm-run-all get-theme build:*"
+        "build": "concurrently npm:get-theme npm:build:*"
     },
     "keywords": [],
     "author": "",
@@ -21,12 +21,11 @@
         "cross-env": "^7.0.3",
         "html-minifier": "^4.0.0",
         "node-html-parser": "^6.1.4",
-        "npm-run-all": "^4.1.5",
+        "concurrently": "^8.0.1",
         "sass": "^1.49.9"
     },
     "dependencies": {
         "@11ty/eleventy-img": "^3.0.0",
-        "@octokit/core": "^4.1.0",
         "@sindresorhus/slugify": "^1.1.0",
         "axios": "^1.2.2",
         "dotenv": "^16.0.3",
@@ -35,7 +34,6 @@
         "fs-file-tree": "^1.1.1",
         "glob": "^10.2.1",
         "gray-matter": "^4.0.3",
-        "lunr": "^2.3.9",
         "markdown-it": "^13.0.1",
         "markdown-it-anchor": "^8.6.7",
         "markdown-it-attrs": "^4.1.6",
