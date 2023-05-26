@@ -342,8 +342,8 @@ module.exports = function (eleventyConfig) {
     return str && parsed.innerHTML;
   });
 
-  function fillPictureSourceSets(src, cls, alt, meta, t) {
-      t.tagName = "picture";
+  function fillPictureSourceSets(src, cls, alt, meta, width, imageTag) {
+      imageTag.tagName = "picture";
       let html = `<source
       media="(max-width:480px)"
       srcset="${meta.webp[0].url}"
@@ -371,29 +371,31 @@ module.exports = function (eleventyConfig) {
       class="${cls.toString()}"
       src="${src}"
       alt="${alt}"
+      width="${width}"
       />`;
-      t.innerHTML = html;
+      imageTag.innerHTML = html;
     }
     
 
   eleventyConfig.addTransform("picture", function (str) {
     const parsed = parse(str);
-    for (const t of parsed.querySelectorAll(".cm-s-obsidian img")) {
-      const src = t.getAttribute("src");
+    for (const imageTag of parsed.querySelectorAll(".cm-s-obsidian img")) {
+      const src = imageTag.getAttribute("src");
       if (src && src.startsWith("/") && !src.endsWith(".svg")) {
-        const cls = t.classList.value;
-        const alt = t.getAttribute("alt");
+        const cls = imageTag.classList.value;
+        const alt = imageTag.getAttribute("alt");
+        const width = imageTag.getAttribute("width") || '';
 
         try {
           const meta = transformImage(
-            "./src/site" + decodeURI(t.getAttribute("src")),
+            "./src/site" + decodeURI(imageTag.getAttribute("src")),
             cls.toString(),
             alt,
             ["(max-width: 480px)", "(max-width: 1024px)"]
           );
 
           if (meta) {
-            fillPictureSourceSets(src, cls, alt, meta, t);
+            fillPictureSourceSets(src, cls, alt, meta, width, imageTag);
           }
         } catch {
           // Make it fault tolarent.
