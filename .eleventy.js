@@ -342,12 +342,46 @@ module.exports = function (eleventyConfig) {
     return str && parsed.innerHTML;
   });
 
+  function fillPictureSourceSets(src, cls, alt, meta, t) {
+      t.tagName = "picture";
+      let html = `<source
+      media="(max-width:480px)"
+      srcset="${meta.webp[0].url}"
+      type="image/webp"
+      />
+      <source
+      media="(max-width:480px)"
+      srcset="${meta.jpeg[0].url}"
+      />
+      `
+      if (meta.webp && meta.webp[1] && meta.webp[1].url) {
+        html += `<source
+        media="(max-width:1920px)"
+        srcset="${meta.webp[1].url}"
+        type="image/webp"
+        />`
+      }
+      if (meta.jpeg && meta.jpeg[1] && meta.jpeg[1].url) {
+        html += `<source
+        media="(max-width:1920px)"
+        srcset="${meta.jpeg[1].url}"
+        />`
+      }
+      html += `<img
+      class="${cls.toString()}"
+      src="${src}"
+      alt="${alt}"
+      />`;
+      t.innerHTML = html;
+    }
+    
+
   eleventyConfig.addTransform("picture", function (str) {
     const parsed = parse(str);
     for (const t of parsed.querySelectorAll(".cm-s-obsidian img")) {
       const src = t.getAttribute("src");
       if (src && src.startsWith("/") && !src.endsWith(".svg")) {
-        const cls = t.classList;
+        const cls = t.classList.value;
         const alt = t.getAttribute("alt");
 
         try {
@@ -359,30 +393,7 @@ module.exports = function (eleventyConfig) {
           );
 
           if (meta) {
-            t.tagName = "picture";
-            t.innerHTML = `<source
-      media="(max-width:480px)"
-      srcset="${meta.webp[0].url}"
-      type="image/webp"
-    />
-    <source
-      media="(max-width:480px)"
-      srcset="${meta.jpeg[0].url}"
-    />
-    <source
-      media="(max-width:1920px)"
-      srcset="${meta.webp[1].url}"
-      type="image/webp"
-    />
-    <source
-      media="(max-width:1920px)"
-      srcset="${meta.jpeg[1].url}"
-    />
-    <img
-      class="${cls.toString()}"
-      src="${src}"
-      alt="${alt}"
-    />`;
+            fillPictureSourceSets(src, cls, alt, meta, t);
           }
         } catch {
           // Make it fault tolarent.
