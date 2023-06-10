@@ -173,7 +173,7 @@ module.exports = function (eleventyConfig) {
         let headerLinkPath;
         
           
-        if (fileLink.slice(-5).includes(".") && fileLink.slice(-3)!=".md"){
+        if (fileLink.includes(".") && fileLink.slice(-3)!=".md"){
             //which would imply it's a file
             headerLinkPath = "";
             permalink = "/etc/" + fileLink
