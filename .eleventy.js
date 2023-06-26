@@ -38,6 +38,7 @@ module.exports = function (eleventyConfig) {
   let markdownLib = markdownIt({
     breaks: true,
     html: true,
+    linkify: true,
   })
     .use(require("markdown-it-anchor"), {
       slugify: headerToId,
