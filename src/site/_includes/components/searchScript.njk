@@ -128,7 +128,7 @@
         })
         posts.forEach((p, idx) => {
             contentIndex.add({
-                id: idx, title: p.title, content: p.content, //Change to removeHTML
+                id: idx, title: p.title, content: p.content, tags: p.tags //Change to removeHTML
             })
         });
         return contentIndex;
@@ -333,7 +333,7 @@
     function offlineSearch(searchQuery) {
         let data = window.docs;
 
-        let isTagSearch = search[0] === "#" && search.length > 1;
+        let isTagSearch = searchQuery[0] === "#" && searchQuery.length > 1;
 
         let searchResults = isTagSearch
             ? index.search(searchQuery.substring(1), [
@@ -361,7 +361,8 @@
         }
         const allIds = new Set([
             ...getByField("title"),
-            ...getByField("content")
+            ...getByField("content"),
+            ...getByField("tags")
         ])
         const dataIds = [...allIds];
         const finalResults = dataIds.map((id) => {
