@@ -248,7 +248,7 @@ module.exports = function (eleventyConfig) {
         if(deadLink){
           return `<a class="internal-link is-unresolved" href="/404">${title}</a>`;
         }
-        return `<a class="internal-link data-note-icon="${noteIcon}" href="${permalink}${headerLinkPath}">${title}</a>`;
+        return `<a class="internal-link" data-note-icon="${noteIcon}" href="${permalink}${headerLinkPath}">${title}</a>`;
       })
     );
   });
