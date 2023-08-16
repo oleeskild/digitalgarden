@@ -187,10 +187,10 @@
 </script>
 <div  x-init="{graphData, fullGraphData} = await fetchGraphData();" x-data="{ graphData: null, depth: 1, graph: null, fullGraph: null, showFullGraph: false, fullScreen: false, fullGraphData: null}" id="graph-component" x-bind:class="fullScreen ? 'graph graph-fs' : 'graph'" v-scope>
     <div class="graph-title-container">
-        <div class="graph-title">Пов'язані сторінки</div>
+        <div class="graph-title">Connected Pages</div>
         <div id="graph-controls">
                 <div class="depth-control">
-                    <label for="graph-depth">Глибина</label>
+                    <label for="graph-depth">Depth</label>
                     <div class="slider">
                             <input x-model.number="depth" name="graph-depth" list="depthmarkers" type="range" step="1" min="1" max="3" id="graph-depth"/>
                     <datalist id="depthmarkers">
@@ -208,7 +208,7 @@
         </div>
     </div>
     <div x-effect="window.graph = renderLocalGraph(graphData, depth, fullScreen)" id="link-graph" ></div>
-    <div x-show="showFullGraph" id="full-graph" class="show">
+    <div x-show="showFullGraph" id="full-graph" class="show" style="display: none;">
         <span id="full-graph-close" x-on:click="fullGraph = closefullGraph(fullGraph); showFullGraph = false;"><i icon-name="x" aria-hidden="true"></i></span><div id="full-graph-container"></div>
     </div>
 </div>
