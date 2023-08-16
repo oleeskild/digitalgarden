@@ -1,0 +1,21 @@
+<div class="cactus">
+ <script type="text/javascript" src="https://ngnx.m-e.pp.ua/cactus/cactus.js"></script>
+ <link rel="stylesheet" href="https://ngnx.m-e.pp.ua/cactus/style.css" type="text/css">
+ 
+  <div id="comment-section"></div>
+  <script>
+  initComments({
+    node: document.getElementById("comment-section"),
+    defaultHomeserverUrl: "https://conduit.m-e.pp.ua",
+    serverName: "conduit.m-e.pp.ua",
+    siteName: "digitalgarden-three.vercel.app",
+{% set commentSectionId = page.fileSlug %}
+{% for _ in range(0, commentSectionId | length) %}
+    {% set commentSectionId = commentSectionId | replace(' ', '-') %}
+{% endfor %}
+commentSectionId: "{{ commentSectionId }}" // заміна пробілів на тире
+  })
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://cactus.chat" rel="nofollow">comments powered by matrix.org.</a></noscript>
+  </script>
+ </div>
