@@ -28,12 +28,12 @@
                         {%if settings.dgShowBacklinks === true %}
                               {%if settings.dgShowBacklinks === true %}
                               <div class="backlinks">
-                                    <div class="backlink-title" style="margin: 4px 0 !important;">Сторінки, що згадують цю сторінку</div>
+                                    <div class="backlink-title" style="margin: 4px 0 !important;">Pages mentioning this page</div>
                                           <div class="backlink-list">
                                           {%- if page.url == "/" -%}
                                                 {%- if graph.nodes[graph.homeAlias].backLinks.length === 0 -%}
                                                       <div class="backlink-card">
-                                                            <span class="no-backlinks-message">Жодна сторінка не згадує цю</span>
+                                                            <span class="no-backlinks-message">No other pages mentions this page</span>
                                                       </div>
                                                 {%- endif -%}
                                           {%- for backlink in graph.nodes[graph.homeAlias].backLinks -%}
@@ -46,7 +46,7 @@
                                           {%- else -%}
                                                 {%- if graph.nodes[page.url].backLinks.length === 0 -%}
                                                       <div class="backlink-card">
-                                                            <span class="no-backlinks-message">Жодна сторінка не згадує цю</span>
+                                                            <span class="no-backlinks-message">No other pages mentions this page</span>
                                                       </div>
                                                 {%- endif -%}
                                           {%- for backlink in graph.nodes[page.url].backLinks -%}
