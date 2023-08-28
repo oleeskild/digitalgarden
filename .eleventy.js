@@ -127,7 +127,7 @@ module.exports = function (eleventyConfig) {
           </svg>
           </div>` : "";
           const titleDiv = titleLine
-              ? `<div class="callout-title"><div class="callout-title-inner">${titleLine}</div>${foldDiv}</div>`
+              ? `<div class="callout-title"><div class="callout-title-inner">${md.render(titleLine)}</div>${foldDiv}</div>`
               : "";
           let collapseClasses = titleLine && collapsible ? 'is-collapsible' : ''
           if (collapsible && collapsed) {
