@@ -126,16 +126,17 @@ module.exports = function (eleventyConfig) {
               <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
           </div>` : "";
+          const adClasses = token.info.substring(3);
           const titleDiv = titleLine
-              ? `<div class="callout-title"><div class="callout-title-inner">${md.render(titleLine)}</div>${foldDiv}</div>`
-              : "";
+            ? `<div class="callout-title"><div class="callout-title-inner">${md.render(titleLine)}</div>${foldDiv}</div>`
+            : `<div class="callout-title"><div class="callout-title-inner">${adClasses[0].toUpperCase() + adClasses.substring(1)}</div>${foldDiv}</div>`;
           let collapseClasses = titleLine && collapsible ? 'is-collapsible' : ''
           if (collapsible && collapsed) {
             collapseClasses += " is-collapsed"
           }
 
           let res = `<div data-callout-metadata class="callout ${collapseClasses}" data-callout="${
-            token.info.substring(3)
+            adClasses
           }">${titleDiv}\n<div class="callout-content">${md.render(
             parts.slice(nbLinesToSkip).join("\n")
           )}</div></div>`;
@@ -376,7 +377,7 @@ module.exports = function (eleventyConfig) {
       />`;
       imageTag.innerHTML = html;
     }
-    
+
 
   eleventyConfig.addTransform("picture", function (str) {
     const parsed = parse(str);
@@ -458,7 +459,7 @@ module.exports = function (eleventyConfig) {
     ul: true,
     tags: ["h1", "h2", "h3", "h4", "h5", "h6"],
   });
- 
+
 
   eleventyConfig.addFilter("dateToZulu", function (date) {
     if (!date) return "";
