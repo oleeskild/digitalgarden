@@ -48,7 +48,7 @@ module.exports = async (data) => {
     bodyClasses.push("backlinks-note-icon");
     noteIconsSettings.backlinks = true;
   }
-  if(styleSettingsCss){
+  if (styleSettingsCss) {
     bodyClasses.push("css-settings-manager");
   }
 
@@ -66,6 +66,7 @@ module.exports = async (data) => {
     timestampSettings,
     baseTheme: process.env.BASE_THEME || "dark",
     siteName: process.env.SITE_NAME_HEADER || "Digital Garden",
+    mainLanguage: process.env.SITE_MAIN_LANGUAGE || "en",
     siteBaseUrl: baseUrl,
     styleSettingsCss,
     buildDate: new Date(),
