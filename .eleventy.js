@@ -49,9 +49,9 @@ function getAnchorAttributes(filePath, linkTitle) {
   let deadLink = false;
   try {
     const startPath = "./src/site/notes/";
-    const fullPath = filePath.endsWith(".md")
-      ? `${startPath}${filePath}`
-      : `${startPath}${filePath}.md`;
+    const fullPath = fileName.endsWith(".md")
+      ? `${startPath}${fileName}`
+      : `${startPath}${fileName}.md`;
     const file = fs.readFileSync(fullPath, "utf8");
     const frontMatter = matter(file);
     if (frontMatter.data.permalink) {
