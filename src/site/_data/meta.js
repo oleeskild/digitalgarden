@@ -22,6 +22,7 @@ module.exports = async (data) => {
   };
 
   const styleSettingsCss = process.env.STYLE_SETTINGS_CSS || "";
+  const styleSettingsBodyClasses = process.env.STYLE_SETTINGS_BODY_CLASSES || "";
 
   if (process.env.NOTE_ICON_TITLE && process.env.NOTE_ICON_TITLE == "true") {
     bodyClasses.push("title-note-icon");
@@ -50,6 +51,9 @@ module.exports = async (data) => {
   }
   if (styleSettingsCss) {
     bodyClasses.push("css-settings-manager");
+  }
+  if (styleSettingsBodyClasses) {
+    bodyClasses.push(styleSettingsBodyClasses);
   }
 
   let timestampSettings = {
