@@ -495,6 +495,8 @@ module.exports = function (eleventyConfig) {
         useShortDoctype: true,
         removeComments: true,
         collapseWhitespace: true,
+        conservativeCollapse: true,
+        preserveLineBreaks: true,
         minifyCSS: true,
         minifyJS: true,
         keepClosingSlash: true,
