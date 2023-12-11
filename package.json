@@ -33,7 +33,7 @@
         "fs-file-tree": "^1.1.1",
         "glob": "^10.2.1",
         "gray-matter": "^4.0.3",
-        "markdown-it": "^13.0.1",
+        "markdown-it": "^14.0.0",
         "markdown-it-anchor": "^8.6.7",
         "markdown-it-attrs": "^4.1.6",
         "markdown-it-footnote": "^3.0.3",
