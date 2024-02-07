@@ -1,7 +1,4 @@
 require("dotenv").config();
-const axios = require("axios");
-const fs = require("fs");
-const crypto = require("crypto");
 const { globSync } = require("glob");
 
 module.exports = async (data) => {
