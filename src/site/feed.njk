@@ -21,7 +21,7 @@
             <updated>{%if note.data.updated %}{{ note.data.updated | dateToZulu }}{%else%}{{ note.date | dateToRfc3339 }}{%endif%}</updated>
             <id>{{ meta.siteBaseUrl }}{{note.url | url }}</id>
             <content type="html">
-                {{ note.templateContent | hideDataview | link | taggify | htmlToAbsoluteUrls(meta.siteBaseUrl) }}
+                {{ note.templateContent | hideDataview | taggify | link | htmlToAbsoluteUrls(meta.siteBaseUrl) }}
             </content>
             <link href="{{ meta.siteBaseUrl }}{{note.url | url }}" ////>
         </entry>
