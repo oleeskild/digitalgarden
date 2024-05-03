@@ -24,6 +24,17 @@ const sortTree = (unsorted) => {
         return -1;
       }
 
+      //Regular expression that extracts any initial decimal number
+      const aNum = parseFloat(a.match(/^\d+(\.\d+)?/));
+      const bNum = parseFloat(b.match(/^\d+(\.\d+)?/));
+
+      const a_is_num = !isNaN(aNum);
+      const b_is_num = !isNaN(bNum);
+
+      if (a_is_num && b_is_num && aNum != bNum) {
+        return aNum - bNum; //Fast comparison between numbers
+      }
+
       if (a.toLowerCase() > b.toLowerCase()) {
         return 1;
       }
