@@ -381,13 +381,26 @@ module.exports = function (eleventyConfig) {
           }
         );
 
+        /* Hacky fix for callouts with only a title:
+        This will ensure callout-content isn't produced if
+        the callout only has a title, like this:
+        ```md
+        > [!info] i only have a title
+        ```
+        Not sure why content has a random <p> tag in it,
+        */
+        if (content === "\n<p>\n") {
+          content = "";
+        }
+        let contentDiv = content ? `\n<div class="callout-content">${content}</div>` : "";
+
         blockquote.tagName = "div";
         blockquote.classList.add("callout");
         blockquote.classList.add(isCollapsable ? "is-collapsible" : "");
         blockquote.classList.add(isCollapsed ? "is-collapsed" : "");
         blockquote.setAttribute("data-callout", calloutType.toLowerCase());
         calloutMetaData && blockquote.setAttribute("data-callout-metadata", calloutMetaData);
-        blockquote.innerHTML = `${titleDiv}\n<div class="callout-content">${content}</div>`;
+        blockquote.innerHTML = `${titleDiv}${contentDiv}`;
       }
     };
 
