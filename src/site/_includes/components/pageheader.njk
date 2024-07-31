@@ -2,7 +2,7 @@
 
 {% if metatags %}
     {% for name, content in metatags %}
-        {% if name.includes("og") %}
+        {% if name.includes("og:") %}
           <meta property="{{ name }}" content="{{ content }}">
         {% else %}
           <meta name="{{ name }}" content="{{ content }}">
