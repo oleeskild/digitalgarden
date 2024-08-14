@@ -12,4 +12,7 @@ updates:
     ignore:
       - dependency-name: "@sindresorhus/slugify"
         # For slugify, ignore all updates.
+      - dependency-name: "@11ty/eleventy-plugin-rss"
+        versions [ "^1.2.0" ]
+      
         
