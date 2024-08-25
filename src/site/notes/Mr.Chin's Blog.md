@@ -1,10 +1,15 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-08-25T08:56:54.685+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-08-25T09:04:16.756+08:00"}
 ---
 
 ![LOGO_BTW1_20210520.svg|125](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202408241037303.svg)
 **ℳ𝓇.𝒞𝒽𝒾𝓃'𝓈 ℬ𝓁ℴℊ**
 #### 𝒜𝒷ℴ𝓊𝓉 ℳℯ
+---
+只是什么情况
+
+	测试
+
 ---
 	  有关于Mr.Chin's Blog的一些想法
 **ℳ𝓇.𝒞𝒽𝒾𝓃'𝓈 ℬ𝓁ℴℊ**
