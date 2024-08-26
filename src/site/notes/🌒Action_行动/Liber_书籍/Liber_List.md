@@ -1,11 +1,8 @@
 ---
-{"tags":["Ebook"],"dg-publish":true,"dg-note-icon":1,"Blog":true,"permalink":"/🌒Action_行动/Liber_书籍/Liber_List/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-06-27T08:56:05.344+08:00","updated":"2024-08-26T07:53:03.637+08:00"}
+{"tags":["Ebook"],"dg-publish":true,"dg-note-icon":1,"Blog":true,"permalink":"/🌒Action_行动/Liber_书籍/Liber_List/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-06-27T08:56:05.344+08:00","updated":"2024-08-26T14:42:25.952+08:00"}
 ---
 
 ---
-dg-publish: true
-dg-note-icon: 1
-Blog: true
 
 --- 
 
