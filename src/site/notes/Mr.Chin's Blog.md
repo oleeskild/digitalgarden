@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-01T09:05:56.449+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-01T09:19:45.916+08:00"}
 ---
 
 ![LOGO_BTW1_20210520.svg|125](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202408241037303.svg)
@@ -15,40 +15,12 @@
 - [[🌗Theory_理论/Theory_readme\|Theory_readme]]
 - [[🌘Others_其它/Others_readme\|Others_readme]]
 ***
-<div><span>创建时间2024/8/24 08:36:20</span></div><div><span>目标日期2024-09-07</span></div><div><span>2024-08-24  -Sat 星期6</span></div><div><span>创建月天数31</span></div><div><span>创建月剩多少天8</span></div><div><span>距离目标日还剩13/365天</span></div><div><span> 创建时间2024/8/24 08:36:20 距离创建月底8天</span></div><progress max="31" value="8"><span>-</span></progress>
+```
+封面页内容较少，可以通过目录去阅览博客内容。
+```
 
 ***
-```
-🌑朔月
-```
 
-```
-🌒峨眉月  
-```
-
-```
-🌓上弦月 
-```
-
-```
-🌔盈凸月 
-```
-
-```
-🌕满月  
-```
-
-```
-🌖亏凸月
-```
-
-```
-🌗下弦月
-```
-
-```
-🌘残月
-```
 ---
 
 
