@@ -4,7 +4,7 @@
 
 ![LOGO_BTW1_20210520.svg|125](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202408241037303.svg)
 [[About Me\|About Me]]
-- 我的博客记录第14天
+- 我的博客记录第16天
 ***
 - [[🌑Journal_手札/Journal_readme\|Journal_readme]]
 - [[🌒Action_行动/Action_readme\|Action_readme]]
