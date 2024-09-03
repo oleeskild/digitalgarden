@@ -1,9 +1,11 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-03T16:40:27.872+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-03T16:46:22.166+08:00"}
 ---
 
-![LOGO_BTW1_20210520.svg|125](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202408241037303.svg)
-[[🌘Others_其它/About Me\|🌘Others_其它/About Me]]
+~~~
+- 有关Mr.Chin's Blog
+~~~
+👉[[🌘Others_其它/About Me\|About Me]]
 - 我的博客记录第16天
 ***
 - [[🌑Journal_手札/Journal_readme\|Journal_readme]]

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/About Me/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-25T09:39:10.409+08:00","updated":"2024-08-31T11:07:00.076+08:00"}
+{"dg-publish":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/About Me/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-25T09:39:10.409+08:00","updated":"2024-09-03T16:43:53.575+08:00"}
 ---
 
 一个在技术路上挣扎的小白。
@@ -11,7 +11,7 @@
 ![](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202408311106894.jpg)
   
 #### Github
-  [BTW-Q (Mr.Chin) (github.com)](https://github.com/BTW-Q)
+ 👉 [BTW-Q (Mr.Chin) (github.com)](https://github.com/BTW-Q)
   
 #### 二维码
 ![](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202408261834193.jpg)
