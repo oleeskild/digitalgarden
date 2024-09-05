@@ -27,6 +27,10 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
     {% endif %}
 
     <main class="content cm-s-obsidian {{contentClasses}}">
+      // 底部添加如下代码
+      {% for imp in dynamics.notes.footer %}
+      {% include imp %}
+      {% endfor %}
       <header>
         {% if settings.dgShowInlineTitle === true %}
           <h1 data-note-icon="{% if noteIcon %}{{noteIcon}}{% else %}{{meta.noteIconsSettings.default}}{% endif %}">{% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}</h1>
@@ -73,11 +77,7 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
       {% endfor %}
       {% for imp in dynamics.notes.afterContent %}
         {% include imp %}
-      {% endfor %}
-       // 底部添加如下代码
-      {% for imp in dynamics.notes.footer %}
-      {% include imp %}
-      {% endfor %}
+      {% endfor %}      
     </main>
 
     {% if settings.dgShowBacklinks === true or settings.dgShowLocalGraph === true or settings.dgShowToc === true%}
@@ -92,9 +92,9 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
     {% for imp in dynamics.common.footer %}
       {% include imp %}
     {% endfor %}
-    //{% for imp in dynamics.notes.footer %}
-      //{% include imp %}
-    //{% endfor %}
-    //{%include "components/lucideIcons.njk"%}
+    // {% for imp in dynamics.notes.footer %}
+      // {% include imp %}
+    // {% endfor %}
+    // {%include "components/lucideIcons.njk"%}
   </body>
 </html>
