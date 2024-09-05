@@ -51,9 +51,7 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
           </div>
           {%- endif -%}
         </div>
-      {% for imp in dynamics.notes.footer %}
-      {% include imp %}
-      {% endfor %}
+
       {% for imp in dynamics.common.header %}
         {% include imp %}
       {% endfor %}
@@ -74,6 +72,9 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
       {% for imp in dynamics.notes.afterContent %}
         {% include imp %}
       {% endfor %}  
+      {% for imp in dynamics.notes.footer %}
+        {% include imp %}
+      {% endfor %}
     </main>
     {% if settings.dgShowBacklinks === true or settings.dgShowLocalGraph === true or settings.dgShowToc === true%}
       {%include "components/sidebar.njk"%}
