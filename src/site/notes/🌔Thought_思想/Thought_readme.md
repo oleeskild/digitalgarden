@@ -1,15 +1,15 @@
 ---
-{"dg-publish":true,"dg-note-icon":5,"tags":["Readme"],"permalink":"/🌔Thought_思想/Thought_readme/","dgPassFrontmatter":true,"noteIcon":5,"created":"2024-08-24T23:12:06.068+08:00","updated":"2024-09-06T14:26:38.822+08:00"}
+{"dg-publish":true,"dg-note-icon":5,"tags":["Readme"],"permalink":"/🌔Thought_思想/Thought_readme/","dgPassFrontmatter":true,"noteIcon":5,"created":"2024-08-24T23:12:06.068+08:00","updated":"2024-09-06T15:06:11.321+08:00"}
 ---
 
 ### Readme
 --- 
-此目录存放一些有关自己思想的东西
+此目录存放思想类目的文档
 ***
 ### 目录内文档
 | 标题                                                                                                      | 时间                 |
 | ------------------------------------------------------------------------------------------------------- | ------------------ |
-| [[🌔Thought_思想/Thought_readme\|Thought_readme]]                                                      | 2024年9月6日 PM2:26   |
+| [[🌔Thought_思想/Thought_readme\|Thought_readme]]                                                      | 2024年9月6日 PM3:06   |
 | [[🌔Thought_思想/动心起念/20240813_NAS&Server\|20240813_NAS&Server]]                                       | 2024年8月26日 AM7:58  |
 | [[🌔Thought_思想/动心起念/About Directory Tree\|About Directory Tree]]                                     | 2024年8月31日 AM9:49  |
 | [[🌔Thought_思想/动心起念/Drawing 2024-08-22 12.19.08.excalidraw\|Drawing 2024-08-22 12.19.08.excalidraw]] | 2024年8月25日 PM6:43  |

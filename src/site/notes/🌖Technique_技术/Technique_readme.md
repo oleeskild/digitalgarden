@@ -1,10 +1,10 @@
 ---
-{"dg-publish":true,"dg-note-icon":5,"tags":["Readme"],"permalink":"/🌖Technique_技术/Technique_readme/","dgPassFrontmatter":true,"noteIcon":5,"created":"2024-08-24T23:09:54.570+08:00","updated":"2024-09-06T14:28:45.644+08:00"}
+{"dg-publish":true,"dg-note-icon":5,"tags":["Readme"],"permalink":"/🌖Technique_技术/Technique_readme/","dgPassFrontmatter":true,"noteIcon":5,"created":"2024-08-24T23:09:54.570+08:00","updated":"2024-09-06T15:05:34.449+08:00"}
 ---
 
 ### Readme
 --- 
-此目录存放一些有关自己思想的东西
+此目录存放技术类目的文档
 ***
 ### 目录内文档
 | 标题                                                                                                   | 时间                 |
@@ -66,7 +66,7 @@
 | [[🌖Technique_技术/SW_交换机/HIKVISION/HIKVISION SSH开通\|HIKVISION SSH开通]]                              | 2024年8月2日 AM5:04   |
 | [[🌖Technique_技术/SW_交换机/RUIJIE交换机/锐捷交换机配置命令\|锐捷交换机配置命令]]                                          | 2024年3月6日 PM8:37   |
 | [[🌖Technique_技术/SW_交换机/RUIJIE交换机/锐捷设备巡检命令\|锐捷设备巡检命令]]                                            | 2024年3月6日 PM8:37   |
-| [[🌖Technique_技术/Technique_readme\|Technique_readme]]                                             | 2024年9月6日 PM2:28   |
+| [[🌖Technique_技术/Technique_readme\|Technique_readme]]                                             | 2024年9月6日 PM3:05   |
 | [[🌖Technique_技术/IPFS 安装（Windows 系统）\|IPFS 安装（Windows 系统）]]                                       | 2024年8月31日 PM7:51  |
 | [[🌖Technique_技术/Drawing 2024-08-27 10.58.33.excalidraw\|Drawing 2024-08-27 10.58.33.excalidraw]] | 2024年9月1日 PM12:45  |
 | [[🌖Technique_技术/chrome插件\|chrome插件]]                                                             | 2024年8月20日 PM3:41  |

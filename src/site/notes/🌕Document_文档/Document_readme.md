@@ -1,10 +1,10 @@
 ---
-{"dg-publish":true,"dg-note-icon":5,"permalink":"/🌕Document_文档/Document_readme/","dgPassFrontmatter":true,"noteIcon":5,"created":"2024-08-24T23:09:47.569+08:00","updated":"2024-09-06T14:27:07.213+08:00"}
+{"dg-publish":true,"dg-note-icon":5,"permalink":"/🌕Document_文档/Document_readme/","dgPassFrontmatter":true,"noteIcon":5,"created":"2024-08-24T23:09:47.569+08:00","updated":"2024-09-06T15:05:53.609+08:00"}
 ---
 
 ### Readme
 --- 
-此目录存放一些有关自己思想的东西
+此目录存放文档类目的文档
 ***
 ### 目录内文档
 | 标题                                                                                                  | 时间                  |
@@ -40,7 +40,7 @@
 | [[🌕Document_文档/Article 文章/工作10年\|工作10年]]                                                        | 2024年9月6日 PM2:32    |
 | [[🌕Document_文档/Cinecism_影评/杂种 Bastarden (2023)\|杂种 Bastarden (2023)]]                           | 2024年9月1日 AM10:05   |
 | [[🌕Document_文档/Cinecism_影评/风雨哈佛路 Homeless to Harvard (2003)\|风雨哈佛路 Homeless to Harvard (2003)]] | 2024年9月3日 PM6:58    |
-| [[🌕Document_文档/Document_readme\|Document_readme]]                                               | 2024年9月6日 PM2:27    |
+| [[🌕Document_文档/Document_readme\|Document_readme]]                                               | 2024年9月6日 PM3:05    |
 | [[🌕Document_文档/Copy 文案/Copy_20231118\|Copy_20231118]]                                           | 2024年3月6日 PM8:38    |
 | [[🌕Document_文档/Model/参考模型\|参考模型]]                                                               | 2024年3月6日 PM8:38    |
 | [[🌕Document_文档/Lyric_歌词/G.E.M. 邓紫棋《你不是真正的快乐》\|G.E.M. 邓紫棋《你不是真正的快乐》]]                            | 2024年4月25日 PM2:00   |

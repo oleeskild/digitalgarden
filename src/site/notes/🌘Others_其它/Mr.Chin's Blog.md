@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-06T14:55:49.183+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-06T15:08:22.362+08:00"}
 ---
 
 # **Home Page**
@@ -13,7 +13,6 @@
 ~~~
 今日 2024-09-06T00:00:00.000+08:00 ，博客记录发布19天
 <p><span>已使用 <em>Obsidian</em> 1030 天，共创建 366 篇文档、15 个标签、102 个待办。 <br><br></span></p>
----
 # 待处理
 - [[☰ Inbox 收集/20240906处理\|20240906处理]]
 
@@ -40,13 +39,13 @@
 { .block-language-dataview}
 
 ## 最近编辑
-| 标题                                                               | 时间                |
-| ---------------------------------------------------------------- | ----------------- |
-| [[🌒Action_行动/Blog_博客/Obsidian/Obsidian Tree\|Obsidian Tree]] | 2024年9月6日 PM3:02  |
-| [[🌑Journal_手札/严选/About_Logo\|About_Logo]]                    | 2024年9月6日 PM2:58  |
-| [[🌘Others_其它/Mr.Chin's Blog\|Mr.Chin's Blog]]                | 2024年9月6日 PM2:55  |
-| [[🌒Action_行动/Blog_博客/Obsidian/笔记引用\|笔记引用]]                   | 2024年9月6日 PM2:54  |
-| [[🌒Action_行动/Blog_博客/Obsidian/评论系统\|评论系统]]                   | 2024年9月6日 PM2:53  |
+| 标题                                                    | 时间                |
+| ----------------------------------------------------- | ----------------- |
+| [[🌘Others_其它/Mr.Chin's Blog\|Mr.Chin's Blog]]     | 2024年9月6日 PM3:08  |
+| [[🌑Journal_手札/Journal_readme\|Journal_readme]]    | 2024年9月6日 PM3:07  |
+| [[🌓Interest_兴趣/Interest_readme\|Interest_readme]] | 2024年9月6日 PM3:06  |
+| [[🌔Thought_思想/Thought_readme\|Thought_readme]]    | 2024年9月6日 PM3:06  |
+| [[🌕Document_文档/Document_readme\|Document_readme]] | 2024年9月6日 PM3:05  |
 
 { .block-language-dataview}
 

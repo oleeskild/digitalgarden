@@ -1,10 +1,10 @@
 ---
-{"dg-publish":true,"dg-note-icon":5,"tags":["Readme"],"permalink":"/🌓Interest_兴趣/Interest_readme/","dgPassFrontmatter":true,"noteIcon":5,"created":"2024-08-24T23:09:47.412+08:00","updated":"2024-09-06T14:25:38.664+08:00"}
+{"dg-publish":true,"dg-note-icon":5,"tags":["Readme"],"permalink":"/🌓Interest_兴趣/Interest_readme/","dgPassFrontmatter":true,"noteIcon":5,"created":"2024-08-24T23:09:47.412+08:00","updated":"2024-09-06T15:06:33.794+08:00"}
 ---
 
 ### Readme
 --- 
-此目录存放一些自己感兴趣的内
+此目录存放感兴趣学习类目的文档
 ***
 ### 目录内文档
 | 标题                                                                       | 时间                  |
@@ -23,7 +23,7 @@
 | [[🌓Interest_兴趣/History_历史/Mein Kampf/原序\|原序]]                        | 2024年9月5日 PM9:31    |
 | [[🌓Interest_兴趣/History_历史/Mein Kampf/第一章 我的家庭\|第一章 我的家庭]]            | 2024年9月5日 PM9:30    |
 | [[🌓Interest_兴趣/History_历史/Mein Kampf/编者序\|编者序]]                      | 2024年9月5日 PM9:30    |
-| [[🌓Interest_兴趣/Interest_readme\|Interest_readme]]                    | 2024年9月6日 PM2:25    |
+| [[🌓Interest_兴趣/Interest_readme\|Interest_readme]]                    | 2024年9月6日 PM3:06    |
 | [[🌓Interest_兴趣/Mathematics_数学/Precalculus/SECTION R.1\|SECTION R.1]] | 2024年9月1日 PM7:09    |
 | [[🌓Interest_兴趣/Mathematics_数学/Math_Catalogue\|Math_Catalogue]]       | 2024年9月6日 AM7:53    |
 | [[🌓Interest_兴趣/Mathematics_数学/高数书单\|高数书单]]                           | 2024年9月1日 AM8:40    |
