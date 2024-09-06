@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-06T13:52:45.457+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-06T14:04:59.673+08:00"}
 ---
 
 # **Home Page**
@@ -56,24 +56,24 @@
 { .block-language-dataview}
 ***
 ## 最近编辑
-| 标题                                                    | 时间                            |
-| ----------------------------------------------------- | ----------------------------- |
-| [[🌘Others_其它/Mr.Chin's Blog\|Mr.Chin's Blog]]     | 1:52 PM - September 06, 2024  |
-| [[☷ Archive 归档/Home\|Home]]                        | 1:46 PM - September 06, 2024  |
-| [[🌘Others_其它/Others_readme\|Others_readme]]       | 1:44 PM - September 06, 2024  |
-| [[🌓Interest_兴趣/Interest_readme\|Interest_readme]] | 12:35 PM - September 06, 2024 |
-| [[🌓Interest_兴趣/Nous 常识/法家\|法家]]                   | 12:12 PM - September 06, 2024 |
+| 标题                                             | 时间                |
+| ---------------------------------------------- | ----------------- |
+| [[🌕Document_文档/Article 文章/工作10年\|工作10年]]   | 2024年9月6日 PM2:32  |
+| [[🌕Document_文档/Article 文章/长期坚持习惯\|长期坚持习惯]] | 2024年9月6日 PM2:32  |
+| [[🌕Document_文档/Article 文章/每天阅读\|每天阅读]]     | 2024年9月6日 PM2:31  |
+| [[🌕Document_文档/Article 文章/施一公\|施一公]]       | 2024年9月6日 PM2:31  |
+| [[🌕Document_文档/Article 文章/逆袭故事\|逆袭故事]]     | 2024年9月6日 PM2:31  |
 
 { .block-language-dataview}
 ***
 ## 最近创建
-| 标题                                                       | 时间                            |
-| -------------------------------------------------------- | ----------------------------- |
-| [[☷ Archive 归档/Home\|Home]]                           | 1:43 PM - September 06, 2024  |
-| [[☰ Inbox 收集/September 06, 2024\|September 06, 2024]] | 12:39 PM - September 06, 2024 |
-| [[🌒Action_行动/Blog_博客/Obsidian/侧边栏\|侧边栏]]             | 9:43 AM - September 06, 2024  |
-| [[🌒Action_行动/Blog_博客/Obsidian/搭建博客\|搭建博客]]           | 10:36 PM - September 05, 2024 |
-| [[☰ Inbox 收集/评论系统\|评论系统]]                             | 10:02 PM - September 05, 2024 |
+| 标题                                                       | 时间                 |
+| -------------------------------------------------------- | ------------------ |
+| [[☷ Archive 归档/Home\|Home]]                           | 2024年9月6日 PM1:43   |
+| [[☰ Inbox 收集/September 06, 2024\|September 06, 2024]] | 2024年9月6日 PM12:39  |
+| [[🌒Action_行动/Blog_博客/Obsidian/侧边栏\|侧边栏]]             | 2024年9月6日 AM9:43   |
+| [[🌒Action_行动/Blog_博客/Obsidian/搭建博客\|搭建博客]]           | 2024年9月5日 PM10:36  |
+| [[☰ Inbox 收集/评论系统\|评论系统]]                             | 2024年9月5日 PM10:02  |
 
 { .block-language-dataview}
 ***
