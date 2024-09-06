@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-06T15:16:00.722+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-06T15:32:57.223+08:00"}
 ---
 
 # **Home Page**
@@ -11,7 +11,7 @@
 -此处主要分享我的第二大脑和数字花园内容
 -如有对技术爱好者，可通过About Me做技术交流⭐⭐⭐⭐✨
 ~~~
-今日 2024-09-06T00:00:00.000+08:00 ，博客记录发布19天
+今日 2024-09-06T00:00:00.000+08:00，博客记录发布19天
 <p><span>已使用 <em>Obsidian</em> 1030 天，共创建 366 篇文档、15 个标签、102 个待办。 <br><br></span></p>
 
 ## 待处理
@@ -51,7 +51,7 @@
 ## 最近编辑
 | 标题                                                    | 时间                |
 | ----------------------------------------------------- | ----------------- |
-| [[🌘Others_其它/Mr.Chin's Blog\|Mr.Chin's Blog]]     | 2024年9月6日 PM3:16  |
+| [[🌘Others_其它/Mr.Chin's Blog\|Mr.Chin's Blog]]     | 2024年9月6日 PM3:32  |
 | [[🌑Journal_手札/Journal_readme\|Journal_readme]]    | 2024年9月6日 PM3:07  |
 | [[🌓Interest_兴趣/Interest_readme\|Interest_readme]] | 2024年9月6日 PM3:06  |
 | [[🌔Thought_思想/Thought_readme\|Thought_readme]]    | 2024年9月6日 PM3:06  |
