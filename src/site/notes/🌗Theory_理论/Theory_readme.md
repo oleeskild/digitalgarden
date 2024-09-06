@@ -22,6 +22,7 @@
 | [[🌗Theory_理论/Network_网络/算法思想\|算法思想]]                                   | 2024年3月6日 PM8:38    |
 | [[🌗Theory_理论/Network_网络/编程学习\|编程学习]]                                   | 2024年3月6日 PM8:38    |
 | [[🌗Theory_理论/Network_网络/单片机通信协议\|单片机通信协议]]                             | 2024年3月6日 PM8:37    |
+| [[🌗Theory_理论/Network_网络/电脑设置同时访问内网和外网\|电脑设置同时访问内网和外网]]                 | 2024年3月6日 PM8:38    |
 | [[🌗Theory_理论/Terms_术语/金属冶炼_汉英\|金属冶炼_汉英]]                               | 2024年8月27日 PM9:34   |
 | [[🌗Theory_理论/Theory_readme\|Theory_readme]]                            | 2024年9月6日 PM2:28    |
 | [[🌗Theory_理论/Power_电源/MTBF&MTTR&MTTF\|MTBF&MTTR&MTTF]]                 | 2024年8月27日 AM10:56  |
