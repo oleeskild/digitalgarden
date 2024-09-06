@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-05T20:40:05.262+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-06T12:46:51.337+08:00"}
 ---
 
 # **Home Page**
@@ -11,7 +11,7 @@
 -此处主要分享我的笔记系统和内容
 -喜欢大家友好交流
 ~~~
-
+今日[[2024年9月6日\|2024年9月6日]]，[[2023年9月6日\|2023年9月6日]]
 
 
 - 我的博客记录第19天
