@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-06T14:44:30.982+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-06T14:44:54.730+08:00"}
 ---
 
 # **Home Page**
@@ -14,7 +14,7 @@
 今日 2024-09-06T00:00:00.000+08:00 ，博客记录发布19天
 <p><span>已使用 <em>Obsidian</em> 1030 天，共创建 374 篇文档、15 个标签、102 个待办。 <br><br></span></p>
 
-## 待处理
+##### 待处理
 - [[☰ Inbox 收集/2024工程师申请\|2024工程师申请]]
 - [[☰ Inbox 收集/About_Logo\|About_Logo]]
 - [[☰ Inbox 收集/Aria2c下载工具\|Aria2c下载工具]]
