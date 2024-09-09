@@ -19,6 +19,7 @@
 | [[🌒Action_行动/Blog_博客/Obsidian/未命名\|未命名]]                       | 2024年9月6日 PM2:54   |
 | [[🌒Action_行动/Blog_博客/Obsidian/评论系统\|评论系统]]                     | 2024年9月6日 PM2:53   |
 | [[🌒Action_行动/Blog_博客/Obsidian/笔记引用\|笔记引用]]                     | 2024年9月6日 PM2:54   |
+| [[🌒Action_行动/Blog_博客/Obsidian/About_Logo\|About_Logo]]         | 2024年9月9日 PM4:43   |
 | [[🌒Action_行动/Blog_博客/Vuepress/Vuepress优化记录\|Vuepress优化记录]]     | 2024年9月3日 AM11:14  |
 | [[🌒Action_行动/Blog_博客/Vuepress/Vuepress调试报错\|Vuepress调试报错]]     | 2024年9月2日 PM8:18   |
 | [[🌒Action_行动/Blog_博客/Vuepress/vuepress命令\|vuepress命令]]         | 2024年9月2日 PM8:20   |
