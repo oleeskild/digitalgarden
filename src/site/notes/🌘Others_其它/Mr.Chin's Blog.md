@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-11T18:44:49.401+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-11T19:32:25.759+08:00"}
 ---
 
 # **Home Page**
@@ -48,27 +48,29 @@
 | 2021年 11月 | 1 篇  |
 
 { .block-language-dataview}
+## 历史[[🌘Others_其它/History\|History]]
 
 ## 最近编辑
-| 标题                                                         | 时间                 |
-| ---------------------------------------------------------- | ------------------ |
-| [[🌘Others_其它/Mr.Chin's Blog\|Mr.Chin's Blog]]          | 2024年9月11日 PM6:44  |
-| [[🌘Others_其它/未命名\|未命名]]                                | 2024年9月11日 PM6:05  |
-| [[🌒Action_行动/Blog_博客/Obsidian/About_Logo\|About_Logo]] | 2024年9月9日 PM4:43   |
-| [[🌑Journal_手札/严选/宗族&氏族&家族\|宗族&氏族&家族]]                  | 2024年9月9日 PM4:42   |
-| [[🌑Journal_手札/小记/小记_20240826\|小记_20240826]]            | 2024年9月9日 PM4:41   |
+| 标题                                                | 时间                 |
+| ------------------------------------------------- | ------------------ |
+| [[🌘Others_其它/History\|History]]               | 2024年9月11日 PM7:32  |
+| [[🌘Others_其它/Mr.Chin's Blog\|Mr.Chin's Blog]] | 2024年9月11日 PM7:32  |
+| [[☶ Personal 私人/生日提醒\|生日提醒]]                   | 2024年9月11日 PM7:22  |
+| [[🌑Journal_手札/想法/自由\|自由]]                     | 2024年9月11日 PM7:22  |
+| [[🌑Journal_手札/想法/慎独\|慎独]]                     | 2024年9月11日 PM7:21  |
 
 { .block-language-dataview}
 
 ## 最近创建
 | 标题                                                                      | 时间                 |
 | ----------------------------------------------------------------------- | ------------------ |
+| [[🌘Others_其它/History\|History]]                                     | 2024年9月11日 PM7:28  |
 | [[☰ Inbox 收集/20240909\|20240909]]                                    | 2024年9月9日 PM4:21   |
 | [[🌕Document_文档/素材/Noun\|Noun]]                                      | 2024年9月9日 PM2:48   |
 | [[🌕Document_文档/素材/Emoji\|Emoji]]                                    | 2024年9月9日 PM2:47   |
 | [[🌓Interest_兴趣/History_历史/Mein Kampf/第三章 在维也纳所得的政见\|第三章 在维也纳所得的政见]] | 2024年9月9日 PM12:43  |
-| [[🌓Interest_兴趣/History_历史/Mein Kampf/第二章 在维也纳苦学\|第二章 在维也纳苦学]]       | 2024年9月9日 AM10:57  |
 
 { .block-language-dataview}
+## 标签
 <p><span><a class="internal-link" data-href="#Ebook" href="#Ebook" target="_blank" rel="noopener"></a><a href="#Ebook" class="tag" target="_blank" rel="noopener">#Ebook</a>(8) <a class="internal-link" data-href="#Readme" href="#Readme" target="_blank" rel="noopener"></a><a href="#Readme" class="tag" target="_blank" rel="noopener">#Readme</a>(7) <a class="internal-link" data-href="#Mein_Kampf" href="#Mein_Kampf" target="_blank" rel="noopener"></a><a href="#Mein_Kampf" class="tag" target="_blank" rel="noopener">#Mein_Kampf</a>(6) <a class="internal-link" data-href="#excalidraw" href="#excalidraw" target="_blank" rel="noopener"></a><a href="#excalidraw" class="tag" target="_blank" rel="noopener">#excalidraw</a>(5) <a class="internal-link" data-href="#Personal" href="#Personal" target="_blank" rel="noopener"></a><a href="#Personal" class="tag" target="_blank" rel="noopener">#Personal</a>(5) <a class="internal-link" data-href="#TASK" href="#TASK" target="_blank" rel="noopener"></a><a href="#TASK" class="tag" target="_blank" rel="noopener">#TASK</a>(4) <a class="internal-link" data-href="#Blog" href="#Blog" target="_blank" rel="noopener"></a><a href="#Blog" class="tag" target="_blank" rel="noopener">#Blog</a>(3) <a class="internal-link" data-href="#Soft" href="#Soft" target="_blank" rel="noopener"></a><a href="#Soft" class="tag" target="_blank" rel="noopener">#Soft</a>(3) <a class="internal-link" data-href="#国学" href="#国学" target="_blank" rel="noopener"></a><a href="#国学" class="tag" target="_blank" rel="noopener">#国学</a>(1) <a class="internal-link" data-href="#Liber" href="#Liber" target="_blank" rel="noopener"></a><a href="#Liber" class="tag" target="_blank" rel="noopener">#Liber</a>(1) <a class="internal-link" data-href="#Navicat" href="#Navicat" target="_blank" rel="noopener"></a><a href="#Navicat" class="tag" target="_blank" rel="noopener">#Navicat</a>(1) <a class="internal-link" data-href="#Postman" href="#Postman" target="_blank" rel="noopener"></a><a href="#Postman" class="tag" target="_blank" rel="noopener">#Postman</a>(1) <a class="internal-link" data-href="#SecureCRT" href="#SecureCRT" target="_blank" rel="noopener"></a><a href="#SecureCRT" class="tag" target="_blank" rel="noopener">#SecureCRT</a>(1) <a class="internal-link" data-href="#Time_count" href="#Time_count" target="_blank" rel="noopener"></a><a href="#Time_count" class="tag" target="_blank" rel="noopener">#Time_count</a>(1) <a class="internal-link" data-href="#Xmind" href="#Xmind" target="_blank" rel="noopener"></a><a href="#Xmind" class="tag" target="_blank" rel="noopener">#Xmind</a>(1)</span></p>
 ***
