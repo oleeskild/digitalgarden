@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-09T17:54:23.545+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-11T17:58:24.170+08:00"}
 ---
 
 # **Home Page**
@@ -10,11 +10,10 @@
 -此处主要分享我的第二大脑和数字花园内容
 -如有对技术爱好者，可通过About Me做技术交流⭐⭐⭐⭐✨
 ~~~
-今日 2024年9月9日，博客记录发布22天
-<p><span>已使用 <em>Obsidian</em> 1033 天，共创建 370 篇文档、15 个标签、102 个待办。 <br><br></span></p>
+<span><span>从 2024-08-18 到今天博客记录发布 24 天。</span></span><p><span>已使用 <em>Obsidian</em> 1035 天，共创建 370 篇文档、15 个标签、102 个待办。 <br><br></span></p>
 
 ## 倒计时
-<div><span>2024-09-09  --Mon</span></div><div>&lt;Date&gt;</div><div><span>本月还剩22天</span></div><progress max="30" value="22"><span>-</span></progress><div><span>倒计还剩2 /365天</span></div><progress max="300" value="2"><span>-</span></progress>
+<div><span>2024-09-11  --Wed</span></div><div>&lt;Date&gt;</div><div><span>本月还剩20天</span></div><progress max="30" value="20"><span>-</span></progress><div><span>倒计还剩0 /365天</span></div><progress max="300" value="0"><span>-</span></progress>
 
 ## 待处理
 - [[☰ Inbox 收集/20240909\|20240909]]
@@ -51,13 +50,13 @@
 { .block-language-dataview}
 
 ## 最近编辑
-| 标题                                                         | 时间                |
-| ---------------------------------------------------------- | ----------------- |
-| [[🌘Others_其它/Mr.Chin's Blog\|Mr.Chin's Blog]]          | 2024年9月9日 PM5:54  |
-| [[🌘Others_其它/未命名\|未命名]]                                | 2024年9月9日 PM5:45  |
-| [[🌒Action_行动/Blog_博客/Obsidian/About_Logo\|About_Logo]] | 2024年9月9日 PM4:43  |
-| [[🌑Journal_手札/严选/宗族&氏族&家族\|宗族&氏族&家族]]                  | 2024年9月9日 PM4:42  |
-| [[🌑Journal_手札/小记/小记_20240826\|小记_20240826]]            | 2024年9月9日 PM4:41  |
+| 标题                                                         | 时间                 |
+| ---------------------------------------------------------- | ------------------ |
+| [[🌘Others_其它/Mr.Chin's Blog\|Mr.Chin's Blog]]          | 2024年9月11日 PM5:58  |
+| [[🌘Others_其它/未命名\|未命名]]                                | 2024年9月11日 PM5:55  |
+| [[🌒Action_行动/Blog_博客/Obsidian/About_Logo\|About_Logo]] | 2024年9月9日 PM4:43   |
+| [[🌑Journal_手札/严选/宗族&氏族&家族\|宗族&氏族&家族]]                  | 2024年9月9日 PM4:42   |
+| [[🌑Journal_手札/小记/小记_20240826\|小记_20240826]]            | 2024年9月9日 PM4:41   |
 
 { .block-language-dataview}
 
