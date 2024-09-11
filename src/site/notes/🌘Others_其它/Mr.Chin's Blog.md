@@ -1,10 +1,11 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-11T19:32:25.759+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"permalink":"/🌘Others_其它/Mr.Chin's Blog/","tags":["gardenEntry"],"dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-11T19:35:21.937+08:00"}
 ---
 
 # **Home Page**
 ![|175](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409091002741.svg)
 ## [[🌘Others_其它/About Me\|About Me]]👈
+## [[🌘Others_其它/History\|History]]👈
 ~~~
 -欢迎来到Mr.Chin's Blog
 -此处主要分享我的第二大脑和数字花园内容
@@ -48,13 +49,12 @@
 | 2021年 11月 | 1 篇  |
 
 { .block-language-dataview}
-## 历史[[🌘Others_其它/History\|History]]
 
 ## 最近编辑
 | 标题                                                | 时间                 |
 | ------------------------------------------------- | ------------------ |
+| [[🌘Others_其它/Mr.Chin's Blog\|Mr.Chin's Blog]] | 2024年9月11日 PM7:35  |
 | [[🌘Others_其它/History\|History]]               | 2024年9月11日 PM7:32  |
-| [[🌘Others_其它/Mr.Chin's Blog\|Mr.Chin's Blog]] | 2024年9月11日 PM7:32  |
 | [[☶ Personal 私人/生日提醒\|生日提醒]]                   | 2024年9月11日 PM7:22  |
 | [[🌑Journal_手札/想法/自由\|自由]]                     | 2024年9月11日 PM7:22  |
 | [[🌑Journal_手札/想法/慎独\|慎独]]                     | 2024年9月11日 PM7:21  |
