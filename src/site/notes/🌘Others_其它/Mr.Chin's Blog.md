@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"tags":["Blog","gardenEntry","gardenEntry","gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-12T11:16:24.075+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"tags":["Blog","gardenEntry","gardenEntry","gardenEntry","gardenEntry","gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-12T11:16:24.075+08:00"}
 ---
 
 # **Home Page**
@@ -54,7 +54,7 @@
 ## 最近编辑
 | 标题                                                     | 时间                  |
 | ------------------------------------------------------ | ------------------- |
-| [[🌘Others_其它/History\|History]]                    | 2024年9月12日 PM1:34   |
+| [[🌘Others_其它/History\|History]]                    | 2024年9月12日 PM2:24   |
 | [[🌒Action_行动/Blog_博客/Obsidian/未命名 1\|未命名 1]]       | 2024年9月12日 PM12:32  |
 | [[🌘Others_其它/Mr.Chin's Blog\|Mr.Chin's Blog]]      | 2024年9月12日 AM11:16  |
 | [[☴ Diary 手札/Daily/Daily_20240912\|Daily_20240912]] | 2024年9月12日 AM9:04   |
