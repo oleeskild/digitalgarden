@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"tags":["Blog","gardenEntry","gardenEntry","gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-11T20:07:06.639+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"tags":["Blog","gardenEntry","gardenEntry","gardenEntry","gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-11T20:07:06.639+08:00"}
 ---
 
 # **Home Page**
@@ -14,7 +14,7 @@
 <div><span>今天是2024-09-12  --Thu</span></div><span><span>博客记录发布 25 天。</span></span><p><span>已使用 <em>Obsidian</em> 1035 天，共创建 373 篇文档、15 个标签、102 个待办。</span></p>
 
 ## 倒计时
-<span><span>注册中级安全工程师考试：2024-10-26</span></span><div><span>本月还剩19天</span></div><progress max="30" value="19"><span>-</span></progress><div><span>倒计还剩44 /365天</span></div><progress max="300" value="44"><span>-</span></progress>
+<span><span>注册中级安全工程师考试：2024-10-26</span></span><div><span>本月还剩19天</span></div><progress max="30" value="19"><span>-</span></progress><div><span>倒计还剩43 /365天</span></div><progress max="300" value="43"><span>-</span></progress>
 
 ## 待处理
 - [[☰ Inbox 收集/20240909\|20240909]]
@@ -53,11 +53,11 @@
 ## 最近编辑
 | 标题                                                               | 时间                 |
 | ---------------------------------------------------------------- | ------------------ |
-| [[🌒Action_行动/Blog_博客/Obsidian/未命名 1\|未命名 1]]                 | 2024年9月12日 AM7:56  |
+| [[🌘Others_其它/History\|History]]                              | 2024年9月12日 AM8:01  |
+| [[🌒Action_行动/Blog_博客/Obsidian/未命名 1\|未命名 1]]                 | 2024年9月12日 AM8:00  |
 | [[🌒Action_行动/Blog_博客/Obsidian/未命名\|未命名]]                     | 2024年9月11日 PM8:18  |
 | [[🌒Action_行动/Blog_博客/Obsidian/Obsidian查询目录1\|Obsidian查询目录1]] | 2024年9月11日 PM8:16  |
 | [[🌒Action_行动/Blog_博客/Obsidian/Obsidian查询目录2\|Obsidian查询目录2]] | 2024年9月11日 PM8:16  |
-| [[🌓Interest_兴趣/Interest_readme\|Interest_readme]]            | 2024年9月11日 PM8:13  |
 
 { .block-language-dataview}
 
