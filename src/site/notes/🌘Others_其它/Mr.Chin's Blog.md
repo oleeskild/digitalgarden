@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"tags":["Blog","gardenEntry","gardenEntry","gardenEntry","gardenEntry","gardenEntry","gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-12T14:26:28.388+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"tags":["Blog","gardenEntry","gardenEntry","gardenEntry","gardenEntry","gardenEntry","gardenEntry","gardenEntry","gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-12T14:26:28.388+08:00"}
 ---
 
 # **Home Page**
@@ -11,10 +11,10 @@
 -此处主要分享我的第二大脑和数字花园内容
 -如有对技术爱好者，可通过About Me做技术交流⭐⭐⭐⭐✨
 ~~~
-<div><span>今天是2024-09-12  --Thu</span></div><span><span>博客记录发布 25 天。</span></span><p><span>已使用 <em>Obsidian</em> 1036 天，共创建 374 篇文档、16 个标签、102 个待办。</span></p>
+<div><span>今天是2024-09-13  --Fri</span></div><span><span>博客记录发布 26 天。</span></span><p><span>已使用 <em>Obsidian</em> 1036 天，共创建 374 篇文档、16 个标签、104 个待办。</span></p>
 
 ## 倒计时
-<span><span>注册中级安全工程师考试：2024-10-26</span></span><div><span>本月还剩19天</span></div><progress max="30" value="19"><span>-</span></progress><div><span>倒计还剩43 /365天</span></div><progress max="300" value="43"><span>-</span></progress>
+<span><span>注册中级安全工程师考试：2024-10-26</span></span><div><span>本月还剩18天</span></div><progress max="30" value="18"><span>-</span></progress><div><span>倒计还剩43 /365天</span></div><progress max="300" value="43"><span>-</span></progress>
 
 ## 待处理
 - [[☰ Inbox 收集/20240909\|20240909]]
@@ -54,10 +54,10 @@
 ## 最近编辑
 | 标题                                                     | 时间                  |
 | ------------------------------------------------------ | ------------------- |
+| [[☴ Diary 手札/Daily/Daily_20240912\|Daily_20240912]] | 2024年9月12日 PM11:08  |
 | [[🌘Others_其它/Mr.Chin's Blog\|Mr.Chin's Blog]]      | 2024年9月12日 PM2:26   |
 | [[🌘Others_其它/History\|History]]                    | 2024年9月12日 PM2:24   |
 | [[🌒Action_行动/Blog_博客/Obsidian/未命名 1\|未命名 1]]       | 2024年9月12日 PM12:32  |
-| [[☴ Diary 手札/Daily/Daily_20240912\|Daily_20240912]] | 2024年9月12日 AM9:04   |
 | [[🌒Action_行动/Blog_博客/Obsidian/未命名\|未命名]]           | 2024年9月11日 PM8:18   |
 
 { .block-language-dataview}
