@@ -8,11 +8,11 @@
 | 库中共有376个页面，总计约351万字节（3.35MB） |
 
 { .block-language-dataview}
-<p><span>其中<mark>私有笔记</mark> <strong>14</strong> 篇，<mark>分享博客笔记</mark> <strong>7</strong> 篇，<mark>标签</mark> <strong>16</strong>个</span></p>
+<p><span>其中<mark>私有笔记</mark> <strong>14</strong> 篇，<mark>分享博客笔记</mark> <strong>7</strong> 篇，<mark>标签</mark> <strong>17</strong>个</span></p>
 ## 最近修改
 | 标题                                                | 时间                 |
 | ------------------------------------------------- | ------------------ |
-| [[🌘Others_其它/Mr.Chin's Blog\|Mr.Chin's Blog]] | 2024年9月14日 PM2:39  |
+| [[🌘Others_其它/Mr.Chin's Blog\|Mr.Chin's Blog]] | 2024年9月14日 PM2:41  |
 | [[🌑Journal_手札/严选/笔记软件Obsidian\|笔记软件Obsidian]] | 2024年9月14日 PM2:11  |
 | [[🌘Others_其它/Others_readme\|Others_readme]]   | 2024年9月13日 PM8:55  |
 | [[🌘Others_其它/About Me\|About Me]]             | 2024年9月13日 PM5:27  |
