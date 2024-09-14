@@ -1,9 +1,10 @@
 ---
-{"dg-publish":true,"dg-note-icon":2,"tags":["Blog","Recommend"],"permalink":"/🌑Journal_手札/严选/笔记软件Obsidian/","dgPassFrontmatter":true,"noteIcon":2,"created":"2024-09-13T20:56:04.371+08:00","updated":"2024-09-14T14:11:30.823+08:00"}
+{"dg-publish":true,"dg-note-icon":2,"tags":["Blog","Recommend"],"permalink":"/🌑Journal_手札/严选/笔记软件Obsidian/","dgPassFrontmatter":true,"noteIcon":2,"created":"2024-09-13T20:56:04.371+08:00","updated":"2024-09-14T16:30:16.585+08:00"}
 ---
 
 ### 关于笔记
-```
+```text
+——电影《邪不压正》
 “那日本人靠不住，我靠谁啊？老蒋？”
 “更靠不住。”
 “一个写日记的人。”

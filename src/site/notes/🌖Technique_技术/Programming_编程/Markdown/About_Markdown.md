@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-note-icon":5,"permalink":"/🌖Technique_技术/Programming_编程/Markdown/About_Markdown/","dgPassFrontmatter":true,"noteIcon":5,"created":"2024-08-25T18:54:22.932+08:00","updated":"2024-08-25T19:59:58.237+08:00"}
+{"dg-publish":true,"dg-note-icon":5,"title":"About_Markdown","tags":["Blog"],"permalink":"/🌖Technique_技术/Programming_编程/Markdown/About_Markdown/","dgPassFrontmatter":true,"noteIcon":5,"created":"2024-08-25T18:54:22.932+08:00","updated":"2024-09-14T19:20:03.604+08:00"}
 ---
 
 #### 源
