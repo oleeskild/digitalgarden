@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"tags":["gardenEntry","gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-14T14:41:27.067+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"tags":["gardenEntry","gardenEntry","gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-14T14:41:27.067+08:00"}
 ---
 
 # **Home Page**
@@ -9,7 +9,7 @@
 -此处主要分享我的第二大脑和数字花园内容
 -如有对技术爱好者，可通过About Me做技术交流
 ~~~
-<div><span>今天是2024-09-14  --Sat</span></div><span><span>博客记录发布 27 天。</span></span><p><span>已使用 <em>Obsidian</em> 1038 天，共创建 376 篇文档、17 个标签、104 个待办。</span></p>
+<div><span>今天是2024-09-14  --Sat</span></div><span><span>博客记录发布 27 天。</span></span><p><span>已使用 <em>Obsidian</em> 1038 天，共创建 377 篇文档、17 个标签、104 个待办。</span></p>
  ![树|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415147.svg) 5级文件名![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415148.svg) 4级文件名 ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415145.svg) 2级文件名 ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415146.svg) 1级文件名 ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415144.svg) 3级文件名
 
 # 推荐内容
@@ -41,7 +41,7 @@
 # 文档记录
 | 月份        | 数量   |
 | --------- | ---- |
-| 2024年 9月  | 43 篇 |
+| 2024年 9月  | 44 篇 |
 | 2024年 8月  | 66 篇 |
 | 2024年 7月  | 21 篇 |
 | 2024年 6月  | 9 篇  |
