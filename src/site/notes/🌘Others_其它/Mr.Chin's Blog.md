@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"tags":["gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-14T11:21:20.368+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"tags":["gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-14T14:20:10.684+08:00"}
 ---
 
 # **Home Page**
@@ -10,7 +10,11 @@
 -如有对技术爱好者，可通过About Me做技术交流
 ~~~
 <div><span>今天是2024-09-14  --Sat</span></div><span><span>博客记录发布 27 天。</span></span><p><span>已使用 <em>Obsidian</em> 1038 天，共创建 376 篇文档、16 个标签、104 个待办。</span></p>
-
+![树|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415147.svg)5级
+![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415148.svg)4级
+![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415145.svg)2级
+![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415146.svg)1级
+![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415144.svg)3级
 # 推荐内容
 | 标题                                                | 时间                 |
 | ------------------------------------------------- | ------------------ |
