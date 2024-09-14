@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"tags":["gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-14T15:12:27.666+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"tags":["gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-14T15:27:45.566+08:00"}
 ---
 
 # **Home Page**
@@ -11,7 +11,18 @@
 ~~~
 <div><span>今天是2024-09-14  --Sat</span></div><span><span>博客记录发布 27 天。</span></span><p><span>已使用 <em>Obsidian</em> 1038 天，共创建 380 篇文档、16 个标签、104 个待办。</span></p>
  
- ![树|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415147.svg) 5级文件名![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415148.svg) 4级文件名 ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415145.svg) 2级文件名 ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415146.svg) 1级文件名 ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415144.svg) 3级文件名
+ ## 成熟度级别
+ 每个音符的成熟度级别由各个生长的植物图标表示
+ ### 幼苗
+ 幼苗 ![树|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415147.svg) 是刚刚开始的想法。也许是匆忙记下来的，或者只是展示了我到目前为止对它的想法的一部分。
+ ### 树苗
+ 树苗 ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415148.svg) 有大量的内容，但还有很多工作要做。连贯性和模式才刚刚出现。
+ ### 树
+ 树![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415145.svg)是成熟的连贯思想/文章/表达，除了一些编辑改进外，应该不会有太大变化。
+ ### 树
+ 树  ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415146.svg) 1级文件名 
+### 树
+树![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415144.svg) 3级文件名
 
 # 推荐内容
 | 标题                                                | 时间                 |
