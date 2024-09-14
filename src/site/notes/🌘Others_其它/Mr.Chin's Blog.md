@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"tags":["gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-14T14:25:11.678+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"tags":["gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-14T14:35:02.472+08:00"}
 ---
 
 # **Home Page**
@@ -10,11 +10,11 @@
 -如有对技术爱好者，可通过About Me做技术交流
 ~~~
 <div><span>今天是2024-09-14  --Sat</span></div><span><span>博客记录发布 27 天。</span></span><p><span>已使用 <em>Obsidian</em> 1038 天，共创建 376 篇文档、16 个标签、104 个待办。</span></p>
-![树|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415147.svg)5级
-![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415148.svg)4级
-![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415145.svg)2级
-![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415146.svg)1级
-![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415144.svg)3级
+- ![树|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415147.svg) 5级文件名
+- ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415148.svg) 4级文件名
+- ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415145.svg) 2级文件名
+- ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415146.svg) 1级文件名
+- ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415144.svg) 3级文件名
 
 # 推荐内容
 | 标题                                                | 时间                 |
@@ -23,7 +23,6 @@
 | [[🌘Others_其它/About Me\|About Me]]             | 2024年9月13日 PM5:27  |
 
 { .block-language-dataview}
-
 
 # 倒计时
 <span><span>注册中级安全工程师考试：2024-10-26</span></span><div><span>本月还剩17天</span></div><progress max="30" value="17"><span>-</span></progress><div><span>倒计还剩41 /365天</span></div><progress max="300" value="41"><span>-</span></progress>
