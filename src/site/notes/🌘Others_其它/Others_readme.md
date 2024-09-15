@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-note-icon":5,"tags":["Readme","Blog"],"permalink":"/🌘Others_其它/Others_readme/","dgPassFrontmatter":true,"noteIcon":5,"created":"2024-08-24T23:09:56.006+08:00","updated":"2024-09-13T20:55:14.740+08:00"}
+{"dg-publish":true,"dg-note-icon":0,"tags":["Readme","Blog"],"permalink":"/🌘Others_其它/Others_readme/","dgPassFrontmatter":true,"noteIcon":0,"created":"2024-08-24T23:09:56.006+08:00","updated":"2024-09-15T23:17:26.160+08:00"}
 ---
 
 ### Readme

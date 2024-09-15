@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-note-icon":2,"tags":["Blog","Recommend"],"permalink":"/🌑Journal_手札/严选/笔记软件Obsidian/","dgPassFrontmatter":true,"noteIcon":2,"created":"2024-09-13T20:56:04.371+08:00","updated":"2024-09-14T16:30:16.585+08:00"}
+{"dg-publish":true,"dg-note-icon":2,"tags":["Blog","Recommend"],"permalink":"/🌑Journal_手札/严选/笔记软件Obsidian/","dgPassFrontmatter":true,"noteIcon":2,"created":"2024-09-13T20:56:04.371+08:00","updated":"2024-09-15T16:43:35.644+08:00"}
 ---
 
 ### 关于笔记
@@ -26,4 +26,6 @@
 - 私有化部署
 - 自度高
 - 可玩性好
+- 笔记简单（图片依赖图床）
+- 
 

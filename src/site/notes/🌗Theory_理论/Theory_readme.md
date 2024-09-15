@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-note-icon":5,"tags":["Readme"],"permalink":"/🌗Theory_理论/Theory_readme/","dgPassFrontmatter":true,"noteIcon":5,"created":"2024-08-24T23:09:55.639+08:00","updated":"2024-09-13T16:45:39.310+08:00"}
+{"dg-publish":true,"dg-note-icon":0,"tags":["Readme"],"permalink":"/🌗Theory_理论/Theory_readme/","dgPassFrontmatter":true,"noteIcon":0,"created":"2024-08-24T23:09:55.639+08:00","updated":"2024-09-15T23:17:36.166+08:00"}
 ---
 
 ### Readme
