@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-note-icon":5,"tags":["Readme"],"permalink":"/🌔Thought_思想/Thought_readme/","dgPassFrontmatter":true,"noteIcon":5,"created":"2024-08-24T23:12:06.068+08:00","updated":"2024-09-13T16:50:27.344+08:00"}
+{"dg-publish":true,"dg-note-icon":1,"tags":["Readme"],"permalink":"/🌔Thought_思想/Thought_readme/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T23:12:06.068+08:00","updated":"2024-09-15T23:43:53.581+08:00"}
 ---
 
 ### Readme

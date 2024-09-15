@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-note-icon":5,"tags":["Readme"],"permalink":"/🌖Technique_技术/Technique_readme/","dgPassFrontmatter":true,"noteIcon":5,"created":"2024-08-24T23:09:54.570+08:00","updated":"2024-09-13T16:46:18.295+08:00"}
+{"dg-publish":true,"dg-note-icon":1,"tags":["Readme"],"permalink":"/🌖Technique_技术/Technique_readme/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T23:09:54.570+08:00","updated":"2024-09-15T23:44:03.160+08:00"}
 ---
 
 ### Readme

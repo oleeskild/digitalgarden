@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-note-icon":0,"tags":["Readme"],"permalink":"/🌑Journal_手札/Journal_readme/","dgPassFrontmatter":true,"noteIcon":0,"created":"2024-08-24T23:03:54.803+08:00","updated":"2024-09-15T23:17:42.877+08:00"}
+{"dg-publish":true,"dg-note-icon":1,"tags":["Readme"],"permalink":"/🌑Journal_手札/Journal_readme/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T23:03:54.803+08:00","updated":"2024-09-15T23:43:38.303+08:00"}
 ---
 
 ### Readme
