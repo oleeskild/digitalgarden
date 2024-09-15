@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"tags":["gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-14T18:51:56.285+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":1,"tags":["gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-15T13:41:53.690+08:00"}
 ---
 
 # **Home Page**
@@ -9,20 +9,20 @@
 -此处主要分享我的第二大脑和数字花园内容
 -如有对技术爱好者，可通过About Me做技术交流
 ~~~
-<div><span>今天是2024-09-14  --Sat</span></div><span><span>博客记录发布 27 天。</span></span><p><span>已使用 <em>Obsidian</em> 1038 天，共创建 381 篇文档、16 个标签、104 个待办。</span></p>
+<div><span>今天是2024-09-15  --Sun</span></div><span><span>博客记录发布 28 天。</span></span><p><span>已使用 <em>Obsidian</em> 1039 天，共创建 381 篇文档、16 个标签、104 个待办。</span></p>
  
 # 文档图标
 每个图标表示文档的成熟度级别由各个生长的植物图标表示
 ### 幼苗
-幼苗 ![树|100](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415147.svg) 是刚刚开始的想法。也许是匆忙记下来的，或者只是展示了我到目前为止对它的想法的一部分。
+幼苗 ![树|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415147.svg) 是刚刚开始的想法。也许是匆忙记下来的，或者只是展示了我到目前为止对它的想法的一部分。
 ### 树苗
-树苗 ![|100](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415148.svg) 有大量的内容，但还有很多工作要做。连贯性和模式才刚刚出现。
+树苗 ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415148.svg) 有大量的内容，但还有很多工作要做。连贯性和模式才刚刚出现。
 ### 树
-树 ![|100](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415145.svg) 是成熟的连贯思想/文章/表达，除了一些编辑改进外，应该不会有太大变化。
+树 ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415144.svg) 3级文件名
 ### 树
-树 ![|100](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415146.svg) 1级文件名 
+树 ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415145.svg) 是成熟的连贯思想/文章/表达，除了一些编辑改进外，应该不会有太大变化。
 ### 树
-树 ![|125](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415144.svg) 3级文件名
+树 ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415146.svg) 1级文件名 
 
 
 # 推荐内容
@@ -34,7 +34,7 @@
 { .block-language-dataview}
 
 # 倒计时
-<span><span>注册中级安全工程师考试：2024-10-26</span></span><div><span>本月还剩17天</span></div><progress max="30" value="17"><span>-</span></progress><div><span>倒计还剩41 /365天</span></div><progress max="300" value="41"><span>-</span></progress>
+<span><span>注册中级安全工程师考试：2024-10-26</span></span><div><span>本月还剩16天</span></div><progress max="30" value="16"><span>-</span></progress><div><span>倒计还剩40 /365天</span></div><progress max="300" value="40"><span>-</span></progress>
 
 # 待处理
 - [[☰ Inbox 收集/20240909\|20240909]]
