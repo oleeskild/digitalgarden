@@ -1,5 +1,5 @@
 ---
-{"dg-note-icon":4,"tags":["Blog"],"title":null,"dg-publish":true,"permalink":"/🌘Others_其它/History/","dgPassFrontmatter":true,"noteIcon":4,"created":"2024-09-11T19:28:09.648+08:00","updated":"2024-09-14T16:21:52.177+08:00"}
+{"dg-note-icon":2,"tags":["Blog"],"title":null,"dg-publish":true,"permalink":"/🌘Others_其它/History/","dgPassFrontmatter":true,"noteIcon":2,"created":"2024-09-11T19:28:09.648+08:00","updated":"2024-09-15T23:41:02.557+08:00"}
 ---
 
 ## 总览
@@ -11,13 +11,13 @@
 <p><span>其中<mark>私有笔记</mark> <strong>19</strong> 篇，<mark>分享博客笔记</mark> <strong>19</strong> 篇，<mark>标签</mark> <strong>16</strong>个</span></p>
 
 ## 最近修改
-| 标题                                                 | 时间                  |
-| -------------------------------------------------- | ------------------- |
-| [[🌑Journal_手札/Journal_readme\|Journal_readme]] | 2024年9月15日 PM11:17  |
-| [[🌗Theory_理论/Theory_readme\|Theory_readme]]    | 2024年9月15日 PM11:17  |
-| [[🌘Others_其它/Others_readme\|Others_readme]]    | 2024年9月15日 PM11:17  |
-| [[🌘Others_其它/Mr.Chin's Blog\|Mr.Chin's Blog]]  | 2024年9月15日 PM11:14  |
-| [[🌑Journal_手札/想法/布局\|布局]]                      | 2024年9月15日 PM9:38   |
+| 标题                                                | 时间                  |
+| ------------------------------------------------- | ------------------- |
+| [[🌘Others_其它/Mr.Chin's Blog\|Mr.Chin's Blog]] | 2024年9月15日 PM11:43  |
+| [[🌘Others_其它/Maybe/中篇  演讲视频\|中篇  演讲视频]]       | 2024年9月15日 PM11:41  |
+| [[🌘Others_其它/Maybe/下篇  演讲视频\|下篇  演讲视频]]       | 2024年9月15日 PM11:41  |
+| [[🌘Others_其它/Maybe/上篇 演讲视频\|上篇 演讲视频]]         | 2024年9月15日 PM11:41  |
+| [[🌘Others_其它/About Me\|About Me]]             | 2024年9月15日 PM11:41  |
 
 { .block-language-dataview}
 ## 最近创建

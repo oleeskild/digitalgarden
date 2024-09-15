@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-note-icon":1,"tags":["Blog","Recommend"],"permalink":"/🌘Others_其它/About Me/","dgPassFrontmatter":true,"noteIcon":1,"created":"2024-08-25T09:39:10.409+08:00","updated":"2024-09-13T17:27:33.333+08:00"}
+{"dg-publish":true,"dg-note-icon":2,"tags":["Blog","Recommend"],"permalink":"/🌘Others_其它/About Me/","dgPassFrontmatter":true,"noteIcon":2,"created":"2024-08-25T09:39:10.409+08:00","updated":"2024-09-15T23:41:10.249+08:00"}
 ---
 
 一个在技术控
