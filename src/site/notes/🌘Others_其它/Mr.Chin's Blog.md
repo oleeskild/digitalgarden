@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":2,"tags":["gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":2,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-16T19:09:08.555+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":2,"tags":["gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":2,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-16T19:10:43.584+08:00"}
 ---
 
 # **Home Page**
@@ -7,32 +7,7 @@
 ```
 -欢迎来到Mr.Chin's Blog⭐⭐⭐⭐✨
 -此处主要分享我的第二大脑和数字花园内容
--如有对技术爱好者，可通过About Me,做技术交流
-<div class="transclusion internal-embed is-loaded"><a class="markdown-embed-link" href="/others/about-me/" aria-label="Open link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a><div class="markdown-embed">
-
-
-
-
-希望大家多多指教……
-## 邮箱
-btw099692@163.com
-
-## QQ
-26464342
-
-## 微信号
-![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409091002741.svg)btw099692
-## 订阅号
-![](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202408311106894.jpg)
-  
-## Github
- 👉 [BTW-Q (Mr.Chin) (github.com)](https://github.com/BTW-Q)
-  
-## 微信二维码
-  ![](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202408261834193.jpg)
-
-</div></div>
-
+-如有对技术爱好者，可通过About Me,做技术交流!
 ```
 <div><span>今天是2024-09-16  --Mon</span></div><span><span>博客记录发布 29 天。</span></span><p><span>已使用 <em>Obsidian</em> 1040 天，共创建 410 篇文档、16 个标签、104 个待办。</span></p>
 
