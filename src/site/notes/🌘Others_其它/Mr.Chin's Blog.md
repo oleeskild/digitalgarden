@@ -1,18 +1,43 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":2,"tags":["gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":2,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-15T23:43:01.871+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":2,"tags":["gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":2,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-16T19:09:08.555+08:00"}
 ---
 
 # **Home Page**
 ![|175](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409091002741.svg)
-~~~
+```
 -欢迎来到Mr.Chin's Blog⭐⭐⭐⭐✨
 -此处主要分享我的第二大脑和数字花园内容
--如有对技术爱好者，可通过About Me做技术交流
-~~~
-<div><span>今天是2024-09-15  --Sun</span></div><span><span>博客记录发布 28 天。</span></span><p><span>已使用 <em>Obsidian</em> 1039 天，共创建 409 篇文档、16 个标签、104 个待办。</span></p>
- 
+-如有对技术爱好者，可通过About Me,做技术交流
+<div class="transclusion internal-embed is-loaded"><a class="markdown-embed-link" href="/others/about-me/" aria-label="Open link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg-icon lucide-link"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg></a><div class="markdown-embed">
+
+
+
+
+希望大家多多指教……
+## 邮箱
+btw099692@163.com
+
+## QQ
+26464342
+
+## 微信号
+![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409091002741.svg)btw099692
+## 订阅号
+![](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202408311106894.jpg)
+  
+## Github
+ 👉 [BTW-Q (Mr.Chin) (github.com)](https://github.com/BTW-Q)
+  
+## 微信二维码
+  ![](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202408261834193.jpg)
+
+</div></div>
+
+```
+<div><span>今天是2024-09-16  --Mon</span></div><span><span>博客记录发布 29 天。</span></span><p><span>已使用 <em>Obsidian</em> 1040 天，共创建 410 篇文档、16 个标签、104 个待办。</span></p>
+
 # 笔记图标
-每个笔记的笔记名头有一个表示成熟度或类型标记的图标
+每个笔记的笔记名头有一个表示成熟度或类型标,记的图标
 ## 灯塔
 灯塔 ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409152310993.svg) 是让我们轻松导航的笔记（例如书籍、目录集合的笔记）
 ## 树苗
@@ -24,16 +49,18 @@
 ## 大树
 大树 ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415146.svg) 是成熟的连贯思想/文章/表达，除了一些编辑改进外，应该不会有太大变化。
 
+[^1]: 很有用！
+
 # 推荐内容
 | 标题                                                | 时间                  |
 | ------------------------------------------------- | ------------------- |
 | [[🌑Journal_手札/严选/笔记软件Obsidian\|笔记软件Obsidian]] | 2024年9月15日 PM4:43   |
-| [[🌘Others_其它/About Me\|About Me]]             | 2024年9月15日 PM11:41  |
+| [[🌘Others_其它/About Me\|About Me]]             | 2024年9月15日 PM11:49  |
 
 { .block-language-dataview}
 
 # 倒计时
-<span><span>注册中级安全工程师考试：2024-10-26</span></span><div><span>本月还剩16天</span></div><progress max="30" value="16"><span>-</span></progress><div><span>倒计还剩40 /365天</span></div><progress max="300" value="40"><span>-</span></progress>
+<span><span>注册中级安全工程师考试：2024-10-26</span></span><div><span>本月还剩15天</span></div><progress max="30" value="15"><span>-</span></progress><div><span>倒计还剩39 /365天</span></div><progress max="300" value="39"><span>-</span></progress>
 
 # 待处理
 - [[☰ Inbox 收集/20240909\|20240909]]
@@ -53,7 +80,7 @@
 # 文档记录
 | 月份        | 数量   |
 | --------- | ---- |
-| 2024年 9月  | 76 篇 |
+| 2024年 9月  | 77 篇 |
 | 2024年 8月  | 66 篇 |
 | 2024年 7月  | 21 篇 |
 | 2024年 6月  | 9 篇  |
