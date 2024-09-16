@@ -5,19 +5,19 @@
 ## 总览
 | 笔记库统计                        |
 | ---------------------------- |
-| 库中共有410个页面，总计约349万字节（3.33MB） |
+| 库中共有410个页面，总计约350万字节（3.34MB） |
 
 { .block-language-dataview}
-<p><span>其中<mark>私有笔记</mark> <strong>19</strong> 篇，<mark>分享博客笔记</mark> <strong>19</strong> 篇，<mark>标签</mark> <strong>16</strong>个</span></p>
+<p><span>其中<mark>私有笔记</mark> <strong>19</strong> 篇，<mark>分享博客笔记</mark> <strong>20</strong> 篇，<mark>标签</mark> <strong>16</strong>个</span></p>
 
 ## 最近修改
 | 标题                                                                                            | 时间                  |
 | --------------------------------------------------------------------------------------------- | ------------------- |
+| [[🌓Interest_兴趣/History_历史/Mein Kampf/1.4第四章 在慕尼黑\|1.4第四章 在慕尼黑]]                           | 2024年9月16日 PM7:57   |
 | [[🌓Interest_兴趣/History_历史/Mein Kampf/3.1阿道夫·希特勒（Adolf Hitler）\|3.1阿道夫·希特勒（Adolf Hitler）]] | 2024年9月16日 PM7:42   |
 | [[🌓Interest_兴趣/Classic 经典/诫子书\|诫子书]]                                                      | 2024年9月16日 PM7:17   |
 | [[🌘Others_其它/Mr.Chin's Blog\|Mr.Chin's Blog]]                                             | 2024年9月16日 PM7:10   |
 | [[🌘Others_其它/脚标\|脚标]]                                                                     | 2024年9月16日 AM12:09  |
-| [[🌘Others_其它/About Me\|About Me]]                                                         | 2024年9月15日 PM11:49  |
 
 { .block-language-dataview}
 ## 最近创建
