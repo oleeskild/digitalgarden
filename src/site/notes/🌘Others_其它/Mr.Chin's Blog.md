@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":2,"tags":["gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":2,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-17T21:09:32.214+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":2,"tags":["gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":2,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-17T21:12:44.616+08:00"}
 ---
 
 # **Home Page**
@@ -9,7 +9,7 @@
 -此处主要分享我的第二大脑和数字花园内容
 -如有对技术爱好者，可通过About Me,做技术交流!
 ```
-<div><span>今天是2024-09-17  --Tue</span></div><span><span>博客是以Obsidian笔记为核心，一部分博客笔记，通过GITHUB发布在博客中，这些内容是愿意分享的；一部分私有笔记记录日常，这部分内容只能看到笔记名但无法查看内容。如何区分私有笔记和博客笔记，在博客中的所有笔记名称前有笔记图标标记的是博客笔记。今日是博客发布 30 天。</span></span><p><span>已使用 <em>Obsidian</em> 1041 天，共创建 425 篇文档、17 个标签、104 个待办。</span></p>
+<div><span>今天是2024-09-17  --Tue</span></div><span><span>博客是以<em>Obsidian</em>笔记为核心，一部分<em>博客笔记</em>，通过GITHUB发布在博客中，这些内容是愿意分享的；一部分<em>私有笔记</em>，记录日常个人内容，这部分内容只能看到笔记名但无法查看内容。如何区分私有笔记和博客笔记，在博客中的所有笔记名称前有<em>笔记图标</em>标记的是博客笔记。今日是博客发布30 天。</span></span><p><span>已使用<em>Obsidian</em>1041天，共创建425篇文档、17个标签、104个待办。</span></p>
 
 # 笔记图标
 每个笔记的笔记名头有一个表示成熟度或类型标记的图标
