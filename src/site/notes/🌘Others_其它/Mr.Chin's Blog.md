@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-home":true,"dg-note-icon":2,"tags":["gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":2,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-17T21:22:56.473+08:00"}
+{"dg-publish":true,"dg-home":true,"dg-note-icon":2,"tags":["gardenEntry"],"permalink":"/🌘Others_其它/Mr.Chin's Blog/","dgPassFrontmatter":true,"noteIcon":2,"created":"2024-08-24T08:36:20.682+08:00","updated":"2024-09-17T22:53:24.055+08:00"}
 ---
 
 # **Home Page**
@@ -9,7 +9,7 @@
 -此处主要分享我的第二大脑和数字花园内容
 -如有对技术爱好者，可通过About Me,做技术交流!
 ```
-<div><span>今天是2024-09-17  --Tue</span></div><span><span>博客是以<strong>Obsidian</strong>笔记为核心，一部分<strong>博客笔记</strong>，通过<strong>Github</strong>发布在博客中，这些内容是愿意分享的；一部分<strong>私有笔记</strong>，记录日常个人内容，这部分内容只能看到笔记名但无法查看内容。如何区分私有笔记和博客笔记，在博客中笔记名称前有<strong>笔记图标</strong>标记的是博客笔记。今日是博客发布30天。</span></span><p><span>已使用<strong>Obsidian</strong>1041天，共创建425篇文档、17个标签、104个待办。</span></p>
+<div><span>今天是2024-09-18  --Wed</span></div><span><span>博客是以<strong>Obsidian</strong>笔记为核心，一部分<strong>博客笔记</strong>，通过<strong>Github</strong>发布在博客中，这些内容是愿意分享的；一部分<strong>私有笔记</strong>，记录日常个人内容，这部分内容只能看到笔记名但无法查看内容。如何区分私有笔记和博客笔记，在博客中笔记名称前有<strong>笔记图标</strong>标记的是博客笔记。今日是博客发布31天。</span></span><p><span>已使用<strong>Obsidian</strong>1041天，共创建427篇文档、17个标签、113个待办。</span></p>
 
 # 笔记图标
 每个笔记的笔记名头有一个表示成熟度或类型标记的图标
@@ -24,8 +24,6 @@
 ## 大树
 大树 ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415146.svg) 是成熟的连贯思想/文章/表达，除了一些编辑改进外，应该不会有太大变化。
 
-[^1]: 很有用！
-
 # 推荐内容
 | 标题                                                | 时间                  |
 | ------------------------------------------------- | ------------------- |
@@ -35,7 +33,7 @@
 { .block-language-dataview}
 
 # 倒计时
-<span><span>注册中级安全工程师考试：2024-10-26</span></span><div><span>本月还剩14天</span></div><progress max="30" value="14"><span>-</span></progress><div><span>倒计还剩38 /365天</span></div><progress max="300" value="38"><span>-</span></progress>
+<span><span>注册中级安全工程师考试：2024-10-26</span></span><div><span>本月还剩13天</span></div><progress max="30" value="13"><span>-</span></progress><div><span>倒计还剩38 /365天</span></div><progress max="300" value="38"><span>-</span></progress>
 
 # 待处理
 - [[☰ Inbox 收集/20240909\|20240909]]
@@ -55,7 +53,7 @@
 # 文档记录
 | 月份        | 数量   |
 | --------- | ---- |
-| 2024年 9月  | 92 篇 |
+| 2024年 9月  | 94 篇 |
 | 2024年 8月  | 66 篇 |
 | 2024年 7月  | 21 篇 |
 | 2024年 6月  | 9 篇  |
@@ -72,4 +70,4 @@
 
 { .block-language-dataview}
 # 标签
-<p><span><a class="internal-link" data-href="#Blog" href="#Blog" target="_blank" rel="noopener"></a><a href="#Blog" class="tag" target="_blank" rel="noopener">#Blog</a>(31) <a class="internal-link" data-href="#Mein_Kampf" href="#Mein_Kampf" target="_blank" rel="noopener"></a><a href="#Mein_Kampf" class="tag" target="_blank" rel="noopener">#Mein_Kampf</a>(9) <a class="internal-link" data-href="#Personal" href="#Personal" target="_blank" rel="noopener"></a><a href="#Personal" class="tag" target="_blank" rel="noopener">#Personal</a>(9) <a class="internal-link" data-href="#Ebook" href="#Ebook" target="_blank" rel="noopener"></a><a href="#Ebook" class="tag" target="_blank" rel="noopener">#Ebook</a>(8) <a class="internal-link" data-href="#Readme" href="#Readme" target="_blank" rel="noopener"></a><a href="#Readme" class="tag" target="_blank" rel="noopener">#Readme</a>(7) <a class="internal-link" data-href="#excalidraw" href="#excalidraw" target="_blank" rel="noopener"></a><a href="#excalidraw" class="tag" target="_blank" rel="noopener">#excalidraw</a>(6) <a class="internal-link" data-href="#Strong_culture" href="#Strong_culture" target="_blank" rel="noopener"></a><a href="#Strong_culture" class="tag" target="_blank" rel="noopener">#Strong_culture</a>(5) <a class="internal-link" data-href="#TASK" href="#TASK" target="_blank" rel="noopener"></a><a href="#TASK" class="tag" target="_blank" rel="noopener">#TASK</a>(4) <a class="internal-link" data-href="#Soft" href="#Soft" target="_blank" rel="noopener"></a><a href="#Soft" class="tag" target="_blank" rel="noopener">#Soft</a>(3) <a class="internal-link" data-href="#Recommend" href="#Recommend" target="_blank" rel="noopener"></a><a href="#Recommend" class="tag" target="_blank" rel="noopener">#Recommend</a>(2) <a class="internal-link" data-href="#国学" href="#国学" target="_blank" rel="noopener"></a><a href="#国学" class="tag" target="_blank" rel="noopener">#国学</a>(1) <a class="internal-link" data-href="#Liber" href="#Liber" target="_blank" rel="noopener"></a><a href="#Liber" class="tag" target="_blank" rel="noopener">#Liber</a>(1) <a class="internal-link" data-href="#Navicat" href="#Navicat" target="_blank" rel="noopener"></a><a href="#Navicat" class="tag" target="_blank" rel="noopener">#Navicat</a>(1) <a class="internal-link" data-href="#Postman" href="#Postman" target="_blank" rel="noopener"></a><a href="#Postman" class="tag" target="_blank" rel="noopener">#Postman</a>(1) <a class="internal-link" data-href="#SecureCRT" href="#SecureCRT" target="_blank" rel="noopener"></a><a href="#SecureCRT" class="tag" target="_blank" rel="noopener">#SecureCRT</a>(1) <a class="internal-link" data-href="#Time_count" href="#Time_count" target="_blank" rel="noopener"></a><a href="#Time_count" class="tag" target="_blank" rel="noopener">#Time_count</a>(1) <a class="internal-link" data-href="#Xmind" href="#Xmind" target="_blank" rel="noopener"></a><a href="#Xmind" class="tag" target="_blank" rel="noopener">#Xmind</a>(1)</span></p>
+<p><span><a class="internal-link" data-href="#Blog" href="#Blog" target="_blank" rel="noopener"></a><a href="#Blog" class="tag" target="_blank" rel="noopener">#Blog</a>(31) <a class="internal-link" data-href="#Mein_Kampf" href="#Mein_Kampf" target="_blank" rel="noopener"></a><a href="#Mein_Kampf" class="tag" target="_blank" rel="noopener">#Mein_Kampf</a>(9) <a class="internal-link" data-href="#Personal" href="#Personal" target="_blank" rel="noopener"></a><a href="#Personal" class="tag" target="_blank" rel="noopener">#Personal</a>(9) <a class="internal-link" data-href="#Ebook" href="#Ebook" target="_blank" rel="noopener"></a><a href="#Ebook" class="tag" target="_blank" rel="noopener">#Ebook</a>(8) <a class="internal-link" data-href="#Readme" href="#Readme" target="_blank" rel="noopener"></a><a href="#Readme" class="tag" target="_blank" rel="noopener">#Readme</a>(7) <a class="internal-link" data-href="#excalidraw" href="#excalidraw" target="_blank" rel="noopener"></a><a href="#excalidraw" class="tag" target="_blank" rel="noopener">#excalidraw</a>(6) <a class="internal-link" data-href="#Strong_culture" href="#Strong_culture" target="_blank" rel="noopener"></a><a href="#Strong_culture" class="tag" target="_blank" rel="noopener">#Strong_culture</a>(5) <a class="internal-link" data-href="#TASK" href="#TASK" target="_blank" rel="noopener"></a><a href="#TASK" class="tag" target="_blank" rel="noopener">#TASK</a>(5) <a class="internal-link" data-href="#Soft" href="#Soft" target="_blank" rel="noopener"></a><a href="#Soft" class="tag" target="_blank" rel="noopener">#Soft</a>(3) <a class="internal-link" data-href="#Recommend" href="#Recommend" target="_blank" rel="noopener"></a><a href="#Recommend" class="tag" target="_blank" rel="noopener">#Recommend</a>(2) <a class="internal-link" data-href="#国学" href="#国学" target="_blank" rel="noopener"></a><a href="#国学" class="tag" target="_blank" rel="noopener">#国学</a>(1) <a class="internal-link" data-href="#Liber" href="#Liber" target="_blank" rel="noopener"></a><a href="#Liber" class="tag" target="_blank" rel="noopener">#Liber</a>(1) <a class="internal-link" data-href="#Navicat" href="#Navicat" target="_blank" rel="noopener"></a><a href="#Navicat" class="tag" target="_blank" rel="noopener">#Navicat</a>(1) <a class="internal-link" data-href="#Postman" href="#Postman" target="_blank" rel="noopener"></a><a href="#Postman" class="tag" target="_blank" rel="noopener">#Postman</a>(1) <a class="internal-link" data-href="#SecureCRT" href="#SecureCRT" target="_blank" rel="noopener"></a><a href="#SecureCRT" class="tag" target="_blank" rel="noopener">#SecureCRT</a>(1) <a class="internal-link" data-href="#Time_count" href="#Time_count" target="_blank" rel="noopener"></a><a href="#Time_count" class="tag" target="_blank" rel="noopener">#Time_count</a>(1) <a class="internal-link" data-href="#Xmind" href="#Xmind" target="_blank" rel="noopener"></a><a href="#Xmind" class="tag" target="_blank" rel="noopener">#Xmind</a>(1)</span></p>
