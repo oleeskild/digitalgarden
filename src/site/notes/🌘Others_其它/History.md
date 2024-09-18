@@ -8,16 +8,16 @@
 | 库中共有426个页面，总计约354万字节（3.37MB） |
 
 { .block-language-dataview}
-<p><span><strong>Obsidian</strong><mark>笔记</mark>总数 <strong>426</strong> 篇，其中<mark>私有笔记</mark> <strong>392</strong> 篇，分享<mark>博客笔记</mark> <strong>34</strong> 篇，<mark>标签</mark> <strong>19</strong>个</span></p>
+<p><span><strong>Obsidian</strong><mark>笔记</mark>总数 <strong>426</strong> 篇，其中<mark>私有笔记</mark> <strong>392</strong> 篇，分享<mark>博客笔记</mark> <strong>34</strong> 篇，<mark>标签</mark> <strong>20</strong>个</span></p>
 
 ## 最近修改
-| 标题                                                                | 时间                 |
-| ----------------------------------------------------------------- | ------------------ |
-| [[🌓Interest_兴趣/Exalt 提升/强势文化/0.0强势文化_Readme\|0.0强势文化_Readme]] | 2024年9月18日 AM8:45  |
-| [[🌒Action_行动/Liber_书籍/Liber_List_Read\|Liber_List_Read]]      | 2024年9月18日 AM8:45  |
-| [[🌓Interest_兴趣/History_历史/Mein Kampf/0.0Readme\|0.0Readme]]   | 2024年9月18日 AM8:43  |
-| [[🌕Document_文档/Templet_模板/Film Review\|Film Review]]          | 2024年9月18日 AM8:42  |
-| [[🌕Document_文档/Templet_模板/Lyric\|Lyric]]                      | 2024年9月18日 AM8:41  |
+| 标题                                                                                            | 时间                 |
+| --------------------------------------------------------------------------------------------- | ------------------ |
+| [[🌘Others_其它/12345\|12345]]                                                               | 2024年9月18日 AM9:42  |
+| [[🌒Action_行动/Liber_书籍/Liber_List_Read\|Liber_List_Read]]                                  | 2024年9月18日 AM9:39  |
+| [[🌓Interest_兴趣/History_历史/Mein Kampf/0.0Readme\|0.0Readme]]                               | 2024年9月18日 AM9:38  |
+| [[🌓Interest_兴趣/History_历史/Mein Kampf/3.1阿道夫·希特勒（Adolf Hitler）\|3.1阿道夫·希特勒（Adolf Hitler）]] | 2024年9月18日 AM9:25  |
+| [[🌓Interest_兴趣/History_历史/Mein Kampf/1.04第四章 在慕尼黑\|1.04第四章 在慕尼黑]]                         | 2024年9月18日 AM9:10  |
 
 { .block-language-dataview}
 ## 最近创建
