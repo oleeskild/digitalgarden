@@ -10,7 +10,7 @@
 -如有对技术爱好者，可通过About Me,做技术交流!
 ```
 👉[[🌘Others_其它/About Me\|About Me]]  
-<div><span>今天是2024-09-18  --Wed</span></div><span><span>博客是以<strong>Obsidian</strong>笔记为核心，一部分<strong>博客笔记</strong>，通过<strong>Github</strong>发布在博客中，这些内容是愿意分享的；一部分<strong>私有笔记</strong>，记录日常个人内容，这部分内容只能看到笔记名但无法查看内容。如何区分私有笔记和博客笔记，在博客中笔记名称前有<strong>笔记图标</strong>标记的是博客笔记。今日是博客发布31天。</span></span><p><span>已使用<strong>Obsidian</strong>1042天，共创建425篇文档、19个标签、116个待办。</span></p>
+<div><span>今天是2024-09-18  --Wed</span></div><span><span>博客是以<strong>Obsidian</strong>笔记为核心，一部分<strong>博客笔记</strong>，通过<strong>Github</strong>发布在博客中，这些内容是愿意分享的；一部分<strong>私有笔记</strong>，记录日常个人内容，这部分内容只能看到笔记名但无法查看内容。如何区分私有笔记和博客笔记，在博客中笔记名称前有<strong>笔记图标</strong>标记的是博客笔记。今日是博客发布31天。</span></span><p><span>已使用<strong>Obsidian</strong>1042天，共创建439篇文档、19个标签、116个待办。</span></p>
 
 # 推荐笔记
 
@@ -19,7 +19,7 @@
 | [[🌘Others_其它/About Me\|About Me]]                             | 2024年9月15日 PM11:49  |
 | [[🌑Journal_手札/严选/笔记软件Obsidian\|笔记软件Obsidian]]                 | 2024年9月15日 PM4:43   |
 | [[🌓Interest_兴趣/History_历史/Mein Kampf/0.0Readme\|0.0Readme]]   | 2024年9月18日 AM9:38   |
-| [[🌓Interest_兴趣/Exalt 提升/强势文化/0.0强势文化_Readme\|0.0强势文化_Readme]] | 2024年9月18日 AM9:09   |
+| [[🌓Interest_兴趣/Exalt 提升/强势文化/0.0强势文化_Readme\|0.0强势文化_Readme]] | 2024年9月18日 PM2:17   |
 
 { .block-language-dataview}
 # 笔记图标
@@ -40,6 +40,7 @@
 # 待处理
 - [[☰ Inbox 收集/20240909\|20240909]]
 - [[☰ Inbox 收集/Drawing 2024-09-12 10.48.20.excalidraw\|Drawing 2024-09-12 10.48.20.excalidraw]]
+- [[☰ Inbox 收集/Drawing 2024-09-18 15.22.11.excalidraw\|Drawing 2024-09-18 15.22.11.excalidraw]]
 
 { .block-language-dataview}
 # 目次
@@ -53,23 +54,23 @@
 [[🌘Others_其它/Others_readme\|Others_readme]]
 ***
 # 文档记录
-| 月份        | 数量   |
-| --------- | ---- |
-| 2024年 9月  | 96 篇 |
-| 2024年 8月  | 63 篇 |
-| 2024年 7月  | 21 篇 |
-| 2024年 6月  | 8 篇  |
-| 2024年 5月  | 5 篇  |
-| 2024年 4月  | 1 篇  |
-| 2024年 3月  | 31 篇 |
-| 2024年 2月  | 2 篇  |
-| 2024年 1月  | 53 篇 |
-| 2023年 12月 | 83 篇 |
-| 2023年 11月 | 29 篇 |
-| 2023年 10月 | 16 篇 |
-| 2023年 9月  | 16 篇 |
-| 2021年 11月 | 1 篇  |
+| 月份        | 数量    |
+| --------- | ----- |
+| 2024年 9月  | 110 篇 |
+| 2024年 8月  | 63 篇  |
+| 2024年 7月  | 21 篇  |
+| 2024年 6月  | 8 篇   |
+| 2024年 5月  | 5 篇   |
+| 2024年 4月  | 1 篇   |
+| 2024年 3月  | 31 篇  |
+| 2024年 2月  | 2 篇   |
+| 2024年 1月  | 53 篇  |
+| 2023年 12月 | 83 篇  |
+| 2023年 11月 | 29 篇  |
+| 2023年 10月 | 16 篇  |
+| 2023年 9月  | 16 篇  |
+| 2021年 11月 | 1 篇   |
 
 { .block-language-dataview}
 # 标签
-<p><span><a class="internal-link" data-href="#Blog" href="#Blog" target="_blank" rel="noopener"></a><a href="#Blog" class="tag" target="_blank" rel="noopener">#Blog</a>(36) <a class="internal-link" data-href="#Mein_Kampf" href="#Mein_Kampf" target="_blank" rel="noopener"></a><a href="#Mein_Kampf" class="tag" target="_blank" rel="noopener">#Mein_Kampf</a>(10) <a class="internal-link" data-href="#Personal" href="#Personal" target="_blank" rel="noopener"></a><a href="#Personal" class="tag" target="_blank" rel="noopener">#Personal</a>(9) <a class="internal-link" data-href="#Ebook" href="#Ebook" target="_blank" rel="noopener"></a><a href="#Ebook" class="tag" target="_blank" rel="noopener">#Ebook</a>(8) <a class="internal-link" data-href="#Readme" href="#Readme" target="_blank" rel="noopener"></a><a href="#Readme" class="tag" target="_blank" rel="noopener">#Readme</a>(7) <a class="internal-link" data-href="#excalidraw" href="#excalidraw" target="_blank" rel="noopener"></a><a href="#excalidraw" class="tag" target="_blank" rel="noopener">#excalidraw</a>(6) <a class="internal-link" data-href="#Strong_culture" href="#Strong_culture" target="_blank" rel="noopener"></a><a href="#Strong_culture" class="tag" target="_blank" rel="noopener">#Strong_culture</a>(5) <a class="internal-link" data-href="#TASK" href="#TASK" target="_blank" rel="noopener"></a><a href="#TASK" class="tag" target="_blank" rel="noopener">#TASK</a>(5) <a class="internal-link" data-href="#Recommend" href="#Recommend" target="_blank" rel="noopener"></a><a href="#Recommend" class="tag" target="_blank" rel="noopener">#Recommend</a>(4) <a class="internal-link" data-href="#Film" href="#Film" target="_blank" rel="noopener"></a><a href="#Film" class="tag" target="_blank" rel="noopener">#Film</a>(3) <a class="internal-link" data-href="#Soft" href="#Soft" target="_blank" rel="noopener"></a><a href="#Soft" class="tag" target="_blank" rel="noopener">#Soft</a>(3) <a class="internal-link" data-href="#国学" href="#国学" target="_blank" rel="noopener"></a><a href="#国学" class="tag" target="_blank" rel="noopener">#国学</a>(1) <a class="internal-link" data-href="#Kampf" href="#Kampf" target="_blank" rel="noopener"></a><a href="#Kampf" class="tag" target="_blank" rel="noopener">#Kampf</a>(1) <a class="internal-link" data-href="#Lyric" href="#Lyric" target="_blank" rel="noopener"></a><a href="#Lyric" class="tag" target="_blank" rel="noopener">#Lyric</a>(1) <a class="internal-link" data-href="#Navicat" href="#Navicat" target="_blank" rel="noopener"></a><a href="#Navicat" class="tag" target="_blank" rel="noopener">#Navicat</a>(1) <a class="internal-link" data-href="#Postman" href="#Postman" target="_blank" rel="noopener"></a><a href="#Postman" class="tag" target="_blank" rel="noopener">#Postman</a>(1) <a class="internal-link" data-href="#SecureCRT" href="#SecureCRT" target="_blank" rel="noopener"></a><a href="#SecureCRT" class="tag" target="_blank" rel="noopener">#SecureCRT</a>(1) <a class="internal-link" data-href="#Time_count" href="#Time_count" target="_blank" rel="noopener"></a><a href="#Time_count" class="tag" target="_blank" rel="noopener">#Time_count</a>(1) <a class="internal-link" data-href="#Xmind" href="#Xmind" target="_blank" rel="noopener"></a><a href="#Xmind" class="tag" target="_blank" rel="noopener">#Xmind</a>(1)</span></p>
+<p><span><a class="internal-link" data-href="#Blog" href="#Blog" target="_blank" rel="noopener"></a><a href="#Blog" class="tag" target="_blank" rel="noopener">#Blog</a>(55) <a class="internal-link" data-href="#Strong_culture" href="#Strong_culture" target="_blank" rel="noopener"></a><a href="#Strong_culture" class="tag" target="_blank" rel="noopener">#Strong_culture</a>(18) <a class="internal-link" data-href="#Mein_Kampf" href="#Mein_Kampf" target="_blank" rel="noopener"></a><a href="#Mein_Kampf" class="tag" target="_blank" rel="noopener">#Mein_Kampf</a>(10) <a class="internal-link" data-href="#Personal" href="#Personal" target="_blank" rel="noopener"></a><a href="#Personal" class="tag" target="_blank" rel="noopener">#Personal</a>(9) <a class="internal-link" data-href="#Ebook" href="#Ebook" target="_blank" rel="noopener"></a><a href="#Ebook" class="tag" target="_blank" rel="noopener">#Ebook</a>(8) <a class="internal-link" data-href="#excalidraw" href="#excalidraw" target="_blank" rel="noopener"></a><a href="#excalidraw" class="tag" target="_blank" rel="noopener">#excalidraw</a>(7) <a class="internal-link" data-href="#Readme" href="#Readme" target="_blank" rel="noopener"></a><a href="#Readme" class="tag" target="_blank" rel="noopener">#Readme</a>(7) <a class="internal-link" data-href="#TASK" href="#TASK" target="_blank" rel="noopener"></a><a href="#TASK" class="tag" target="_blank" rel="noopener">#TASK</a>(5) <a class="internal-link" data-href="#Recommend" href="#Recommend" target="_blank" rel="noopener"></a><a href="#Recommend" class="tag" target="_blank" rel="noopener">#Recommend</a>(4) <a class="internal-link" data-href="#Film" href="#Film" target="_blank" rel="noopener"></a><a href="#Film" class="tag" target="_blank" rel="noopener">#Film</a>(3) <a class="internal-link" data-href="#Soft" href="#Soft" target="_blank" rel="noopener"></a><a href="#Soft" class="tag" target="_blank" rel="noopener">#Soft</a>(3) <a class="internal-link" data-href="#国学" href="#国学" target="_blank" rel="noopener"></a><a href="#国学" class="tag" target="_blank" rel="noopener">#国学</a>(1) <a class="internal-link" data-href="#Kampf" href="#Kampf" target="_blank" rel="noopener"></a><a href="#Kampf" class="tag" target="_blank" rel="noopener">#Kampf</a>(1) <a class="internal-link" data-href="#Lyric" href="#Lyric" target="_blank" rel="noopener"></a><a href="#Lyric" class="tag" target="_blank" rel="noopener">#Lyric</a>(1) <a class="internal-link" data-href="#Navicat" href="#Navicat" target="_blank" rel="noopener"></a><a href="#Navicat" class="tag" target="_blank" rel="noopener">#Navicat</a>(1) <a class="internal-link" data-href="#Postman" href="#Postman" target="_blank" rel="noopener"></a><a href="#Postman" class="tag" target="_blank" rel="noopener">#Postman</a>(1) <a class="internal-link" data-href="#SecureCRT" href="#SecureCRT" target="_blank" rel="noopener"></a><a href="#SecureCRT" class="tag" target="_blank" rel="noopener">#SecureCRT</a>(1) <a class="internal-link" data-href="#Time_count" href="#Time_count" target="_blank" rel="noopener"></a><a href="#Time_count" class="tag" target="_blank" rel="noopener">#Time_count</a>(1) <a class="internal-link" data-href="#Xmind" href="#Xmind" target="_blank" rel="noopener"></a><a href="#Xmind" class="tag" target="_blank" rel="noopener">#Xmind</a>(1)</span></p>
