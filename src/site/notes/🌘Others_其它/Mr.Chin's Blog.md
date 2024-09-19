@@ -10,7 +10,7 @@
 -如有对技术爱好者，可通过About Me,做技术交流!
 ```
 👉[[🌘Others_其它/About Me\|About Me]]  
-<div><span>今天是2024-09-18  --Wed</span></div><span><span>博客是以<strong>Obsidian</strong>笔记为核心，一部分<strong>博客笔记</strong>，通过<strong>Github</strong>发布在博客中，这些内容是愿意分享的；一部分<strong>私有笔记</strong>，记录日常个人内容，这部分内容只能看到笔记名但无法查看内容。如何区分私有笔记和博客笔记，在博客中笔记名称前有<strong>笔记图标</strong>标记的是博客笔记。今日是博客发布31天。</span></span><p><span>已使用<strong>Obsidian</strong>1042天，共创建444篇文档、19个标签、116个待办。</span></p>
+<div><span>今天是2024-09-19  --Thu</span></div><span><span>博客是以<strong>Obsidian</strong>笔记为核心，一部分<strong>博客笔记</strong>，通过<strong>Github</strong>发布在博客中，这些内容是愿意分享的；一部分<strong>私有笔记</strong>，记录日常个人内容，这部分内容只能看到笔记名但无法查看内容。如何区分私有笔记和博客笔记，在博客中笔记名称前有<strong>笔记图标</strong>标记的是博客笔记。今日是博客发布32天。</span></span><p><span>已使用<strong>Obsidian</strong>1042天，共创建444篇文档、19个标签、116个待办。</span></p>
 
 # 推荐笔记
 
@@ -35,7 +35,7 @@
 ## 大树
 大树 ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415146.svg) 是成熟的连贯思想/文章/表达，除了一些编辑改进外，应该不会有太大变化。
 # 倒计时
-<span><span>注册中级安全工程师考试：2024-10-26</span></span><div><span>本月还剩13天</span></div><progress max="30" value="13"><span>-</span></progress><div><span>倒计还剩37 /365天</span></div><progress max="300" value="37"><span>-</span></progress>
+<span><span>注册中级安全工程师考试：2024-10-26</span></span><div><span>本月还剩12天</span></div><progress max="30" value="12"><span>-</span></progress><div><span>倒计还剩36 /365天</span></div><progress max="300" value="36"><span>-</span></progress>
 
 # 待处理
 

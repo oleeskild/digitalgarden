@@ -11,13 +11,13 @@
 <p><span><strong>Obsidian</strong><mark>笔记</mark>总数 <strong>444</strong> 篇，其中<mark>私有笔记</mark> <strong>381</strong> 篇，分享<mark>博客笔记</mark> <strong>63</strong> 篇，<mark>标签</mark> <strong>19</strong>个</span></p>
 
 ## 最近修改
-| 标题                                                                                            | 时间                 |
-| --------------------------------------------------------------------------------------------- | ------------------ |
-| [[🌓Interest_兴趣/Exalt 提升/强势文化/10强势文化091-100\|10强势文化091-100]]                               | 2024年9月18日 PM7:43  |
-| [[🌓Interest_兴趣/Exalt 提升/强势文化/025.建立了'边界感'你知道有多爽吗\|025.建立了'边界感'你知道有多爽吗]]                   | 2024年9月18日 PM7:42  |
-| [[🌓Interest_兴趣/Exalt 提升/强势文化/024.射箭的时候，我总结出一个道理\|024.射箭的时候，我总结出一个道理]]                     | 2024年9月18日 PM7:41  |
-| [[🌓Interest_兴趣/Exalt 提升/强势文化/023.当你觉得你状态不好的时候，有几个方法不妨尝试一下\|023.当你觉得你状态不好的时候，有几个方法不妨尝试一下]] | 2024年9月18日 PM7:41  |
-| [[🌓Interest_兴趣/Exalt 提升/强势文化/022.如何旺自己，先做好以下九点。\|022.如何旺自己，先做好以下九点。]]                     | 2024年9月18日 PM7:41  |
+| 标题                                                    | 时间                  |
+| ----------------------------------------------------- | ------------------- |
+| [[🌑Journal_手札/Journal_readme\|Journal_readme]]    | 2024年9月18日 PM11:06  |
+| [[🌒Action_行动/Action_readme\|Action_readme]]       | 2024年9月18日 PM11:06  |
+| [[🌓Interest_兴趣/Interest_readme\|Interest_readme]] | 2024年9月18日 PM11:06  |
+| [[🌔Thought_思想/Thought_readme\|Thought_readme]]    | 2024年9月18日 PM11:06  |
+| [[🌕Document_文档/Document_readme\|Document_readme]] | 2024年9月18日 PM11:05  |
 
 { .block-language-dataview}
 ## 最近创建
