@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-note-icon":3,"tags":["Blog","Personal"],"permalink":"/🌑Journal_手札/严选/Obsidian/Obsidian笔记命名/","dgPassFrontmatter":true,"noteIcon":3,"created":"2024-09-17T15:24:21.545+08:00","updated":"2024-09-19T16:58:15.045+08:00"}
+{"dg-publish":true,"dg-note-icon":3,"tags":["Blog","Personal"],"permalink":"/🌑Journal_手札/严选/Obsidian/Obsidian笔记命名/","dgPassFrontmatter":true,"noteIcon":3,"created":"2024-09-17T15:24:21.545+08:00","updated":"2024-09-19T21:19:26.582+08:00"}
 ---
 
 关于Obsidian笔记命名的思考
@@ -27,7 +27,7 @@
 - 采用“单词_中文注释”命名
 
 ### 二级文件夹标题
-- 采用“单词 中文注释”或“中文”命名；单词与中文注释用空格
+- 采用“单词”或“中文”命名
 
 ### 三级文件夹标题
 - 尽量用单词或中文命名
