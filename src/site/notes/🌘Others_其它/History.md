@@ -5,19 +5,19 @@
 ## 总览
 | 笔记库统计                        |
 | ---------------------------- |
-| 库中共有462个页面，总计约390万字节（3.72MB） |
+| 库中共有459个页面，总计约386万字节（3.68MB） |
 
 { .block-language-dataview}
-<p><span><strong>Obsidian</strong><mark>笔记</mark>总数 <strong>462</strong> 篇，其中<mark>私有笔记</mark> <strong>380</strong> 篇，分享<mark>博客笔记</mark> <strong>82</strong> 篇，<mark>标签</mark> <strong>20</strong>个</span></p>
+<p><span><strong>Obsidian</strong><mark>笔记</mark>总数 <strong>459</strong> 篇，其中<mark>私有笔记</mark> <strong>377</strong> 篇，分享<mark>博客笔记</mark> <strong>82</strong> 篇，<mark>标签</mark> <strong>20</strong>个</span></p>
 
 ## 最近修改
-| 标题                                                      | 时间                  |
-| ------------------------------------------------------- | ------------------- |
-| [[🌕Document_文档/Article/费曼技巧\|费曼技巧]]                 | 2024年9月19日 PM10:32  |
-| [[🌕Document_文档/Article/工作10年\|工作10年]]               | 2024年9月19日 PM10:31  |
-| [[🌕Document_文档/Ana/影视经典\|影视经典]]                     | 2024年9月19日 PM10:29  |
-| [[🌕Document_文档/Templet/Templet-Blog\|Templet-Blog]] | 2024年9月19日 PM10:26  |
-| [[🌖Technique_技术/Other/设备名称\|设备名称]]                  | 2024年9月19日 PM10:20  |
+| 标题                                                              | 时间                  |
+| --------------------------------------------------------------- | ------------------- |
+| [[🌑Journal_手札/个人IP/5R笔记模板-活页A5\|5R笔记模板-活页A5]]               | 2024年9月19日 PM11:06  |
+| [[🌕Document_文档/Article/长期坚持习惯\|长期坚持习惯]]                     | 2024年9月19日 PM11:05  |
+| [[🌕Document_文档/Article/逆袭故事\|逆袭故事]]                         | 2024年9月19日 PM11:04  |
+| [[🌕Document_文档/Article/布鲁姆学习目标分类法\|布鲁姆学习目标分类法]]             | 2024年9月19日 PM11:03  |
+| [[🌕Document_文档/Article/20条高效率技巧，每天节约2小时\|20条高效率技巧，每天节约2小时]] | 2024年9月19日 PM11:02  |
 
 { .block-language-dataview}
 ## 最近创建
