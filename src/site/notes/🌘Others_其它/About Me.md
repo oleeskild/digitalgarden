@@ -1,8 +1,8 @@
 ---
-{"dg-publish":true,"dg-note-icon":2,"tags":["Blog","Recommend"],"permalink":"/🌘Others_其它/About Me/","dgPassFrontmatter":true,"noteIcon":2,"created":"2024-08-25T09:39:10.409+08:00","updated":"2024-09-15T23:49:33.517+08:00"}
+{"dg-publish":true,"dg-note-icon":2,"tags":["Blog","Recommend"],"permalink":"/🌘Others_其它/About Me/","dgPassFrontmatter":true,"noteIcon":2,"created":"2024-08-25T09:39:10.409+08:00","updated":"2024-09-19T08:07:14.306+08:00"}
 ---
 
-希望大家多多指教……
+欢迎大家联系友好交流技术知识。
 ## 邮箱
 btw099692@163.com
 
