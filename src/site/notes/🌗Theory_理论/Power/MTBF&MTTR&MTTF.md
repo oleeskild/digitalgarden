@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-note-icon":4,"permalink":"/🌗Theory_理论/Power/MTBF&MTTR&MTTF/","dgPassFrontmatter":true,"noteIcon":4,"created":"2023-10-19T19:24:54.579+08:00","updated":"2024-08-27T10:56:29.621+08:00"}
+{"title":"MTBF&MTTR&MTTF","dg-publish":true,"dg-note-icon":4,"permalink":"/🌗Theory_理论/Power/MTBF&MTTR&MTTF/","dgPassFrontmatter":true,"noteIcon":4,"created":"2023-10-19T19:24:54.579+08:00","updated":"2024-09-19T22:18:51.182+08:00"}
 ---
 
 1、MTBF，全称是Mean Time Between Failure，即平均无故障工作时间。就是从新的产品在规定的工作环境条件下开始工作到出现第一个故障的时间的平均值。MTBF越长表示可靠性越高正确工作能力越强。

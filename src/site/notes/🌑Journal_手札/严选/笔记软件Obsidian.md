@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-note-icon":2,"tags":["Blog","Recommend"],"permalink":"/🌑Journal_手札/严选/笔记软件Obsidian/","dgPassFrontmatter":true,"noteIcon":2,"created":"2024-09-13T20:56:04.371+08:00","updated":"2024-09-19T17:09:29.312+08:00"}
+{"title":"笔记软件Obsidian","tags":["Blog","Recommend"],"dg-publish":true,"dg-note-icon":2,"permalink":"/🌑Journal_手札/严选/笔记软件Obsidian/","dgPassFrontmatter":true,"noteIcon":2,"created":"2024-09-13T20:56:04.371+08:00","updated":"2024-09-19T22:00:27.615+08:00"}
 ---
 
 ### 关于笔记
