@@ -11,7 +11,7 @@
 -另一个https://btw-q.github.io/blog/
 ```
 👉[[🌘Others_其它/About Me\|About Me]]  
-<div><span>时间:2024-10-12  --Sat，今天我来过，倘若发现时间停止在某天，说明博客已经停更，也或许印证了罗翔老师的那句话，“我们永远无法确定明天和意外哪个先到来”</span></div><span><span>博客是以<strong>Obsidian</strong>笔记为核心。Obsidian中一部分是<strong>博客笔记</strong>，通过<strong>Github</strong>发布在博客中，这些内容是愿意分享的；另一部分是<strong>私有笔记</strong>，记录个人笔记，这部分内容只能看到笔记名但因未上传故无法查看。如何区分博客笔记和私有笔记，在博客中笔记名称前有<strong>笔记图标</strong>标记的是博客笔记。今日是博客发布55天。</span></span><p><span>已使用<strong>Obsidian</strong>1065天，共创建486篇文档、21个标签、194个待办。</span></p>
+<div><span>时间:2024-10-15  --Tue，今天我来过，倘若发现时间停止在某天，说明博客已经停更，也或许印证了罗翔老师的那句话，“我们永远无法确定明天和意外哪个先到来”</span></div><span><span>博客是以<strong>Obsidian</strong>笔记为核心。Obsidian中一部分是<strong>博客笔记</strong>，通过<strong>Github</strong>发布在博客中，这些内容是愿意分享的；另一部分是<strong>私有笔记</strong>，记录个人笔记，这部分内容只能看到笔记名但因未上传故无法查看。如何区分博客笔记和私有笔记，在博客中笔记名称前有<strong>笔记图标</strong>标记的是博客笔记。今日是博客发布58天。</span></span><p><span>已使用<strong>Obsidian</strong>1068天，共创建487篇文档、21个标签、194个待办。</span></p>
 
 # 推荐笔记
 
@@ -34,7 +34,7 @@
 ## 大树
 大树 ![|25](https://cdn.jsdelivr.net/gh/BTW-Q/blog_img/image/202409141415146.svg) 是成熟的连贯思想/文章/表达，除了一些编辑改进外，应该不会有太大变化。
 # 倒计时
-<span><span>注册中级安全工程师考试：2024-10-26</span></span><div><span>本月还剩20天</span></div><progress max="31" value="20"><span>-</span></progress><div><span>倒计还剩13 /365天</span></div><progress max="300" value="13"><span>-</span></progress>
+<span><span>注册中级安全工程师考试：2024-10-26</span></span><div><span>本月还剩17天</span></div><progress max="31" value="17"><span>-</span></progress><div><span>倒计还剩11 /365天</span></div><progress max="300" value="11"><span>-</span></progress>
 
 # 待处理
 - [[☰ Inbox 收集/Drawing 2024-10-10 14.06.07.excalidraw\|Drawing 2024-10-10 14.06.07.excalidraw]]
@@ -45,7 +45,7 @@
 # 文档记录
 | 月份        | 数量    |
 | --------- | ----- |
-| 2024年 10月 | 1 篇   |
+| 2024年 10月 | 2 篇   |
 | 2024年 9月  | 165 篇 |
 | 2024年 8月  | 63 篇  |
 | 2024年 7月  | 21 篇  |
