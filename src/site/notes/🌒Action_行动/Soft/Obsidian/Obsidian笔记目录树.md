@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"dg-note-icon":3,"tags":["Blog","Personal"],"title":"Obsidian目录树","permalink":"/🌒Action_行动/Soft/Obsidian/Obsidian笔记目录树/","dgPassFrontmatter":true,"noteIcon":3,"created":"2024-09-17T15:25:05.092+08:00","updated":"2024-09-19T22:10:28.429+08:00"}
+{"title":"Obsidian目录树","dg-publish":true,"dg-note-icon":3,"tags":["Blog","Personal"],"permalink":"/🌒Action_行动/Soft/Obsidian/Obsidian笔记目录树/","dgPassFrontmatter":true,"noteIcon":3,"created":"2024-09-17T15:25:05.092+08:00","updated":"2024-10-23T21:30:42.992+08:00"}
 ---
 
 - 目录树分三级目录
