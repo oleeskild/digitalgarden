@@ -1,5 +1,5 @@
 ---
-{"title":"书籍CIP、ISBN、ISSN","tags":["Blog","Nous"],"dg-publish":true,"dg-note-icon":5,"permalink":"/🌗Theory_理论/DesignBook/书籍CIP、ISBN、ISSN/","dgPassFrontmatter":true,"noteIcon":5,"created":"2024-09-26T16:13:29.284+08:00","updated":"2024-09-26T16:43:29.154+08:00"}
+{"title":"书籍CIP、ISBN、ISSN","tags":["Blog","Design"],"dg-publish":true,"dg-note-icon":5,"permalink":"/🌗Theory_理论/DesignBook/书籍CIP、ISBN、ISSN/","dgPassFrontmatter":true,"noteIcon":5,"created":"2024-09-26T16:13:29.284+08:00","updated":"2024-10-31T08:48:53.277+08:00"}
 ---
 
 ### 图书在版编目（CIP）

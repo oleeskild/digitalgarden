@@ -8,16 +8,16 @@
 | 库中共有584个页面，总计约414万字节（3.95MB） |
 
 { .block-language-dataview}
-<p><span><strong>Obsidian</strong><mark>笔记</mark>总数 <strong>584</strong> 篇，其中<mark>私有笔记</mark> <strong>481</strong> 篇，分享<mark>博客笔记</mark> <strong>103</strong> 篇，<mark>标签</mark> <strong>22</strong>个</span></p>
+<p><span><strong>Obsidian</strong><mark>笔记</mark>总数 <strong>584</strong> 篇，其中<mark>私有笔记</mark> <strong>479</strong> 篇，分享<mark>博客笔记</mark> <strong>105</strong> 篇，<mark>标签</mark> <strong>23</strong>个</span></p>
 
 ## 最近修改
-| 标题                                                     | 时间                  |
-| ------------------------------------------------------ | ------------------- |
-| [[🌑Journal_手札/个人IP/秦收藏系列丛书\|秦收藏系列丛书]]              | 2024年10月30日 PM4:26  |
-| [[☴ Diary 手札/Daily/Daily_20241029\|Daily_20241029]] | 2024年10月30日 PM1:36  |
-| [[☴ Diary 手札/Daily/Daily_20241030\|Daily_20241030]] | 2024年10月30日 PM1:35  |
-| [[☳ Family 教育/子女/编程/编程思维\|编程思维]]                    | 2024年10月29日 PM4:38  |
-| [[☳ Family 教育/子女/数学/奥数\|奥数]]                        | 2024年10月29日 PM4:36  |
+| 标题                                                             | 时间                  |
+| -------------------------------------------------------------- | ------------------- |
+| [[🌗Theory_理论/DesignBook/书籍术语\|书籍术语]]                       | 2024年10月31日 AM8:49  |
+| [[🌗Theory_理论/DesignBook/书籍CIP、ISBN、ISSN\|书籍CIP、ISBN、ISSN]] | 2024年10月31日 AM8:48  |
+| [[🌗Theory_理论/DesignBook/书籍装帧\|书籍装帧]]                       | 2024年10月31日 AM8:48  |
+| [[🌑Journal_手札/个人IP/秦收藏系列丛书\|秦收藏系列丛书]]                      | 2024年10月30日 PM4:26  |
+| [[☴ Diary 手札/Daily/Daily_20241029\|Daily_20241029]]         | 2024年10月30日 PM1:36  |
 
 { .block-language-dataview}
 ## 最近创建
