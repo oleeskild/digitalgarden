@@ -11,7 +11,7 @@
 -写在前言中的东西，每个人的想法、观点都源自本身的认知、环境并受限于时代的局限性，学会接受一切也不接受一切。
 ```
 👉[[🌘Others_其它/About Me\|About Me]]  
-<div><span>时间:2024-11-06  --Wed，今天我来过，倘若发现时间停止在某天，说明博客已经停更，也或许印证了罗翔老师的那句话，“我们永远无法确定明天和意外哪个先到来”</span></div><span><span>博客是以<strong>Obsidian</strong>笔记为核心。Obsidian中一部分是<strong>博客笔记</strong>，通过<strong>Github</strong>发布在博客中，这些内容是愿意分享的；另一部分是<strong>私有笔记</strong>，记录个人笔记，这部分内容只能看到笔记名但因未上传故无法查看。如何区分博客笔记和私有笔记，在博客中笔记名称前有<strong>笔记图标</strong>标记的是博客笔记。今日是博客发布80天。</span></span><p><span>已使用<strong>Obsidian</strong>1090天，共创建609篇文档、23个标签、259个待办。</span></p>
+<div><span>时间:2024-11-06  --Wed，今天我来过，倘若发现时间停止在某天，说明博客已经停更，也或许印证了罗翔老师的那句话，“我们永远无法确定明天和意外哪个先到来”</span></div><span><span>博客是以<strong>Obsidian</strong>笔记为核心。Obsidian中一部分是<strong>博客笔记</strong>，通过<strong>Github</strong>发布在博客中，这些内容是愿意分享的；另一部分是<strong>私有笔记</strong>，记录个人笔记，这部分内容只能看到笔记名但因未上传故无法查看。如何区分博客笔记和私有笔记，在博客中笔记名称前有<strong>笔记图标</strong>标记的是博客笔记。今日是博客发布80天。</span></span><p><span>已使用<strong>Obsidian</strong>1091天，共创建609篇文档、23个标签、259个待办。</span></p>
 
 # 推荐笔记
 
@@ -39,10 +39,10 @@
 # 待处理
 - [[☰ Inbox 收集/Access Tokens\|Access Tokens]]
 - [[☰ Inbox 收集/Microsoft Clarity\|Microsoft Clarity]]
-- [[☰ Inbox 收集/书籍出版社\|书籍出版社]]
+- [[☰ Inbox 收集/Drawing 2024-11-01 16.59.29.excalidraw\|Drawing 2024-11-01 16.59.29.excalidraw]]
 - [[☰ Inbox 收集/犯困时快速清醒\|犯困时快速清醒]]
 - [[☰ Inbox 收集/网络监管方案\|网络监管方案]]
-- [[☰ Inbox 收集/Drawing 2024-11-01 16.59.29.excalidraw\|Drawing 2024-11-01 16.59.29.excalidraw]]
+- [[☰ Inbox 收集/书籍出版社\|书籍出版社]]
 
 { .block-language-dataview}
 
