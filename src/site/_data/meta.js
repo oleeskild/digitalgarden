@@ -1,7 +1,4 @@
 require("dotenv").config();
-const axios = require("axios");
-const fs = require("fs");
-const crypto = require("crypto");
 const { globSync } = require("glob");
 
 module.exports = async (data) => {
@@ -22,6 +19,7 @@ module.exports = async (data) => {
   };
 
   const styleSettingsCss = process.env.STYLE_SETTINGS_CSS || "";
+  const styleSettingsBodyClasses = process.env.STYLE_SETTINGS_BODY_CLASSES || "";
 
   if (process.env.NOTE_ICON_TITLE && process.env.NOTE_ICON_TITLE == "true") {
     bodyClasses.push("title-note-icon");
@@ -48,8 +46,11 @@ module.exports = async (data) => {
     bodyClasses.push("backlinks-note-icon");
     noteIconsSettings.backlinks = true;
   }
-  if(styleSettingsCss){
+  if (styleSettingsCss) {
     bodyClasses.push("css-settings-manager");
+  }
+  if (styleSettingsBodyClasses) {
+    bodyClasses.push(styleSettingsBodyClasses);
   }
 
   let timestampSettings = {
@@ -66,6 +67,7 @@ module.exports = async (data) => {
     timestampSettings,
     baseTheme: process.env.BASE_THEME || "dark",
     siteName: process.env.SITE_NAME_HEADER || "Digital Garden",
+    mainLanguage: process.env.SITE_MAIN_LANGUAGE || "en",
     siteBaseUrl: baseUrl,
     styleSettingsCss,
     buildDate: new Date(),
