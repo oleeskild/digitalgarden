@@ -38,36 +38,45 @@ function getAnchorAttributes(filePath, linkTitle) {
   let fileName = filePath.replaceAll("&amp;", "&");
   let header = "";
   let headerLinkPath = "";
-  if (filePath.includes("#")) {
-    [fileName, header] = filePath.split("#");
+  if (fileName.includes("#")) {
+    [fileName, header] = fileName.split("#");
     headerLinkPath = `#${headerToId(header)}`;
   }
 
   let noteIcon = process.env.NOTE_ICON_DEFAULT;
-  const title = linkTitle ? linkTitle : fileName;
-  let permalink = `/notes/${slugify(filePath)}`;
+  const title = linkTitle ? linkTitle : filePath;
+  let permalink = "";
   let deadLink = false;
-  try {
-    const startPath = "./src/site/notes/";
-    const fullPath = fileName.endsWith(".md")
-      ? `${startPath}${fileName}`
-      : `${startPath}${fileName}.md`;
-    const file = fs.readFileSync(fullPath, "utf8");
-    const frontMatter = matter(file);
-    if (frontMatter.data.permalink) {
-      permalink = frontMatter.data.permalink;
+  // if fileName is empty we are only jumping to heading in this file
+  // NOTE: will not load the correct noteIcon in that case, since we don't have access to the filename
+  if (fileName.length > 0) 
+  {
+    try {
+      permalink = `/notes/${slugify(fileName)}`;
+      const startPath = "./src/site/notes/";
+      const fullPath = fileName.endsWith(".md")
+        ? `${startPath}${fileName}`
+        : `${startPath}${fileName}.md`;
+      const file = fs.readFileSync(fullPath, "utf8");
+      const frontMatter = matter(file);
+      if (frontMatter.data.permalink) {
+        permalink = frontMatter.data.permalink;
+      }
+      const isGardenHome = frontMatter.data.tags && frontMatter.data.tags.indexOf("gardenEntry") != -1;
+      if (isGardenHome) {
+        permalink = "/";
+      }
+      if (frontMatter.data.noteIcon) {
+        noteIcon = frontMatter.data.noteIcon;
+      }
+    } catch (error) {
+      // NOTE (JS, 28.05.25): This will generate a few false-positives for any
+      // text looking like a link inside a code-block. The link will not actually be generated though.
+      // the link filter is called 2x by 11ty: once with just the raw text (no markdown) and once converted to html 
+      // (the first parse generates the false-positive message, but does not seem to matter)
+      console.log(`DeadLink detection! filePath: ${filePath}, linkTitle: ${linkTitle}, error: ${error.message}`);
+      deadLink = true;
     }
-    if (
-      frontMatter.data.tags &&
-      frontMatter.data.tags.indexOf("gardenEntry") != -1
-    ) {
-      permalink = "/";
-    }
-    if (frontMatter.data.noteIcon) {
-      noteIcon = frontMatter.data.noteIcon;
-    }
-  } catch {
-    deadLink = true;
   }
 
   if (deadLink) {
