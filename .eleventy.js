@@ -15,6 +15,10 @@ const {
 } = require("./src/helpers/userSetup");
 
 const Image = require("@11ty/eleventy-img");
+
+// Audio file extensions supported by the digital garden
+const AUDIO_EXTENSIONS = ['.mp3', '.wav', '.ogg', '.m4a'];
+
 function transformImage(src, cls, alt, sizes, widths = ["500", "700", "auto"]) {
   let options = {
     widths: widths,
@@ -465,7 +469,7 @@ module.exports = function (eleventyConfig) {
       if (!src) continue;
 
       // Handle audio files
-      if (src.endsWith(".mp3") || src.endsWith(".wav") || src.endsWith(".ogg") || src.endsWith(".m4a")) {
+      if (AUDIO_EXTENSIONS.some(ext => src.endsWith(ext))) {
         const cls = element.classList.value;
         const title = element.getAttribute("alt") || element.getAttribute("title");
         fillAudioSource(src, cls, title, element);
