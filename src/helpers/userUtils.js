@@ -1,7 +1,5 @@
 // Put your computations here.
-
 function userComputed(data) {
-  return {};
+    return {};
 }
-
-exports.userComputed = userComputed;
+export { userComputed };
