@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "type": "module",
     "scripts": {
         "prebuild": "rimraf dist",
         "start": "npm-run-all get-theme build:sass --parallel watch:*",
@@ -17,8 +18,8 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "@11ty/eleventy": "^2.0.1",
-        "@11ty/eleventy-plugin-rss": "^1.2.0",
+        "@11ty/eleventy": "^3.1.2",
+        "@11ty/eleventy-plugin-rss": "^2.0.0",
         "cross-env": "^7.0.3",
         "html-minifier-terser": "^7.2.0",
         "node-html-parser": "^6.1.13",
