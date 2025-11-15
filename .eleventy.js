@@ -38,36 +38,45 @@ function getAnchorAttributes(filePath, linkTitle) {
   let fileName = filePath.replaceAll("&amp;", "&");
   let header = "";
   let headerLinkPath = "";
-  if (filePath.includes("#")) {
-    [fileName, header] = filePath.split("#");
+  if (fileName.includes("#")) {
+    [fileName, header] = fileName.split("#");
     headerLinkPath = `#${headerToId(header)}`;
   }
 
   let noteIcon = process.env.NOTE_ICON_DEFAULT;
-  const title = linkTitle ? linkTitle : fileName;
-  let permalink = `/notes/${slugify(filePath)}`;
+  const title = linkTitle ? linkTitle : filePath;
+  let permalink = "";
   let deadLink = false;
-  try {
-    const startPath = "./src/site/notes/";
-    const fullPath = fileName.endsWith(".md")
-      ? `${startPath}${fileName}`
-      : `${startPath}${fileName}.md`;
-    const file = fs.readFileSync(fullPath, "utf8");
-    const frontMatter = matter(file);
-    if (frontMatter.data.permalink) {
-      permalink = frontMatter.data.permalink;
+  // if fileName is empty we are only jumping to heading in this file
+  // NOTE: will not load the correct noteIcon in that case, since we don't have access to the filename
+  if (fileName.length > 0) 
+  {
+    try {
+      permalink = `/notes/${slugify(fileName)}`;
+      const startPath = "./src/site/notes/";
+      const fullPath = fileName.endsWith(".md")
+        ? `${startPath}${fileName}`
+        : `${startPath}${fileName}.md`;
+      const file = fs.readFileSync(fullPath, "utf8");
+      const frontMatter = matter(file);
+      if (frontMatter.data.permalink) {
+        permalink = frontMatter.data.permalink;
+      }
+      const isGardenHome = frontMatter.data.tags && frontMatter.data.tags.indexOf("gardenEntry") != -1;
+      if (isGardenHome) {
+        permalink = "/";
+      }
+      if (frontMatter.data.noteIcon) {
+        noteIcon = frontMatter.data.noteIcon;
+      }
+    } catch (error) {
+      // NOTE (JS, 28.05.25): This will generate a few false-positives for any
+      // text looking like a link inside a code-block. The link will not actually be generated though.
+      // the link filter is called 2x by 11ty: once with just the raw text (no markdown) and once converted to html 
+      // (the first parse generates the false-positive message, but does not seem to matter)
+      console.log(`DeadLink detection! filePath: ${filePath}, linkTitle: ${linkTitle}, error: ${error.message}`);
+      deadLink = true;
     }
-    if (
-      frontMatter.data.tags &&
-      frontMatter.data.tags.indexOf("gardenEntry") != -1
-    ) {
-      permalink = "/";
-    }
-    if (frontMatter.data.noteIcon) {
-      noteIcon = frontMatter.data.noteIcon;
-    }
-  } catch {
-    deadLink = true;
   }
 
   if (deadLink) {
@@ -275,18 +284,42 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addFilter("link", function (str) {
-    return (
-      str &&
-      str.replace(/\[\[(.*?\|.*?)\]\]/g, function (match, p1) {
+    // NOTE (JS, 28.05.25): as far as I know code blocks cannot be nested 
+    // (otherwise turn isCodeBlock into an int)
+    let isCodeBlock = false;
+    let result = "";
+    let lastMatchPos = 0;
+    for (let idx = 0; idx < str.length; ++idx) {
+      if (str.substring(idx, idx+5) == "<code") {
+        isCodeBlock = true;
+        idx += 5;
+      }
+      else if (str.substring(idx, idx+7) == "</code>") {
+        isCodeBlock = false;
+        idx += 7;
+      }
+      else if (!isCodeBlock && str.substring(idx, idx+2) == "[[") {
+        const end = str.indexOf("]]",idx+2);
+        if (end == -1)
+          break; // generally should not happen, unless the markdown is broken
+        const match = str.substring(idx+2, end);
+        // links may not contain line breaks
+        if (match.indexOf("\n") > -1)
+          continue;
         //Check if it is an embedded excalidraw drawing or mathjax javascript
-        if (p1.indexOf("],[") > -1 || p1.indexOf('"$"') > -1) {
-          return match;
-        }
-        const [fileLink, linkTitle] = p1.split("|");
-
-        return getAnchorLink(fileLink, linkTitle);
-      })
-    );
+        if (match.indexOf("],[") > -1 || match.indexOf('"$"') > -1)
+          continue;
+        
+        const [fileLink, linkTitle] = match.split("|");
+        const linkHTML = getAnchorLink(fileLink, linkTitle);
+        result += str.substring(lastMatchPos, idx);
+        result += linkHTML;
+        lastMatchPos = end+2;
+        idx = lastMatchPos;
+      }
+    }
+    result += str.substring(lastMatchPos, str.length);
+    return result;
   });
 
   eleventyConfig.addFilter("taggify", function (str) {
