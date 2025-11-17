@@ -7,7 +7,7 @@
                     <a data-note-icon="{{fileOrFolder.noteIcon}}" style="text-decoration: none;" class="filename" href="{{fileOrFolder.permalink}}">{{fileOrFolder.name}} </a>
                 </div>
             {% elif fileOrFolder.isFolder%}
-                <div class="folder inner-folder"  x-data="{isOpen: $persist(false).as('{{currentPath}}')}" @click.stop="isOpen=!isOpen">
+                <div class="folder inner-folder"  x-data="{isOpen: $persist(false).as({{currentPath | dump}})}" @click.stop="isOpen=!isOpen">
                     <div class="foldername-wrapper align-icon">
                     <i x-show="isOpen" style="display: none;"  icon-name="chevron-down"></i>
                     <i x-show="!isOpen"  icon-name="chevron-right"></i>
