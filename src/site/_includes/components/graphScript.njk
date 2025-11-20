@@ -27,7 +27,16 @@
         let remaining = JSON.parse(JSON.stringify(graphData.nodes));
         let links = JSON.parse(JSON.stringify(graphData.links));
         let currentLink = decodeURI(window.location.pathname);
-        let currentNode = remaining[currentLink] || Object.values(remaining).find((v) => v.home);
+        // Try exact match first, then case-insensitive match for hosting platforms
+        // that normalize URLs to lowercase (e.g., Netlify)
+        let currentNode = remaining[currentLink];
+        if (!currentNode) {
+            const lowerCurrentLink = currentLink.toLowerCase();
+            currentNode = Object.values(remaining).find((v) => v.url.toLowerCase() === lowerCurrentLink);
+        }
+        if (!currentNode) {
+            currentNode = Object.values(remaining).find((v) => v.home);
+        }
         delete remaining[currentNode.url];
         if (!currentNode.home) {
             let home = Object.values(remaining).find((v) => v.home);
