@@ -172,7 +172,7 @@ ul.task-list {
         margin-top: 0 !important;
         margin-bottom: 0 !important;
         margin-left: 0;
-        border-left: 1px solid var(--text-muted);
+        border-left: 1px solid color-mix(in srgb, var(--text-muted) 40%, transparent);
     }
     // First level - no border, no indent
     & > ul, & > ol {
