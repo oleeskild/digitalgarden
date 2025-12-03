@@ -4,6 +4,131 @@
 ***/
 
 body {
+    /***
+    * CSS VARIABLE DEFAULTS
+    * Override these in custom-style.scss using body { --dg-variable-name: value; }
+    ***/
+
+    /* Color Variables (defaulting to theme variables) */
+    --dg-text-normal: var(--text-normal);
+    --dg-text-muted: var(--text-muted);
+    --dg-text-faint: var(--text-faint);
+    --dg-text-accent: var(--text-accent);
+    --dg-text-accent-hover: var(--text-accent-hover);
+    --dg-background-primary: var(--background-primary);
+    --dg-background-primary-alt: var(--background-primary-alt);
+    --dg-background-secondary: var(--background-secondary);
+    --dg-background-secondary-alt: var(--background-secondary-alt);
+    --dg-interactive-normal: var(--interactive-normal);
+    --dg-interactive-hover: var(--interactive-hover);
+    --dg-interactive-accent: var(--interactive-accent);
+    --dg-interactive-accent-hover: var(--interactive-accent-hover);
+
+    /* Layout Variables */
+    --dg-content-max-width: 700px;
+    --dg-content-margin-top: 90px;
+    --dg-content-margin-top-mobile: 75px;
+    --dg-content-font-size: 18px;
+    --dg-content-line-height: 1.5;
+
+    /* Sidebar (Right) Variables */
+    --dg-sidebar-top: 75px;
+    --dg-sidebar-gap: 80px;
+    --dg-sidebar-min-width: 25px;
+    --dg-sidebar-max-width: 350px;
+    --dg-sidebar-container-padding: 20px;
+    --dg-sidebar-container-height: 87%;
+
+    /* Graph Variables */
+    --dg-graph-width: 250px;
+    --dg-graph-height: 250px;
+    --dg-graph-border-radius: 10px;
+    --dg-graph-margin-bottom: 20px;
+    --dg-graph-fullscreen-width: 600px;
+    --dg-graph-fullscreen-height: 600px;
+
+    /* Filetree (Left Sidebar) Variables */
+    --dg-filetree-width: 250px;
+    --dg-filetree-min-width: 250px;
+    --dg-filetree-padding: 10px 20px;
+    --dg-filetree-gap: 80px;
+    --dg-filetree-title-size: 32px;
+
+    /* TOC (Table of Contents) Variables */
+    --dg-toc-padding: 5px;
+    --dg-toc-font-size: 0.9rem;
+    --dg-toc-max-height: 220px;
+    --dg-toc-title-size: 1.2rem;
+    --dg-toc-item-padding: 2px 0 2px 8px;
+    --dg-toc-indent: 1em;
+
+    /* Backlinks Variables */
+    --dg-backlinks-margin-top: 10px;
+    --dg-backlinks-max-height: 250px;
+    --dg-backlinks-title-size: 0.9rem;
+    --dg-backlinks-card-size: 0.85rem;
+    --dg-backlinks-card-padding: 6px 0;
+    --dg-backlinks-icon-size: 14px;
+
+    /* Search Variables */
+    --dg-search-box-width: 900px;
+    --dg-search-box-max-width: 80%;
+    --dg-search-box-radius: 15px;
+    --dg-search-box-padding: 10px;
+    --dg-search-input-size: 2rem;
+    --dg-search-input-padding: 10px;
+    --dg-search-input-radius: 5px;
+    --dg-search-results-max-height: 50vh;
+    --dg-search-result-size: 1.2rem;
+    --dg-search-result-radius: 10px;
+    --dg-search-link-size: 1.4rem;
+
+    /* Search Button Variables */
+    --dg-search-btn-radius: 8px;
+    --dg-search-btn-height: 32px;
+    --dg-search-btn-padding: 0 10px;
+    --dg-search-btn-gap: 8px;
+    --dg-search-btn-font-size: 0.85rem;
+    --dg-search-btn-icon-size: 14px;
+
+    /* Navbar Variables */
+    --dg-navbar-title-size-mobile: 18px;
+    --dg-navbar-search-margin: 20px;
+    --dg-navbar-search-min-width: 36px;
+
+    /* Note Link / File Tree Item Variables */
+    --dg-notelink-padding: 4px 8px 4px 12px;
+    --dg-notelink-size: 0.85rem;
+    --dg-notelink-border-width: 2px;
+    --dg-notelink-hover-bg: rgba(255, 255, 255, 0.05);
+    --dg-folder-margin: 4px 0 4px 2px;
+    --dg-folder-icon-size: 14px;
+    --dg-inner-folder-padding: 3px 0 3px 0;
+    --dg-inner-folder-margin: 12px;
+    --dg-filelist-margin: 8px;
+
+    /* Graph Controls Variables */
+    --dg-graph-ctrl-padding: 6px 10px;
+    --dg-graph-ctrl-radius: 6px;
+    --dg-graph-ctrl-margin: 10px;
+    --dg-graph-ctrl-size: 0.7rem;
+    --dg-graph-ctrl-icon-size: 14px;
+    --dg-graph-ctrl-gap: 10px;
+    --dg-depth-slider-width: 50px;
+    --dg-depth-display-size: 1.1rem;
+
+    /* Timestamps Variables */
+    --dg-timestamps-size: 0.8em;
+    --dg-timestamps-gap: 10px;
+    --dg-timestamps-margin-top: 20px;
+
+    /* Misc Component Variables */
+    --dg-overlay-bg: rgba(0, 0, 0, 0.5);
+    --dg-mermaid-radius: 25px;
+    --dg-mermaid-padding: 10px;
+    --dg-transclusion-padding: 8px;
+    --dg-external-link-icon-size: 13px;
+    --dg-external-link-padding: 16px;
     overflow-x: hidden;
     contain: none !important;  // Override obsidian-base to allow position: fixed to work
     --note-icon-1: url(/img/tree-1.svg);
@@ -19,15 +144,15 @@ img {
 }
 
 .content {
-    max-width: 700px;
+    max-width: var(--dg-content-max-width);
     margin: auto;
-    font-size: 18px;
-    line-height: 1.5;
-    margin-top: 90px;
+    font-size: var(--dg-content-font-size);
+    line-height: var(--dg-content-line-height);
+    margin-top: var(--dg-content-margin-top);
     position: relative;
 
     @media (max-width: 800px) {
-        margin-top: 75px;
+        margin-top: var(--dg-content-margin-top-mobile);
     }
 }
 
@@ -35,21 +160,21 @@ img {
     background-position: center right;
     background-repeat: no-repeat;
     background-image: linear-gradient(transparent, transparent), url("/img/outgoing.svg");
-    background-size: 13px;
-    padding-right: 16px;
+    background-size: var(--dg-external-link-icon-size);
+    padding-right: var(--dg-external-link-padding);
     background-position-y: 4px;
     cursor: pointer;
 }
 
 .markdown-preview-view pre.mermaid {
     background: white;
-    border-radius: 25px;
-    padding: 10px;
+    border-radius: var(--dg-mermaid-radius);
+    padding: var(--dg-mermaid-padding);
 }
 
 div.transclusion {
     position: relative;
-    padding: 8px;
+    padding: var(--dg-transclusion-padding);
     .markdown-embed-link {
         z-index: 99;
         display: block;
@@ -64,15 +189,15 @@ ul.task-list {
 
 .sidebar {
     position: fixed !important;
-    top: 75px;
-    // Position to the right of centered content (content ends at 50vw + 350px)
-    // 80px gap to match the filetree gap on the left
-    left: calc(50vw + 350px + 80px);
+    top: var(--dg-sidebar-top);
+    // Position to the right of centered content (content ends at 50vw + half content width)
+    // gap to match the filetree gap on the left
+    left: calc(50vw + calc(var(--dg-content-max-width) / 2) + var(--dg-sidebar-gap));
     height: 100%;
-    min-width: 25px;
+    min-width: var(--dg-sidebar-min-width);
     display: flex;
     z-index: 3;
-    max-width: 350px;
+    max-width: var(--dg-sidebar-max-width);
 
     @media (max-width: 1400px) {
         left: auto;
@@ -80,12 +205,12 @@ ul.task-list {
     }
 
     .graph {
-        width: 250px;
-        min-height: 250px;
+        width: var(--dg-graph-width);
+        min-height: var(--dg-graph-height);
 
         #link-graph {
-            width: 250px;
-            height: 250px;
+            width: var(--dg-graph-width);
+            height: var(--dg-graph-height);
         }
 
         #graph-fs-btn {
@@ -99,18 +224,18 @@ ul.task-list {
     position: fixed !important;
     top: 50% !important;
     left: 50% !important;
-    width: 600px !important;
-    height: 600px !important;
+    width: var(--dg-graph-fullscreen-width) !important;
+    height: var(--dg-graph-fullscreen-height) !important;
     max-width: 90vw !important;
     max-height: 90vh !important;
     transform: translate(-50%, -50%);
     z-index: 9999;
     display: flex !important;
     flex-direction: column;
-    background-color: var(--background-secondary);
-    border: 1px solid var(--text-accent);
-    border-radius: 10px;
-    padding: 10px;
+    background-color: var(--dg-background-secondary);
+    border: 1px solid var(--dg-text-accent);
+    border-radius: var(--dg-graph-border-radius);
+    padding: var(--dg-mermaid-padding);
 
     #link-graph {
         width: 100% !important;
@@ -135,17 +260,17 @@ ul.task-list {
 }
 
 .sidebar-container {
-    padding-right: 20px;
+    padding-right: var(--dg-sidebar-container-padding);
     width: 100%;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 87%;
+    height: var(--dg-sidebar-container-height);
 }
 
 .toc {
-    padding: 5px;
+    padding: var(--dg-toc-padding);
 
     ol {
         list-style: none;
@@ -159,18 +284,18 @@ ul.task-list {
 }
 
 .toc-container {
-    font-size: 0.9rem;
-    max-height: 220px;
+    font-size: var(--dg-toc-font-size);
+    max-height: var(--dg-toc-max-height);
     overflow-y: auto;
     margin-bottom: 5px;
 
     ul, ol {
         list-style-type: none;
-        padding-inline-start: 1em !important;
+        padding-inline-start: var(--dg-toc-indent) !important;
         margin-top: 0 !important;
         margin-bottom: 0 !important;
         margin-left: 0;
-        border-left: 1px solid color-mix(in srgb, var(--text-muted) 40%, transparent);
+        border-left: 1px solid color-mix(in srgb, var(--dg-text-muted) 40%, transparent);
     }
     // First level - no border, no indent
     & > ul, & > ol {
@@ -180,10 +305,10 @@ ul.task-list {
     // Override obsidian-base nested list indent
     li {
         margin-inline-start: 0 !important;
-        padding: 2px 0 2px 8px;
+        padding: var(--dg-toc-item-padding);
         a {
             text-decoration: none;
-            color: var(--text-accent);
+            color: var(--dg-text-accent);
             &:hover {
                 text-decoration: underline;
             }
@@ -196,7 +321,7 @@ ul.task-list {
     justify-content: flex-start;
     margin-bottom: 4px;
     .toc-title {
-        font-size: 1.2rem !important;
+        font-size: var(--dg-toc-title-size) !important;
         color: var(--h6-color);
         width: fit-content;
         padding: 0;
@@ -205,43 +330,43 @@ ul.task-list {
 
 .backlinks {
     flex: 1;
-    margin-top: 10px;
+    margin-top: var(--dg-backlinks-margin-top);
     padding-left: 5px;
 
     .backlink-title {
         margin: 0 0 10px 0;
-        font-size: 0.9rem !important;
+        font-size: var(--dg-backlinks-title-size) !important;
         font-weight: 600;
-        color: var(--text-normal);
+        color: var(--dg-text-normal);
     }
 }
 
 .backlink-list {
-    max-height: 250px;
+    max-height: var(--dg-backlinks-max-height);
     overflow-y: auto;
     overflow-x: hidden;
 }
 
 .backlink-card {
-    padding: 6px 0;
+    padding: var(--dg-backlinks-card-padding);
     width: 100%;
-    font-size: 0.85rem;
+    font-size: var(--dg-backlinks-card-size);
     display: flex;
     align-items: center;
 
     a {
-        color: var(--text-muted);
+        color: var(--dg-text-muted);
         text-decoration: none;
         &:hover {
-            color: var(--text-accent);
+            color: var(--dg-text-accent);
         }
     }
 
     i, svg {
         font-size: 0.7rem;
         opacity: 0.5;
-        width: 14px;
-        height: 14px;
+        width: var(--dg-backlinks-icon-size);
+        height: var(--dg-backlinks-icon-size);
         flex-shrink: 0;
     }
 
@@ -252,7 +377,7 @@ ul.task-list {
 
 .no-backlinks-message {
     font-size: 0.8rem;
-    color: var(--text-faint);
+    color: var(--dg-text-faint);
     font-style: italic;
 }
 
@@ -269,15 +394,15 @@ ul.task-list {
 }
 
 #link-graph {
-    background-color: var(--background-secondary);
-    margin-bottom: 20px;
-    border-radius: 10px;
+    background-color: var(--dg-background-secondary);
+    margin-bottom: var(--dg-graph-margin-bottom);
+    border-radius: var(--dg-graph-border-radius);
     width: fit-content;
 }
 
 @media (max-width: 1400px) {
     #link-graph {
-        border-radius: 10px;
+        border-radius: var(--dg-graph-border-radius);
     }
     .sidebar {
         position: relative !important;
@@ -344,26 +469,26 @@ ul.task-list {
     left: 0;
     top: 0;
     height: 100%;
-    background-color: var(--background-secondary);
+    background-color: var(--dg-background-secondary);
     z-index: 10;
-    // Width: from left edge to before content starts (with 80px gap)
-    // Content is 700px centered, so it starts at (50vw - 350px)
-    width: calc(50vw - 350px - 80px);
-    min-width: 250px;
+    // Width: from left edge to before content starts (with gap)
+    // Content is centered, so it starts at (50vw - half content width)
+    width: calc(50vw - calc(var(--dg-content-max-width) / 2) - var(--dg-filetree-gap));
+    min-width: var(--dg-filetree-min-width);
     display: flex;
     justify-content: flex-end;
 }
 
 .filetree-sidebar {
     margin: 0;
-    padding: 10px 20px;
+    padding: var(--dg-filetree-padding);
     height: 100%;
-    color: var(--text-muted);
+    color: var(--dg-text-muted);
     overflow-y: auto;
-    width: 250px;
+    width: var(--dg-filetree-width);
     flex-shrink: 0;
     h1 {
-        font-size: 32px !important;
+        font-size: var(--dg-filetree-title-size) !important;
     }
     .search-button {
         width: 100%;
@@ -389,7 +514,7 @@ ul.task-list {
 // On medium screens, filetree stays but with fixed width
 @media (max-width: 1400px) {
     .filetree-wrapper {
-        width: 250px;
+        width: var(--dg-filetree-width);
         justify-content: flex-start;
     }
 
@@ -405,7 +530,7 @@ ul.task-list {
     .content {
         margin-left: auto;
         margin-right: auto;
-        max-width: 700px;
+        max-width: var(--dg-content-max-width);
     }
 }
 
@@ -424,7 +549,7 @@ ul.task-list {
 }
 
 .navbar {
-    background-color: var(--background-secondary);
+    background-color: var(--dg-background-secondary);
     position: absolute;
     width: 100%;
     top: 0;
@@ -441,7 +566,7 @@ ul.task-list {
 
     @media (max-width: 800px) {
         h1 {
-            font-size: 18px !important;
+            font-size: var(--dg-navbar-title-size-mobile) !important;
         }
     }
 
@@ -462,9 +587,9 @@ ul.task-list {
     }
 
     .search-button {
-        margin-right: 20px;
+        margin-right: var(--dg-navbar-search-margin);
         @media (max-width: 800px) {
-            min-width: 36px;
+            min-width: var(--dg-navbar-search-min-width);
             margin: 10px 25px 10px 25px;
         }
     }
@@ -480,11 +605,11 @@ ul.task-list {
 
 .notelink {
     position: relative;
-    padding: 4px 8px 4px 12px;
+    padding: var(--dg-notelink-padding);
     display: flex;
     align-items: center;
-    font-size: 0.85rem;
-    border-left: 2px solid transparent;
+    font-size: var(--dg-notelink-size);
+    border-left: var(--dg-notelink-border-width) solid transparent;
     margin-left: -1px;
 
     a {
@@ -494,7 +619,7 @@ ul.task-list {
     }
 
     &:hover {
-        background-color: rgba(255, 255, 255, 0.05);
+        background-color: var(--dg-notelink-hover-bg);
     }
 
     svg {
@@ -504,25 +629,25 @@ ul.task-list {
 
 .foldername-wrapper {
     cursor: pointer;
-    margin: 4px 0 4px 2px;
-    font-size: 0.85rem;
+    margin: var(--dg-folder-margin);
+    font-size: var(--dg-notelink-size);
 
     i, svg {
-        width: 14px;
-        height: 14px;
+        width: var(--dg-folder-icon-size);
+        height: var(--dg-folder-icon-size);
         opacity: 0.5;
     }
 }
 
 .inner-folder {
-    padding: 3px 0 3px 0;
-    margin-left: 12px;
+    padding: var(--dg-inner-folder-padding);
+    margin-left: var(--dg-inner-folder-margin);
 }
 
 // Depth lines on filelist containers (step > 0)
 .filelist {
-    border-left: 1px solid color-mix(in srgb, var(--text-muted) 40%, transparent);
-    margin-left: 8px;
+    border-left: 1px solid color-mix(in srgb, var(--dg-text-muted) 40%, transparent);
+    margin-left: var(--dg-filelist-margin);
 }
 
 .filename {
@@ -536,15 +661,15 @@ ul.task-list {
 }
 
 .notelink.active-note {
-    border-left-color: var(--text-accent);
+    border-left-color: var(--dg-text-accent);
 
     .filename {
-        color: var(--text-normal) !important;
+        color: var(--dg-text-normal) !important;
     }
 }
 
 .fullpage-overlay {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--dg-overlay-bg);
     position: absolute;
     top: 0;
     right: 0;
@@ -554,7 +679,7 @@ ul.task-list {
 }
 
 .search-container {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--dg-overlay-bg);
     position: fixed;
     top: 0;
     right: 0;
@@ -572,21 +697,21 @@ ul.task-list {
 
 .search-box {
     transform: translateY(100px);
-    background-color: var(--background-primary);
-    max-width: 80%;
-    width: 900px;
-    border-radius: 15px;
-    padding: 10px;
+    background-color: var(--dg-background-primary);
+    max-width: var(--dg-search-box-max-width);
+    width: var(--dg-search-box-width);
+    border-radius: var(--dg-search-box-radius);
+    padding: var(--dg-search-box-padding);
     height: fit-content;
 }
 
 .search-box input {
     width: 100%;
-    padding: 10px;
+    padding: var(--dg-search-input-padding);
     border: none;
-    border-radius: 5px;
-    font-size: 2rem;
-    background-color: var(--background-primary);
+    border-radius: var(--dg-search-input-radius);
+    font-size: var(--dg-search-input-size);
+    background-color: var(--dg-background-primary);
     color: var(--text-primary);
 }
 
@@ -600,20 +725,20 @@ ul.task-list {
     padding: 20px;
     display: flex;
     justify-content: center;
-    max-height: 50vh;
+    max-height: var(--dg-search-results-max-height);
 }
 
 #search-results .searchresult {
     margin-bottom: 15px;
     list-style: none;
-    background-color: var(--background-secondary);
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 1.2rem;
+    background-color: var(--dg-background-secondary);
+    padding: var(--dg-search-box-padding);
+    border-radius: var(--dg-search-result-radius);
+    font-size: var(--dg-search-result-size);
     cursor: pointer;
 
     &.active {
-        border: 2px solid var(--text-accent);
+        border: 2px solid var(--dg-text-accent);
     }
 }
 
@@ -632,26 +757,26 @@ ul.task-list {
 .search-link {
     display: block;
     margin-bottom: 4px;
-    font-size: 1.4rem;
+    font-size: var(--dg-search-link-size);
 }
 
 .search-button {
-    background-color: var(--background-primary);
-    border-radius: 8px;
-    height: 32px;
+    background-color: var(--dg-background-primary);
+    border-radius: var(--dg-search-btn-radius);
+    height: var(--dg-search-btn-height);
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 0 10px;
+    gap: var(--dg-search-btn-gap);
+    padding: var(--dg-search-btn-padding);
     margin: 10px 0;
     box-sizing: border-box;
     border: 1px solid var(--background-modifier-border, rgba(255,255,255,0.1));
     cursor: pointer;
-    color: var(--text-muted);
-    font-size: 0.85rem;
+    color: var(--dg-text-muted);
+    font-size: var(--dg-search-btn-font-size);
 
     &:hover {
-        border-color: var(--text-muted);
+        border-color: var(--dg-text-muted);
     }
 
     .search-icon {
@@ -659,8 +784,8 @@ ul.task-list {
         align-items: center;
 
         svg, i {
-            width: 14px;
-            height: 14px;
+            width: var(--dg-search-btn-icon-size);
+            height: var(--dg-search-btn-icon-size);
             opacity: 0.7;
         }
     }
@@ -674,7 +799,7 @@ ul.task-list {
         padding: 2px 6px;
         border-radius: 4px;
         background-color: rgba(255, 255, 255, 0.08);
-        color: var(--text-faint);
+        color: var(--dg-text-faint);
 
         @media (max-width: 800px) {
             display: none;
@@ -723,7 +848,7 @@ ul.task-list {
 
 .referred {
     border: 1px dashed;
-    border-color: var(--text-accent);
+    border-color: var(--dg-text-accent);
     padding: 10px;
     margin-left: -10px;
     margin-right: -10px;
@@ -746,17 +871,17 @@ ul.task-list {
     position: fixed;
     top: 50%;
     left: 50%;
-    width: 600px;
-    height: 600px;
+    width: var(--dg-graph-fullscreen-width);
+    height: var(--dg-graph-fullscreen-height);
     max-width: 90vw;
     max-height: 90vh;
     transform: translate(-50%, -50%);
     z-index: 9999;
     display: none;
-    background-color: var(--background-secondary);
-    border: 1px solid var(--text-accent);
-    border-radius: 10px;
-    padding: 10px;
+    background-color: var(--dg-background-secondary);
+    border: 1px solid var(--dg-text-accent);
+    border-radius: var(--dg-graph-border-radius);
+    padding: var(--dg-mermaid-padding);
 
     #full-graph-container {
         width: 100%;
@@ -785,24 +910,24 @@ ul.task-list {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
-    padding: 6px 10px;
-    background-color: var(--background-primary);
-    border-radius: 6px;
-    margin: 10px;
-    color: var(--text-muted);
-    font-size: 0.7rem;
+    gap: var(--dg-graph-ctrl-gap);
+    padding: var(--dg-graph-ctrl-padding);
+    background-color: var(--dg-background-primary);
+    border-radius: var(--dg-graph-ctrl-radius);
+    margin: var(--dg-graph-ctrl-margin);
+    color: var(--dg-text-muted);
+    font-size: var(--dg-graph-ctrl-size);
     z-index: 9;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 
     i, svg {
         cursor: pointer;
-        width: 14px;
-        height: 14px;
+        width: var(--dg-graph-ctrl-icon-size);
+        height: var(--dg-graph-ctrl-icon-size);
         opacity: 0.5;
         &:hover {
             opacity: 1;
-            color: var(--text-accent);
+            color: var(--dg-text-accent);
         }
     }
 
@@ -826,12 +951,12 @@ ul.task-list {
         gap: 8px;
 
         label {
-            font-size: 0.7rem;
+            font-size: var(--dg-graph-ctrl-size);
             opacity: 0.6;
         }
 
         .slider {
-            width: 50px;
+            width: var(--dg-depth-slider-width);
             display: flex;
             align-items: center;
 
@@ -840,7 +965,7 @@ ul.task-list {
                 height: 4px;
                 -webkit-appearance: none;
                 appearance: none;
-                background: var(--text-muted);
+                background: var(--dg-text-muted);
                 border-radius: 2px;
                 outline: none;
 
@@ -849,7 +974,7 @@ ul.task-list {
                     appearance: none;
                     width: 12px;
                     height: 12px;
-                    background: var(--text-normal);
+                    background: var(--dg-text-normal);
                     border-radius: 50%;
                     cursor: pointer;
                 }
@@ -857,7 +982,7 @@ ul.task-list {
                 &::-moz-range-thumb {
                     width: 12px;
                     height: 12px;
-                    background: var(--text-normal);
+                    background: var(--dg-text-normal);
                     border-radius: 50%;
                     cursor: pointer;
                     border: none;
@@ -870,10 +995,10 @@ ul.task-list {
         }
 
         #depth-display {
-            background-color: var(--text-accent);
-            color: var(--background-primary);
-            min-width: 1.1rem;
-            height: 1.1rem;
+            background-color: var(--dg-text-accent);
+            color: var(--dg-background-primary);
+            min-width: var(--dg-depth-display-size);
+            height: var(--dg-depth-display-size);
             font-size: 0.65rem;
             display: flex;
             justify-content: center;
@@ -926,10 +1051,10 @@ body.backlinks-note-icon .backlink[data-note-icon="3"]::before {
 .timestamps {
     display: flex;
     flex-direction: row;
-    font-size: 0.8em;
-    color: var(--text-muted);
-    gap: 10px;
-    margin-top: 20px;
+    font-size: var(--dg-timestamps-size);
+    color: var(--dg-text-muted);
+    gap: var(--dg-timestamps-gap);
+    margin-top: var(--dg-timestamps-margin-top);
 
     div {
         display: flex;
@@ -1022,7 +1147,7 @@ body.backlinks-note-icon .backlink[data-note-icon="3"]::before {
     padding-left: 8px;
     padding-right: 8px;
     font-family: var(--font-monospace);
-    background-color: var(--background-primary-alt);
+    background-color: var(--dg-background-primary-alt);
     color: var(--text-nav-selected);
 }
 
@@ -1030,7 +1155,7 @@ body.backlinks-note-icon .backlink[data-note-icon="3"]::before {
     padding-left: 8px;
     padding-right: 8px;
     font-family: var(--font-monospace);
-    background-color: var(--background-secondary-alt);
+    background-color: var(--dg-background-secondary-alt);
     color: var(--text-nav-selected);
 }
 
@@ -1038,7 +1163,7 @@ body.backlinks-note-icon .backlink[data-note-icon="3"]::before {
     padding-left: 8px;
     padding-right: 8px;
     font-family: var(--font-monospace);
-    background-color: var(--background-secondary-alt);
+    background-color: var(--dg-background-secondary-alt);
     color: var(--text-nav-selected);
 }
 
@@ -1068,11 +1193,11 @@ div.dataview-error-box {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 4px dashed var(--background-secondary);
+    border: 4px dashed var(--dg-background-secondary);
 }
 
 .dataview-error-message {
-    color: var(--text-muted);
+    color: var(--dg-text-muted);
     text-align: center;
 }
 
@@ -1082,7 +1207,7 @@ div.dataview-error-box {
 
 .dataview.small-text {
     font-size: smaller;
-    color: var(--text-muted);
+    color: var(--dg-text-muted);
     margin-left: 3px;
 }
 
