@@ -5,6 +5,7 @@
 
 body {
     overflow-x: hidden;
+    contain: none !important;  // Override obsidian-base to allow position: fixed to work
     --note-icon-1: url(/img/tree-1.svg);
     --note-icon-2: url(/img/tree-2.svg);
     --note-icon-3: url(/img/tree-3.svg);
@@ -62,56 +63,68 @@ ul.task-list {
 }
 
 .sidebar {
-    position: fixed;
+    position: fixed !important;
     top: 75px;
-    right: 17px;
+    // Position to the right of centered content (content ends at 50vw + 350px)
+    // 80px gap to match the filetree gap on the left
+    left: calc(50vw + 350px + 80px);
     height: 100%;
     min-width: 25px;
     display: flex;
     z-index: 3;
     max-width: 350px;
 
+    @media (max-width: 1400px) {
+        left: auto;
+        right: 17px;
+    }
+
     .graph {
-        width: 320px;
-        min-height: 320px;
+        width: 250px;
+        min-height: 250px;
 
         #link-graph {
-            width: 320px;
-            height: 320px;
+            width: 250px;
+            height: 250px;
         }
 
         #graph-fs-btn {
-            margin-right: 10px;
+            margin-right: 0;
         }
     }
-    .graph-fs {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        height: calc(100vmin - 100px);
-        width: calc(100vmin - 100px);
-        min-height: 350px;
-        min-width: 350px;
-        transform: translate(-50%, -50%);
-        z-index: 9999;
-        display: block;
-        background-color: var(--background-secondary);
-        border: 1px solid var(--text-accent);
-        border-radius: 5px;
-        padding-top: 5px;
+}
 
-        #link-graph {
-            width: 100%;
-            height: 100%;
-        }
+// Fullscreen graph - outside sidebar to avoid containment issues
+.graph-fs {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 600px !important;
+    height: 600px !important;
+    max-width: 90vw !important;
+    max-height: 90vh !important;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: flex !important;
+    flex-direction: column;
+    background-color: var(--background-secondary);
+    border: 1px solid var(--text-accent);
+    border-radius: 10px;
+    padding: 10px;
 
-        #graph-controls {
-            margin-top: 10px;
-        }
+    #link-graph {
+        width: 100% !important;
+        height: 100% !important;
+        flex: 1;
+    }
 
-        .graph-title {
-            display: none;
-        }
+    #graph-controls {
+        margin-top: 10px;
+        flex-shrink: 0;
+    }
+
+    .graph-title {
+        display: none;
     }
 }
 
@@ -132,48 +145,47 @@ ul.task-list {
 }
 
 .toc {
-    padding-right: 5px;
     background-color: var(--background-primary);
-    padding: 10px;
+    padding: 5px;
     border-radius: 10px;
 
     ol {
         list-style: none;
-        padding-left: 10px;
-        border-left: 2px solid var(--background-secondary);
+        padding-left: 6px;
+        margin: 0;
     }
 
     & > ol {
         padding-left: 0;
-        border-left: none;
     }
 }
 
 .toc-container {
-    font-size: 1rem;
+    font-size: 0.9rem;
     max-height: 220px;
     overflow-y: auto;
-    margin-bottom: 10px;
-    border-left: 1px solid var(--text-accent);
-    ul {
-        list-style-type: none;
-        padding-inline-start: 15px !important;
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-    ul:not(:first-child) {
-        margin-bottom: 3px;
-    }
+    margin-bottom: 5px;
 
+    ul, ol {
+        list-style-type: none;
+        padding-inline-start: 1em !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        margin-left: 0;
+        border-left: 1px solid var(--text-muted);
+    }
+    // First level - no border, no indent
+    & > ul, & > ol {
+        border-left: none;
+        padding-inline-start: 0 !important;
+    }
+    // Override obsidian-base nested list indent
     li {
-        padding-top: 4px;
-        &::before {
-            content: "# " !important;
-            color: var(--text-accent);
-            font-size: 0.8rem;
-        }
+        margin-inline-start: 0 !important;
+        padding: 2px 0 2px 8px;
         a {
             text-decoration: none;
+            color: var(--text-accent);
             &:hover {
                 text-decoration: underline;
             }
@@ -184,45 +196,55 @@ ul.task-list {
 .toc-title-container {
     display: flex;
     justify-content: flex-start;
+    margin-bottom: 4px;
     .toc-title {
         font-size: 1.2rem !important;
         color: var(--h6-color);
         width: fit-content;
-        padding: 3px 7px 3px 0;
-        border-radius: 10px 10px 0 0;
+        padding: 0;
     }
 }
 
 .backlinks {
     flex: 1;
     margin-top: 10px;
-    background-color: var(--background-primary);
-    border-radius: 10px;
-    padding: 10px;
+    padding-left: 5px;
 
     .backlink-title {
-        margin: 4px 0;
-        font-size: 18px !important;
-        color: var(--h6-color);
+        margin: 0 0 10px 0;
+        font-size: 0.9rem !important;
+        font-weight: 600;
+        color: var(--text-normal);
     }
 }
 
 .backlink-list {
-    border-left: 1px solid var(--text-accent);
-    max-height: 200px;
+    max-height: 250px;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
 .backlink-card {
-    padding-bottom: 8px;
-    border-radius: 4px;
+    padding: 6px 0;
     width: 100%;
-    font-size: 1rem;
-    margin-left: 10px;
-    color: var(--text-accent);
-    i {
-        font-size: 0.8rem;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+
+    a {
+        color: var(--text-muted);
+        text-decoration: none;
+        &:hover {
+            color: var(--text-accent);
+        }
+    }
+
+    i, svg {
+        font-size: 0.7rem;
+        opacity: 0.5;
+        width: 14px;
+        height: 14px;
+        flex-shrink: 0;
     }
 
     .backlink {
@@ -232,7 +254,8 @@ ul.task-list {
 
 .no-backlinks-message {
     font-size: 0.8rem;
-    color: var(--text-normal);
+    color: var(--text-faint);
+    font-style: italic;
 }
 
 .graph {
@@ -243,77 +266,115 @@ ul.task-list {
     }
 
     .graph-title {
-        width: fit-content;
-        background-color: var(--background-secondary);
-        margin: 10px 0 0 0;
-        padding: 3px 7px;
-        font-size: 1.2rem !important;
-        border-radius: 10px 10px 0 0;
-        color: var(--h6-color);
+        display: none;
     }
 }
 
 #link-graph {
     background-color: var(--background-secondary);
     margin-bottom: 20px;
-    border-radius: 10px 0 10px 10px;
+    border-radius: 10px;
     width: fit-content;
 }
 
 @media (max-width: 1400px) {
     #link-graph {
-        border-radius: 0 10px 10px 10px;
+        border-radius: 10px;
     }
     .sidebar {
-        position: relative;
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
         transform: none;
-        border-radius: 4px;
-        margin-top: 50px;
-        max-width: 700px;
-        margin: auto;
-        border-radius: 0;
-        border-top: 2px solid var(--background-secondary);
+        margin-top: 40px;
+        max-width: calc(100vw - 300px);
+        margin-left: 270px;
+        margin-right: 20px;
+        padding: 30px 0;
         justify-content: space-between;
+        height: auto;
+        border-top: 1px solid var(--background-modifier-border, rgba(255,255,255,0.1));
     }
 
     .sidebar-container {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-start;
+        gap: 40px;
+        height: auto;
     }
 
     .graph {
-        flex: 1;
+        flex: 0 0 auto;
         .graph-title-container {
             justify-content: flex-start;
         }
+    }
+
+    .backlinks {
+        flex: 1;
+        max-width: 300px;
     }
 
     .toc {
         display: none;
     }
 }
-@media (max-width: 800px) {
-    .sidebar-container {
-        display: flex;
-        flex-direction: column-reverse;
+
+@media (max-width: 1000px) {
+    .sidebar {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 700px;
+        padding: 20px;
     }
+
+    .sidebar-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .backlinks {
+        max-width: none;
+    }
+}
+
+// Wrapper that extends to left edge with background color
+.filetree-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: var(--background-secondary);
+    z-index: 10;
+    // Width: from left edge to before content starts (with 80px gap)
+    // Content is 700px centered, so it starts at (50vw - 350px)
+    width: calc(50vw - 350px - 80px);
+    min-width: 250px;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .filetree-sidebar {
     margin: 0;
-    z-index: 10;
-    padding: 10px;
-    top: 0px;
-    left: 0;
-    position: fixed;
+    padding: 10px 20px;
     height: 100%;
-    background-color: var(--background-secondary);
     color: var(--text-muted);
     overflow-y: auto;
     width: 250px;
+    flex-shrink: 0;
     h1 {
         font-size: 32px !important;
+    }
+    .search-button {
+        width: 100%;
+        margin: 10px 0;
+    }
+    @media (max-width: 1400px) {
+        .search-button {
+            margin-right: 10px;
+        }
     }
     @media (max-width: 800px) {
         h1 {
@@ -324,6 +385,29 @@ ul.task-list {
             width: 100%;
             margin: 2px;
         }
+    }
+}
+
+// On medium screens, filetree stays but with fixed width
+@media (max-width: 1400px) {
+    .filetree-wrapper {
+        width: 250px;
+        justify-content: flex-start;
+    }
+
+    .content {
+        margin-left: 270px;
+        margin-right: auto;
+        max-width: calc(100vw - 300px);
+    }
+}
+
+// On smaller screens, filetree hides (controlled by Alpine.js at 1000px)
+@media (max-width: 1000px) {
+    .content {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 700px;
     }
 }
 
@@ -353,7 +437,7 @@ ul.task-list {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    @media (max-width: 1400px) {
+    @media (max-width: 1000px) {
         position: fixed;
     }
 
@@ -367,9 +451,20 @@ ul.task-list {
         display: flex;
         align-items: center;
         cursor: pointer;
+
+        > span {
+            display: flex;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0 !important;
+            line-height: 1;
+        }
     }
 
     .search-button {
+        margin-right: 20px;
         @media (max-width: 800px) {
             min-width: 36px;
             margin: 10px 25px 10px 25px;
@@ -386,14 +481,24 @@ ul.task-list {
 }
 
 .notelink {
-    padding: 5px 0 5px 25px;
+    position: relative;
+    padding: 4px 8px 4px 12px;
     display: flex;
     align-items: center;
+    font-size: 0.85rem;
+    border-left: 2px solid transparent;
+    margin-left: -1px;
+
     a {
         &:hover {
             text-decoration: underline !important;
         }
     }
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+    }
+
     svg {
         flex-shrink: 0;
     }
@@ -402,24 +507,42 @@ ul.task-list {
 .foldername-wrapper {
     cursor: pointer;
     margin: 4px 0 4px 2px;
+    font-size: 0.85rem;
+
+    i, svg {
+        width: 14px;
+        height: 14px;
+        opacity: 0.5;
+    }
 }
 
 .inner-folder {
-    padding: 3px 0 3px 10px;
+    padding: 3px 0 3px 0;
+    margin-left: 12px;
+}
+
+// Depth lines on filelist containers (step > 0)
+.filelist {
+    border-left: 1px solid color-mix(in srgb, var(--text-muted) 40%, transparent);
+    margin-left: 8px;
 }
 
 .filename {
-    margin-left: 5px;
+    margin-left: 0;
+}
+
+// Root level notes (direct children of .folder, not inside .filelist)
+.folder > div:not(.filelist) > .notelink {
+    margin-left: 22px;
+    border-left: none;
 }
 
 .notelink.active-note {
-    a {
-        color: var(--text-accent);
-    }
+    border-left-color: var(--text-accent);
 
-    color: var(--text-accent);
-    background-color: var(--background-primary);
-    transform: translateX(10px);
+    .filename {
+        color: var(--text-normal) !important;
+    }
 }
 
 .fullpage-overlay {
@@ -516,31 +639,48 @@ ul.task-list {
 
 .search-button {
     background-color: var(--background-primary);
-    border-radius: 20px;
-    height: 2em;
+    border-radius: 8px;
+    height: 32px;
     display: flex;
     align-items: center;
-    min-width: 150px;
-    margin: 10px 40px;
-    border: 1px solid var(--text-normal);
+    gap: 8px;
+    padding: 0 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid var(--background-modifier-border, rgba(255,255,255,0.1));
     cursor: pointer;
-
-    > i {
-        margin-left: 10px;
-    }
+    color: var(--text-muted);
+    font-size: 0.85rem;
 
     &:hover {
-        border: 1px solid var(--text-accent);
+        border-color: var(--text-muted);
     }
 
     .search-icon {
         display: flex;
-    }
-}
+        align-items: center;
 
-.search-keys {
-    @media (max-width: 800px) {
-        display: none;
+        svg, i {
+            width: 14px;
+            height: 14px;
+            opacity: 0.7;
+        }
+    }
+
+    .search-text {
+        flex: 1;
+    }
+
+    .search-keys {
+        font-size: 0.7rem;
+        padding: 2px 6px;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.08);
+        color: var(--text-faint);
+
+        @media (max-width: 800px) {
+            display: none;
+        }
     }
 }
 
@@ -593,6 +733,14 @@ ul.task-list {
 
 // Graph Controls
 .graph-title-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+}
+
+#graph-component {
     position: relative;
 }
 
@@ -600,20 +748,21 @@ ul.task-list {
     position: fixed;
     top: 50%;
     left: 50%;
-    height: calc(100vmin - 100px);
-    width: calc(100vmin - 100px);
-    min-height: 350px;
-    min-width: 350px;
+    width: 600px;
+    height: 600px;
+    max-width: 90vw;
+    max-height: 90vh;
     transform: translate(-50%, -50%);
     z-index: 9999;
     display: none;
     background-color: var(--background-secondary);
     border: 1px solid var(--text-accent);
-    border-radius: 5px;
+    border-radius: 10px;
+    padding: 10px;
 
     #full-graph-container {
         width: 100%;
-        height: 100%;
+        height: calc(100% - 30px);
     }
 
     #full-graph-close {
@@ -638,59 +787,107 @@ ul.task-list {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 5px;
-    position: absolute;
-    top: 115%;
-    cursor: pointer;
-    right: 0px;
-    left: 10px;
-    color: var(--text-accent);
+    gap: 10px;
+    padding: 6px 10px;
+    background-color: var(--background-primary);
+    border-radius: 6px;
+    margin: 10px;
+    color: var(--text-muted);
+    font-size: 0.7rem;
     z-index: 9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 
-    i {
+    i, svg {
         cursor: pointer;
-        padding-right: 10px;
+        width: 14px;
+        height: 14px;
+        opacity: 0.5;
+        &:hover {
+            opacity: 1;
+            color: var(--text-accent);
+        }
+    }
+
+    .ctrl-right {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        margin-left: auto;
+
+        span {
+            display: flex;
+            align-items: center;
+            line-height: 1;
+        }
     }
 
     .depth-control {
         display: flex;
         flex-direction: row;
-        align-items: flex-start;
-        gap: 7px;
+        align-items: center;
+        gap: 8px;
+
+        label {
+            font-size: 0.7rem;
+            opacity: 0.6;
+        }
 
         .slider {
-            datalist {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                font-size: 0.6rem;
-                // padding: 2px 0px;
-                // width: 200px;
+            width: 50px;
+            display: flex;
+            align-items: center;
+
+            input[type="range"] {
+                width: 100%;
+                height: 4px;
+                -webkit-appearance: none;
+                appearance: none;
+                background: var(--text-muted);
+                border-radius: 2px;
+                outline: none;
+
+                &::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 12px;
+                    height: 12px;
+                    background: var(--text-normal);
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+
+                &::-moz-range-thumb {
+                    width: 12px;
+                    height: 12px;
+                    background: var(--text-normal);
+                    border-radius: 50%;
+                    cursor: pointer;
+                    border: none;
+                }
             }
 
-            option {
-                padding: 0;
+            datalist {
+                display: none;
             }
         }
 
         #depth-display {
             background-color: var(--text-accent);
-            color: white;
-            width: 1.3rem;
-            height: 1.3rem;
-            font-size: 0.8rem;
+            color: var(--background-primary);
+            min-width: 1.1rem;
+            height: 1.1rem;
+            font-size: 0.65rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 0.3rem;
             border-radius: 50%;
+            font-weight: 600;
         }
     }
 }
 
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    margin-top: -10px;
 }
 
 body.title-note-icon .cm-s-obsidian > header > h1[data-note-icon]::before,
