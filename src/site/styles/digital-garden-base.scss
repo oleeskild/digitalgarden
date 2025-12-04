@@ -537,7 +537,7 @@ ul.task-list {
 
 .navbar {
     background-color: var(--background-secondary);
-    position: absolute;
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
@@ -547,9 +547,6 @@ ul.task-list {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    @media (max-width: 1000px) {
-        position: fixed;
-    }
 
     @media (max-width: 800px) {
         h1 {
