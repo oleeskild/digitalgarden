@@ -28,23 +28,23 @@ body {
 ### Available Variables
 
 #### Color Variables
-These default to your Obsidian theme colors but can be overridden independently:
+You can override the base Obsidian theme color variables directly:
 
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `--dg-text-normal` | `var(--text-normal)` | Normal text color |
-| `--dg-text-muted` | `var(--text-muted)` | Muted/secondary text |
-| `--dg-text-faint` | `var(--text-faint)` | Faint text |
-| `--dg-text-accent` | `var(--text-accent)` | Accent/link color |
-| `--dg-text-accent-hover` | `var(--text-accent-hover)` | Accent hover color |
-| `--dg-background-primary` | `var(--background-primary)` | Primary background |
-| `--dg-background-primary-alt` | `var(--background-primary-alt)` | Alt primary background |
-| `--dg-background-secondary` | `var(--background-secondary)` | Secondary background |
-| `--dg-background-secondary-alt` | `var(--background-secondary-alt)` | Alt secondary background |
-| `--dg-interactive-normal` | `var(--interactive-normal)` | Interactive element color |
-| `--dg-interactive-hover` | `var(--interactive-hover)` | Interactive hover color |
-| `--dg-interactive-accent` | `var(--interactive-accent)` | Interactive accent |
-| `--dg-interactive-accent-hover` | `var(--interactive-accent-hover)` | Interactive accent hover |
+| Variable | Description |
+|----------|-------------|
+| `--text-normal` | Normal text color |
+| `--text-muted` | Muted/secondary text |
+| `--text-faint` | Faint text |
+| `--text-accent` | Accent/link color |
+| `--text-accent-hover` | Accent hover color |
+| `--background-primary` | Primary background |
+| `--background-primary-alt` | Alt primary background |
+| `--background-secondary` | Secondary background |
+| `--background-secondary-alt` | Alt secondary background |
+| `--interactive-normal` | Interactive element color |
+| `--interactive-hover` | Interactive hover color |
+| `--interactive-accent` | Interactive accent |
+| `--interactive-accent-hover` | Interactive accent hover |
 
 #### Layout Variables
 

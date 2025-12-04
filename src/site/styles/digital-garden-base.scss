@@ -9,21 +9,6 @@ body {
     * Override these in custom-style.scss using body { --dg-variable-name: value; }
     ***/
 
-    /* Color Variables (defaulting to theme variables) */
-    --dg-text-normal: var(--text-normal);
-    --dg-text-muted: var(--text-muted);
-    --dg-text-faint: var(--text-faint);
-    --dg-text-accent: var(--text-accent);
-    --dg-text-accent-hover: var(--text-accent-hover);
-    --dg-background-primary: var(--background-primary);
-    --dg-background-primary-alt: var(--background-primary-alt);
-    --dg-background-secondary: var(--background-secondary);
-    --dg-background-secondary-alt: var(--background-secondary-alt);
-    --dg-interactive-normal: var(--interactive-normal);
-    --dg-interactive-hover: var(--interactive-hover);
-    --dg-interactive-accent: var(--interactive-accent);
-    --dg-interactive-accent-hover: var(--interactive-accent-hover);
-
     /* Layout Variables */
     --dg-content-max-width: 700px;
     --dg-content-margin-top: 90px;
@@ -150,7 +135,7 @@ img {
     line-height: var(--dg-content-line-height);
     margin-top: var(--dg-content-margin-top);
     position: relative;
-    color: var(--dg-text-normal);
+    color: var(--text-normal);
 
     @media (max-width: 800px) {
         margin-top: var(--dg-content-margin-top-mobile);
@@ -167,15 +152,6 @@ img {
     cursor: pointer;
 }
 
-/* Override colors to use --dg- variables for CSS variables support */
-body {
-    background-color: var(--dg-background-primary);
-    color: var(--dg-text-normal);
-}
-
-.markdown-preview-view {
-    color: var(--dg-text-normal);
-}
 
 .markdown-preview-view pre.mermaid {
     background: white;
@@ -243,8 +219,8 @@ ul.task-list {
     z-index: 9999;
     display: flex !important;
     flex-direction: column;
-    background-color: var(--dg-background-secondary);
-    border: 1px solid var(--dg-text-accent);
+    background-color: var(--background-secondary);
+    border: 1px solid var(--text-accent);
     border-radius: var(--dg-graph-border-radius);
     padding: var(--dg-mermaid-padding);
 
@@ -306,7 +282,7 @@ ul.task-list {
         margin-top: 0 !important;
         margin-bottom: 0 !important;
         margin-left: 0;
-        border-left: 1px solid color-mix(in srgb, var(--dg-text-muted) 40%, transparent);
+        border-left: 1px solid color-mix(in srgb, var(--text-muted) 40%, transparent);
     }
     // First level - no border, no indent
     & > ul, & > ol {
@@ -319,7 +295,7 @@ ul.task-list {
         padding: var(--dg-toc-item-padding);
         a {
             text-decoration: none;
-            color: var(--dg-text-accent);
+            color: var(--text-accent);
             &:hover {
                 text-decoration: underline;
             }
@@ -348,7 +324,7 @@ ul.task-list {
         margin: 0 0 10px 0;
         font-size: var(--dg-backlinks-title-size) !important;
         font-weight: 600;
-        color: var(--dg-text-normal);
+        color: var(--text-normal);
     }
 }
 
@@ -366,10 +342,10 @@ ul.task-list {
     align-items: center;
 
     a {
-        color: var(--dg-text-muted);
+        color: var(--text-muted);
         text-decoration: none;
         &:hover {
-            color: var(--dg-text-accent);
+            color: var(--text-accent);
         }
     }
 
@@ -388,7 +364,7 @@ ul.task-list {
 
 .no-backlinks-message {
     font-size: 0.8rem;
-    color: var(--dg-text-faint);
+    color: var(--text-faint);
     font-style: italic;
 }
 
@@ -405,7 +381,7 @@ ul.task-list {
 }
 
 #link-graph {
-    background-color: var(--dg-background-secondary);
+    background-color: var(--background-secondary);
     margin-bottom: var(--dg-graph-margin-bottom);
     border-radius: var(--dg-graph-border-radius);
     width: fit-content;
@@ -480,7 +456,7 @@ ul.task-list {
     left: 0;
     top: 0;
     height: 100%;
-    background-color: var(--dg-background-secondary);
+    background-color: var(--background-secondary);
     z-index: 10;
     // Width: from left edge to before content starts (with gap)
     // Content is centered, so it starts at (50vw - half content width)
@@ -494,7 +470,7 @@ ul.task-list {
     margin: 0;
     padding: var(--dg-filetree-padding);
     height: 100%;
-    color: var(--dg-text-muted);
+    color: var(--text-muted);
     overflow-y: auto;
     width: var(--dg-filetree-width);
     flex-shrink: 0;
@@ -560,7 +536,7 @@ ul.task-list {
 }
 
 .navbar {
-    background-color: var(--dg-background-secondary);
+    background-color: var(--background-secondary);
     position: absolute;
     width: 100%;
     top: 0;
@@ -657,7 +633,7 @@ ul.task-list {
 
 // Depth lines on filelist containers (step > 0)
 .filelist {
-    border-left: 1px solid color-mix(in srgb, var(--dg-text-muted) 40%, transparent);
+    border-left: 1px solid color-mix(in srgb, var(--text-muted) 40%, transparent);
     margin-left: var(--dg-filelist-margin);
 }
 
@@ -672,10 +648,10 @@ ul.task-list {
 }
 
 .notelink.active-note {
-    border-left-color: var(--dg-text-accent);
+    border-left-color: var(--text-accent);
 
     .filename {
-        color: var(--dg-text-normal) !important;
+        color: var(--text-normal) !important;
     }
 }
 
@@ -708,7 +684,7 @@ ul.task-list {
 
 .search-box {
     transform: translateY(100px);
-    background-color: var(--dg-background-primary);
+    background-color: var(--background-primary);
     max-width: var(--dg-search-box-max-width);
     width: var(--dg-search-box-width);
     border-radius: var(--dg-search-box-radius);
@@ -722,7 +698,7 @@ ul.task-list {
     border: none;
     border-radius: var(--dg-search-input-radius);
     font-size: var(--dg-search-input-size);
-    background-color: var(--dg-background-primary);
+    background-color: var(--background-primary);
     color: var(--text-primary);
 }
 
@@ -742,14 +718,14 @@ ul.task-list {
 #search-results .searchresult {
     margin-bottom: 15px;
     list-style: none;
-    background-color: var(--dg-background-secondary);
+    background-color: var(--background-secondary);
     padding: var(--dg-search-box-padding);
     border-radius: var(--dg-search-result-radius);
     font-size: var(--dg-search-result-size);
     cursor: pointer;
 
     &.active {
-        border: 2px solid var(--dg-text-accent);
+        border: 2px solid var(--text-accent);
     }
 }
 
@@ -772,7 +748,7 @@ ul.task-list {
 }
 
 .search-button {
-    background-color: var(--dg-background-primary);
+    background-color: var(--background-primary);
     border-radius: var(--dg-search-btn-radius);
     height: var(--dg-search-btn-height);
     display: flex;
@@ -783,11 +759,11 @@ ul.task-list {
     box-sizing: border-box;
     border: 1px solid var(--background-modifier-border, rgba(255,255,255,0.1));
     cursor: pointer;
-    color: var(--dg-text-muted);
+    color: var(--text-muted);
     font-size: var(--dg-search-btn-font-size);
 
     &:hover {
-        border-color: var(--dg-text-muted);
+        border-color: var(--text-muted);
     }
 
     .search-icon {
@@ -810,7 +786,7 @@ ul.task-list {
         padding: 2px 6px;
         border-radius: 4px;
         background-color: rgba(255, 255, 255, 0.08);
-        color: var(--dg-text-faint);
+        color: var(--text-faint);
 
         @media (max-width: 800px) {
             display: none;
@@ -859,7 +835,7 @@ ul.task-list {
 
 .referred {
     border: 1px dashed;
-    border-color: var(--dg-text-accent);
+    border-color: var(--text-accent);
     padding: 10px;
     margin-left: -10px;
     margin-right: -10px;
@@ -889,8 +865,8 @@ ul.task-list {
     transform: translate(-50%, -50%);
     z-index: 9999;
     display: none;
-    background-color: var(--dg-background-secondary);
-    border: 1px solid var(--dg-text-accent);
+    background-color: var(--background-secondary);
+    border: 1px solid var(--text-accent);
     border-radius: var(--dg-graph-border-radius);
     padding: var(--dg-mermaid-padding);
 
@@ -923,10 +899,10 @@ ul.task-list {
     justify-content: space-between;
     gap: var(--dg-graph-ctrl-gap);
     padding: var(--dg-graph-ctrl-padding);
-    background-color: var(--dg-background-primary);
+    background-color: var(--background-primary);
     border-radius: var(--dg-graph-ctrl-radius);
     margin: var(--dg-graph-ctrl-margin);
-    color: var(--dg-text-muted);
+    color: var(--text-muted);
     font-size: var(--dg-graph-ctrl-size);
     z-index: 9;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
@@ -938,7 +914,7 @@ ul.task-list {
         opacity: 0.5;
         &:hover {
             opacity: 1;
-            color: var(--dg-text-accent);
+            color: var(--text-accent);
         }
     }
 
@@ -976,7 +952,7 @@ ul.task-list {
                 height: 4px;
                 -webkit-appearance: none;
                 appearance: none;
-                background: var(--dg-text-muted);
+                background: var(--text-muted);
                 border-radius: 2px;
                 outline: none;
 
@@ -985,7 +961,7 @@ ul.task-list {
                     appearance: none;
                     width: 12px;
                     height: 12px;
-                    background: var(--dg-text-normal);
+                    background: var(--text-normal);
                     border-radius: 50%;
                     cursor: pointer;
                 }
@@ -993,7 +969,7 @@ ul.task-list {
                 &::-moz-range-thumb {
                     width: 12px;
                     height: 12px;
-                    background: var(--dg-text-normal);
+                    background: var(--text-normal);
                     border-radius: 50%;
                     cursor: pointer;
                     border: none;
@@ -1006,8 +982,8 @@ ul.task-list {
         }
 
         #depth-display {
-            background-color: var(--dg-text-accent);
-            color: var(--dg-background-primary);
+            background-color: var(--text-accent);
+            color: var(--background-primary);
             min-width: var(--dg-depth-display-size);
             height: var(--dg-depth-display-size);
             font-size: 0.65rem;
@@ -1063,7 +1039,7 @@ body.backlinks-note-icon .backlink[data-note-icon="3"]::before {
     display: flex;
     flex-direction: row;
     font-size: var(--dg-timestamps-size);
-    color: var(--dg-text-muted);
+    color: var(--text-muted);
     gap: var(--dg-timestamps-gap);
     margin-top: var(--dg-timestamps-margin-top);
 
@@ -1158,7 +1134,7 @@ body.backlinks-note-icon .backlink[data-note-icon="3"]::before {
     padding-left: 8px;
     padding-right: 8px;
     font-family: var(--font-monospace);
-    background-color: var(--dg-background-primary-alt);
+    background-color: var(--background-primary-alt);
     color: var(--text-nav-selected);
 }
 
@@ -1166,7 +1142,7 @@ body.backlinks-note-icon .backlink[data-note-icon="3"]::before {
     padding-left: 8px;
     padding-right: 8px;
     font-family: var(--font-monospace);
-    background-color: var(--dg-background-secondary-alt);
+    background-color: var(--background-secondary-alt);
     color: var(--text-nav-selected);
 }
 
@@ -1174,7 +1150,7 @@ body.backlinks-note-icon .backlink[data-note-icon="3"]::before {
     padding-left: 8px;
     padding-right: 8px;
     font-family: var(--font-monospace);
-    background-color: var(--dg-background-secondary-alt);
+    background-color: var(--background-secondary-alt);
     color: var(--text-nav-selected);
 }
 
@@ -1204,11 +1180,11 @@ div.dataview-error-box {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 4px dashed var(--dg-background-secondary);
+    border: 4px dashed var(--background-secondary);
 }
 
 .dataview-error-message {
-    color: var(--dg-text-muted);
+    color: var(--text-muted);
     text-align: center;
 }
 
@@ -1218,7 +1194,7 @@ div.dataview-error-box {
 
 .dataview.small-text {
     font-size: smaller;
-    color: var(--dg-text-muted);
+    color: var(--text-muted);
     margin-left: 3px;
 }
 
