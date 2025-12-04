@@ -166,6 +166,16 @@ img {
     cursor: pointer;
 }
 
+/* Override colors to use --dg- variables for CSS variables support */
+body {
+    background-color: var(--dg-background-primary);
+    color: var(--dg-text-normal);
+}
+
+.markdown-preview-view {
+    color: var(--dg-text-normal);
+}
+
 .markdown-preview-view pre.mermaid {
     background: white;
     border-radius: var(--dg-mermaid-radius);
