@@ -150,6 +150,7 @@ img {
     line-height: var(--dg-content-line-height);
     margin-top: var(--dg-content-margin-top);
     position: relative;
+    color: var(--dg-text-normal);
 
     @media (max-width: 800px) {
         margin-top: var(--dg-content-margin-top-mobile);
