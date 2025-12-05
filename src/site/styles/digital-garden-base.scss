@@ -11,8 +11,8 @@ body {
 
     /* Layout Variables */
     --dg-content-max-width: 700px;
-    --dg-content-margin-top: 90px;
-    --dg-content-margin-top-mobile: 75px;
+    --dg-content-padding-top: 90px;
+    --dg-content-padding-top-mobile: 75px;
     --dg-content-font-size: 18px;
     --dg-content-line-height: 1.5;
 
@@ -77,6 +77,7 @@ body {
     --dg-search-btn-icon-size: 14px;
 
     /* Navbar Variables */
+    --dg-navbar-height: 60px;
     --dg-navbar-title-size-mobile: 18px;
     --dg-navbar-search-margin: 20px;
     --dg-navbar-search-min-width: 36px;
@@ -124,6 +125,10 @@ body {
     --graph-muted: var(--text-muted);
 }
 
+.markdown-preview-view {
+    height: fit-content;
+}
+
 img {
     max-width: 100%;
 }
@@ -133,12 +138,15 @@ img {
     margin: auto;
     font-size: var(--dg-content-font-size);
     line-height: var(--dg-content-line-height);
-    margin-top: var(--dg-content-margin-top);
+    margin-top: 0;
+    padding-top: var(--dg-content-padding-top);
+    padding-bottom: 60px;
     position: relative;
     color: var(--text-normal);
 
     @media (max-width: 800px) {
-        margin-top: var(--dg-content-margin-top-mobile);
+        margin-top: 0;
+        padding-top: var(--dg-content-padding-top-mobile);
     }
 }
 
@@ -519,6 +527,11 @@ ul.task-list {
         margin-right: auto;
         max-width: var(--dg-content-max-width);
     }
+}
+
+// When navbar is shown without filetree, add margin-top to account for fixed navbar
+body.has-navbar .content {
+    margin-top: var(--dg-navbar-height);
 }
 
 .empty-navbar {
