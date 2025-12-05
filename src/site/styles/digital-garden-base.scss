@@ -479,15 +479,24 @@ ul.task-list {
     padding: var(--dg-filetree-padding);
     height: 100%;
     color: var(--text-muted);
-    overflow-y: auto;
+    overflow: hidden;
     width: var(--dg-filetree-width);
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
     h1 {
         font-size: var(--dg-filetree-title-size) !important;
+        flex-shrink: 0;
     }
     .search-button {
         width: 100%;
         margin: 10px 0;
+        flex-shrink: 0;
+    }
+    > .folder {
+        flex: 1;
+        overflow-y: auto;
+        scrollbar-width: thin;
     }
     @media (max-width: 1400px) {
         .search-button {
