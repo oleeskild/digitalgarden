@@ -58,6 +58,18 @@ module.exports = async (data) => {
     showCreated: process.env.SHOW_CREATED_TIMESTAMP == "true",
     showUpdated: process.env.SHOW_UPDATED_TIMESTAMP == "true",
   };
+
+  const uiStrings = {
+    backlinkHeader: process.env.UI_BACKLINK_HEADER || "Pages mentioning this page",
+    noBacklinksMessage: process.env.UI_NO_BACKLINKS_MESSAGE || "No other pages mentions this page",
+    searchButtonText: process.env.UI_SEARCH_BUTTON_TEXT || "Search",
+    searchPlaceholder: process.env.UI_SEARCH_PLACEHOLDER || "Start typing...",
+    searchEnterHint: process.env.UI_SEARCH_ENTER_HINT || "Enter to select",
+    searchNavigateHint: process.env.UI_SEARCH_NAVIGATE_HINT || "to navigate",
+    searchCloseHint: process.env.UI_SEARCH_CLOSE_HINT || "ESC to close",
+    searchNoResults: process.env.UI_SEARCH_NO_RESULTS || "No results for",
+  };
+
   const meta = {
     env: process.env.ELEVENTY_ENV,
     theme: process.env.THEME,
@@ -70,6 +82,7 @@ module.exports = async (data) => {
     mainLanguage: process.env.SITE_MAIN_LANGUAGE || "en",
     siteBaseUrl: baseUrl,
     styleSettingsCss,
+    uiStrings,
     buildDate: new Date(),
   };
 

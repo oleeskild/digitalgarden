@@ -1,20 +1,20 @@
 <div class="search-container" id="globalsearch" onclick="toggleSearch()">
     <div class="search-box">
-        <input type="search" id="term" placeholder="Start typing...">
+        <input type="search" id="term" placeholder="{{ meta.uiStrings.searchPlaceholder }}">
         <div id="search-results"></div>
         <footer class="search-box-footer">
             <div class="navigation-hint">
-                <span>Enter to select</span>
+                <span>{{ meta.uiStrings.searchEnterHint }}</span>
             </div>
 
             <div class="navigation-hint align-icon">
                 <i  data-lucide="arrow-up" aria-hidden="true"></i>
                 <i  data-lucide="arrow-down" aria-hidden="true"></i>
-                <span>to navigate</span>
+                <span>{{ meta.uiStrings.searchNavigateHint }}</span>
             </div>
 
             <div class="navigation-hint">
-                <span>ESC to close</span>
+                <span>{{ meta.uiStrings.searchCloseHint }}</span>
             </div>
 
         </footer>

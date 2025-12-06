@@ -28,13 +28,13 @@
                         {%if settings.dgShowBacklinks === true %}
                               {%if settings.dgShowBacklinks === true %}
                               <div class="backlinks">
-                                    <div class="backlink-title">Pages mentioning this page</div>
+                                    <div class="backlink-title">{{ meta.uiStrings.backlinkHeader }}</div>
                                           <div class="backlink-list">
                                           {%- set currentNode = graph.nodes[page.url] or graph.nodes[graph.homeAlias] -%}
                                           {%- if currentNode -%}
                                                 {%- if currentNode.backLinks.length === 0 -%}
                                                       <div class="backlink-card">
-                                                            <span class="no-backlinks-message">No other pages mentions this page</span>
+                                                            <span class="no-backlinks-message">{{ meta.uiStrings.noBacklinksMessage }}</span>
                                                       </div>
                                                 {%- endif -%}
                                                 {%- for backlink in currentNode.backLinks -%}

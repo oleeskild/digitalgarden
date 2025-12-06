@@ -289,7 +289,7 @@
         let resultsHTML = '';
         if (!results.length) {
             let resultParagraph = document.createElement("p");
-            resultParagraph.innerText = `No results for "${search}"`;
+            resultParagraph.innerText = `{{ meta.uiStrings.searchNoResults }} "${search}"`;
             resultsDiv.innerHTML = '';
             resultsDiv.appendChild(resultParagraph);
             return;
