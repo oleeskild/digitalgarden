@@ -68,6 +68,7 @@ module.exports = async (data) => {
     searchNavigateHint: process.env.UI_SEARCH_NAVIGATE_HINT || "to navigate",
     searchCloseHint: process.env.UI_SEARCH_CLOSE_HINT || "ESC to close",
     searchNoResults: process.env.UI_SEARCH_NO_RESULTS || "No results for",
+    searchPreviewPlaceholder: process.env.UI_SEARCH_PREVIEW_PLACEHOLDER || "Select a result to preview",
   };
 
   const meta = {
