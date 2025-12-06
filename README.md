@@ -35,8 +35,12 @@ You can override the base Obsidian theme color variables directly:
 | `--text-normal` | Normal text color |
 | `--text-muted` | Muted/secondary text |
 | `--text-faint` | Faint text |
-| `--text-accent` | Accent/link color |
+| `--text-accent` | Accent color |
 | `--text-accent-hover` | Accent hover color |
+| `--link-color` | Link color |
+| `--link-color-hover` | Link color hover |
+| `--link-unresolved-color` | Link color unresolved |
+| `--link-unresolved-opacity` | Link color unresolved opacity |
 | `--background-primary` | Primary background |
 | `--background-primary-alt` | Alt primary background |
 | `--background-secondary` | Secondary background |
