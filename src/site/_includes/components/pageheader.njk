@@ -25,7 +25,7 @@
 
 <link href="/styles/custom-style.css" rel="stylesheet">
 {%- for style in dynamics.styles -%}
-<link href="{{style}}" rel="stylesheet">
+<link href="{{style}}?v={{meta.buildDate|isoDate}}" rel="stylesheet">
 {%- endfor -%}
 
 {% favicons './src/site/favicon.svg', appleIconBgColor='#123' %}
