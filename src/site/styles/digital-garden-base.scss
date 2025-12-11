@@ -88,6 +88,9 @@ body {
     --dg-navbar-title-size-mobile: 18px;
     --dg-navbar-search-margin: 20px;
     --dg-navbar-search-min-width: 36px;
+    --dg-logo-height: 40px;
+    --dg-logo-height-mobile: 32px;
+    --dg-logo-margin: 10px 15px;
 
     /* Note Link / File Tree Item Variables */
     --dg-notelink-padding: 4px 8px 4px 12px;
@@ -596,6 +599,17 @@ body.has-navbar .content {
         h1 {
             margin: 0 !important;
             line-height: 1;
+        }
+
+        .site-logo {
+            height: var(--dg-logo-height);
+            width: auto;
+            margin: var(--dg-logo-margin);
+            object-fit: contain;
+
+            @media (max-width: 800px) {
+                height: var(--dg-logo-height-mobile);
+            }
         }
     }
 

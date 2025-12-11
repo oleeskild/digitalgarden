@@ -7,6 +7,14 @@ module.exports = async (data) => {
     baseUrl = "https://" + baseUrl;
   }
   let themeStyle = globSync("src/site/styles/_theme.*.css")[0] || "";
+
+  // Check for logo file (supports multiple image formats)
+  const logoFiles = globSync("src/site/logo.{png,jpg,jpeg,gif,svg,webp}");
+  let logoPath = "";
+  if (logoFiles.length > 0) {
+    // Use the first match and convert to site-relative path
+    logoPath = "/" + logoFiles[0].split("src/site/")[1];
+  }
   if (themeStyle) {
     themeStyle = themeStyle.split("site")[1];
   }
@@ -80,6 +88,7 @@ module.exports = async (data) => {
     timestampSettings,
     baseTheme: process.env.BASE_THEME || "dark",
     siteName: process.env.SITE_NAME_HEADER || "Digital Garden",
+    siteLogoPath: logoPath,
     mainLanguage: process.env.SITE_MAIN_LANGUAGE || "en",
     siteBaseUrl: baseUrl,
     styleSettingsCss,
