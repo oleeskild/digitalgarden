@@ -15,6 +15,10 @@ const {
 } = require("./src/helpers/userSetup");
 
 const Image = require("@11ty/eleventy-img");
+
+// Audio file extensions supported by the digital garden
+const AUDIO_EXTENSIONS = ['.mp3', '.wav', '.ogg', '.m4a'];
+
 function transformImage(src, cls, alt, sizes, widths = ["500", "700", "auto"]) {
   let options = {
     widths: widths,
@@ -443,32 +447,54 @@ module.exports = function (eleventyConfig) {
     imageTag.innerHTML = html;
   }
 
+  function fillAudioSource(src, cls, title, audioTag) {
+    audioTag.tagName = "audio";
+    audioTag.setAttribute("controls", "");
+    audioTag.setAttribute("class", cls.toString());
+    audioTag.innerHTML = `<source src="${src}">`;
+    if (title) {
+      audioTag.setAttribute("title", title);
+    }
+  }
 
   eleventyConfig.addTransform("picture", function (str) {
     if(process.env.USE_FULL_RESOLUTION_IMAGES === "true"){
       return str;
     }
     const parsed = parse(str);
-    for (const imageTag of parsed.querySelectorAll(".cm-s-obsidian img")) {
-      const src = imageTag.getAttribute("src");
-      if (src && src.startsWith("/") && !src.endsWith(".svg")) {
-        const cls = imageTag.classList.value;
-        const alt = imageTag.getAttribute("alt");
-        const width = imageTag.getAttribute("width") || '';
+    
+    // Handle both image and audio elements
+    for (const element of parsed.querySelectorAll(".cm-s-obsidian img, .audio-embed audio")) {
+      const src = element.getAttribute("src");
+      if (!src) continue;
+
+      // Handle audio files
+      if (AUDIO_EXTENSIONS.some(ext => src.endsWith(ext))) {
+        const cls = element.classList.value;
+        const title = element.getAttribute("alt") || element.getAttribute("title");
+        fillAudioSource(src, cls, title, element);
+        continue;
+      }
+
+      // Handle image files
+      if (src.startsWith("/") && !src.endsWith(".svg")) {
+        const cls = element.classList.value;
+        const alt = element.getAttribute("alt");
+        const width = element.getAttribute("width") || '';
 
         try {
           const meta = transformImage(
-            "./src/site" + decodeURI(imageTag.getAttribute("src")),
+            "./src/site" + decodeURI(src),
             cls.toString(),
             alt,
             ["(max-width: 480px)", "(max-width: 1024px)"]
           );
 
           if (meta) {
-            fillPictureSourceSets(src, cls, alt, meta, width, imageTag);
+            fillPictureSourceSets(src, cls, alt, meta, width, element);
           }
         } catch {
-          // Make it fault tolarent.
+          // Make it fault tolerant.
         }
       }
     }
@@ -527,6 +553,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy("src/site/img");
+  eleventyConfig.addPassthroughCopy("src/site/audio");
   eleventyConfig.addPassthroughCopy("src/site/scripts");
   eleventyConfig.addPassthroughCopy("src/site/styles/_theme.*.css");
   eleventyConfig.addPassthroughCopy({ "src/site/logo.*": "/" });
