@@ -205,8 +205,8 @@ module.exports = function (eleventyConfig) {
         }
         if (token.info === "tikz") {
           const code = token.content.trim();
-          const codeEscaped = md.utils.escapeHtml(code);
-          return `<div class="block-language-tikz">${codeEscaped}</div>`;
+          const b64 = Buffer.from(code, "utf8").toString("base64"); // Encode into Base64 to avoid issues with special characters in TeX code
+          return `<div class="block-language-tikz">${b64}</div>`;
         }
 
         // Other languages
@@ -557,8 +557,8 @@ module.exports = function (eleventyConfig) {
       if (!blocks.length) return content;
 
       for (const block of blocks) {
-        const src = block.text || "";
-        const texSource = tidyTikzSource(src);
+        const srcB64 = block.text || "";
+        const texSource = tidyTikzSource(Buffer.from(srcB64, "base64").toString("utf8"));
         try {
           const run = tikzQueue
           .catch(() => {})
