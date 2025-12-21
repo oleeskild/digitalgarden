@@ -298,6 +298,14 @@ module.exports = function (eleventyConfig) {
     );
   });
 
+  eleventyConfig.addFilter("stripForSearch", function(content) {
+    return content
+      .replace(/<[^>]*>/g, '')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .substring(0, 500);
+  });
+
   eleventyConfig.addFilter("searchableTags", function (str) {
     let tags;
     let match = str && str.match(tagRegex);
@@ -520,6 +528,22 @@ module.exports = function (eleventyConfig) {
         });
       } catch {
         // If the html minifying fails for some reason due to some malformed text, just return the content as is.
+        return content;
+      }
+    }
+    return content;
+  });
+
+  eleventyConfig.addTransform("jsonMinifier", async (content, outputPath) => {
+    if (
+      (process.env.NODE_ENV === "production" || process.env.ELEVENTY_ENV === "prod") &&
+      outputPath &&
+      outputPath.endsWith(".json")
+    ) {
+      try {
+        return JSON.stringify(JSON.parse(content));
+      } catch {
+        // If the JSON minifying fails for some reason due to malformed JSON, just return the content as is.
         return content;
       }
     }
