@@ -145,11 +145,16 @@ img {
 
 .content {
     max-width: var(--dg-content-max-width);
-    // Dynamic left margin: larger of centering margin OR filetree clearance
-    // This ensures content never overlaps with filetree regardless of content width
+    // Dynamic left margin with three constraints:
+    // 1. Never overlap filetree (minimum)
+    // 2. Try to center in viewport
+    // 3. But shift left if needed to leave room for sidebar
     margin-left: max(
-        calc((100vw - var(--dg-content-max-width)) / 2),
-        calc(var(--dg-filetree-min-width) + var(--dg-filetree-gap))
+        calc(var(--dg-filetree-min-width) + var(--dg-filetree-gap)),
+        min(
+            calc((100vw - var(--dg-content-max-width)) / 2),
+            calc(100vw - var(--dg-content-max-width) - var(--dg-sidebar-max-width) - var(--dg-sidebar-gap) - 20px)
+        )
     );
     margin-right: auto;
     font-size: var(--dg-content-font-size);
@@ -201,23 +206,17 @@ ul.task-list {
 .sidebar {
     position: fixed !important;
     top: var(--dg-sidebar-top);
-    // Position after content: tracks content's right edge + gap
-    // Uses same max() logic as content margin-left
-    --sidebar-left: calc(
-        max(
-            calc((100vw + var(--dg-content-max-width)) / 2),
-            calc(var(--dg-filetree-min-width) + var(--dg-filetree-gap) + var(--dg-content-max-width))
-        ) + var(--dg-sidebar-gap)
-    );
-    left: var(--sidebar-left);
 
-    // Calculate overflow: how much sidebar extends past viewport
-    // If positive (overflow), clamp multiplies to 100vw pushing it off-screen
-    // If negative (fits), clamp results in 0px
-    // Users can adjust --dg-sidebar-max-width to control when sidebar appears
-    --sidebar-overflow: calc(var(--sidebar-left) + var(--dg-sidebar-max-width) - 100vw);
-    transform: translateX(
-        clamp(0px, calc(var(--sidebar-overflow) * 9999), 100vw)
+    // Position after content: follows content's right edge + gap
+    // Content margin-left already accounts for sidebar, so this won't overlap
+    left: calc(
+        max(
+            calc(var(--dg-filetree-min-width) + var(--dg-filetree-gap)),
+            min(
+                calc((100vw - var(--dg-content-max-width)) / 2),
+                calc(100vw - var(--dg-content-max-width) - var(--dg-sidebar-max-width) - var(--dg-sidebar-gap) - 20px)
+            )
+        ) + var(--dg-content-max-width) + var(--dg-sidebar-gap)
     );
 
     height: 100%;
@@ -225,19 +224,6 @@ ul.task-list {
     display: flex;
     z-index: 3;
     max-width: var(--dg-sidebar-max-width);
-
-    @media (max-width: 1400px) {
-        // At this breakpoint, also check if sidebar would overlap with content
-        // Content ends at: 100vw - 50px (from max-width calc)
-        // Sidebar starts at: 100vw - 17px - sidebar-width
-        // Hide if content is too wide
-        --sidebar-overflow-1400: calc(var(--dg-content-max-width) + var(--dg-filetree-width) + 20px + var(--dg-sidebar-max-width) + 17px - 100vw);
-        left: auto;
-        right: 17px;
-        transform: translateX(
-            clamp(0px, calc(var(--sidebar-overflow-1400) * 9999), 100vw)
-        );
-    }
 
     .graph {
         width: var(--dg-graph-width);
