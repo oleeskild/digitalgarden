@@ -2,7 +2,8 @@ const wikiLinkRegex = /\[\[(.*?\|.*?)\]\]/g;
 const internalLinkRegex = /href="\/(.*?)"/g;
 // Match iframe src for canvas embedded files (internal links only, not external URLs)
 // Format: <iframe src="/path/" class="canvas-file-iframe" ...>
-const iframeSrcRegex = /<iframe[^>]*src="(\/[^"#]*)"[^>]*class="canvas-file-iframe"/g;
+// Use non-greedy [^>]*? to avoid over-matching
+const iframeSrcRegex = /<iframe[^>]*?src="(\/[^"#]*)"[^>]*?class="canvas-file-iframe"/g;
 
 function extractLinks(content) {
   // Extract iframe sources for canvas embeds
@@ -21,7 +22,7 @@ function extractLinks(content) {
         link
           .slice(2, -2)
           .split("|")[0]
-          .replace(/\.(md|markdown|canvas)\s?$/i, "")
+          .replace(/\.(md|markdown)\s?$/i, "")
           .replace("\\", "")
           .trim()
           .split("#")[0]
@@ -31,7 +32,8 @@ function extractLinks(content) {
         link
           .slice(6, -1)
           .split("|")[0]
-          .replace(/\.(md|markdown|canvas)\s?$/i, "")
+          // Don't strip .canvas - canvas URLs actually include it
+          .replace(/\.(md|markdown)\s?$/i, "")
           .replace("\\", "")
           .trim()
           .split("#")[0]
