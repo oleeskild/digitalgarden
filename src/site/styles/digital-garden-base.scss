@@ -171,6 +171,79 @@ img {
     }
 }
 
+// Canvas pages: full-width layout
+.content.canvas-page {
+    max-width: none;
+    min-height: 100vh;
+    // Fill space between filetree and edge
+    margin-left: calc(var(--dg-filetree-min-width) + var(--dg-filetree-gap));
+    margin-right: 0;
+    padding-top: 0;
+
+    @media (max-width: 1000px) {
+        margin-left: 20px;
+    }
+
+    // Title hovers over canvas
+    > header {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        background: color-mix(in srgb, var(--background-primary) 85%, transparent);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 12px 24px;
+        border-radius: 12px;
+        border: 1px solid var(--background-modifier-border);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        max-width: calc(100% - 40px);
+        text-align: center;
+
+        h1 {
+            margin: 0;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .header-meta {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid var(--background-modifier-border);
+        }
+
+        .timestamps {
+            margin-top: 0;
+            font-size: 0.75em;
+            justify-content: center;
+            gap: 16px;
+            opacity: 0.8;
+        }
+    }
+}
+
+// Canvas page without filetree
+body:not(:has(.filetree)) .content.canvas-page {
+    margin-left: 20px;
+}
+
+// Remove body padding for canvas pages
+body:has(.content.canvas-page) {
+    padding: 0;
+}
+
+// Filetree stays at left edge for canvas pages
+body:has(.content.canvas-page) .filetree-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: var(--dg-filetree-width);
+    justify-content: flex-start;
+}
+
+
 .external-link {
     background-position: center right;
     background-repeat: no-repeat;
@@ -238,6 +311,19 @@ ul.task-list {
             margin-right: 0;
         }
     }
+}
+
+// Sidebar floats over canvas with card-like appearance
+body:has(.content.canvas-page) .sidebar {
+    left: auto;
+    right: 20px;
+    top: calc(var(--dg-navbar-height) + 20px);
+    height: auto;
+    max-height: calc(100vh - var(--dg-navbar-height) - 40px);
+    background: var(--background-primary);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 // Fullscreen graph - outside sidebar to avoid containment issues
@@ -558,6 +644,12 @@ ul.task-list {
         margin-right: auto;
         max-width: calc(100vw - var(--dg-filetree-width) - 50px);
     }
+
+    .content.canvas-page {
+        max-width: none;
+        margin-left: calc(var(--dg-filetree-width) + 20px);
+        margin-right: 20px;
+    }
 }
 
 // On smaller screens, filetree hides (controlled by Alpine.js at 1000px)
@@ -566,6 +658,12 @@ ul.task-list {
         margin-left: auto;
         margin-right: auto;
         max-width: var(--dg-content-max-width);
+    }
+
+    .content.canvas-page {
+        max-width: none;
+        margin-left: 20px;
+        margin-right: 20px;
     }
 }
 
@@ -1510,4 +1608,173 @@ div.dataview-error-box {
 
 .dataview.small-text::after {
 	content: ")";
+}
+
+/*************************/
+/** Canvas Styles       **/
+/*************************/
+
+.canvas-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--background-primary);
+    cursor: grab;
+}
+
+.canvas-wrapper:active {
+    cursor: grabbing;
+}
+
+.canvas-wrapper.hide {
+    opacity: 0;
+}
+
+.canvas {
+    position: absolute;
+    transform-origin: 0 0;
+    will-change: transform;
+    z-index: 1;
+}
+
+.canvas-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    color: var(--text-muted);
+}
+
+.canvas-edges-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.canvas-node {
+    position: absolute;
+    border-radius: 4px;
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.canvas-node.has-color {
+    border-color: var(--canvas-color);
+    border-width: 2px;
+}
+
+.canvas-node-group {
+    background: var(--background-secondary-alt);
+    opacity: 0.6;
+    border-style: dashed;
+}
+
+.canvas-node-group.has-color {
+    background: color-mix(in srgb, var(--canvas-color) 15%, transparent);
+}
+
+.canvas-node-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.canvas-node-group .canvas-node-container {
+    display: none;
+}
+
+.canvas-node-content {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.canvas-node-text .canvas-node-container {
+    height: 100%;
+}
+
+.canvas-node-text-content {
+    padding: 12px;
+    white-space: pre-wrap;
+}
+
+.canvas-file-iframe,
+.canvas-link-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: var(--background-primary);
+    display: block;
+}
+
+.canvas-node-file .canvas-node-content,
+.canvas-node-link .canvas-node-content {
+    height: 100%;
+    display: flex;
+}
+
+.canvas-node-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.canvas-node-image .canvas-node-container {
+    height: 100%;
+}
+
+.canvas-edge {
+    pointer-events: none;
+}
+
+.canvas-edge-label {
+    font-size: 12px;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+.canvas.small-scale .canvas-node-label,
+.canvas.small-scale .canvas-node-text-content,
+.canvas.small-scale .canvas-edge-label {
+    display: none;
+}
+
+.canvas-hints {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 16px;
+    padding: 8px 16px;
+    background: var(--background-primary);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    font-size: 13px;
+    color: var(--text-muted);
+    z-index: 10;
+    transition: opacity 0.3s ease;
+}
+
+.canvas-hints.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.canvas-hints kbd {
+    display: inline-block;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-family: inherit;
+    background: var(--background-secondary);
+    border-radius: 4px;
+    border: 1px solid var(--background-modifier-border);
+    margin-right: 4px;
 }

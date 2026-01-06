@@ -77,6 +77,9 @@ module.exports = async (data) => {
     searchCloseHint: process.env.UI_SEARCH_CLOSE_HINT || "ESC to close",
     searchNoResults: process.env.UI_SEARCH_NO_RESULTS || "No results for",
     searchPreviewPlaceholder: process.env.UI_SEARCH_PREVIEW_PLACEHOLDER || "Select a result to preview",
+    canvasDragHint: process.env.UI_CANVAS_DRAG_HINT || "Drag to pan",
+    canvasZoomHint: process.env.UI_CANVAS_ZOOM_HINT || "Scroll to zoom",
+    canvasResetHint: process.env.UI_CANVAS_RESET_HINT || "Double-click to reset",
   };
 
   const meta = {
