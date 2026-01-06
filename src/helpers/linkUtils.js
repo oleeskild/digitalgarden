@@ -1,7 +1,8 @@
 const wikiLinkRegex = /\[\[(.*?\|.*?)\]\]/g;
 const internalLinkRegex = /href="\/(.*?)"/g;
 // Match iframe src for canvas embedded files (internal links only, not external URLs)
-const iframeSrcRegex = /class="canvas-file-iframe"[^>]*src="(\/[^"#]*)/g;
+// Format: <iframe src="/path/" class="canvas-file-iframe" ...>
+const iframeSrcRegex = /<iframe[^>]*src="(\/[^"#]*)"[^>]*class="canvas-file-iframe"/g;
 
 function extractLinks(content) {
   // Extract iframe sources for canvas embeds
