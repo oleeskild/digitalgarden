@@ -271,6 +271,23 @@ div.transclusion {
     }
 }
 
+.youtube-embed {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; // 16:9 aspect ratio
+    margin: 1em 0;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 8px;
+    }
+}
+
 ul.task-list {
     list-style: none;
     padding-left: 15px;
@@ -1706,7 +1723,8 @@ div.dataview-error-box {
 }
 
 .canvas-file-iframe,
-.canvas-link-iframe {
+.canvas-link-iframe,
+.canvas-youtube-iframe {
     width: 100%;
     height: 100%;
     border: none;
