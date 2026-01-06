@@ -77,11 +77,13 @@
             canvas.style.transform = `translate(${position.x}px, ${position.y}px) scale(${scale})`;
             canvas.classList.toggle("small-scale", scale < 0.3);
             if (background) {
-                const patternScale = 25 / scale;
-                background.setAttribute("width", patternScale);
-                background.setAttribute("height", patternScale);
-                background.setAttribute("x", position.x / scale);
-                background.setAttribute("y", position.y / scale);
+                // Keep pattern size fixed, just offset based on pan position
+                // Use modulo to keep values small and avoid precision issues
+                const patternSize = 25;
+                const offsetX = ((position.x % patternSize) + patternSize) % patternSize;
+                const offsetY = ((position.y % patternSize) + patternSize) % patternSize;
+                background.setAttribute("x", offsetX);
+                background.setAttribute("y", offsetY);
             }
         }
 
