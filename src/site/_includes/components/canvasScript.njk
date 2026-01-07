@@ -6,35 +6,50 @@
         resetHint: "{{ meta.uiStrings.canvasResetHint }}"
     };
 
+    // Detect iOS Safari
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) ||
+                  (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    const isIOSSafari = isIOS && isSafari;
+
     function initCanvas(wrapper) {
-        // Add navigation hints
-        const hints = document.createElement("div");
-        hints.className = "canvas-hints";
-        hints.innerHTML = `
-            <span><kbd>Drag</kbd> ${uiStrings.dragHint}</span>
-            <span><kbd>Scroll</kbd> ${uiStrings.zoomHint}</span>
-            <span><kbd>Double-click</kbd> ${uiStrings.resetHint}</span>
-        `;
-        wrapper.appendChild(hints);
+        try {
+            // Add navigation hints (hide on mobile for cleaner UI)
+            const isMobile = window.innerWidth <= 768;
+            if (!isMobile) {
+                const hints = document.createElement("div");
+                hints.className = "canvas-hints";
+                hints.innerHTML = `
+                    <span><kbd>Drag</kbd> ${uiStrings.dragHint}</span>
+                    <span><kbd>Scroll</kbd> ${uiStrings.zoomHint}</span>
+                    <span><kbd>Double-click</kbd> ${uiStrings.resetHint}</span>
+                `;
+                wrapper.appendChild(hints);
 
-        // Hide hints after first interaction
-        let hintsHidden = false;
-        const hideHints = () => {
-            if (!hintsHidden) {
-                hints.classList.add("hidden");
-                hintsHidden = true;
+                // Hide hints after first interaction
+                let hintsHidden = false;
+                const hideHints = () => {
+                    if (!hintsHidden) {
+                        hints.classList.add("hidden");
+                        hintsHidden = true;
+                    }
+                };
+                wrapper.addEventListener("pointerdown", hideHints, { once: true });
+                wrapper.addEventListener("wheel", hideHints, { once: true });
             }
-        };
-        wrapper.addEventListener("pointerdown", hideHints, { once: true });
-        wrapper.addEventListener("wheel", hideHints, { once: true });
 
-        const canvas = wrapper.querySelector(".canvas");
-        const background = wrapper.querySelector(".canvas-background pattern");
-        const nodes = Array.from(canvas.querySelectorAll(".canvas-node"));
-        let scale = 1;
-        let position = { x: 0, y: 0 };
-        const minScale = 0.1;
-        const maxScale = 5;
+            const canvas = wrapper.querySelector(".canvas");
+            if (!canvas) {
+                console.warn("Canvas element not found");
+                wrapper.classList.remove("hide");
+                return;
+            }
+            const background = wrapper.querySelector(".canvas-background pattern");
+            const nodes = Array.from(canvas.querySelectorAll(".canvas-node"));
+            let scale = 1;
+            let position = { x: 0, y: 0 };
+            const minScale = 0.1;
+            const maxScale = 5;
 
         // Cache node bounds at init to avoid repeated DOM reads and regex parsing
         const nodeBoundsCache = nodes.map(node => {
@@ -197,9 +212,26 @@
 
         fitToView();
         wrapper.classList.remove("hide");
+
+        } catch (err) {
+            // If canvas initialization fails, still show the content
+            console.error("Canvas initialization error:", err);
+            wrapper.classList.remove("hide");
+        }
     }
 
-    // Initialize all canvas wrappers on page load
-    document.querySelectorAll(".canvas-wrapper").forEach(initCanvas);
+    // Initialize all canvas wrappers on page load with a slight delay for iOS Safari
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            // Small delay for iOS Safari to finish layout
+            setTimeout(() => {
+                document.querySelectorAll(".canvas-wrapper").forEach(initCanvas);
+            }, isIOSSafari ? 100 : 0);
+        });
+    } else {
+        setTimeout(() => {
+            document.querySelectorAll(".canvas-wrapper").forEach(initCanvas);
+        }, isIOSSafari ? 100 : 0);
+    }
 })();
 </script>

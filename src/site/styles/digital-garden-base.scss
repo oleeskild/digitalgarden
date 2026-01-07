@@ -191,7 +191,12 @@ img {
         left: 50%;
         transform: translateX(-50%);
         z-index: 10;
-        background: color-mix(in srgb, var(--background-primary) 85%, transparent);
+        // Fallback for browsers without color-mix support (iOS < 16.4)
+        background: rgba(var(--background-primary-rgb, 30, 30, 30), 0.85);
+        // Modern browsers with color-mix support
+        @supports (background: color-mix(in srgb, red 50%, blue)) {
+            background: color-mix(in srgb, var(--background-primary) 85%, transparent);
+        }
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
         padding: 12px 24px;
@@ -219,6 +224,31 @@ img {
             justify-content: center;
             gap: 16px;
             opacity: 0.8;
+        }
+
+        // Mobile: minimal compact title pill fixed at bottom
+        @media (max-width: 768px) {
+            position: fixed;
+            top: auto;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            border-radius: 20px;
+            max-width: calc(100% - 40px);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+
+            h1 {
+                font-size: 0.95em;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            // Hide metadata on mobile for cleaner look
+            .header-meta {
+                display: none;
+            }
         }
     }
 }
@@ -419,7 +449,11 @@ body:has(.content.canvas-page) .sidebar {
         margin-top: 0 !important;
         margin-bottom: 0 !important;
         margin-left: 0;
-        border-left: 1px solid color-mix(in srgb, var(--text-muted) 40%, transparent);
+        // Fallback for older browsers
+        border-left: 1px solid rgba(128, 128, 128, 0.4);
+        @supports (background: color-mix(in srgb, red 50%, blue)) {
+            border-left: 1px solid color-mix(in srgb, var(--text-muted) 40%, transparent);
+        }
     }
     // First level - no border, no indent
     & > ul, & > ol {
@@ -809,7 +843,11 @@ body.has-navbar .content {
 
 // Depth lines on filelist containers (step > 0)
 .filelist {
-    border-left: 1px solid color-mix(in srgb, var(--text-muted) 40%, transparent);
+    // Fallback for older browsers
+    border-left: 1px solid rgba(128, 128, 128, 0.4);
+    @supports (background: color-mix(in srgb, red 50%, blue)) {
+        border-left: 1px solid color-mix(in srgb, var(--text-muted) 40%, transparent);
+    }
     margin-left: var(--dg-filelist-margin);
 }
 
@@ -1694,7 +1732,11 @@ div.dataview-error-box {
 }
 
 .canvas-node-group.has-color {
-    background: color-mix(in srgb, var(--canvas-color) 15%, transparent);
+    // Fallback - uses canvas-color with reduced opacity via rgba if possible
+    background: rgba(128, 128, 128, 0.15);
+    @supports (background: color-mix(in srgb, red 50%, blue)) {
+        background: color-mix(in srgb, var(--canvas-color) 15%, transparent);
+    }
 }
 
 .canvas-node-container {
