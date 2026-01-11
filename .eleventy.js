@@ -7,6 +7,7 @@ const tocPlugin = require("eleventy-plugin-nesting-toc");
 const { parse } = require("node-html-parser");
 const htmlMinifier = require("html-minifier-terser");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
+const purgeCssPlugin = require("eleventy-plugin-purgecss");
 
 const { headerToId, namedHeadingsFilter } = require("./src/helpers/utils");
 const {
@@ -636,6 +637,14 @@ module.exports = function (eleventyConfig) {
       singleTags: ["link"],
     },
   });
+
+  // PurgeCSS - only in production to remove unused CSS
+  if (process.env.ELEVENTY_ENV === "prod") {
+    eleventyConfig.addPlugin(purgeCssPlugin, {
+      config: "./purgecss.config.js",
+      quiet: false,
+    });
+  }
 
   userEleventySetup(eleventyConfig);
 
