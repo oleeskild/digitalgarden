@@ -358,12 +358,11 @@
         const searchLayout = document.getElementById('search-layout');
 
         if (!searchQuery) {
-            resultsDiv.innerHTML = '';
+            resultsDiv.innerHTML = `<span><i>{{ meta.uiStrings.searchNotStarted }}</i></span>`;
             hidePreview();
             if (searchLayout) searchLayout.classList.add('no-preview');
             return;
         }
-        if (searchQuery === lastSearch) return;
 
         window.lastSearch = searchQuery;
         window.searchTerms = tokenizeSearchTerms(searchQuery);
