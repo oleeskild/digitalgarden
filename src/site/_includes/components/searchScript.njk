@@ -363,7 +363,6 @@
             if (searchLayout) searchLayout.classList.add('no-preview');
             return;
         }
-        if (searchQuery === lastSearch) return;
 
         window.lastSearch = searchQuery;
         window.searchTerms = tokenizeSearchTerms(searchQuery);
