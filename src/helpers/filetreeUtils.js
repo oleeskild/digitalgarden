@@ -87,7 +87,7 @@ function getPermalinkMeta(note, key) {
     }
     if (note.data.tags && note.data.tags.indexOf("gardenEntry") != -1) {
       permalink = "/";
-    }    
+    }
     if (note.data.title) {
       name = note.data.title;
     }
@@ -133,12 +133,32 @@ function assignNested(obj, keyPath, value) {
   obj[keyPath[lastKeyIndex]] = value;
 }
 
+/**
+ * A folder note is a note with the same filename as the parent folder.
+ * Hide the folder note and link to it from the folder to treat it as a special case.
+ *
+ * @returns {void}
+ */
+function detectFoldersWithFolderNotes(parentName, parent) {
+  // Check if any of the children are notes with the same name
+  for (const [childName, child] of Object.entries(parent)) {
+    if (child.isNote && childName === (parentName + ".md")) {
+      // Found a folder note, hide the standalone link
+      child.hide = true;
+      parent.folderNote = child;
+    } else if (child.isFolder) {
+      detectFoldersWithFolderNotes(childName, child);
+    }
+  }
+}
+
 function getFileTree(data) {
   const tree = {};
   (data.collections.note || []).forEach((note) => {
     const [meta, folders] = getPermalinkMeta(note);
     assignNested(tree, folders, { isNote: true, ...meta });
   });
+  detectFoldersWithFolderNotes(null, tree);
   const fileTree = sortTree(tree);
   return fileTree;
 }
