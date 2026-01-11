@@ -291,6 +291,10 @@ body:has(.content.canvas-page) .filetree-wrapper {
     padding: var(--dg-mermaid-padding);
 }
 
+.markdown-embed {
+    padding-left: 5px;
+}
+
 div.transclusion {
     position: relative;
     padding: var(--dg-transclusion-padding);
