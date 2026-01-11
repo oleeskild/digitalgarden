@@ -6,7 +6,10 @@
 
         <div class="search-layout no-preview" id="search-layout">
             <!-- Left panel: Results list -->
-            <div class="search-results-panel" id="search-results"></div>
+            <div class="search-results-panel" id="search-results">
+                <!-- Default text -->
+                <span><i>{{ meta.uiStrings.searchNotStarted }}</i></span>
+            </div>
 
             <!-- Right panel: Content preview (hidden until search starts) -->
             <div class="search-preview-panel" id="search-preview">
@@ -20,17 +23,15 @@
 
         <footer class="search-box-footer">
             <div class="navigation-hint">
-                <span>{{ meta.uiStrings.searchEnterHint }}</span>
-            </div>
-
-            <div class="navigation-hint align-icon">
-                <i data-lucide="arrow-up" aria-hidden="true"></i>
-                <i data-lucide="arrow-down" aria-hidden="true"></i>
-                <span>{{ meta.uiStrings.searchNavigateHint }}</span>
+                <span><code>{{ meta.uiStrings.searchEnterHotkey }}</code>&nbsp;{{ meta.uiStrings.searchEnterHint }}</span>
             </div>
 
             <div class="navigation-hint">
-                <span>{{ meta.uiStrings.searchCloseHint }}</span>
+                <span><code>{{ meta.uiStrings.searchNavigateHotkey }}</code>&nbsp;{{ meta.uiStrings.searchNavigateHint }}</span>
+            </div>
+
+            <div class="navigation-hint">
+                <span><code>{{ meta.uiStrings.searchCloseHotkey }}</code>&nbsp;{{ meta.uiStrings.searchCloseHint }}</span>
             </div>
         </footer>
     </div>
