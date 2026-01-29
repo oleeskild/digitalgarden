@@ -1,4 +1,3 @@
-<script async src="https://cdn.jsdelivr.net/npm/lucide@0.115.0/dist/umd/lucide.min.js"></script>
 <script>
     // Create callout icons
     window.addEventListener("load", () => {
@@ -14,7 +13,7 @@
                     const calloutIcon = document.createElement("i");
 
                     calloutIconContainer.appendChild(calloutIcon);
-                    calloutIcon.setAttribute("icon-name", iconName);
+                    calloutIcon.setAttribute("data-lucide", iconName);
                     calloutIconContainer.setAttribute("class", "callout-icon");
                     calloutTitle.insertBefore(calloutIconContainer, calloutTitle.firstChild);
                 }

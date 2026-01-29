@@ -1,22 +1,37 @@
 <div class="search-container" id="globalsearch" onclick="toggleSearch()">
-    <div class="search-box">
-        <input type="search" id="term" placeholder="Start typing...">
-        <div id="search-results"></div>
+    <div class="search-box" onclick="event.stopPropagation()">
+        <div class="search-header">
+            <input type="search" id="term" placeholder="{{ meta.uiStrings.searchPlaceholder }}">
+        </div>
+
+        <div class="search-layout no-preview" id="search-layout">
+            <!-- Left panel: Results list -->
+            <div class="search-results-panel" id="search-results"></div>
+
+            <!-- Right panel: Content preview (hidden until search starts) -->
+            <div class="search-preview-panel" id="search-preview">
+                <div class="preview-placeholder">
+                    <i data-lucide="file-text"></i>
+                    <p>{{ meta.uiStrings.searchPreviewPlaceholder | default("Select a result to preview") }}</p>
+                </div>
+                <div class="preview-content" id="preview-content"></div>
+            </div>
+        </div>
+
         <footer class="search-box-footer">
             <div class="navigation-hint">
-                <span>Enter to select</span>
+                <span>{{ meta.uiStrings.searchEnterHint }}</span>
             </div>
 
             <div class="navigation-hint align-icon">
-                <i  icon-name="arrow-up" aria-hidden="true"></i>
-                <i  icon-name="arrow-down" aria-hidden="true"></i>
-                <span>to navigate</span>
+                <i data-lucide="arrow-up" aria-hidden="true"></i>
+                <i data-lucide="arrow-down" aria-hidden="true"></i>
+                <span>{{ meta.uiStrings.searchNavigateHint }}</span>
             </div>
 
             <div class="navigation-hint">
-                <span>ESC to close</span>
+                <span>{{ meta.uiStrings.searchCloseHint }}</span>
             </div>
-
         </footer>
     </div>
 </div>

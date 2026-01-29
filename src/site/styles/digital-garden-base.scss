@@ -4,7 +4,129 @@
 ***/
 
 body {
+    /***
+    * CSS VARIABLE DEFAULTS
+    * Override these in custom-style.scss using body { --dg-variable-name: value; }
+    ***/
+
+    /* Layout Variables */
+    --dg-content-max-width: 700px;
+    --dg-content-padding-top: 90px;
+    --dg-content-padding-top-mobile: 75px;
+    --dg-content-font-size: 18px;
+    --dg-content-line-height: 1.5;
+
+    /* Sidebar (Right) Variables */
+    --dg-sidebar-top: 75px;
+    --dg-sidebar-gap: 80px;
+    --dg-sidebar-min-width: 25px;
+    --dg-sidebar-max-width: 350px;
+    --dg-sidebar-container-padding: 20px;
+    --dg-sidebar-container-height: 87%;
+
+    /* Graph Variables */
+    --dg-graph-width: 250px;
+    --dg-graph-height: 250px;
+    --dg-graph-border-radius: 10px;
+    --dg-graph-margin-bottom: 20px;
+    --dg-graph-fullscreen-width: 600px;
+    --dg-graph-fullscreen-height: 600px;
+
+    /* Filetree (Left Sidebar) Variables */
+    --dg-filetree-width: 250px;
+    --dg-filetree-min-width: 250px;
+    --dg-filetree-padding: 10px 20px;
+    --dg-filetree-gap: 80px;
+    --dg-filetree-title-size: 32px;
+
+    /* TOC (Table of Contents) Variables */
+    --dg-toc-padding: 5px;
+    --dg-toc-font-size: 0.9rem;
+    --dg-toc-max-height: 220px;
+    --dg-toc-title-size: 1.2rem;
+    --dg-toc-item-padding: 2px 0 2px 8px;
+    --dg-toc-indent: 1em;
+
+    /* Backlinks Variables */
+    --dg-backlinks-margin-top: 10px;
+    --dg-backlinks-max-height: 250px;
+    --dg-backlinks-title-size: 0.9rem;
+    --dg-backlinks-card-size: 0.85rem;
+    --dg-backlinks-card-padding: 6px 0;
+    --dg-backlinks-icon-size: 14px;
+
+    /* Search Variables */
+    --dg-search-box-width: 1100px;
+    --dg-search-box-max-width: 90%;
+    --dg-search-box-radius: 12px;
+    --dg-search-box-padding: 16px;
+    --dg-search-input-size: 1.5rem;
+    --dg-search-input-padding: 12px 16px;
+    --dg-search-input-radius: 8px;
+    --dg-search-results-max-height: 60vh;
+    --dg-search-result-size: 1rem;
+    --dg-search-result-radius: 8px;
+    --dg-search-link-size: 1.1rem;
+
+    /* Search Layout Variables */
+    --dg-search-preview-width: 55%;
+    --dg-search-results-width: 45%;
+    --dg-search-divider-color: var(--background-modifier-border, rgba(255, 255, 255, 0.1));
+    --dg-search-highlight-bg: rgba(255, 208, 0, 0.25);
+    --dg-search-highlight-color: inherit;
+
+    /* Search Button Variables */
+    --dg-search-btn-radius: 8px;
+    --dg-search-btn-height: 32px;
+    --dg-search-btn-padding: 0 10px;
+    --dg-search-btn-gap: 8px;
+    --dg-search-btn-font-size: 0.85rem;
+    --dg-search-btn-icon-size: 14px;
+
+    /* Navbar Variables */
+    --dg-navbar-height: 60px;
+    --dg-navbar-title-size-mobile: 18px;
+    --dg-navbar-search-margin: 20px;
+    --dg-navbar-search-min-width: 36px;
+    --dg-logo-height: 40px;
+    --dg-logo-height-mobile: 32px;
+    --dg-logo-margin: 10px 15px;
+
+    /* Note Link / File Tree Item Variables */
+    --dg-notelink-padding: 4px 8px 4px 12px;
+    --dg-notelink-size: 0.85rem;
+    --dg-notelink-border-width: 2px;
+    --dg-notelink-hover-bg: rgba(255, 255, 255, 0.05);
+    --dg-folder-margin: 4px 0 4px 2px;
+    --dg-folder-icon-size: 14px;
+    --dg-inner-folder-padding: 3px 0 3px 0;
+    --dg-inner-folder-margin: 12px;
+    --dg-filelist-margin: 8px;
+
+    /* Graph Controls Variables */
+    --dg-graph-ctrl-padding: 6px 10px;
+    --dg-graph-ctrl-radius: 6px;
+    --dg-graph-ctrl-margin: 10px;
+    --dg-graph-ctrl-size: 0.7rem;
+    --dg-graph-ctrl-icon-size: 14px;
+    --dg-graph-ctrl-gap: 10px;
+    --dg-depth-slider-width: 50px;
+    --dg-depth-display-size: 1.1rem;
+
+    /* Timestamps Variables */
+    --dg-timestamps-size: 0.8em;
+    --dg-timestamps-gap: 10px;
+    --dg-timestamps-margin-top: 20px;
+
+    /* Misc Component Variables */
+    --dg-overlay-bg: rgba(0, 0, 0, 0.5);
+    --dg-mermaid-radius: 25px;
+    --dg-mermaid-padding: 10px;
+    --dg-transclusion-padding: 8px;
+    --dg-external-link-icon-size: 13px;
+    --dg-external-link-padding: 16px;
     overflow-x: hidden;
+    contain: none !important;  // Override obsidian-base to allow position: fixed to work
     --note-icon-1: url(/img/tree-1.svg);
     --note-icon-2: url(/img/tree-2.svg);
     --note-icon-3: url(/img/tree-3.svg);
@@ -13,46 +135,186 @@ body {
     --graph-muted: var(--text-muted);
 }
 
+.markdown-preview-view {
+    height: fit-content;
+}
+
 img {
     max-width: 100%;
 }
 
 .content {
-    max-width: 700px;
-    margin: auto;
-    font-size: 18px;
-    line-height: 1.5;
-    margin-top: 90px;
+    max-width: var(--dg-content-max-width);
+    // Dynamic left margin with three constraints:
+    // 1. Never overlap filetree (minimum)
+    // 2. Try to center in viewport
+    // 3. But shift left if needed to leave room for sidebar
+    margin-left: max(
+        calc(var(--dg-filetree-min-width) + var(--dg-filetree-gap)),
+        min(
+            calc((100vw - var(--dg-content-max-width)) / 2),
+            calc(100vw - var(--dg-content-max-width) - var(--dg-sidebar-max-width) - var(--dg-sidebar-gap) - 20px)
+        )
+    );
+    margin-right: auto;
+    font-size: var(--dg-content-font-size);
+    line-height: var(--dg-content-line-height);
+    margin-top: 0;
+    padding-top: var(--dg-content-padding-top);
+    padding-bottom: 60px;
     position: relative;
+    color: var(--text-normal);
 
     @media (max-width: 800px) {
-        margin-top: 75px;
+        margin-top: 0;
+        padding-top: var(--dg-content-padding-top-mobile);
     }
 }
+
+// Canvas pages: full-width layout
+.content.canvas-page {
+    max-width: none;
+    min-height: 100vh;
+    // Fill space between filetree and edge
+    margin-left: calc(var(--dg-filetree-min-width) + var(--dg-filetree-gap));
+    margin-right: 0;
+    padding-top: 0;
+
+    @media (max-width: 1000px) {
+        margin-left: 20px;
+    }
+
+    // Title hovers over canvas
+    > header {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        // Fallback for browsers without color-mix support (iOS < 16.4)
+        background: rgba(var(--background-primary-rgb, 30, 30, 30), 0.85);
+        // Modern browsers with color-mix support
+        @supports (background: color-mix(in srgb, red 50%, blue)) {
+            background: color-mix(in srgb, var(--background-primary) 85%, transparent);
+        }
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        padding: 12px 24px;
+        border-radius: 12px;
+        border: 1px solid var(--background-modifier-border);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        max-width: calc(100% - 40px);
+        text-align: center;
+
+        h1 {
+            margin: 0;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+
+        .header-meta {
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px solid var(--background-modifier-border);
+        }
+
+        .timestamps {
+            margin-top: 0;
+            font-size: 0.75em;
+            justify-content: center;
+            gap: 16px;
+            opacity: 0.8;
+        }
+
+        // Mobile: minimal compact title pill fixed at bottom
+        @media (max-width: 768px) {
+            position: fixed;
+            top: auto;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            border-radius: 20px;
+            max-width: calc(100% - 40px);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+
+            h1 {
+                font-size: 0.95em;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            // Hide metadata on mobile for cleaner look
+            .header-meta {
+                display: none;
+            }
+        }
+    }
+}
+
+// Canvas page without filetree
+body:not(:has(.filetree)) .content.canvas-page {
+    margin-left: 20px;
+}
+
+// Remove body padding for canvas pages
+body:has(.content.canvas-page) {
+    padding: 0;
+}
+
+// Filetree stays at left edge for canvas pages
+body:has(.content.canvas-page) .filetree-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: var(--dg-filetree-width);
+    justify-content: flex-start;
+}
+
 
 .external-link {
     background-position: center right;
     background-repeat: no-repeat;
     background-image: linear-gradient(transparent, transparent), url("/img/outgoing.svg");
-    background-size: 13px;
-    padding-right: 16px;
+    background-size: var(--dg-external-link-icon-size);
+    padding-right: var(--dg-external-link-padding);
     background-position-y: 4px;
     cursor: pointer;
 }
 
+
 .markdown-preview-view pre.mermaid {
     background: white;
-    border-radius: 25px;
-    padding: 10px;
+    border-radius: var(--dg-mermaid-radius);
+    padding: var(--dg-mermaid-padding);
 }
 
 div.transclusion {
     position: relative;
-    padding: 8px;
+    padding: var(--dg-transclusion-padding);
     .markdown-embed-link {
         z-index: 99;
         display: block;
         width: auto !important;
+    }
+}
+
+.youtube-embed {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; // 16:9 aspect ratio
+    margin: 1em 0;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 8px;
     }
 }
 
@@ -62,56 +324,86 @@ ul.task-list {
 }
 
 .sidebar {
-    position: fixed;
-    top: 75px;
-    right: 17px;
+    position: fixed !important;
+    top: var(--dg-sidebar-top);
+
+    // Position after content: follows content's right edge + gap
+    // Content margin-left already accounts for sidebar, so this won't overlap
+    left: calc(
+        max(
+            calc(var(--dg-filetree-min-width) + var(--dg-filetree-gap)),
+            min(
+                calc((100vw - var(--dg-content-max-width)) / 2),
+                calc(100vw - var(--dg-content-max-width) - var(--dg-sidebar-max-width) - var(--dg-sidebar-gap) - 20px)
+            )
+        ) + var(--dg-content-max-width) + var(--dg-sidebar-gap)
+    );
+
     height: 100%;
-    min-width: 25px;
+    min-width: var(--dg-sidebar-min-width);
     display: flex;
     z-index: 3;
-    max-width: 350px;
+    max-width: var(--dg-sidebar-max-width);
 
     .graph {
-        width: 320px;
-        min-height: 320px;
+        width: var(--dg-graph-width);
+        min-height: var(--dg-graph-height);
 
         #link-graph {
-            width: 320px;
-            height: 320px;
+            width: var(--dg-graph-width);
+            height: var(--dg-graph-height);
         }
 
         #graph-fs-btn {
-            margin-right: 10px;
+            margin-right: 0;
         }
     }
-    .graph-fs {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        height: calc(100vmin - 100px);
-        width: calc(100vmin - 100px);
-        min-height: 350px;
-        min-width: 350px;
-        transform: translate(-50%, -50%);
-        z-index: 9999;
-        display: block;
-        background-color: var(--background-secondary);
-        border: 1px solid var(--text-accent);
-        border-radius: 5px;
-        padding-top: 5px;
+}
 
-        #link-graph {
-            width: 100%;
-            height: 100%;
-        }
+// Sidebar floats over canvas with card-like appearance
+body:has(.content.canvas-page) .sidebar {
+    left: auto;
+    right: 20px;
+    top: calc(var(--dg-navbar-height) + 20px);
+    height: auto;
+    max-height: calc(100vh - var(--dg-navbar-height) - 40px);
+    background: var(--background-primary);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
 
-        #graph-controls {
-            margin-top: 10px;
-        }
+// Fullscreen graph - outside sidebar to avoid containment issues
+.graph-fs {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: var(--dg-graph-fullscreen-width) !important;
+    height: var(--dg-graph-fullscreen-height) !important;
+    max-width: 90vw !important;
+    max-height: 90vh !important;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    display: flex !important;
+    flex-direction: column;
+    background-color: var(--background-secondary);
+    border: 1px solid var(--text-accent);
+    border-radius: var(--dg-graph-border-radius);
+    padding: var(--dg-mermaid-padding);
 
-        .graph-title {
-            display: none;
-        }
+    #link-graph {
+        width: 100% !important;
+        height: 100% !important;
+        flex: 1;
+    }
+
+    #graph-controls {
+        margin-top: 10px;
+        flex-shrink: 0;
+    }
+
+    .graph-title {
+        display: none;
     }
 }
 
@@ -122,58 +414,59 @@ ul.task-list {
 }
 
 .sidebar-container {
-    padding-right: 20px;
+    padding-right: var(--dg-sidebar-container-padding);
     width: 100%;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 87%;
+    height: var(--dg-sidebar-container-height);
 }
 
 .toc {
-    padding-right: 5px;
-    background-color: var(--background-primary);
-    padding: 10px;
-    border-radius: 10px;
+    padding: var(--dg-toc-padding);
 
     ol {
         list-style: none;
-        padding-left: 10px;
-        border-left: 2px solid var(--background-secondary);
+        padding-left: 6px;
+        margin: 0;
     }
 
     & > ol {
         padding-left: 0;
-        border-left: none;
     }
 }
 
 .toc-container {
-    font-size: 1rem;
-    max-height: 220px;
+    font-size: var(--dg-toc-font-size);
+    max-height: var(--dg-toc-max-height);
     overflow-y: auto;
-    margin-bottom: 10px;
-    border-left: 1px solid var(--text-accent);
-    ul {
-        list-style-type: none;
-        padding-inline-start: 15px !important;
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-    ul:not(:first-child) {
-        margin-bottom: 3px;
-    }
+    margin-bottom: 5px;
 
-    li {
-        padding-top: 4px;
-        &::before {
-            content: "# " !important;
-            color: var(--text-accent);
-            font-size: 0.8rem;
+    ul, ol {
+        list-style-type: none;
+        padding-inline-start: var(--dg-toc-indent) !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+        margin-left: 0;
+        // Fallback for older browsers
+        border-left: 1px solid rgba(128, 128, 128, 0.4);
+        @supports (background: color-mix(in srgb, red 50%, blue)) {
+            border-left: 1px solid color-mix(in srgb, var(--text-muted) 40%, transparent);
         }
+    }
+    // First level - no border, no indent
+    & > ul, & > ol {
+        border-left: none;
+        padding-inline-start: 0 !important;
+    }
+    // Override obsidian-base nested list indent
+    li {
+        margin-inline-start: 0 !important;
+        padding: var(--dg-toc-item-padding);
         a {
             text-decoration: none;
+            color: var(--text-accent);
             &:hover {
                 text-decoration: underline;
             }
@@ -184,45 +477,55 @@ ul.task-list {
 .toc-title-container {
     display: flex;
     justify-content: flex-start;
+    margin-bottom: 4px;
     .toc-title {
-        font-size: 1.2rem !important;
+        font-size: var(--dg-toc-title-size) !important;
         color: var(--h6-color);
         width: fit-content;
-        padding: 3px 7px 3px 0;
-        border-radius: 10px 10px 0 0;
+        padding: 0;
     }
 }
 
 .backlinks {
     flex: 1;
-    margin-top: 10px;
-    background-color: var(--background-primary);
-    border-radius: 10px;
-    padding: 10px;
+    margin-top: var(--dg-backlinks-margin-top);
+    padding-left: 5px;
 
     .backlink-title {
-        margin: 4px 0;
-        font-size: 18px !important;
-        color: var(--h6-color);
+        margin: 0 0 10px 0;
+        font-size: var(--dg-backlinks-title-size) !important;
+        font-weight: 600;
+        color: var(--text-normal);
     }
 }
 
 .backlink-list {
-    border-left: 1px solid var(--text-accent);
-    max-height: 200px;
+    max-height: var(--dg-backlinks-max-height);
     overflow-y: auto;
     overflow-x: hidden;
 }
 
 .backlink-card {
-    padding-bottom: 8px;
-    border-radius: 4px;
+    padding: var(--dg-backlinks-card-padding);
     width: 100%;
-    font-size: 1rem;
-    margin-left: 10px;
-    color: var(--text-accent);
-    i {
-        font-size: 0.8rem;
+    font-size: var(--dg-backlinks-card-size);
+    display: flex;
+    align-items: center;
+
+    a {
+        color: var(--text-muted);
+        text-decoration: none;
+        &:hover {
+            color: var(--text-accent);
+        }
+    }
+
+    i, svg {
+        font-size: 0.7rem;
+        opacity: 0.5;
+        width: var(--dg-backlinks-icon-size);
+        height: var(--dg-backlinks-icon-size);
+        flex-shrink: 0;
     }
 
     .backlink {
@@ -232,7 +535,8 @@ ul.task-list {
 
 .no-backlinks-message {
     font-size: 0.8rem;
-    color: var(--text-normal);
+    color: var(--text-faint);
+    font-style: italic;
 }
 
 .graph {
@@ -243,77 +547,129 @@ ul.task-list {
     }
 
     .graph-title {
-        width: fit-content;
-        background-color: var(--background-secondary);
-        margin: 10px 0 0 0;
-        padding: 3px 7px;
-        font-size: 1.2rem !important;
-        border-radius: 10px 10px 0 0;
-        color: var(--h6-color);
+        display: none;
     }
 }
 
 #link-graph {
     background-color: var(--background-secondary);
-    margin-bottom: 20px;
-    border-radius: 10px 0 10px 10px;
+    margin-bottom: var(--dg-graph-margin-bottom);
+    border-radius: var(--dg-graph-border-radius);
     width: fit-content;
 }
 
 @media (max-width: 1400px) {
     #link-graph {
-        border-radius: 0 10px 10px 10px;
+        border-radius: var(--dg-graph-border-radius);
     }
     .sidebar {
-        position: relative;
+        position: relative !important;
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
         transform: none;
-        border-radius: 4px;
-        margin-top: 50px;
-        max-width: 700px;
-        margin: auto;
-        border-radius: 0;
-        border-top: 2px solid var(--background-secondary);
+        margin-top: 40px;
+        max-width: calc(100vw - 300px);
+        margin-left: 270px;
+        margin-right: 20px;
+        padding: 30px 0;
         justify-content: space-between;
+        height: auto;
+        border-top: 1px solid var(--background-modifier-border, rgba(255,255,255,0.1));
     }
 
     .sidebar-container {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-start;
+        gap: 40px;
+        height: auto;
     }
 
     .graph {
-        flex: 1;
+        flex: 0 0 auto;
         .graph-title-container {
             justify-content: flex-start;
         }
+    }
+
+    .backlinks {
+        flex: 1;
+        max-width: 300px;
     }
 
     .toc {
         display: none;
     }
 }
-@media (max-width: 800px) {
-    .sidebar-container {
-        display: flex;
-        flex-direction: column-reverse;
+
+@media (max-width: 1000px) {
+    .sidebar {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 700px;
+        padding: 20px;
     }
+
+    .sidebar-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .backlinks {
+        max-width: none;
+    }
+}
+
+// Wrapper that extends to left edge with background color
+.filetree-wrapper {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    background-color: var(--background-secondary);
+    z-index: 10;
+    // Width: space from left edge to content (minus gap)
+    // Tracks the same max() logic as .content margin-left
+    width: calc(
+        max(
+            calc((100vw - var(--dg-content-max-width)) / 2),
+            calc(var(--dg-filetree-min-width) + var(--dg-filetree-gap))
+        ) - var(--dg-filetree-gap)
+    );
+    min-width: var(--dg-filetree-min-width);
+    display: flex;
+    justify-content: flex-end;
 }
 
 .filetree-sidebar {
     margin: 0;
-    z-index: 10;
-    padding: 10px;
-    top: 0px;
-    left: 0;
-    position: fixed;
+    padding: var(--dg-filetree-padding);
     height: 100%;
-    background-color: var(--background-secondary);
     color: var(--text-muted);
-    overflow-y: auto;
-    width: 250px;
+    overflow: hidden;
+    width: var(--dg-filetree-width);
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
     h1 {
-        font-size: 32px !important;
+        font-size: var(--dg-filetree-title-size) !important;
+        flex-shrink: 0;
+    }
+    .search-button {
+        width: 100%;
+        margin: 10px 0;
+        flex-shrink: 0;
+    }
+    > .folder {
+        flex: 1;
+        overflow-y: auto;
+        scrollbar-width: thin;
+    }
+    @media (max-width: 1400px) {
+        .search-button {
+            margin-right: 10px;
+        }
     }
     @media (max-width: 800px) {
         h1 {
@@ -325,6 +681,46 @@ ul.task-list {
             margin: 2px;
         }
     }
+}
+
+// On medium screens, filetree stays but with fixed width
+@media (max-width: 1400px) {
+    .filetree-wrapper {
+        width: var(--dg-filetree-width);
+        justify-content: flex-start;
+    }
+
+    .content {
+        margin-left: calc(var(--dg-filetree-width) + 20px);
+        margin-right: auto;
+        max-width: calc(100vw - var(--dg-filetree-width) - 50px);
+    }
+
+    .content.canvas-page {
+        max-width: none;
+        margin-left: calc(var(--dg-filetree-width) + 20px);
+        margin-right: 20px;
+    }
+}
+
+// On smaller screens, filetree hides (controlled by Alpine.js at 1000px)
+@media (max-width: 1000px) {
+    .content {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: var(--dg-content-max-width);
+    }
+
+    .content.canvas-page {
+        max-width: none;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+// When navbar is shown without filetree, add margin-top to account for fixed navbar
+body.has-navbar .content {
+    margin-top: var(--dg-navbar-height);
 }
 
 .empty-navbar {
@@ -343,7 +739,7 @@ ul.task-list {
 
 .navbar {
     background-color: var(--background-secondary);
-    position: absolute;
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
@@ -353,13 +749,10 @@ ul.task-list {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    @media (max-width: 1400px) {
-        position: fixed;
-    }
 
     @media (max-width: 800px) {
         h1 {
-            font-size: 18px !important;
+            font-size: var(--dg-navbar-title-size-mobile) !important;
         }
     }
 
@@ -367,11 +760,33 @@ ul.task-list {
         display: flex;
         align-items: center;
         cursor: pointer;
+
+        > span {
+            display: flex;
+            align-items: center;
+        }
+
+        h1 {
+            margin: 0 !important;
+            line-height: 1;
+        }
+
+        .site-logo {
+            height: var(--dg-logo-height);
+            width: auto;
+            margin: var(--dg-logo-margin);
+            object-fit: contain;
+
+            @media (max-width: 800px) {
+                height: var(--dg-logo-height-mobile);
+            }
+        }
     }
 
     .search-button {
+        margin-right: var(--dg-navbar-search-margin);
         @media (max-width: 800px) {
-            min-width: 36px;
+            min-width: var(--dg-navbar-search-min-width);
             margin: 10px 25px 10px 25px;
         }
     }
@@ -386,14 +801,24 @@ ul.task-list {
 }
 
 .notelink {
-    padding: 5px 0 5px 25px;
+    position: relative;
+    padding: var(--dg-notelink-padding);
     display: flex;
     align-items: center;
+    font-size: var(--dg-notelink-size);
+    border-left: var(--dg-notelink-border-width) solid transparent;
+    margin-left: -1px;
+
     a {
         &:hover {
             text-decoration: underline !important;
         }
     }
+
+    &:hover {
+        background-color: var(--dg-notelink-hover-bg);
+    }
+
     svg {
         flex-shrink: 0;
     }
@@ -401,29 +826,51 @@ ul.task-list {
 
 .foldername-wrapper {
     cursor: pointer;
-    margin: 4px 0 4px 2px;
+    margin: var(--dg-folder-margin);
+    font-size: var(--dg-notelink-size);
+
+    i, svg {
+        width: var(--dg-folder-icon-size);
+        height: var(--dg-folder-icon-size);
+        opacity: 0.5;
+    }
 }
 
 .inner-folder {
-    padding: 3px 0 3px 10px;
+    padding: var(--dg-inner-folder-padding);
+    margin-left: var(--dg-inner-folder-margin);
+}
+
+// Depth lines on filelist containers (step > 0)
+.filelist {
+    // Fallback for older browsers
+    border-left: 1px solid rgba(128, 128, 128, 0.4);
+    @supports (background: color-mix(in srgb, red 50%, blue)) {
+        border-left: 1px solid color-mix(in srgb, var(--text-muted) 40%, transparent);
+    }
+    margin-left: var(--dg-filelist-margin);
 }
 
 .filename {
-    margin-left: 5px;
+    margin-left: 0;
+}
+
+// Root level notes (direct children of .folder, not inside .filelist)
+.folder > div:not(.filelist) > .notelink {
+    margin-left: 22px;
+    border-left: none;
 }
 
 .notelink.active-note {
-    a {
-        color: var(--text-accent);
-    }
+    border-left-color: var(--text-accent);
 
-    color: var(--text-accent);
-    background-color: var(--background-primary);
-    transform: translateX(10px);
+    .filename {
+        color: var(--text-normal) !important;
+    }
 }
 
 .fullpage-overlay {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--dg-overlay-bg);
     position: absolute;
     top: 0;
     right: 0;
@@ -433,7 +880,7 @@ ul.task-list {
 }
 
 .search-container {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: var(--dg-overlay-bg);
     position: fixed;
     top: 0;
     right: 0;
@@ -442,7 +889,10 @@ ul.task-list {
     z-index: 15;
     height: 100%;
     justify-content: center;
+    align-items: flex-start;
+    padding-top: 80px;
     display: none;
+    overflow-y: auto;
 }
 
 .search-container.active {
@@ -450,97 +900,356 @@ ul.task-list {
 }
 
 .search-box {
-    transform: translateY(100px);
     background-color: var(--background-primary);
-    max-width: 80%;
-    width: 900px;
-    border-radius: 15px;
-    padding: 10px;
-    height: fit-content;
+    max-width: var(--dg-search-box-max-width);
+    width: var(--dg-search-box-width);
+    border-radius: var(--dg-search-box-radius);
+    padding: var(--dg-search-box-padding);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 160px);
+}
+
+.search-header {
+    flex-shrink: 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--dg-search-divider-color);
 }
 
 .search-box input {
     width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 2rem;
-    background-color: var(--background-primary);
+    padding: var(--dg-search-input-padding);
+    border: 1px solid var(--dg-search-divider-color);
+    border-radius: var(--dg-search-input-radius);
+    font-size: var(--dg-search-input-size);
+    background-color: var(--background-secondary);
     color: var(--text-primary);
+    transition: border-color 0.2s ease;
 }
 
 .search-box input:focus {
     outline: none;
+    border-color: var(--text-accent);
 }
 
-#search-results {
-    margin-top: 20px;
-    overflow-y: auto;
-    padding: 20px;
+/* Two-column layout */
+.search-layout {
     display: flex;
-    justify-content: center;
-    max-height: 50vh;
+    flex-direction: row;
+    gap: 0;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    margin-top: 12px;
 }
 
-#search-results .searchresult {
-    margin-bottom: 15px;
-    list-style: none;
+/* Results panel (left) */
+.search-results-panel {
+    width: var(--dg-search-results-width);
+    overflow-y: auto;
+    padding-right: 12px;
+    border-right: 1px solid var(--dg-search-divider-color);
+    flex-shrink: 0;
+    max-height: var(--dg-search-results-max-height);
+}
+
+/* When no results yet, results panel takes full width */
+.search-layout.no-preview .search-results-panel {
+    width: 100%;
+    border-right: none;
+    padding-right: 0;
+}
+
+.search-layout.no-preview .search-preview-panel {
+    display: none;
+}
+
+/* Preview panel (right) */
+.search-preview-panel {
+    width: var(--dg-search-preview-width);
+    overflow-y: auto;
+    padding-left: 16px;
+    flex-grow: 1;
+    max-height: var(--dg-search-results-max-height);
+}
+
+.preview-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 40px;
+
+    i, svg {
+        width: 48px;
+        height: 48px;
+        opacity: 0.3;
+        margin-bottom: 16px;
+    }
+
+    p {
+        font-size: 0.9rem;
+        margin: 0;
+    }
+}
+
+.preview-content {
+    display: none;
+    padding: 8px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+
+    &.has-content {
+        display: block;
+    }
+
+    .preview-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: var(--text-accent);
+    }
+
+    .preview-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 16px;
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            background-color: var(--background-secondary);
+            border-radius: 4px;
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+    }
+
+    .preview-body {
+        color: var(--text-normal);
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+        }
+
+        h1 { font-size: 1.3rem; }
+        h2 { font-size: 1.2rem; }
+        h3 { font-size: 1.1rem; }
+
+        p {
+            margin: 0.5em 0;
+        }
+
+        a {
+            color: var(--text-accent);
+        }
+
+        code {
+            background-color: var(--background-secondary);
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: var(--background-secondary);
+            padding: 12px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        ul, ol {
+            padding-left: 1.5em;
+            margin: 0.5em 0;
+        }
+    }
+}
+
+/* Search results list styling */
+.searchresult {
+    padding: 12px;
+    margin-bottom: 8px;
     background-color: var(--background-secondary);
-    padding: 10px;
-    border-radius: 10px;
-    font-size: 1.2rem;
+    border-radius: var(--dg-search-result-radius);
     cursor: pointer;
+    transition: all 0.15s ease;
+    border: 2px solid transparent;
+
+    &:hover {
+        background-color: var(--background-primary-alt, rgba(255, 255, 255, 0.05));
+    }
 
     &.active {
-        border: 2px solid var(--text-accent);
+        border-color: var(--text-accent);
+        background-color: var(--background-primary-alt, rgba(255, 255, 255, 0.08));
+    }
+}
+
+.result-title {
+    font-size: var(--dg-search-link-size);
+    font-weight: 500;
+    color: var(--text-accent);
+    margin-bottom: 4px;
+    display: block;
+    text-decoration: none;
+}
+
+.result-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 6px;
+
+    .tag {
+        font-size: 0.7rem;
+        padding: 1px 6px;
+        background-color: rgba(255, 255, 255, 0.05);
+        border-radius: 3px;
+        color: var(--text-muted);
+    }
+}
+
+.result-excerpt {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Search term highlighting */
+.search-highlight {
+    background-color: var(--dg-search-highlight-bg);
+    color: var(--dg-search-highlight-color);
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+/* No results state */
+.no-results {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-muted);
+
+    i, svg {
+        width: 48px;
+        height: 48px;
+        opacity: 0.3;
+        margin-bottom: 16px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
 
 .search-box-footer {
     display: flex;
     justify-content: flex-end;
-    margin-top: 10px;
+    gap: 16px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--dg-search-divider-color);
+    flex-shrink: 0;
 }
 
 .navigation-hint {
-    font-size: 1rem;
-    color: var(--text-secondary);
-    margin-right: 20px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    i, svg {
+        width: 14px;
+        height: 14px;
+    }
+}
+
+/* Responsive: Hide preview on mobile */
+@media (max-width: 768px) {
+    .search-layout {
+        flex-direction: column;
+    }
+
+    .search-preview-panel {
+        display: none !important;
+    }
+
+    .search-results-panel {
+        width: 100%;
+        border-right: none;
+        padding-right: 0;
+    }
+
+    .search-box {
+        width: 95%;
+        max-width: 95%;
+        padding: 12px;
+    }
+
+    .result-excerpt {
+        -webkit-line-clamp: 3;
+    }
 }
 
 .search-link {
     display: block;
     margin-bottom: 4px;
-    font-size: 1.4rem;
+    font-size: var(--dg-search-link-size);
 }
 
 .search-button {
     background-color: var(--background-primary);
-    border-radius: 20px;
-    height: 2em;
+    border-radius: var(--dg-search-btn-radius);
+    height: var(--dg-search-btn-height);
     display: flex;
     align-items: center;
-    min-width: 150px;
-    margin: 10px 40px;
-    border: 1px solid var(--text-normal);
+    gap: var(--dg-search-btn-gap);
+    padding: var(--dg-search-btn-padding);
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid var(--background-modifier-border, rgba(255,255,255,0.1));
     cursor: pointer;
-
-    > i {
-        margin-left: 10px;
-    }
+    color: var(--text-muted);
+    font-size: var(--dg-search-btn-font-size);
 
     &:hover {
-        border: 1px solid var(--text-accent);
+        border-color: var(--text-muted);
     }
 
     .search-icon {
         display: flex;
-    }
-}
+        align-items: center;
 
-.search-keys {
-    @media (max-width: 800px) {
-        display: none;
+        svg, i {
+            width: var(--dg-search-btn-icon-size);
+            height: var(--dg-search-btn-icon-size);
+            opacity: 0.7;
+        }
+    }
+
+    .search-text {
+        flex: 1;
+    }
+
+    .search-keys {
+        font-size: 0.7rem;
+        padding: 2px 6px;
+        border-radius: 4px;
+        background-color: rgba(255, 255, 255, 0.08);
+        color: var(--text-faint);
+
+        @media (max-width: 800px) {
+            display: none;
+        }
     }
 }
 
@@ -593,6 +1302,14 @@ ul.task-list {
 
 // Graph Controls
 .graph-title-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9;
+}
+
+#graph-component {
     position: relative;
 }
 
@@ -600,20 +1317,21 @@ ul.task-list {
     position: fixed;
     top: 50%;
     left: 50%;
-    height: calc(100vmin - 100px);
-    width: calc(100vmin - 100px);
-    min-height: 350px;
-    min-width: 350px;
+    width: var(--dg-graph-fullscreen-width);
+    height: var(--dg-graph-fullscreen-height);
+    max-width: 90vw;
+    max-height: 90vh;
     transform: translate(-50%, -50%);
     z-index: 9999;
     display: none;
     background-color: var(--background-secondary);
     border: 1px solid var(--text-accent);
-    border-radius: 5px;
+    border-radius: var(--dg-graph-border-radius);
+    padding: var(--dg-mermaid-padding);
 
     #full-graph-container {
         width: 100%;
-        height: 100%;
+        height: calc(100% - 30px);
     }
 
     #full-graph-close {
@@ -638,59 +1356,107 @@ ul.task-list {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 5px;
-    position: absolute;
-    top: 115%;
-    cursor: pointer;
-    right: 0px;
-    left: 10px;
-    color: var(--text-accent);
+    gap: var(--dg-graph-ctrl-gap);
+    padding: var(--dg-graph-ctrl-padding);
+    background-color: var(--background-primary);
+    border-radius: var(--dg-graph-ctrl-radius);
+    margin: var(--dg-graph-ctrl-margin);
+    color: var(--text-muted);
+    font-size: var(--dg-graph-ctrl-size);
     z-index: 9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 
-    i {
+    i, svg {
         cursor: pointer;
-        padding-right: 10px;
+        width: var(--dg-graph-ctrl-icon-size);
+        height: var(--dg-graph-ctrl-icon-size);
+        opacity: 0.5;
+        &:hover {
+            opacity: 1;
+            color: var(--text-accent);
+        }
+    }
+
+    .ctrl-right {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        margin-left: auto;
+
+        span {
+            display: flex;
+            align-items: center;
+            line-height: 1;
+        }
     }
 
     .depth-control {
         display: flex;
         flex-direction: row;
-        align-items: flex-start;
-        gap: 7px;
+        align-items: center;
+        gap: 8px;
+
+        label {
+            font-size: var(--dg-graph-ctrl-size);
+            opacity: 0.6;
+        }
 
         .slider {
-            datalist {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                font-size: 0.6rem;
-                // padding: 2px 0px;
-                // width: 200px;
+            width: var(--dg-depth-slider-width);
+            display: flex;
+            align-items: center;
+
+            input[type="range"] {
+                width: 100%;
+                height: 4px;
+                -webkit-appearance: none;
+                appearance: none;
+                background: var(--text-muted);
+                border-radius: 2px;
+                outline: none;
+
+                &::-webkit-slider-thumb {
+                    -webkit-appearance: none;
+                    appearance: none;
+                    width: 12px;
+                    height: 12px;
+                    background: var(--text-normal);
+                    border-radius: 50%;
+                    cursor: pointer;
+                }
+
+                &::-moz-range-thumb {
+                    width: 12px;
+                    height: 12px;
+                    background: var(--text-normal);
+                    border-radius: 50%;
+                    cursor: pointer;
+                    border: none;
+                }
             }
 
-            option {
-                padding: 0;
+            datalist {
+                display: none;
             }
         }
 
         #depth-display {
             background-color: var(--text-accent);
-            color: white;
-            width: 1.3rem;
-            height: 1.3rem;
-            font-size: 0.8rem;
+            color: var(--background-primary);
+            min-width: var(--dg-depth-display-size);
+            height: var(--dg-depth-display-size);
+            font-size: 0.65rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 0.3rem;
             border-radius: 50%;
+            font-weight: 600;
         }
     }
 }
 
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    margin-top: -10px;
 }
 
 body.title-note-icon .cm-s-obsidian > header > h1[data-note-icon]::before,
@@ -731,10 +1497,10 @@ body.backlinks-note-icon .backlink[data-note-icon="3"]::before {
 .timestamps {
     display: flex;
     flex-direction: row;
-    font-size: 0.8em;
+    font-size: var(--dg-timestamps-size);
     color: var(--text-muted);
-    gap: 10px;
-    margin-top: 20px;
+    gap: var(--dg-timestamps-gap);
+    margin-top: var(--dg-timestamps-margin-top);
 
     div {
         display: flex;
@@ -897,4 +1663,178 @@ div.dataview-error-box {
 
 .dataview.small-text::after {
 	content: ")";
+}
+
+/*************************/
+/** Canvas Styles       **/
+/*************************/
+
+.canvas-wrapper {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--background-primary);
+    cursor: grab;
+}
+
+.canvas-wrapper:active {
+    cursor: grabbing;
+}
+
+.canvas-wrapper.hide {
+    opacity: 0;
+}
+
+.canvas {
+    position: absolute;
+    transform-origin: 0 0;
+    will-change: transform;
+    z-index: 1;
+}
+
+.canvas-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    color: var(--text-muted);
+}
+
+.canvas-edges-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.canvas-node {
+    position: absolute;
+    border-radius: 4px;
+    background: var(--background-primary);
+    border: 1px solid var(--background-modifier-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.canvas-node.has-color {
+    border-color: var(--canvas-color);
+    border-width: 2px;
+}
+
+.canvas-node-group {
+    background: var(--background-secondary-alt);
+    opacity: 0.6;
+    border-style: dashed;
+}
+
+.canvas-node-group.has-color {
+    // Fallback - uses canvas-color with reduced opacity via rgba if possible
+    background: rgba(128, 128, 128, 0.15);
+    @supports (background: color-mix(in srgb, red 50%, blue)) {
+        background: color-mix(in srgb, var(--canvas-color) 15%, transparent);
+    }
+}
+
+.canvas-node-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.canvas-node-group .canvas-node-container {
+    display: none;
+}
+
+.canvas-node-content {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.canvas-node-text .canvas-node-container {
+    height: 100%;
+}
+
+.canvas-node-text-content {
+    padding: 12px;
+    white-space: pre-wrap;
+}
+
+.canvas-file-iframe,
+.canvas-link-iframe,
+.canvas-youtube-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: var(--background-primary);
+    display: block;
+}
+
+.canvas-node-file .canvas-node-content,
+.canvas-node-link .canvas-node-content {
+    height: 100%;
+    display: flex;
+}
+
+.canvas-node-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.canvas-node-image .canvas-node-container {
+    height: 100%;
+}
+
+.canvas-edge {
+    pointer-events: none;
+}
+
+.canvas-edge-label {
+    font-size: 32px;
+    text-anchor: middle;
+    dominant-baseline: middle;
+}
+
+.canvas.small-scale .canvas-node-label,
+.canvas.small-scale .canvas-node-text-content,
+.canvas.small-scale .canvas-edge-label {
+    display: none;
+}
+
+.canvas-hints {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 16px;
+    padding: 8px 16px;
+    background: var(--background-primary);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    font-size: 13px;
+    color: var(--text-muted);
+    z-index: 10;
+    transition: opacity 0.3s ease;
+}
+
+.canvas-hints.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.canvas-hints kbd {
+    display: inline-block;
+    padding: 2px 6px;
+    font-size: 11px;
+    font-family: inherit;
+    background: var(--background-secondary);
+    border-radius: 4px;
+    border: 1px solid var(--background-modifier-border);
+    margin-right: 4px;
 }
