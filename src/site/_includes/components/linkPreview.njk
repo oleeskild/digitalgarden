@@ -30,6 +30,12 @@
   unicode-bidi: plaintext;
   height: 75px;
 }
+
+.tooltip-pdf {
+  width: 100%;
+  height: 260px;
+  border: 0;
+}
 </style>
 <div style="opacity: 0; display: none;" id='tooltip-wrapper'>
   <div id='tooltip-content'>
@@ -60,24 +66,112 @@
     }, transitionDurationMs)
   }
 
-  function showTooltip(event) {
-    var elem = event.target;
+  function positionTooltip(elem) {
     var elem_props = elem.getClientRects()[elem.getClientRects().length - 1];
-    var top = window.pageYOffset || document.documentElement.scrollTop;
-    var url = event.target.getAttribute("href");
+    var viewportWidth = document.documentElement.clientWidth;
+    var viewportHeight = window.innerHeight;
+    var gap = 12;
+    var edgePadding = 10;
+
+    var spaceAbove = elem_props.top;
+    var spaceBelow = viewportHeight - (elem_props.top + elem_props.height);
+    var spaceLeft = elem_props.left;
+    var spaceRight = viewportWidth - (elem_props.left + elem_props.width);
+
+    // Prefer edge placement away from the pointer: top/bottom and left/right.
+    var placeVertical = spaceBelow >= tooltipWrapper.offsetHeight + gap ? "bottom" : "top";
+    var placeHorizontal = spaceRight >= tooltipWrapper.offsetWidth + gap ? "right" : "left";
+
+    if (placeVertical === "bottom") {
+      tooltipWrapper.style.top = (elem_props.top + elem_props.height + gap) + "px";
+    } else {
+      tooltipWrapper.style.top = (elem_props.top - tooltipWrapper.offsetHeight - gap) + "px";
+    }
+
+    if (placeHorizontal === "right") {
+      tooltipWrapper.style.left = (elem_props.left + elem_props.width + gap) + "px";
+    } else {
+      tooltipWrapper.style.left = (elem_props.left - tooltipWrapper.offsetWidth - gap) + "px";
+    }
+
+    // Clamp to viewport edges.
+    var currentTop = parseFloat(tooltipWrapper.style.top);
+    var currentLeft = parseFloat(tooltipWrapper.style.left);
+
+    if (currentTop < edgePadding) {
+      tooltipWrapper.style.top = edgePadding + "px";
+    } else if (currentTop + tooltipWrapper.offsetHeight + edgePadding > viewportHeight) {
+      tooltipWrapper.style.top = (viewportHeight - tooltipWrapper.offsetHeight - edgePadding) + "px";
+    }
+
+    if (currentLeft < edgePadding) {
+      tooltipWrapper.style.left = edgePadding + "px";
+    } else if (currentLeft + tooltipWrapper.offsetWidth + edgePadding > viewportWidth) {
+      tooltipWrapper.style.left = (viewportWidth - tooltipWrapper.offsetWidth - edgePadding) + "px";
+    }
+  }
+
+  function showTooltip(event) {
+    var elem = event.currentTarget || event.target;
+    if (!elem) return;
+    var url = elem.getAttribute("href");
     if (url.indexOf("http") === -1 || url.indexOf(window.location.host) !== -1) {
+      tooltipWrapper.style.display = 'block';
+      tooltipWrapper.style.opacity = 0;
+      positionTooltip(elem);
+
       let contentURL = url.split('#')[0]
+      if (contentURL.toLowerCase().endsWith(".pdf")) {
+        tooltipContent.innerHTML = '<iframe class="tooltip-pdf" src="' + contentURL + '"></iframe>'
+        tooltipWrapper.scrollTop = 0;
+        setTimeout(function () {
+          positionTooltip(elem);
+          tooltipWrapper.style.opacity = 1;
+        }, 1)
+        return;
+      }
       if (!linkHistories[contentURL]) {
         iframe.src = contentURL
         iframe.onload = function () {
+          let iframeWindow;
+          let iframeDoc;
+          try {
+            iframeWindow = iframe.contentWindow;
+            iframeDoc = iframeWindow ? iframeWindow.document : null;
+          } catch (e) {
+            tooltipContent.innerHTML = '<div>Preview not available for this file.</div>';
+            tooltipWrapper.scrollTop = 0;
+            setTimeout(function () {
+              positionTooltip(elem);
+              tooltipWrapper.style.opacity = 1;
+            }, 1)
+            return;
+          }
+          if (!iframeDoc) {
+            return;
+          }
+
+          const titleEl = iframeDoc.querySelector('h1');
+          const contentEl = iframeDoc.querySelector('.content');
+
           tooltipContentHtml = ''
-          tooltipContentHtml += '<div style="font-weight: bold; unicode-bidi: plaintext;">' + iframe.contentWindow.document.querySelector('h1').innerHTML + '</div>'
-          tooltipContentHtml += iframe.contentWindow.document.querySelector('.content').innerHTML
+          if (titleEl) {
+            tooltipContentHtml += '<div style="font-weight: bold; unicode-bidi: plaintext;">' + titleEl.innerHTML + '</div>'
+          }
+          if (contentEl) {
+            tooltipContentHtml += contentEl.innerHTML
+          } else if (iframeDoc.body) {
+            tooltipContentHtml += iframeDoc.body.innerHTML
+          } else if (iframeDoc.documentElement) {
+            tooltipContentHtml += iframeDoc.documentElement.innerHTML
+          } else {
+            return;
+          }
           tooltipContent.innerHTML = tooltipContentHtml
           linkHistories[contentURL] = tooltipContentHtml
-          tooltipWrapper.style.display = 'block';
           tooltipWrapper.scrollTop = 0;
           setTimeout(function () {
+            positionTooltip(elem);
             tooltipWrapper.style.opacity = 1;
             if (url.indexOf("#") != -1) {
               let id = url.split('#')[1];
@@ -92,8 +186,8 @@
         }
       } else {
         tooltipContent.innerHTML = linkHistories[contentURL]
-        tooltipWrapper.style.display = 'block';
         setTimeout(function () {
+          positionTooltip(elem);
           tooltipWrapper.style.opacity = 1;
           if (url.indexOf("#") != -1) {
               let id = url.split('#')[1];
@@ -111,19 +205,7 @@
         return elem.offsetWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight) - parseFloat(style.borderLeft) - parseFloat(style.borderRight) - parseFloat(style.marginLeft) - parseFloat(style.marginRight);
       }
 
-      tooltipWrapper.style.left = elem_props.left - (tooltipWrapper.offsetWidth / 2) + (elem_props.width / 2) + "px";
-
-      if ((window.innerHeight - elem_props.top) < (tooltipWrapper.offsetHeight)) {
-        tooltipWrapper.style.top = elem_props.top + top - tooltipWrapper.offsetHeight - 10 + "px";
-      } else if ((window.innerHeight - elem_props.top) > (tooltipWrapper.offsetHeight)) {
-        tooltipWrapper.style.top = elem_props.top + top + 35 + "px";
-      }
-
-      if ((elem_props.left + (elem_props.width / 2)) < (tooltipWrapper.offsetWidth / 2)) {
-        tooltipWrapper.style.left = "10px";
-      } else if ((document.body.clientWidth - elem_props.left - (elem_props.width / 2)) < (tooltipWrapper.offsetWidth / 2)) {
-        tooltipWrapper.style.left = document.body.clientWidth - tooltipWrapper.offsetWidth - 20 + "px";
-      }
+      positionTooltip(elem);
     }
   }
 
