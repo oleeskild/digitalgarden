@@ -1,0 +1,46 @@
+<script>
+  window.addEventListener("load", () => {
+    // Add copy buttons to all code blocks (but not mermaid diagrams)
+    document.querySelectorAll(".markdown-rendered pre:has(code)").forEach((preElement) => {
+      // Skip mermaid diagrams
+      if (preElement.classList.contains("mermaid")) {
+        return;
+      }
+
+      const copyButton = document.createElement("button");
+      copyButton.className = "copy-code-button";
+      copyButton.setAttribute("aria-label", "Copy code");
+      copyButton.innerHTML = '<i data-lucide="copy"></i>';
+
+      copyButton.addEventListener("click", async () => {
+        const codeElement = preElement.querySelector("code");
+        const textToCopy = codeElement ? codeElement.textContent : preElement.textContent;
+
+        try {
+          await navigator.clipboard.writeText(textToCopy);
+
+          // Show success feedback
+          copyButton.innerHTML = '<i data-lucide="check"></i>';
+          copyButton.classList.add("copied");
+
+          // Reset after 2 seconds
+          setTimeout(() => {
+            copyButton.innerHTML = '<i data-lucide="copy"></i>';
+            copyButton.classList.remove("copied");
+            lucide.createIcons({ nodes: [copyButton] });
+          }, 2000);
+        } catch (err) {
+          console.error("Failed to copy code:", err);
+        }
+
+        // Re-render icon
+        lucide.createIcons({ nodes: [copyButton] });
+      });
+
+      preElement.appendChild(copyButton);
+    });
+
+    // Initialize icons for the copy buttons
+    lucide.createIcons();
+  });
+</script>

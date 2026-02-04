@@ -1838,3 +1838,8 @@ div.dataview-error-box {
     border: 1px solid var(--background-modifier-border);
     margin-right: 4px;
 }
+
+/* Code block copy button */
+.markdown-rendered button.copy-code-button.copied {
+    color: var(--text-success, #4ade80);
+}
