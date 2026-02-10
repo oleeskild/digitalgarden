@@ -363,7 +363,25 @@ module.exports = function (eleventyConfig) {
     );
   });
 
-  eleventyConfig.addTransform("dataview-js-links", function (str) {
+  eleventyConfig.addFilter("xmlSafe", function(str) {
+    if (!str) return str;
+    // Remove invalid XML characters (0xFFFE, 0xFFFF, etc.)
+    str = str.replace(/\uFFFE|\uFFFF/g, '');
+    // Escape ]]> in content to prevent CDATA issues
+    str = str.replace(/\]\]>/g, ']]&gt;');
+    // Self-close br, hr, and link tags
+    str = str.replace(/<br\s*>/gi, '<br />');
+    str = str.replace(/<hr\s*>/gi, '<hr />');
+    str = str.replace(/<link([^>]*?)(?<!\/)>/gi, '<link$1 />');
+    // Self-close img tags that aren't already self-closed
+    str = str.replace(/<img([^>]*?)(?<!\/)>/gi, '<img$1 />');
+    return str;
+  });
+
+  eleventyConfig.addTransform("dataview-js-links", function (str, outputPath) {
+    if (outputPath && outputPath.endsWith(".xml")) {
+      return str;
+    }
     const parsed = parse(str);
     for (const dataViewJsLink of parsed.querySelectorAll("a[data-href].internal-link")) {
       const notePath = dataViewJsLink.getAttribute("data-href");
@@ -433,7 +451,10 @@ module.exports = function (eleventyConfig) {
     }
   }
 
-  eleventyConfig.addTransform("callout-block", function (str) {
+  eleventyConfig.addTransform("callout-block", function (str, outputPath) {
+    if (outputPath && outputPath.endsWith(".xml")) {
+      return str;
+    }
     const parsed = parse(str);
     transformCalloutBlockquotes(parsed.querySelectorAll("blockquote"));
     return str && parsed.innerHTML;
@@ -474,7 +495,10 @@ module.exports = function (eleventyConfig) {
   }
 
 
-  eleventyConfig.addTransform("picture", function (str) {
+  eleventyConfig.addTransform("picture", function (str, outputPath) {
+    if (outputPath && outputPath.endsWith(".xml")) {
+      return str;
+    }
     if(process.env.USE_FULL_RESOLUTION_IMAGES === "true"){
       return str;
     }
@@ -505,7 +529,10 @@ module.exports = function (eleventyConfig) {
     return str && parsed.innerHTML;
   });
 
-  eleventyConfig.addTransform("table", function (str) {
+  eleventyConfig.addTransform("table", function (str, outputPath) {
+    if (outputPath && outputPath.endsWith(".xml")) {
+      return str;
+    }
     const parsed = parse(str);
     for (const t of parsed.querySelectorAll(".cm-s-obsidian > table")) {
       let inner = t.innerHTML;
@@ -556,7 +583,10 @@ module.exports = function (eleventyConfig) {
   }
 
   // Render markdown in canvas text nodes at build time
-  eleventyConfig.addTransform("canvas-markdown", function (str) {
+  eleventyConfig.addTransform("canvas-markdown", function (str, outputPath) {
+    if (outputPath && outputPath.endsWith(".xml")) {
+      return str;
+    }
     if (!str || !str.includes('data-markdown="')) {
       return str;
     }
