@@ -587,7 +587,7 @@ module.exports = function(eleventyConfig) {
 
   // Render markdown in canvas text nodes at build time
   eleventyConfig.addTransform("canvas-markdown", function(str) {
-    if (!str || !str.includes('data-markdown="') || !isMarkdownPage(this.page.inputPath)) {
+    if (!str || !str.includes('data-markdown="')) {
       return str;
     }
 
