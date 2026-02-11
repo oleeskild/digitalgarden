@@ -1764,6 +1764,12 @@ div.dataview-error-box {
     white-space: pre-wrap;
 }
 
+.canvas-file-content {
+    padding: 12px;
+    overflow: auto;
+    height: 100%;
+}
+
 .canvas-file-iframe,
 .canvas-link-iframe,
 .canvas-youtube-iframe {
