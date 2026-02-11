@@ -211,6 +211,25 @@
         wrapper.addEventListener("dblclick", () => { fitToView(); });
 
         fitToView();
+
+        // Extract content from file node iframes to show inline instead of full page
+        wrapper.querySelectorAll('.canvas-file-iframe').forEach(function(iframe) {
+            iframe.addEventListener('load', function() {
+                try {
+                    var iframeDoc = iframe.contentDocument;
+                    if (!iframeDoc) return;
+                    var contentEl = iframeDoc.querySelector('.content');
+                    if (!contentEl) return;
+                    var rendered = document.createElement('div');
+                    rendered.className = 'canvas-file-content markdown-rendered';
+                    rendered.innerHTML = contentEl.innerHTML;
+                    iframe.parentNode.replaceChild(rendered, iframe);
+                } catch (e) {
+                    // Cross-origin or access error — keep the iframe as-is
+                }
+            });
+        });
+
         wrapper.classList.remove("hide");
 
         } catch (err) {

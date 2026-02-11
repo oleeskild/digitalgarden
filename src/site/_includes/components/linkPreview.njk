@@ -130,6 +130,15 @@
         }, 1)
         return;
       }
+      if (/\.(png|jpg|jpeg|gif|webp|svg)$/i.test(contentURL)) {
+        tooltipContent.innerHTML = '<img src="' + contentURL + '" style="max-width:100%;height:auto;" />'
+        tooltipWrapper.scrollTop = 0;
+        setTimeout(function () {
+          positionTooltip(elem);
+          tooltipWrapper.style.opacity = 1;
+        }, 1)
+        return;
+      }
       if (!linkHistories[contentURL]) {
         iframe.src = contentURL
         iframe.onload = function () {
