@@ -4,7 +4,7 @@
         {% for imp in dynamics.filetree.beforeTitle %}
             {% include imp %}
         {% endfor %}
-        <a href="/" style="text-decoration: none;">
+        <a href="/" style="text-decoration: none; flex: 1; display: flex; justify-content: center;">
             {% if meta.siteLogoPath %}
                 <img class="site-logo" src="{{meta.siteLogoPath}}" alt="{{meta.siteName}}">
             {% else %}

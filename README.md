@@ -157,6 +157,7 @@ You can override the base Obsidian theme color variables directly:
 | `--dg-logo-height` | `40px` | Site logo height on desktop |
 | `--dg-logo-height-mobile` | `32px` | Site logo height on mobile |
 | `--dg-logo-margin` | `10px 15px` | Site logo margin |
+| `--dg-filetree-logo-height` | `70px` | Site logo height in filetree sidebar |
 
 #### Note Link / Filetree Item Variables
 

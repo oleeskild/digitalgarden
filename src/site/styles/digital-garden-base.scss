@@ -91,6 +91,7 @@ body {
     --dg-logo-height: 40px;
     --dg-logo-height-mobile: 32px;
     --dg-logo-margin: 10px 15px;
+    --dg-filetree-logo-height: 70px;
 
     /* Note Link / File Tree Item Variables */
     --dg-notelink-padding: 4px 8px 4px 12px;
@@ -655,6 +656,11 @@ body:has(.content.canvas-page) .sidebar {
     h1 {
         font-size: var(--dg-filetree-title-size) !important;
         flex-shrink: 0;
+    }
+    .site-logo {
+        height: var(--dg-filetree-logo-height);
+        width: auto;
+        object-fit: contain;
     }
     .search-button {
         width: 100%;
