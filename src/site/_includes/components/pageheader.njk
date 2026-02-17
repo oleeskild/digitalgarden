@@ -1,4 +1,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+{% if metatags %}
+    {% for name, content in metatags %}
+        {% if name.includes("og:") %}
+          <meta property="{{ name }}" content="{{ content }}">
+        {% else %}
+          <meta name="{{ name }}" content="{{ content }}">
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
 <script async type="module">
     import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
 </script>
@@ -29,12 +40,6 @@
 {%- endfor -%}
 
 {% favicons './src/site/favicon.svg', appleIconBgColor='#123' %}
-
-{% if metatags %}
-    {% for name, content in metatags %}
-        <meta name="{{ name }}" content="{{ content }}">
-    {% endfor %}
-{% endif %}
 
 {% if meta.styleSettingsCss %}
     <style>
