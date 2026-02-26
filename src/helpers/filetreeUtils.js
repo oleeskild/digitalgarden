@@ -112,7 +112,7 @@ function getPermalinkMeta(note, key) {
       } else {
         folders = []; // Handle unexpected cases gracefully
       }
-    }    
+    }
     folders[folders.length - 1]+= ".md";
   } catch {
     //ignore
