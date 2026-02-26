@@ -7,7 +7,7 @@ eleventyExcludeFromCollections: true
     {% for page in collections.all %}
         <url>
             <loc>{{ meta.siteBaseUrl }}{{ page.url | url }}</loc>
-            <lastmod>{{ page.date | dateToZulu }}</lastmod>
+            <lastmod>{%if page.data.updated %}{{ page.data.updated | dateToZulu }}{%else%}{{ page.date | dateToZulu }}{%endif%}</lastmod>
         </url>
     {% endfor %}
 </urlset>
