@@ -252,7 +252,7 @@
             .replace(/n\u0303/g, "ñ")
             // áéíóúü -> aeiouu
             .replace(/[\u0300-\u036f]/g, "")
-            // recompone Unicode
+            // Recompose Unicode
             .normalize("NFC");
 
         const encoder = (str) => normalizeForSearch(str)
