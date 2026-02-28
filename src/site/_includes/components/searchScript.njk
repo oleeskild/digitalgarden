@@ -63,7 +63,7 @@
 
     function setCorrectShortcut() {
         if (navigator.platform.toUpperCase().indexOf('MAC') >= 0) {
-            document.querySelectorAll(".search-keys").forEach(x => x.innerHTML = "⌘K");
+            document.querySelectorAll(".search-keys").forEach(x => x.innerHTML = "<code>⌘</code>&nbsp;+&nbsp;<code>K</code>");
         }
     }
 
