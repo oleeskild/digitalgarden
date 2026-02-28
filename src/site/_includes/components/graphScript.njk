@@ -37,6 +37,9 @@
         if (!currentNode) {
             currentNode = Object.values(remaining).find((v) => v.home);
         }
+        if (!currentNode) {
+            return null;
+        }
         delete remaining[currentNode.url];
         if (!currentNode.home) {
             let home = Object.values(remaining).find((v) => v.home);
