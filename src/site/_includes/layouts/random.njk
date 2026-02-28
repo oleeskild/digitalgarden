@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="{{ meta.mainLanguage }}">
+  <head>
+    <title>Random Page</title>
+    {% include "components/pageheader.njk" %}
+    <script>
+      // Get all published notes and redirect to a random one
+      const publishedNotes = [
+        {% for note in collections.note %}
+          {% if note.data['dg-publish'] %}
+            "{{ note.url }}",
+          {% endif %}
+        {% endfor %}
+      ];
+
+      if (publishedNotes.length > 0) {
+        const randomIndex = Math.floor(Math.random() * publishedNotes.length);
+        const randomUrl = publishedNotes[randomIndex];
+        window.location.href = randomUrl;
+      } else {
+
+        // Fallback to home if no notes found
+        window.location.href = '/';
+      }
+    </script>
+  </head>
+  
+  <body class="theme-{{meta.baseTheme}} markdown-preview-view markdown-rendered markdown-preview-section {{meta.bodyClasses}}">
+    <main class="content cm-s-obsidian">
+      <header>
+        <h1>Redirecting to Random Page...</h1>
+        <p>You are being redirected to a random page on the site!</p>
+      </header>
+      <div>
+        <p>If you are not redirected automatically, <a href="/">click here to go home</a>.</p>
+      </div>
+    </main>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    {% include "components/lucideIcons.njk" %}
+  </body>
+</html>
