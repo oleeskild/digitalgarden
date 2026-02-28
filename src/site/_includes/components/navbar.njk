@@ -9,6 +9,12 @@
                 {% endif %}
             </a>
         </div>
+        {% for imp in dynamics.common.navbar %}
+            {% include imp %}
+        {% endfor %}
+        {% for imp in dynamics.notes.navbar %}
+            {% include imp %}
+        {% endfor %}
         {% if settings.dgEnableSearch === true%}
             {% include "components/searchButton.njk" %}
         {%endif%}
@@ -18,5 +24,11 @@
         {% if settings.dgEnableSearch === true%}
             {% include "components/searchButton.njk" %}
         {%endif%}
+        {% for imp in dynamics.common.navbar %}
+            {% include imp %}
+        {% endfor %}
+        {% for imp in dynamics.notes.navbar %}
+            {% include imp %}
+        {% endfor %}
     </div>
 {%endif%}
