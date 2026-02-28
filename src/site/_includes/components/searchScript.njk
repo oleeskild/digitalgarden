@@ -244,7 +244,19 @@
     // ===== FlexSearch Index =====
 
     function createIndex(posts) {
-        const encoder = (str) => str.toLowerCase().split(/([^a-z]|[^\x00-\x7F])/);
+        const normalizeForSearch = (str) => str
+            .toLowerCase()
+            // á -> a +  ́
+            .normalize("NFD")
+            // n~ -> ñ
+            .replace(/n\u0303/g, "ñ")
+            // áéíóúü -> aeiouu
+            .replace(/[\u0300-\u036f]/g, "")
+            // recompone Unicode
+            .normalize("NFC");
+
+        const encoder = (str) => normalizeForSearch(str)
+            .split(/([^a-z]|[^\x00-\x7F])/);
         const contentIndex = new FlexSearch.Document({
             cache: true,
             charset: "latin:extra",
