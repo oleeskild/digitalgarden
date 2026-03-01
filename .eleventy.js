@@ -7,7 +7,6 @@ const tocPlugin = require("eleventy-plugin-nesting-toc");
 const { parse } = require("node-html-parser");
 const htmlMinifier = require("html-minifier-terser");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
-const tex2svg = require("node-tikzjax").default;
 
 const { headerToId, namedHeadingsFilter } = require("./src/helpers/utils");
 const {
@@ -507,32 +506,12 @@ module.exports = function (eleventyConfig) {
     return str && parsed.innerHTML;
   });
 
-  eleventyConfig.addTransform("htmlMinifier", async (content, outputPath) => {
-    if (
-      (process.env.NODE_ENV === "production" || process.env.ELEVENTY_ENV === "prod") &&
-      outputPath &&
-      outputPath.endsWith(".html")
-    ) {
-      try {
-        return await htmlMinifier.minify(content, {
-          useShortDoctype: true,
-          removeComments: true,
-          collapseWhitespace: true,
-          conservativeCollapse: true,
-          preserveLineBreaks: true,
-          minifyCSS: true,
-          minifyJS: true,
-          keepClosingSlash: true,
-        });
-      } catch {
-        // If the html minifying fails for some reason due to some malformed text, just return the content as is.
-        return content;
-      }
-    }
-    return content;
-  });
-
   eleventyConfig.addTransform("render-tikzjax", (() => {
+    // Lazy loading to save resources.
+    const tex2svg = require("node-tikzjax").default;
+
+    // Serialize renderings.
+    // Running node-tikzjax instances concurrently is problematic. See: https://github.com/prinsss/node-tikzjax/blob/main/README.md
     let tikzQueue = Promise.resolve();
 
     // https://github.com/artisticat1/obsidian-tikzjax/blob/main/main.ts
@@ -576,20 +555,56 @@ module.exports = function (eleventyConfig) {
           const svg = await run;
 
           const svgElement = parse(svg)
-            .querySelector("svg")                                   // after zooming some pictures could go wrong,
-            .setAttribute("style", "margin:auto; display:block;");  // e.g. oleeskild/obsidian-digital-garden#667
-          block.replaceWith(svgElement);
+            .querySelector("svg");
+          if (svgElement) {
+            // Zooming would result in other TikZ diagrams being overlapped or partly invisible.
+            svgElement.setAttribute("style", "margin:auto; display:block;");  // e.g. oleeskild/obsidian-digital-garden#667
+            block.replaceWith(svgElement);
+          }
         } catch (e) {
           console.warn("\n[TikZJax] render failed at:", outputPath);
           console.warn("[TikZJax] TeX source (first 400 chars):\n", texSource.slice(0, 400));
           console.warn("[TikZJax] Warn:", e);
-          block.replaceWith(`<pre><code class="language-tikz">TikZ render failed. See build log.\n\n${(texSource)}</code></pre>`);
+          // Escape texSource to be interpreted as HTML properly.
+          // https://stackoverflow.com/a/7382028
+          const texSource_escaped = texSource
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#39;");
+          block.replaceWith(`<pre><code class="language-tikz">TikZ render failed. See build log.\n\n${(texSource_escaped)}</code></pre>`);
         }
       }
 
       return root.toString();
     };
   })());
+
+  eleventyConfig.addTransform("htmlMinifier", async (content, outputPath) => {
+    if (
+      (process.env.NODE_ENV === "production" || process.env.ELEVENTY_ENV === "prod") &&
+      outputPath &&
+      outputPath.endsWith(".html")
+    ) {
+      try {
+        return await htmlMinifier.minify(content, {
+          useShortDoctype: true,
+          removeComments: true,
+          collapseWhitespace: true,
+          conservativeCollapse: true,
+          preserveLineBreaks: true,
+          minifyCSS: true,
+          minifyJS: true,
+          keepClosingSlash: true,
+        });
+      } catch {
+        // If the html minifying fails for some reason due to some malformed text, just return the content as is.
+        return content;
+      }
+    }
+    return content;
+  });
 
   eleventyConfig.addPassthroughCopy("src/site/img");
   eleventyConfig.addPassthroughCopy("src/site/scripts");
