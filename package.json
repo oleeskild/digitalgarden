@@ -24,7 +24,7 @@
         "@11ty/eleventy-plugin-rss": "^2.0.4",
         "cross-env": "^7.0.3",
         "html-minifier-terser": "^7.2.0",
-        "node-html-parser": "^6.1.13",
+        "node-html-parser": "^7.0.2",
         "sass": "^1.49.9"
     },
     "dependencies": {
