@@ -1,5 +1,5 @@
 ---
 layout: layouts/random.njk
-permalink: /random/
+permalink: /~random/
 eleventyExcludeFromCollections: true
 ---
