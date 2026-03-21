@@ -24,7 +24,9 @@
         "src/helpers/userUtils.js",
         "src/helpers/userSetup.js",
         "vercel.json",
-        "netlify.toml"
+        "netlify.toml",
+        "src/site/_includes/layouts/random.njk",
+        "src/site/random.md"
     ],
     "filesToModify": [
         ".eleventy.js",
