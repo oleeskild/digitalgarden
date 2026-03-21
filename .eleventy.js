@@ -302,8 +302,7 @@ module.exports = function (eleventyConfig) {
     return content
       .replace(/<[^>]*>/g, '')
       .replace(/\s+/g, ' ')
-      .trim()
-      .substring(0, 500);
+      .trim();
   });
 
   eleventyConfig.addFilter("searchableTags", function (str) {
