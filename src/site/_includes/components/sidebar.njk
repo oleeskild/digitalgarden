@@ -9,7 +9,7 @@
                   {%endif%}
 
                   {%if settings.dgShowToc === true%}
-                        {%set tocHtml= (content and (content|toc)) %}
+                        {%set tocHtml= (content and (content | hideDataview | link | toc)) %}
                         {%if tocHtml %}
                               <div class="toc">
                                     <div class="toc-title-container">

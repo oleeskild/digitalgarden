@@ -36,9 +36,15 @@
         {% for imp in dynamics.filetree.beforeTitle %}
             {% include imp %}
         {% endfor %}
-         <a href="/" style="text-decoration: none;">
-               <h1 style="text-align:center;">{{meta.siteName}}</h1>
+         {% if meta.siteLogoPath %}
+         <a href="/" style="text-decoration: none; display: flex; justify-content: center;">
+                   <img class="site-logo" src="{{meta.siteLogoPath}}" alt="{{meta.siteName}}">
          </a>
+         {% else %}
+         <a href="/" style="text-decoration: none; text-align: center;">
+                   <h1 style="text-align:center;">{{meta.siteName}}</h1>
+         </a>
+         {% endif %}
          {% for imp in dynamics.filetree.afterTitle %}
             {% include imp %}
         {% endfor %}
