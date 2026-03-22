@@ -351,7 +351,22 @@ module.exports = function(eleventyConfig) {
 
   eleventyConfig.addFilter("searchableTags", function(str) {
     let tags;
-    let match = str && str.match(tagRegex);
+    const searchableContent = str
+      ? (() => {
+        // Ignore HTML comments so commented-out tags are never indexed.
+        const withoutComments = str.replace(/<!--[\s\S]*?-->/g, " ");
+        const parsed = parse(withoutComments);
+
+        // Ignore content that is not part of normal readable note text.
+        // This keeps behavior closer to Obsidian tag semantics.
+        parsed.querySelectorAll("pre, code, a, script, style, noscript").forEach((node) => {
+          node.remove();
+        });
+
+        return parsed.text;
+      })()
+      : str;
+    let match = searchableContent && searchableContent.match(tagRegex);
     if (match) {
       tags = match
         .map((m) => {
