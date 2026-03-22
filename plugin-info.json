@@ -26,7 +26,15 @@
         "vercel.json",
         "netlify.toml",
         "src/site/_includes/layouts/random.njk",
-        "src/site/random.md"
+        "src/site/random.md",
+        "src/helpers/bases-engine/index.js",
+        "src/helpers/bases-engine/exprParser.js",
+        "src/helpers/bases-engine/exprEval.js",
+        "src/helpers/bases-engine/queryEngine.js",
+        "src/helpers/bases-engine/views.js",
+        "src/helpers/basesPlugin.js",
+        "src/site/_includes/components/basesScript.njk",
+        "src/site/styles/obsidian-bases.scss"
     ],
     "filesToModify": [
         ".eleventy.js",

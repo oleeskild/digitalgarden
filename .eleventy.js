@@ -13,6 +13,7 @@ const {
   userMarkdownSetup,
   userEleventySetup,
 } = require("./src/helpers/userSetup");
+const { basesPlugin } = require("./src/helpers/basesPlugin");
 
 const Image = require("@11ty/eleventy-img");
 function transformImage(src, cls, alt, sizes, widths = ["500", "700", "auto"]) {
@@ -140,6 +141,7 @@ module.exports = function(eleventyConfig) {
       closeMarker: "```",
     })
     .use(namedHeadingsFilter)
+    .use(basesPlugin)
     .use(function(md) {
       //https://github.com/DCsunset/markdown-it-mermaid-plugin
       const origFenceRule =
