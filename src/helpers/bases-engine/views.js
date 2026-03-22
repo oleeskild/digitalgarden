@@ -249,7 +249,7 @@ function renderTable(view, properties) {
 
 	if (groups) {
 		let html = '<div class="obsidian-base-table-wrapper">';
-		html += "<table><thead><tr>";
+		html += '<table class="obsidian-base-table"><thead><tr>';
 		for (const col of columns) {
 			html += `<th>${escapeHtml(getDisplayName(col, properties))}</th>`;
 		}
@@ -280,7 +280,7 @@ function renderTable(view, properties) {
 }
 
 function buildTable(columns, rows, properties) {
-	let html = "<table><thead><tr>";
+	let html = '<table class="obsidian-base-table"><thead><tr>';
 	for (const col of columns) {
 		html += `<th>${escapeHtml(getDisplayName(col, properties))}</th>`;
 	}
@@ -485,7 +485,7 @@ function renderViews(queryResult, allNotes) {
 		let html = '<div class="obsidian-bases-views">';
 		html += '<div class="obsidian-bases-toolbar">';
 		html += `<span class="obsidian-bases-single-view-name">${viewTypeIcon(view.config.type)} ${escapeHtml(view.config.name)}</span>`;
-		html += `<span class="obsidian-bases-result-count">${rowCount} results</span>`;
+		html += ` <span class="obsidian-bases-result-count">${rowCount} results</span>`;
 		html += '</div>';
 		html += renderedPanels[0];
 		html += '</div>';
@@ -519,7 +519,7 @@ function renderViews(queryResult, allNotes) {
 	html += "</div></div>";
 
 	// Result count
-	html += `<span class="obsidian-bases-result-count"><span class="obsidian-bases-count-value">${rowCount}</span> results</span>`;
+	html += ` <span class="obsidian-bases-result-count"><span class="obsidian-bases-count-value">${rowCount}</span> results</span>`;
 	html += "</div>";
 
 	// View panels

@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Update result count
         if (countEl && target) {
-          var rows = target.querySelectorAll("tbody tr, .obsidian-base-card, .obsidian-base-list li");
+          var rows = target.querySelectorAll("tbody tr:not(.obsidian-base-group-row), .obsidian-base-card, .obsidian-base-list li");
           countEl.textContent = rows.length;
         }
 

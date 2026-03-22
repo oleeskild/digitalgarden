@@ -8,8 +8,10 @@ const iframeSrcRegex = /<iframe[^>]*?src="(\/[^"#]*)"[^>]*?class="canvas-file-if
 const basesBlockRegex = /```base\n([\s\S]*?)```/g;
 
 let basesEngine = null;
+let clearRenderCache = null;
 try {
   basesEngine = require("./bases-engine");
+  clearRenderCache = require("./basesPlugin").clearRenderCache;
 } catch (e) {
   // bases-engine not available, skip bases link extraction
 }
@@ -97,8 +99,9 @@ async function getGraph(data) {
 
   const notes = data.collections.note || [];
 
-  // Clear cache from any previous build (e.g. --watch mode)
+  // Clear caches from any previous build (e.g. --watch mode)
   basesQueryCache.clear();
+  if (clearRenderCache) clearRenderCache();
 
   // --- Pass 1: Read content, extract wikilinks/internal links, build nodes ---
   const noteContents = [];
