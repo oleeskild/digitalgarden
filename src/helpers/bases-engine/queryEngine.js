@@ -22,7 +22,7 @@ function getUserProperty(metadata, key) {
 function executeBaseQuery(yamlContent, notes) {
 	let parsed;
 	try {
-		parsed = yaml.parse(yamlContent);
+		parsed = yaml.parse(yamlContent.replace(/\\\|/g, "|"));
 	} catch (err) {
 		throw new Error("Failed to parse YAML: " + err.message);
 	}

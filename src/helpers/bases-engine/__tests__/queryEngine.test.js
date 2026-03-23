@@ -550,6 +550,50 @@ views:
 		});
 	});
 
+	describe("wiki-link pipe escaping", () => {
+		it("parses YAML containing \\| escape sequences from Obsidian wiki-links", () => {
+			const yaml = `
+filters:
+  - 'file.hasTag("book")'
+views:
+  - type: table
+    name: "Links with aliases"
+`;
+			// Notes with metadata containing wiki-link aliases (as Obsidian writes them)
+			const notesWithLinks = [
+				{
+					path: "Glossario/HTML.md",
+					url: "/notes/html/",
+					metadata: {
+						tags: ["book"],
+						children: '[[Glossario/CSS\\|CSS]]',
+					},
+					fileSlug: "html",
+				},
+			];
+			const result = executeBaseQuery(yaml, notesWithLinks);
+			expect(result.views[0].rows).toHaveLength(1);
+		});
+
+		it("handles \\| in filter expressions within double-quoted YAML strings", () => {
+			// This simulates a base query that itself contains \| in a double-quoted value
+			const yaml = 'views:\n  - type: table\n    name: "Test \\|"\n';
+			const result = executeBaseQuery(yaml, testNotes);
+			expect(result.views[0].config.name).toBe("Test |");
+			expect(result.views[0].rows).toHaveLength(6);
+		});
+
+		it("handles multiple \\| occurrences in YAML", () => {
+			const yaml = `
+views:
+  - type: table
+    name: "[[Page\\|Alias]] and [[Other\\|Link]]"
+`;
+			const result = executeBaseQuery(yaml, testNotes);
+			expect(result.views[0].config.name).toBe("[[Page|Alias]] and [[Other|Link]]");
+		});
+	});
+
 	describe("error handling", () => {
 		it("throws on missing views array", () => {
 			const yaml = `
