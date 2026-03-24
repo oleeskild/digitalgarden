@@ -350,7 +350,7 @@ ul.task-list {
     height: 100%;
     min-width: var(--dg-sidebar-min-width);
     display: flex;
-    z-index: 3;
+    z-index: 11;
     max-width: var(--dg-sidebar-max-width);
 
     .graph {
