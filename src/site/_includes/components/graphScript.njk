@@ -469,11 +469,11 @@ function openExpandedLocal() {
 }
 
 function closeFullGraph() {
+    document.getElementById('full-graph').style.display = 'none';
     if (globalGraphCleanup) {
         globalGraphCleanup();
         globalGraphCleanup = null;
     }
-    document.getElementById('full-graph').style.display = 'none';
 }
 
 // Expose to Alpine
@@ -492,7 +492,7 @@ init();
         </div>
     </div>
     <div id="link-graph"></div>
-    <div x-show="showFullGraph" id="full-graph" class="show" style="display: none;">
+    <div x-show="showFullGraph" id="full-graph" class="show" style="display: none;" x-on:click.self="window.__graph.closeFullGraph(); showFullGraph = false;">
         <span id="full-graph-close" x-on:click="window.__graph.closeFullGraph(); showFullGraph = false;"><i data-lucide="x" aria-hidden="true"></i></span>
         <div id="full-graph-container"></div>
     </div>
