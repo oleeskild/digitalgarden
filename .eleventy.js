@@ -172,6 +172,26 @@ module.exports = function(eleventyConfig) {
           const code = token.content.trim();
           return `<div class="transclusion">${md.render(code)}</div>`;
         }
+        if (token.info === "gist") {
+          const code = token.content.trim();
+          // Support multiple gist references, one per line
+          const gistLines = code.split('\n').filter(line => line.trim());
+
+          const scripts = gistLines.map(line => {
+            line = line.trim();
+            // Parse format: [username/]gist-id[#filename]
+            const parts = line.split('#');
+            const gistPath = parts[0];
+            const filename = parts[1] || '';
+
+            // Build the GitHub Gist embed URL
+            const gistUrl = `https://gist.github.com/${gistPath}.js`;
+            const scriptUrl = filename ? `${gistUrl}?file=${encodeURIComponent(filename)}` : gistUrl;
+
+            return `<script src="${scriptUrl}"></script>`;
+          });
+          return scripts.join('\n');
+        }
         if (token.info.startsWith("ad-")) {
           const code = token.content.trim();
           const parts = code.split("\n")
