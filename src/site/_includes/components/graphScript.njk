@@ -478,6 +478,12 @@ function closeFullGraph() {
 
 // Expose to Alpine
 window.__graph = { openFullGraph, closeFullGraph, openExpandedLocal, rerenderLocal: renderLocal };
+
+// Re-render when the style editor changes CSS variables
+document.addEventListener('forestry:css-changed', function() {
+    if (graphDataCache) renderLocal();
+});
+
 init();
 </script>
 
