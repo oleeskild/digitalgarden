@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/alec/digital-garden/additional-security-for-vpn-client-server-access-to-local-llm-1/","tags":["molecule"],"created":"2026-01-22T14:05:33.781+00:00","updated":"2025-09-03T15:25:43.769+01:00"}
+{"dg-publish":true,"permalink":"/alec/digital-garden/additional-security-for-vpn-client-server-access-to-local-llm-1/","tags":["molecule"],"dg-note-properties":{"tags":["molecule"],"aliases":["additional security measures"],"source":"Perplexity","created":"2025-08-24"}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[Alec/Digital-Garden/Digital Garden\|Digital Garden]] 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/alec/digital-garden/a-search-engine-for-ideas/","created":"2026-03-14T14:28:01.944+00:00","updated":"2026-03-14T14:28:01.944+00:00"}
+{"dg-publish":true,"permalink":"/alec/digital-garden/a-search-engine-for-ideas/","dg-note-properties":{"aliases":null}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[Alec/Digital-Garden/Digital Garden\|Digital Garden]]

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/alec/digital-garden/example-of-the-programme-approach/","created":"2026-01-22T14:05:33.797+00:00","updated":"2025-08-20T12:35:31.300+01:00"}
+{"dg-publish":true,"permalink":"/alec/digital-garden/example-of-the-programme-approach/","dg-note-properties":{"aliases":["policy framework example"]}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[Alec/Digital-Garden/Digital Garden\|Digital Garden]] 

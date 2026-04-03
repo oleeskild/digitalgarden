@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/alec/digital-garden/is-this-what-people-think-it-is-1/","tags":["digital-garden"],"created":"2026-03-08T10:59:29.227+00:00","updated":"2026-03-08T12:24:09.357+00:00"}
+{"dg-publish":true,"permalink":"/alec/digital-garden/is-this-what-people-think-it-is-1/","tags":["digital-garden"],"dg-note-properties":{"created":"2026-03-08","categories":["[[Mike Caulfield]]","[[Prompts]]","[[Fact checking]]"],"tags":["digital-garden"]}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[Alec/Digital-Garden/Digital Garden\|Digital Garden]] 

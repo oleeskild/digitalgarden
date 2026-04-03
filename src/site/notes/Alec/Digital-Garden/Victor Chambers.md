@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/alec/digital-garden/victor-chambers/","created":"2026-01-28T18:26:36.473+00:00","updated":"2026-02-02T16:16:53.709+00:00"}
+{"dg-publish":true,"permalink":"/alec/digital-garden/victor-chambers/","dg-note-properties":{"created":"2026-01-28","categories":["[[Stanley Victor James Chambers]]","[[The Hungary File - 00 Contents]]"],"tags":null,"aliases":["Victor Chambers Biography"]}}
 ---
 
 # Biography: Stanley Victor James Chambers, OBE (1887–1954)

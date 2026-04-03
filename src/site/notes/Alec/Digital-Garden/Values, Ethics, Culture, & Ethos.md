@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/alec/digital-garden/values-ethics-culture-and-ethos/","created":"2026-01-22T14:05:33.844+00:00","updated":"2025-12-31T10:59:00.275+00:00"}
+{"dg-publish":true,"permalink":"/alec/digital-garden/values-ethics-culture-and-ethos/","dg-note-properties":{"aliases":["values, ethics, culture, and ethos","ethos of caring"]}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[Alec/Digital-Garden/Digital Garden\|Digital Garden]] 

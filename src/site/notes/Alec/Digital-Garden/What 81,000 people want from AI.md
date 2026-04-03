@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/alec/digital-garden/what-81-000-people-want-from-ai/","created":"2026-03-20T09:50:06.077+00:00","updated":"2026-03-20T09:55:06.995+00:00"}
+{"dg-publish":true,"permalink":"/alec/digital-garden/what-81-000-people-want-from-ai/","dg-note-properties":{"aliases":null}}
 ---
 
 # What 81,000 People Want from AI

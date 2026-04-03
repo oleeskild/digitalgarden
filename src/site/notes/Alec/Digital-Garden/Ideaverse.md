@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/alec/digital-garden/ideaverse/","tags":["digital-garden"],"created":"2026-01-22T14:05:33.812+00:00","updated":"2026-03-14T20:23:47.036+00:00"}
+{"dg-publish":true,"permalink":"/alec/digital-garden/ideaverse/","tags":["digital-garden"],"dg-note-properties":{"aliases":["workspace for the brain","ideaverse"],"tags":["digital-garden"]}}
 ---
 
 

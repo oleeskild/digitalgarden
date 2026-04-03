@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/alec/digital-garden/phain-structure-for-project-instructions/","created":"2026-01-22T14:05:33.812+00:00","updated":"2025-08-17T10:39:39.187+01:00"}
+{"dg-publish":true,"permalink":"/alec/digital-garden/phain-structure-for-project-instructions/","dg-note-properties":{"aliases":["structure for project instructions"]}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[Alec/Digital-Garden/Digital Garden\|Digital Garden]] 

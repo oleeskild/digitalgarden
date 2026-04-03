@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/alec/digital-garden/using-ai-with-your-second-brain/","created":"2026-01-22T14:05:33.844+00:00","updated":"2025-08-21T23:28:42.209+01:00"}
+{"dg-publish":true,"permalink":"/alec/digital-garden/using-ai-with-your-second-brain/","dg-note-properties":{"aliases":null}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[Alec/Digital-Garden/Digital Garden\|Digital Garden]] 

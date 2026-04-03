@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/alec/notes/2025-11-06-101131-ai-embedded-business/","title":"2025-11-06-101131 AI-embedded business","created":"2026-01-22T14:05:26.107+00:00","updated":"2025-12-31T10:58:20.625+00:00"}
+{"dg-publish":true,"permalink":"/alec/notes/2025-11-06-101131-ai-embedded-business/","title":"2025-11-06-101131 AI-embedded business","dg-note-properties":{"title":"2025-11-06-101131 AI-embedded business","description":null,"aliases":["AI-embedded business"],"reference":null,"created":"2025-11-06","topics":null,"content-type":null,"tags":null}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[Alec/Digital-Garden/Digital Garden\|Digital Garden]] 

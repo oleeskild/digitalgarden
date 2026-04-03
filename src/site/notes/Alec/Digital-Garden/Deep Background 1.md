@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/alec/digital-garden/deep-background-1/","tags":["digital-garden"],"created":"2026-03-08T10:53:34.707+00:00","updated":"2026-03-08T12:36:15.921+00:00"}
+{"dg-publish":true,"permalink":"/alec/digital-garden/deep-background-1/","tags":["digital-garden"],"dg-note-properties":{"created":"2026-03-08","categories":["[[Mike Caulfield]]","[[Prompts]]","[[Fact checking]]"],"tags":["digital-garden"]}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[Alec/Digital-Garden/Digital Garden\|Digital Garden]] 

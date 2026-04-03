@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/alec/digital-garden/victor-chambers-and-the-allied-control-commission/","created":"2026-01-28T18:36:58.192+00:00","updated":"2026-01-30T11:04:51.023+00:00"}
+{"dg-publish":true,"permalink":"/alec/digital-garden/victor-chambers-and-the-allied-control-commission/","dg-note-properties":{"created":"2026-01-28","categories":["[[Stanley Victor James Chambers]]","[[The Hungary File - 00 Contents]]"],"tags":null,"aliases":["Victor Chambers and the Allied Control Commission"]}}
 ---
 
 [[Alec/Digital-Garden/Victor Chambers\|Victor Chambers]]

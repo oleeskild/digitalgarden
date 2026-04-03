@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/alec/digital-garden/refined-key-questions-for-the-literature-review/","created":"2026-01-22T14:05:33.828+00:00","updated":"2025-08-17T14:28:02.104+01:00"}
+{"dg-publish":true,"permalink":"/alec/digital-garden/refined-key-questions-for-the-literature-review/","dg-note-properties":{"aliases":["key questions for the literature review"]}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[Alec/Digital-Garden/Digital Garden\|Digital Garden]] 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/alec/digital-garden/the-distinction-between-project-instructions-and-project-files/","created":"2026-01-22T14:05:33.844+00:00","updated":"2025-08-17T10:51:47.002+01:00"}
+{"dg-publish":true,"permalink":"/alec/digital-garden/the-distinction-between-project-instructions-and-project-files/","dg-note-properties":{"aliases":["distinction between Project Instructions and Project Files"]}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[Alec/Digital-Garden/Digital Garden\|Digital Garden]] 

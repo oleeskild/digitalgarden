@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/alec/digital-garden/team-approach-to-literature-review/","created":"2026-01-22T14:05:33.844+00:00","updated":"2025-08-14T11:23:26.221+01:00"}
+{"dg-publish":true,"permalink":"/alec/digital-garden/team-approach-to-literature-review/","dg-note-properties":{}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[Alec/Digital-Garden/Digital Garden\|Digital Garden]] 

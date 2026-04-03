@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/alec/notes/2025-11-16-154431-hybrid-ai-systems/","title":"2025-11-16-154431 Hybrid AI systems","created":"2026-01-22T14:05:26.123+00:00","updated":"2025-12-31T10:56:55.872+00:00"}
+{"dg-publish":true,"permalink":"/alec/notes/2025-11-16-154431-hybrid-ai-systems/","title":"2025-11-16-154431 Hybrid AI systems","dg-note-properties":{"title":"2025-11-16-154431 Hybrid AI systems","description":null,"aliases":["hybrid AI systems"],"reference":null,"created":"2025-11-16","topics":null,"content-type":null,"tags":null}}
 ---
 
  <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[Alec/Digital-Garden/Digital Garden\|Digital Garden]] 

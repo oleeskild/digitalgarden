@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/alec/digital-garden/setting-up-obsidian/","tags":["digital-garden"],"created":"2026-01-22T14:05:33.828+00:00","updated":"2025-08-26T16:37:09.881+01:00"}
+{"dg-publish":true,"permalink":"/alec/digital-garden/setting-up-obsidian/","tags":["digital-garden"],"dg-note-properties":{"aliases":null,"tags":["digital-garden"]}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[Alec/Digital-Garden/Digital Garden\|Digital Garden]] 
