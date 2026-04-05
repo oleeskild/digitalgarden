@@ -3,6 +3,14 @@
 * MODIFY THE custom-style.scss FILE INSTEAD.
 ***/
 
+html {
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    scroll-margin-top: calc(var(--dg-navbar-height) + 20px);
+}
+
 body {
     /***
     * CSS VARIABLE DEFAULTS
@@ -46,10 +54,10 @@ body {
 
     /* TOC (Table of Contents) Variables */
     --dg-toc-padding: 5px;
-    --dg-toc-font-size: 0.9rem;
-    --dg-toc-max-height: 220px;
-    --dg-toc-title-size: 1.2rem;
-    --dg-toc-item-padding: 2px 0 2px 8px;
+    --dg-toc-font-size: 1rem;
+    --dg-toc-max-height: 70vh;
+    --dg-toc-title-size: 0.75rem;
+    --dg-toc-item-padding: 4px 0 4px 0;
     --dg-toc-indent: 1em;
 
     /* Backlinks Variables */
@@ -403,12 +411,8 @@ body:has(.content.canvas-page) .sidebar {
 
     ol {
         list-style: none;
-        padding-left: 6px;
-        margin: 0;
-    }
-
-    & > ol {
         padding-left: 0;
+        margin: 0;
     }
 }
 
@@ -424,15 +428,11 @@ body:has(.content.canvas-page) .sidebar {
         margin-top: 0 !important;
         margin-bottom: 0 !important;
         margin-left: 0;
-        // Fallback for older browsers
-        border-left: 1px solid rgba(128, 128, 128, 0.4);
-        @supports (background: color-mix(in srgb, red 50%, blue)) {
-            border-left: 1px solid color-mix(in srgb, var(--text-muted) 40%, transparent);
-        }
-    }
-    // First level - no border, no indent
-    & > ul, & > ol {
         border-left: none;
+    }
+    // First level - no indent (plugin outputs nav.toc > ol)
+    nav > ol, nav > ul,
+    & > ol, & > ul {
         padding-inline-start: 0 !important;
     }
     // Override obsidian-base nested list indent
@@ -441,9 +441,16 @@ body:has(.content.canvas-page) .sidebar {
         padding: var(--dg-toc-item-padding);
         a {
             text-decoration: none;
-            color: var(--text-accent);
+            color: var(--text-normal);
             &:hover {
                 text-decoration: underline;
+            }
+            &:focus {
+                outline: none;
+            }
+            &.toc-active {
+                color: var(--text-accent);
+                font-weight: 600;
             }
         }
     }
@@ -452,12 +459,15 @@ body:has(.content.canvas-page) .sidebar {
 .toc-title-container {
     display: flex;
     justify-content: flex-start;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     .toc-title {
         font-size: var(--dg-toc-title-size) !important;
-        color: var(--h6-color);
+        color: var(--text-muted);
         width: fit-content;
         padding: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 400;
     }
 }
 
@@ -1280,11 +1290,7 @@ body.has-navbar .content {
 }
 
 .referred {
-    border: 1px dashed;
-    border-color: var(--text-accent);
-    padding: 10px;
-    margin-left: -10px;
-    margin-right: -10px;
+    border: none;
 }
 
 // Graph Controls
