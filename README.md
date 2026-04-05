@@ -6,7 +6,7 @@ See the README in the plugin repo for information on how to set it up.
 
 ---
 ## Docs
-Docs are available at [dg-docs.ole.dev](https://dg-docs.ole.dev/)
+Docs are available at [docs.forestry.md](https://docs.forestry.md/)
 
 ---
 ## CSS Variables
