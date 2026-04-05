@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "prebuild": "rimraf dist",
-        "start": "npm-run-all get-theme build:sass --parallel watch:*",
+        "dev": "npm-run-all get-theme build:sass --parallel watch:*",
         "watch:sass": "sass --watch src/site/styles:dist/styles",
         "watch:eleventy": "cross-env ELEVENTY_ENV=dev eleventy --serve",
         "build:eleventy": "cross-env ELEVENTY_ENV=prod NODE_OPTIONS=--max-old-space-size=4096 eleventy",
