@@ -50,13 +50,27 @@ const sortTree = (unsorted, navigationOrder, currentPath) => {
 
   if (orderList && Array.isArray(orderList)) {
     const existingKeys = new Set(Object.keys(unsorted));
-    const orderedExisting = orderList.filter((k) => existingKeys.has(k));
-    const orderedSet = new Set(orderedExisting);
+    // Build a map from ordering names to actual tree keys
+    // The ordering uses stems (e.g. "Azure") while tree keys may have ".md" (e.g. "Azure.md")
+    const resolveKey = (name) => {
+      if (existingKeys.has(name)) return name;
+      if (existingKeys.has(name + ".md")) return name + ".md";
+      return null;
+    };
+    const resolvedOrdered = [];
+    const resolvedSet = new Set();
+    for (const name of orderList) {
+      const key = resolveKey(name);
+      if (key && !resolvedSet.has(key)) {
+        resolvedOrdered.push(key);
+        resolvedSet.add(key);
+      }
+    }
     const unorderedKeys = Object.keys(unsorted)
-      .filter((k) => !orderedSet.has(k))
+      .filter((k) => !resolvedSet.has(k))
       .sort(defaultCompare);
 
-    orderedKeys = [...orderedExisting, ...unorderedKeys];
+    orderedKeys = [...resolvedOrdered, ...unorderedKeys];
   } else {
     orderedKeys = Object.keys(unsorted).sort(defaultCompare);
   }

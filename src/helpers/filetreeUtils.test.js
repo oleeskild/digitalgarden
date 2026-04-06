@@ -127,6 +127,28 @@ describe("filetreeUtils", () => {
       expect(folderKeys[2]).toBe("alpha.md");
     });
 
+    it("resolves ordering names without .md extension", () => {
+      const data = {
+        collections: {
+          note: [
+            makeNote("/alpha"),
+            makeNote("/beta"),
+            makeNote("/gamma"),
+          ],
+        },
+        navigationOrder: {
+          "/": ["gamma", "alpha", "beta"],
+        },
+      };
+
+      const tree = getFileTree(data);
+      const keys = Object.keys(tree);
+
+      expect(keys[0]).toBe("gamma.md");
+      expect(keys[1]).toBe("alpha.md");
+      expect(keys[2]).toBe("beta.md");
+    });
+
     it("falls back to default sort when navigationOrder is empty object", () => {
       const data = {
         collections: {
