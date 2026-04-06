@@ -30,43 +30,55 @@ const naturalCompare = (a, b) => {
   return 0;
 };
 
-const sortTree = (unsorted) => {
-  //Sort by folder before file, then by name
-  const orderedTree = Object.keys(unsorted)
-    .sort((a, b) => {
+const sortTree = (unsorted, navigationOrder, currentPath) => {
+  const orderList = navigationOrder && navigationOrder[currentPath];
 
+  let orderedKeys;
+
+  if (orderList && Array.isArray(orderList)) {
+    const existingKeys = new Set(Object.keys(unsorted));
+    const orderedExisting = orderList.filter((k) => existingKeys.has(k));
+    const orderedSet = new Set(orderedExisting);
+    const unorderedKeys = Object.keys(unsorted)
+      .filter((k) => !orderedSet.has(k))
+      .sort((a, b) => {
+        let a_pinned = unsorted[a].pinned || false;
+        let b_pinned = unsorted[b].pinned || false;
+        if (a_pinned != b_pinned) {
+          return a_pinned ? -1 : 1;
+        }
+        const a_is_note = a.indexOf(".md") > -1;
+        const b_is_note = b.indexOf(".md") > -1;
+        if (a_is_note && !b_is_note) return 1;
+        if (!a_is_note && b_is_note) return -1;
+        return naturalCompare(a, b);
+      });
+
+    orderedKeys = [...orderedExisting, ...unorderedKeys];
+  } else {
+    orderedKeys = Object.keys(unsorted).sort((a, b) => {
       let a_pinned = unsorted[a].pinned || false;
       let b_pinned = unsorted[b].pinned || false;
       if (a_pinned != b_pinned) {
-        if (a_pinned) {
-          return -1;
-        } else {
-          return 1;
-        }
+        return a_pinned ? -1 : 1;
       }
-
       const a_is_note = a.indexOf(".md") > -1;
       const b_is_note = b.indexOf(".md") > -1;
-
-      if (a_is_note && !b_is_note) {
-        return 1;
-      }
-
-      if (!a_is_note && b_is_note) {
-        return -1;
-      }
-
+      if (a_is_note && !b_is_note) return 1;
+      if (!a_is_note && b_is_note) return -1;
       return naturalCompare(a, b);
-    })
-    .reduce((obj, key) => {
-      obj[key] = unsorted[key];
+    });
+  }
 
-      return obj;
-    }, {});
+  const orderedTree = orderedKeys.reduce((obj, key) => {
+    obj[key] = unsorted[key];
+    return obj;
+  }, {});
 
   for (const key of Object.keys(orderedTree)) {
     if (orderedTree[key].isFolder) {
-      orderedTree[key] = sortTree(orderedTree[key]);
+      const childPath = currentPath === "/" ? `/${key}` : `${currentPath}/${key}`;
+      orderedTree[key] = sortTree(orderedTree[key], navigationOrder, childPath);
     }
   }
 
@@ -139,7 +151,8 @@ function getFileTree(data) {
     const [meta, folders] = getPermalinkMeta(note);
     assignNested(tree, folders, { isNote: true, ...meta });
   });
-  const fileTree = sortTree(tree);
+  const navigationOrder = data.navigationOrder || null;
+  const fileTree = sortTree(tree, navigationOrder, "/");
   return fileTree;
 }
 
