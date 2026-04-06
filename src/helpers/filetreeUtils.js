@@ -33,6 +33,19 @@ const naturalCompare = (a, b) => {
 const sortTree = (unsorted, navigationOrder, currentPath) => {
   const orderList = navigationOrder && navigationOrder[currentPath];
 
+  const defaultCompare = (a, b) => {
+    let a_pinned = unsorted[a].pinned || false;
+    let b_pinned = unsorted[b].pinned || false;
+    if (a_pinned != b_pinned) {
+      return a_pinned ? -1 : 1;
+    }
+    const a_is_note = a.indexOf(".md") > -1;
+    const b_is_note = b.indexOf(".md") > -1;
+    if (a_is_note && !b_is_note) return 1;
+    if (!a_is_note && b_is_note) return -1;
+    return naturalCompare(a, b);
+  };
+
   let orderedKeys;
 
   if (orderList && Array.isArray(orderList)) {
@@ -41,33 +54,11 @@ const sortTree = (unsorted, navigationOrder, currentPath) => {
     const orderedSet = new Set(orderedExisting);
     const unorderedKeys = Object.keys(unsorted)
       .filter((k) => !orderedSet.has(k))
-      .sort((a, b) => {
-        let a_pinned = unsorted[a].pinned || false;
-        let b_pinned = unsorted[b].pinned || false;
-        if (a_pinned != b_pinned) {
-          return a_pinned ? -1 : 1;
-        }
-        const a_is_note = a.indexOf(".md") > -1;
-        const b_is_note = b.indexOf(".md") > -1;
-        if (a_is_note && !b_is_note) return 1;
-        if (!a_is_note && b_is_note) return -1;
-        return naturalCompare(a, b);
-      });
+      .sort(defaultCompare);
 
     orderedKeys = [...orderedExisting, ...unorderedKeys];
   } else {
-    orderedKeys = Object.keys(unsorted).sort((a, b) => {
-      let a_pinned = unsorted[a].pinned || false;
-      let b_pinned = unsorted[b].pinned || false;
-      if (a_pinned != b_pinned) {
-        return a_pinned ? -1 : 1;
-      }
-      const a_is_note = a.indexOf(".md") > -1;
-      const b_is_note = b.indexOf(".md") > -1;
-      if (a_is_note && !b_is_note) return 1;
-      if (!a_is_note && b_is_note) return -1;
-      return naturalCompare(a, b);
-    });
+    orderedKeys = Object.keys(unsorted).sort(defaultCompare);
   }
 
   const orderedTree = orderedKeys.reduce((obj, key) => {
