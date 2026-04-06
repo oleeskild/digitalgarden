@@ -2,6 +2,19 @@ const slugify = require("@sindresorhus/slugify");
 const markdownIt = require("markdown-it");
 const fs = require("fs");
 const matter = require("gray-matter");
+// Obsidian writes [[Page\|Alias]] in frontmatter, but \| is an invalid YAML
+// escape sequence. This custom engine strips \| before parsing. Shared between
+// Eleventy's own frontmatter parser and the manual matter() call in
+// getAnchorAttributes so that wikilink resolution can read the permalink.
+const jsYamlForMatter = require(require.resolve("js-yaml", { paths: [require.resolve("gray-matter")] }));
+const matterOptions = {
+  engines: {
+    yaml: {
+      parse: (str) => jsYamlForMatter.load(str.replace(/\\\|/g, "|")),
+      stringify: (obj) => jsYamlForMatter.dump(obj),
+    },
+  },
+};
 const faviconsPlugin = require("eleventy-plugin-gen-favicons");
 const tocPlugin = require("eleventy-plugin-nesting-toc");
 const { parse } = require("node-html-parser");
@@ -57,7 +70,7 @@ function getAnchorAttributes(filePath, linkTitle) {
       fullPath = `${startPath}${fileName}.md`;
     }
     const file = fs.readFileSync(fullPath, "utf8");
-    const frontMatter = matter(file);
+    const frontMatter = matter(file, matterOptions);
     if (frontMatter.data.permalink) {
       permalink = frontMatter.data.permalink;
     }
@@ -105,18 +118,7 @@ module.exports = function(eleventyConfig) {
     dynamicPartials: true,
   });
 
-  // Fix Obsidian wiki-link pipe escaping (\|) in YAML frontmatter.
-  // Obsidian writes [[Page\|Alias]] in frontmatter, but \| is an invalid
-  // YAML escape sequence inside double-quoted strings, causing js-yaml to throw.
-  const jsYaml = require(require.resolve("js-yaml", { paths: [require.resolve("gray-matter")] }));
-  eleventyConfig.setFrontMatterParsingOptions({
-    engines: {
-      yaml: {
-        parse: (str) => jsYaml.load(str.replace(/\\\|/g, "|")),
-        stringify: (obj) => jsYaml.dump(obj),
-      },
-    },
-  });
+  eleventyConfig.setFrontMatterParsingOptions(matterOptions);
   let markdownLib = markdownIt({
     breaks: true,
     html: true,
@@ -724,7 +726,7 @@ module.exports = function(eleventyConfig) {
     read: true,
     compile: async function(inputContent, inputPath) {
       // Extract content after frontmatter (canvas HTML is already compiled by plugin)
-      const parsed = matter(inputContent);
+      const parsed = matter(inputContent, matterOptions);
       return async (data) => {
         // Return the HTML content directly without markdown processing
         return parsed.content;
