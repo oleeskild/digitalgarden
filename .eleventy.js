@@ -1,4 +1,4 @@
-const slugify = require("@sindresorhus/slugify");
+const { default: slugify } = require("@sindresorhus/slugify");
 const markdownIt = require("markdown-it");
 const fs = require("fs");
 const matter = require("gray-matter");
@@ -24,7 +24,7 @@ normalizeFavicon(FAVICON_SOURCE, FAVICON_NORMALIZED);
 const tocPlugin = require("eleventy-plugin-nesting-toc");
 const { parse } = require("node-html-parser");
 const htmlMinifier = require("html-minifier-terser");
-const pluginRss = require("@11ty/eleventy-plugin-rss");
+const { default: pluginRss } = require("@11ty/eleventy-plugin-rss");
 
 const { headerToId, namedHeadingsFilter } = require("./src/helpers/utils");
 const {
