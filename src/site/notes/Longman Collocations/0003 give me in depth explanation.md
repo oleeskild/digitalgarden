@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/longman-collocations/0003-give-me-in-depth-explanation/","tags":["gardenEntry"],"dg-note-properties":{"cssclasses":["academic","wide","journal"]}}
+{"dg-publish":true,"permalink":"/longman-collocations/0003-give-me-in-depth-explanation/","dg-note-properties":{"cssclasses":["academic","wide","journal"]}}
 ---
 
 
