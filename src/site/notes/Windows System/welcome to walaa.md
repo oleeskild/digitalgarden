@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/windows-system/welcome-to-walaa/","tags":["gardenEntry"],"dg-note-properties":{}}
+{"dg-publish":true,"permalink":"/windows-system/welcome-to-walaa/","dg-note-properties":{}}
 ---
 
 
