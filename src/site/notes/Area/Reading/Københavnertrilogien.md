@@ -10,42 +10,8 @@
 
 Following one woman's journey from a troubled girlhood in working-class Copenhagen through her struggle to live on her own terms, The Copenhagen Trilogy is a searingly honest, utterly immersive portrayal of love, friendship, art, ambition and the terrible lure of addiction, from one of Denmark's most celebrated twentieth-century writers. 'Sharp, tough and tender ... wrenching sadness and pitch-black comedy ... Ditlevsen can pivot from hilarity to heartbreak in a trice' Boyd Tonkin Spectator 'Astonishing, honest, entirely revealing and, in the end, devastating. Ditlevsen's trilogy is remarkable not only for its honesty and lyricism; these are books that journey deep into the darkest reaches of human experience and return, fatally wounded, but still eloquent' Observer 'The best books I have read this year. These volumes slip in like a stiletto and do their work once inside. Thrilling' New Statesman
 
-```meta-bind-button
-label: "Share"
-style: default
-id: "share"
-actions:
-  - type: updateMetadata
-    bindTarget: share
-    evaluate: false
-    value: true
-  - type: updateMetadata
-    bindTarget: categories
-    evaluate: false
-    value: "reading"
-  - type: updateMetadata
-    bindTarget: aliases
-    evaluate: false
-    value: ""
-  - type: updateMetadata
-    bindTarget: tags
-    evaluate: true
-    value: x + ", share"
-  - type: replaceSelf
-    replacement: "<!-- more -->"
-```
-```meta-bind-button
-label: "Upload"
-style: default
-id: "upload"
-actions:
-  - type: updateMetadata
-    bindTarget: date.updated
-    evaluate: true
-    value: moment().format("YYYY-MM-DDTHH:mm:ss")
-  - type: command
-    command: obsidian-mkdocs-publisher:share-one
-```
+
+
 
 ## Thoughts
 

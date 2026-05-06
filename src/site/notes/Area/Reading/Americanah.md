@@ -9,6 +9,12 @@
 10th ANNIVERSARY EDITION • NATIONAL BESTSELLER • A modern classic about star-crossed lovers that explores questions of race and being Black in America—and the search for what it means to call a place home. • From the award-winning author of We Should All Be Feminists and Half of a Yellow Sun • WITH A NEW INTRODUCTION BY THE AUTHOR "An expansive, epic love story."—O, The Oprah Magazine One of the New York Times’s 100 Best Books of the 21st Century • One of The Atlantic’s Great American Novels of the Past 100 Years Ifemelu and Obinze are young and in love when they depart military-ruled Nigeria for the West. Beautiful, self-assured Ifemelu heads for America, where despite her academic success, she is forced to grapple with what it means to be Black for the first time. Quiet, thoughtful Obinze had hoped to join her, but with post–9/11 America closed to him, he instead plunges into a dangerous, undocumented life in London. At once powerful and tender, Americanah is a remarkable novel that is "dazzling…funny and defiant, and simultaneously so wise." —San Francisco Chronicle
 
 <!-- more -->
+
+
+
+
+
+
 ## Thoughts
 - 一開始聽朗讀者一下子用標準英文、一下子用奈及利亞腔英文切來切去有點不習慣，不過聽一陣子也就習慣了。
 - 奈及利亞的官方語言是英文，書中的人物從小就會說英文，但女主角Ifemelu一開始到美國時卻會因為她的奈及利亞腔在日常生活和求職時被認為她不諳英語，因此她努力學習美國腔多年，但奈及利亞腔偶爾還是會在緊張時流露。某天她突然決定重拾奈及利亞腔，不再刻意維持美國口音。是啊，為什麼我們一直為了口音自卑呢？

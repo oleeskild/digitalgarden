@@ -1,35 +1,42 @@
 ---
-{"dg-publish":true,"permalink":"/effort/themes/","title":"Themes","tags":["map"],"dg-note-properties":{"title":"Themes","date":{"created":"2024-10-14T18:02:36","updated":"2024-10-23T18:20:11"},"tags":"map"}}
+{"dg-publish":true,"permalink":"/effort/themes/","title":"Themes","tags":["map"],"dg-note-properties":{"title":"Themes","date":{"created":"2024-10-14T18:02:36","updated":"2026-05-06T23:15:30"},"tags":"map"}}
 ---
 
 # Themes
 
 ## [[+/ReadItLater/100 Best Books of the 21st Century\|100 Best Books of the 21st Century]]
 
-## 毒與癮
-| books                                                          | author               | status      | own      | rating |
-| -------------------------------------------------------------- | -------------------- | ----------- | -------- | ------ |
-| [[Area/Reading/我的涼山兄弟\|我的涼山兄弟]]                             | 劉紹華                  | in progress | bought   | \-     |
-| [[Area/Reading/Empire of Pain\|Empire of Pain]]             | Patrick Radden Keefe | finished    | borrowed | 4      |
-| [[Area/Reading/Narconomics\|Narconomics]]                   | Tom Wainwright       | finished    | bought   | 4      |
-| [[Area/Reading/戒不掉的癮世代\|戒不掉的癮世代]]                           | 鄭進耀                  | finished    | bought   | 3.5    |
-| [[Area/Reading/Københavnertrilogien\|Københavnertrilogien]] | Tove Ditlevsen       | finished    | bought   | 3      |
+## Biopunk / Biopolitik
+
+| books                                                                    | author            | status      | own              | rating |
+| ------------------------------------------------------------------------ | ----------------- | ----------- | ---------------- | ------ |
+| [[Area/Reading/銀翼殺手\|銀翼殺手]]                                           | Philip K. Dick    | waiting     | bought           | \-     |
+| [[Area/Reading/The Left Hand of Darkness\|The Left Hand of Darkness]] | Ursula K. Le Guin | waiting     | to buy or borrow | \-     |
+| [[Area/Reading/Snow Crash\|Snow Crash]]                               | Neal Stephenson   | waiting     | bought           | \-     |
+| [[Area/Reading/Poor Things\|Poor Things]]                             | Alasdair Gray     | waiting     | bought           | \-     |
+| [[Area/Reading/Oryx and Crake\|Oryx and Crake]]                       | Margaret Atwood   | waiting     | bought           | \-     |
+| [[Area/Reading/麻風醫生與巨變中國\|麻風醫生與巨變中國]]                                 | 劉紹華               | waiting     | bought           | \-     |
+| [[Area/Reading/階級病院\|階級病院]]                                           | 馬欣                | waiting     | bought           | \-     |
+| [[Area/Reading/The Windup Girl\|The Windup Girl]]                     | Paolo Bacigalupi  | in progress | bought           | \-     |
+| [[Area/Reading/Never Let Me Go\|Never Let Me Go]]                     | Kazuo Ishiguro    | finished    | bought           | 4.5    |
+| [[Area/Reading/1984\|1984]]                                           | George Orwell     | finished    | bought           | 4.5    |
+| [[Area/Reading/Travel by Bullet\|Travel by Bullet]]                   | John Scalzi       | finished    | bought           | 3.5    |
+| [[Area/Reading/The Dispatcher\|The Dispatcher]]                       | John Scalzi       | finished    | bought           | 3.5    |
+| [[Area/Reading/Murder by Other Means\|Murder by Other Means]]         | John Scalzi       | finished    | bought           | 3.5    |
 
 { .block-language-dataview}
 
-| articles                                                                                                            | author                                     | status  |
-| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | ------- |
-| [[+/ReadItLater/How Baltimore Became the U.S. Overdose Capital\|How Baltimore Became the U.S. Overdose Capital]] | Alissa Zhu, Nick Thieme, Jessica Gallagher | waiting |
-| [[+/ReadItLater/The Family That Built an Empire of Pain\|The Family That Built an Empire of Pain]]               | Patrick Radden Keefe                       | waiting |
-
-{ .block-language-dataview}
-
-| movies and series                                                                            | year | cast                                                                           | status   | platform               |
-| -------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------------ | -------- | ---------------------- |
-| [[Area/Entertainment/All the Beauty and the Bloodshed\|All the Beauty and the Bloodshed]] | 2022 | <ul><li>Nan Goldin</li><li>David Velasco</li><li>Megan Kapler</li></ul>        | waiting  | <ul><li>Hami</li></ul> |
-| [[Area/Entertainment/Beautiful Boy\|Beautiful Boy]]                                       | 2018 | <ul><li>Timothée Chalamet</li><li>Steve Carell</li><li>Maura Tierney</li></ul> | finished | \-                     |
-| [[Area/Entertainment/Ben Is Back\|Ben Is Back]]                                           | 2018 | <ul><li>Julia Roberts</li><li>Lucas Hedges</li><li>Courtney B. Vance</li></ul> | finished | \-                     |
-| [[Area/Entertainment/Painkiller\|Painkiller]]                                             | 2023 | <ul><li>Uzo Aduba</li><li>Matthew Broderick</li><li>Taylor Kitsch</li></ul>    | finished | Netflix                |
+| movies and series                                                        | year  | cast                                                                                                                                   | status      | rating |
+| ------------------------------------------------------------------------ | ----- | -------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ------ |
+| [[Area/Entertainment/Frankenstein (theatre)\|Frankenstein (theatre)]] | 2011  | <ul><li>Jonny Lee Miller</li><li>Benedict Cumberbatch</li><li>Andreea Paduraru</li></ul>                                               | waiting     | \-     |
+| [[Area/Entertainment/Pluribus\|Pluribus]]                             | 2025– | <ul><li>Rhea Seehorn</li><li>Karolina Wydra</li><li>Carlos-Manuel Vesga</li></ul>                                                      | in progress | 5      |
+| [[Area/Entertainment/Love, Death + Robots\|Love, Death + Robots]]     | 2019– | \-                                                                                                                                     | in progress | 5      |
+| [[Area/Entertainment/Frankenstein\|Frankenstein]]                     | 2025  | <ul><li>Oscar Isaac</li><li>Jacob Elordi</li><li>Christoph Waltz</li></ul>                                                             | finished    | 4.5    |
+| [[Area/Entertainment/Poor Things\|Poor Things]]                       | 2023  | <ul><li>Emma Stone</li><li>Mark Ruffalo</li><li>Willem Dafoe</li></ul>                                                                 | finished    | 4      |
+| [[Area/Entertainment/The Lobster\|The Lobster]]                       | 2015  | <ul><li>Colin Farrell</li><li>Rachel Weisz</li><li>Jessica Barden</li></ul>                                                            | finished    | 4      |
+| [[Area/Entertainment/A Clockwork Orange\|A Clockwork Orange]]         | 1971  | <ul><li>Malcolm McDowell</li><li>Patrick Magee</li><li>Michael Bates</li></ul>                                                         | finished    | 4      |
+| [[Area/Entertainment/Blade Runner 2049\|Blade Runner 2049]]           | 2017  | <ul><li>Ryan Gosling</li><li>Harrison Ford</li><li>Ana de Armas</li><li>Sylvia Hoeks</li><li>Robin Wright</li><li>Jared Leto</li></ul> | finished    | \-     |
+| [[Area/Entertainment/Blade Runner\|Blade Runner]]                     | 1982  | <ul><li>Harrison Ford</li><li>Rutger Hauer</li><li>Sean Young</li><li>Edward James Olmos</li><li>Daryl Hannah</li></ul>                | finished    | \-     |
 
 { .block-language-dataview}
 
@@ -37,6 +44,7 @@
 
 | books                                                                | author               | status      | own              | rating |
 | -------------------------------------------------------------------- | -------------------- | ----------- | ---------------- | ------ |
+| [[Area/Reading/Hamnet\|Hamnet]]                                   | Maggie O'Farrell     | finished    | bought           | 5      |
 | [[Area/Reading/Normal People\|Normal People]]                     | Sally Rooney         | finished    | bought           | 5      |
 | [[Area/Reading/Say Nothing\|Say Nothing]]                         | Patrick Radden Keefe | finished    | bought           | 5      |
 | [[Area/Reading/We Don't Know Ourselves\|We Don't Know Ourselves]] | Fintan O'Toole       | finished    | bought           | 5      |
@@ -46,18 +54,21 @@
 | [[Area/Reading/Dubliners\|Dubliners]]                             | James Joyce          | finished    | bought           | 4      |
 | [[Area/Reading/Foster\|Foster]]                                   | Claire Keegan        | finished    | bought           | 4      |
 | [[Area/Reading/So Late in the Day\|So Late in the Day]]           | Claire Keegan        | finished    | bought           | 4      |
-| [[Area/Reading/Hamnet\|Hamnet]]                                   | Maggie O'Farrell     | finished    | bought           | \-     |
+| [[Area/Reading/Homage to Barcelona\|Homage to Barcelona]]         | Colm Tóibín          | in progress | bought           | \-     |
 | [[Area/Reading/Milkman\|Milkman]]                                 | Anna Burns           | in progress | bought           | \-     |
 | [[Area/Reading/The Master\|The Master]]                           | Colm Toibin          | in progress | bought           | \-     |
-| [[Area/Reading/Homage to Barcelona\|Homage to Barcelona]]         | Colm Tóibín          | in progress | bought           | \-     |
 | [[Area/Reading/Antarctica\|Antarctica]]                           | Claire Keegan        | waiting     | bought           | \-     |
+| [[Area/Reading/Can Ireland Be One\|Can Ireland Be One]]           | Malachi O'Doherty    | waiting     | bought           | \-     |
 | [[Area/Reading/Intermezzo\|Intermezzo]]                           | Sally Rooney         | waiting     | bought           | \-     |
 | [[Area/Reading/Ireland\|Ireland]]                                 | Edward Rutherfurd    | waiting     | bought           | \-     |
 | [[Area/Reading/Long Island\|Long Island]]                         | Colm Toibin          | waiting     | bought           | \-     |
 | [[Area/Reading/Skippy Dies\|Skippy Dies]]                         | Paul Murray          | waiting     | bought           | \-     |
 | [[Area/Reading/The Magician\|The Magician]]                       | Colm Toibin          | waiting     | bought           | \-     |
 | [[Area/Reading/Walk the Blue Fields\|Walk the Blue Fields]]       | Claire Keegan        | waiting     | bought           | \-     |
-| [[Area/Reading/Can Ireland Be One\|Can Ireland Be One]]           | Malachi O'Doherty    | waiting     | bought           | \-     |
+| [[Area/Reading/布拉格畫像\|布拉格畫像]]                                     | John Banville        | waiting     | bought           | \-     |
+| [[Area/Reading/芬尼根守靈\|芬尼根守靈]]                                     | James Joyce          | waiting     | bought           | \-     |
+| [[Area/Reading/阿垂阿斯家族\|阿垂阿斯家族]]                                   | Colm Tóibín          | waiting     | bought           | \-     |
+| [[Area/Reading/黑水燈塔船\|黑水燈塔船]]                                     | Colm Tóibín          | waiting     | bought           | \-     |
 | [[Area/Reading/The Bee Sting\|The Bee Sting]]                     | Paul Murray          | waiting     | to buy or borrow | \-     |
 
 { .block-language-dataview}
@@ -109,17 +120,44 @@
 | books                                                        | author               | status   | own    | rating |
 | ------------------------------------------------------------ | -------------------- | -------- | ------ | ------ |
 | [[Area/Reading/Blindness\|Blindness]]                     | José Saramago        | finished | bought | 4.5    |
-| [[Area/Reading/里斯本，沒落的美感\|里斯本，沒落的美感]]                     | 細腿男                  | waiting  | bought | \-     |
+| [[Area/Reading/The Night in Lisbon\|The Night in Lisbon]] | Erich Marie Remarque | waiting  | bought | \-     |
 | [[Area/Reading/因為佩索亞，所以里斯本\|因為佩索亞，所以里斯本]]                 | Fernando Pessoa      | waiting  | bought | \-     |
 | [[Area/Reading/死神放長假\|死神放長假]]                             | José Saramago        | waiting  | bought | \-     |
 | [[Area/Reading/詩人里卡多逝世那一年\|詩人里卡多逝世那一年]]                   | Cassilda Duran       | waiting  | bought | \-     |
-| [[Area/Reading/The Night in Lisbon\|The Night in Lisbon]] | Erich Marie Remarque | waiting  | bought | \-     |
+| [[Area/Reading/里斯本，沒落的美感\|里斯本，沒落的美感]]                     | 細腿男                  | waiting  | bought | \-     |
 
 { .block-language-dataview}
 
 | movies and series                                                      | cast                                                                       | year | status   | rating |
 | ---------------------------------------------------------------------- | -------------------------------------------------------------------------- | ---- | -------- | ------ |
 | [[Area/Entertainment/Night Train to Lisbon\|Night Train to Lisbon]] | <ul><li>Jeremy Irons</li><li>Mélanie Laurent</li><li>Jack Huston</li></ul> | 2013 | finished | 4      |
+
+{ .block-language-dataview}
+
+## 毒與癮
+| books                                                          | author               | status      | own      | rating |
+| -------------------------------------------------------------- | -------------------- | ----------- | -------- | ------ |
+| [[Area/Reading/我的涼山兄弟\|我的涼山兄弟]]                             | 劉紹華                  | in progress | bought   | \-     |
+| [[Area/Reading/Empire of Pain\|Empire of Pain]]             | Patrick Radden Keefe | finished    | borrowed | 4      |
+| [[Area/Reading/Narconomics\|Narconomics]]                   | Tom Wainwright       | finished    | bought   | 4      |
+| [[Area/Reading/戒不掉的癮世代\|戒不掉的癮世代]]                           | 鄭進耀                  | finished    | bought   | 3.5    |
+| [[Area/Reading/Københavnertrilogien\|Københavnertrilogien]] | Tove Ditlevsen       | finished    | bought   | 3      |
+
+{ .block-language-dataview}
+
+| articles                                                                                                            | author                                     | status  |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------ | ------- |
+| [[+/ReadItLater/How Baltimore Became the U.S. Overdose Capital\|How Baltimore Became the U.S. Overdose Capital]] | Alissa Zhu, Nick Thieme, Jessica Gallagher | waiting |
+| [[+/ReadItLater/The Family That Built an Empire of Pain\|The Family That Built an Empire of Pain]]               | Patrick Radden Keefe                       | waiting |
+
+{ .block-language-dataview}
+
+| movies and series                                                                            | year | cast                                                                           | status   | platform               |
+| -------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------------ | -------- | ---------------------- |
+| [[Area/Entertainment/All the Beauty and the Bloodshed\|All the Beauty and the Bloodshed]] | 2022 | <ul><li>Nan Goldin</li><li>David Velasco</li><li>Megan Kapler</li></ul>        | waiting  | <ul><li>Hami</li></ul> |
+| [[Area/Entertainment/Beautiful Boy\|Beautiful Boy]]                                       | 2018 | <ul><li>Timothée Chalamet</li><li>Steve Carell</li><li>Maura Tierney</li></ul> | finished | \-                     |
+| [[Area/Entertainment/Ben Is Back\|Ben Is Back]]                                           | 2018 | <ul><li>Julia Roberts</li><li>Lucas Hedges</li><li>Courtney B. Vance</li></ul> | finished | \-                     |
+| [[Area/Entertainment/Painkiller\|Painkiller]]                                             | 2023 | <ul><li>Uzo Aduba</li><li>Matthew Broderick</li><li>Taylor Kitsch</li></ul>    | finished | Netflix                |
 
 { .block-language-dataview}
 
@@ -139,8 +177,8 @@
 | [[+/ReadItLater/法國名導席瓦迪耶  將《人民公敵》化為當代警世寓言\|法國名導席瓦迪耶  將《人民公敵》化為當代警世寓言]]                       | 王世偉        | waiting     |
 | [[+/ReadItLater/經典搬演反映當下  集體創作顛覆文本傳統\|經典搬演反映當下  集體創作顛覆文本傳統]]                                 | 林冠吾        | waiting     |
 | [[+/ReadItLater/變性、變種、變革\|變性、變種、變革]]                                                         | 紀蔚然        | waiting     |
-| [[+/ReadItLater/重譯、再現、肢解  易卜生與當代同在\|重譯、再現、肢解  易卜生與當代同在]]                                     | 陳思宏        | waiting     |
 | [[+/ReadItLater/變種同時的變革\|變種同時的變革]]                                                           | 紀蔚然        | waiting     |
+| [[+/ReadItLater/重譯、再現、肢解  易卜生與當代同在\|重譯、再現、肢解  易卜生與當代同在]]                                     | 陳思宏        | waiting     |
 | [[+/ReadItLater/《人民公敵》在中國越禁越火、越批越香\|《人民公敵》在中國越禁越火、越批越香]]                                     | 秦胆         | in progress |
 | [[+/ReadItLater/Tove Ditlevsen’s Art of Estrangement\|Tove Ditlevsen’s Art of Estrangement]] | Condé Nast | finished    |
 | [[+/ReadItLater/《人民公敵》  在後民主時代演練公眾討論\|《人民公敵》  在後民主時代演練公眾討論]]                                 | 余岱融        | finished    |
@@ -191,22 +229,22 @@
 | [[Area/Reading/Speak Not\|Speak Not]]                                             | James Griffiths                                                   | finished    | bought           |
 | [[Area/Reading/台語解放記事：寫給台灣人的「華語腦」翻轉指南\|台語解放記事：寫給台灣人的「華語腦」翻轉指南]]                   | 石牧民                                                               | finished    | bought           |
 | [[Area/Reading/How Propaganda Works\|How Propaganda Works]]                       | Jason Stanley                                                     | in progress | borrowed         |
-| [[Area/Reading/Living Language\|Living Language]]                                 | Laura M. Ahearn                                                   | in progress | borrowed         |
 | [[Area/Reading/Babel (2018)\|Babel (2018)]]                                       | Gaston Dorren                                                     | in progress | bought           |
-| [[Area/Reading/我說，所以我存在\|我說，所以我存在]]                                               | Kübra Gümüşay                                                     | in progress | bought           |
+| [[Area/Reading/Living Language\|Living Language]]                                 | Laura M. Ahearn                                                   | waiting     | borrowed         |
 | [[Area/Reading/A Little Book of Language\|A Little Book of Language]]             | David Crystal                                                     | waiting     | bought           |
 | [[Area/Reading/Don't Sleep There Are Snakes\|Don't Sleep There Are Snakes]]       | Daniel L. Everett                                                 | waiting     | bought           |
 | [[Area/Reading/English as a Global Language\|English as a Global Language]]       | David Crystal                                                     | waiting     | bought           |
 | [[Area/Reading/In Other Words\|In Other Words]]                                   | Jhumpa Lahiri                                                     | waiting     | bought           |
-| [[Area/Reading/Le latin ou L’empire d’un signe\|Le latin ou L’empire d’un signe]] | Françoise Waquet                                                  | waiting     | bought           |
 | [[Area/Reading/Language and Power\|Language and Power]]                           | Benedict R. O'G. Anderson                                         | waiting     | bought           |
 | [[Area/Reading/Language in Thought and Action\|Language in Thought and Action]]   | <ul><li>Samuel Ichiyé Hayakawa</li><li>Alan R. Hayakawa</li></ul> | waiting     | bought           |
+| [[Area/Reading/Le latin ou L’empire d’un signe\|Le latin ou L’empire d’un signe]] | Françoise Waquet                                                  | waiting     | bought           |
 | [[Area/Reading/The Mother Tongue\|The Mother Tongue]]                             | Bill Bryson                                                       | waiting     | bought           |
 | [[Area/Reading/Through the Language Glass\|Through the Language Glass]]           | Guy Deutscher                                                     | waiting     | bought           |
 | [[Area/Reading/Un Occident kidnappé\|Un Occident kidnappé]]                       | Milan Kundera                                                     | waiting     | bought           |
 | [[Area/Reading/Word by Word\|Word by Word]]                                       | Kory Stamper                                                      | waiting     | bought           |
 | [[Area/Reading/Words of Wonder\|Words of Wonder]]                                 | Nicholas Evans                                                    | waiting     | bought           |
 | [[Area/Reading/You Say Potato\|You Say Potato]]                                   | <ul><li>Ben Crystal</li><li>David Crystal</li></ul>               | waiting     | bought           |
+| [[Area/Reading/我說，所以我存在\|我說，所以我存在]]                                               | Kübra Gümüşay                                                     | waiting     | bought           |
 | [[Area/Reading/語言學家解破台語\|語言學家解破台語]]                                               | 劉承賢                                                               | waiting     | bought           |
 | [[Area/Reading/Cultish\|Cultish]]                                                 | Amanda Montell                                                    | waiting     | to buy or borrow |
 
@@ -224,8 +262,8 @@
 | [[+/ReadItLater/來一場「語言旅行」，打開認知世界的窗口──讀《二十種語言，另眼看世界》\|來一場「語言旅行」，打開認知世界的窗口──讀《二十種語言，另眼看世界》]]                                                           | 翁稷安              | finished    |
 | [[+/ReadItLater/安德森與他筆下的印尼幽靈──讀《語言與權力：探索印尼的政治文化》\|安德森與他筆下的印尼幽靈──讀《語言與權力：探索印尼的政治文化》]]                                                                 | 阿潑               | finished    |
 | [[+/ReadItLater/我就是看到「方言」或「Pe̍h-ōe-jī」就心煩──讀《請說「國語」》\|我就是看到「方言」或「Pe̍h-ōe-jī」就心煩──讀《請說「國語」》]]                                                         | 蘇致亨              | finished    |
-| [[+/ReadItLater/美國最暢銷字典編輯的秘密人生──讀《為單字安排座位的人》\|美國最暢銷字典編輯的秘密人生──讀《為單字安排座位的人》]]                                                                         | OKAPI編輯室         | finished    |
 | [[+/ReadItLater/真人版翻譯年糕！學會這四種語言，環遊世界不必靠翻譯！──《二十種語言，另眼看世界》\|真人版翻譯年糕！學會這四種語言，環遊世界不必靠翻譯！──《二十種語言，另眼看世界》]]                                               | OKAPI            | finished    |
+| [[+/ReadItLater/美國最暢銷字典編輯的秘密人生──讀《為單字安排座位的人》\|美國最暢銷字典編輯的秘密人生──讀《為單字安排座位的人》]]                                                                         | OKAPI編輯室         | finished    |
 
 { .block-language-dataview}
 
@@ -352,6 +390,7 @@
 | books                                                                                | author                           | status      | own      | rating |
 | ------------------------------------------------------------------------------------ | -------------------------------- | ----------- | -------- | ------ |
 | [[Area/Reading/Swimming in the Dark\|Swimming in the Dark]]                       | Tomasz Jedrowski                 | waiting     | bought   | \-     |
+| [[Area/Reading/分手去旅行\|分手去旅行]]                                                     | Andrew Sean Greer                | waiting     | bought   | \-     |
 | [[Area/Reading/Gentleman Jack\|Gentleman Jack]]                                   | Angela Steidele                  | in progress | bought   | \-     |
 | [[Area/Reading/Young Mungo\|Young Mungo]]                                         | Douglas Stuart                   | in progress | bought   | \-     |
 | [[Area/Reading/A Little Life\|A Little Life]]                                     | Hanya Yanagihara                 | finished    | bought   | 5      |
@@ -368,14 +407,15 @@
 
 { .block-language-dataview}
 
-| articles                                                                                                            | author         | status      |
-| ------------------------------------------------------------------------------------------------------------------- | -------------- | ----------- |
-| [[+/ReadItLater/How Rebecca Makkai Wrote 'The Great Believers'\|How Rebecca Makkai Wrote 'The Great Believers']] | Rachel León    | in progress |
-| [[+/ReadItLater/Rebecca Makkai Art for Heart’s Sake\|Rebecca Makkai Art for Heart’s Sake]]                       | Shireen Quadri | in progress |
-| [[+/ReadItLater/生死歸所不由己──楊曜愷《從今以後》女同志「家庭」的現實寓言\|生死歸所不由己──楊曜愷《從今以後》女同志「家庭」的現實寓言]]                                 | 張士達            | in progress |
-| [[+/ReadItLater/台灣立委吳沛憶專訪：替同志伴侶許家蓓「說一個完整的故事」\|台灣立委吳沛憶專訪：替同志伴侶許家蓓「說一個完整的故事」]]                                     | \-             | finished    |
-| [[+/ReadItLater/跨性別\|跨性別]]                                                                                       | 陳彥成            | finished    |
-| [[+/ReadItLater/雙子之愛\|雙子之愛]]                                                                                     | 陳又津            | finished    |
+| articles                                                                                                            | author                | status      |
+| ------------------------------------------------------------------------------------------------------------------- | --------------------- | ----------- |
+| [[+/ReadItLater/How Rebecca Makkai Wrote 'The Great Believers'\|How Rebecca Makkai Wrote 'The Great Believers']] | Rachel León           | in progress |
+| [[+/ReadItLater/Rebecca Makkai Art for Heart’s Sake\|Rebecca Makkai Art for Heart’s Sake]]                       | Shireen Quadri        | in progress |
+| [[+/ReadItLater/生死歸所不由己──楊曜愷《從今以後》女同志「家庭」的現實寓言\|生死歸所不由己──楊曜愷《從今以後》女同志「家庭」的現實寓言]]                                 | 張士達                   | in progress |
+| [[+/ReadItLater/台灣立委吳沛憶專訪：替同志伴侶許家蓓「說一個完整的故事」\|台灣立委吳沛憶專訪：替同志伴侶許家蓓「說一個完整的故事」]]                                     | \-                    | finished    |
+| [[+/ReadItLater/跨性別\|跨性別]]                                                                                       | 陳彥成                   | finished    |
+| [[+/ReadItLater/雙子之愛\|雙子之愛]]                                                                                     | 陳又津                   | finished    |
+| [[+/ReadItLater/同志沒有不一樣，跟所有人都一樣──五月選書《分手去旅行》\|同志沒有不一樣，跟所有人都一樣──五月選書《分手去旅行》]]                                     | <ul><li>陳伯昌</li></ul> | \-          |
 
 { .block-language-dataview}
 
