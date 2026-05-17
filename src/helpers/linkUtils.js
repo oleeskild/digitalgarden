@@ -16,11 +16,19 @@ try {
   // bases-engine not available, skip bases link extraction
 }
 
+function stripIgnoredLinkContent(content) {
+  return (content || "")
+    .replace(/```[\s\S]*?```/g, "")
+    .replace(/<!--[\s\S]*?-->/g, "");
+}
+
 function extractLinks(content) {
+  const searchableContent = stripIgnoredLinkContent(content);
+
   // Extract iframe sources for canvas embeds
   const iframeLinks = [];
   let match;
-  while ((match = iframeSrcRegex.exec(content)) !== null) {
+  while ((match = iframeSrcRegex.exec(searchableContent)) !== null) {
     // match[1] is the captured path like "/notes/some-page/"
     iframeLinks.push(match[1]);
   }
@@ -28,7 +36,7 @@ function extractLinks(content) {
   iframeSrcRegex.lastIndex = 0;
 
   return [
-    ...(content.match(wikiLinkRegex) || []).map(
+    ...(searchableContent.match(wikiLinkRegex) || []).map(
       (link) =>
         link
           .slice(2, -2)
@@ -38,7 +46,7 @@ function extractLinks(content) {
           .trim()
           .split("#")[0]
     ),
-    ...(content.match(internalLinkRegex) || []).map(
+    ...(searchableContent.match(internalLinkRegex) || []).map(
       (link) =>
         link
           .slice(6, -1)
