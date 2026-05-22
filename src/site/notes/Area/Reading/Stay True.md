@@ -9,9 +9,6 @@ Winner of the Pulitzer Prize Winner of the National Book Critics Circle Award On
 
 
 
-
-
-
 ## Thoughts
 
 去高雄聽作者的巡迴座談，印象最深刻的是說他小時候在Oasis還沒成名時就喜歡Oasis，但是當大家都開始聽Oasis時他就不喜歡了，真的是很打中我哈哈哈。人小的時候都渴望自己是獨一無二的。還有他說一開始他不喜歡阿健是因為阿健是everything he wanted to be.

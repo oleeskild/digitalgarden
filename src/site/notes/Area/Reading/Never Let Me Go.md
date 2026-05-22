@@ -12,9 +12,7 @@ As children, Kathy, Ruth, and Tommy were students at Hailsham, an exclusive boar
 
 ## Thoughts
 
-
 ## Quotes
-
 
 ## Posts
 

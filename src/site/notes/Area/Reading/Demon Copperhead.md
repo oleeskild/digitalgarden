@@ -13,8 +13,6 @@ A masterful recasting of David Copperfield, narrated by an Appalachian boy whose
 
 ## Thoughts
 
-
 ## Quotes
-
 
 ## Posts

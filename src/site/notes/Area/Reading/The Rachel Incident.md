@@ -12,9 +12,6 @@ A BEST BOOK OF THE YEAR • A USA TODAY BESTSELLER • A brilliantly funny novel
 
 
 
-
-
-
 ## Thoughts
 - Rachel被男友ghosted之後期末報告寫不出來差點畢不了業的部分真是心有戚戚焉…
 - 故事背景不斷強調愛爾蘭經濟不景氣，於是男女主角一個去了倫敦一個去了紐約

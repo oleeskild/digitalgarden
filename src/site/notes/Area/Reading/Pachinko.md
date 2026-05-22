@@ -20,9 +20,6 @@
 
 
 
-
-
-
 ## Thoughts
 
 ## Quotes

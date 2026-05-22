@@ -60,7 +60,6 @@ NEW YORK TIMES BESTSELLER • SOON TO BE AN FX LIMITED SERIES STREAMING ON HULU 
 
 ## Quotes
 
-
 ## Posts
 
 [[+/ReadItLater/《什麼都別說》導讀：以「她的歷史」（herstory）顛覆北愛爾蘭國族暴力史\|《什麼都別說》導讀：以「她的歷史」（herstory）顛覆北愛爾蘭國族暴力史]]

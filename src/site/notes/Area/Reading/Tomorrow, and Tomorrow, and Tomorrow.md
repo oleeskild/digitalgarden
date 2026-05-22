@@ -10,9 +10,6 @@ ONE OF THE NEW YORK TIMES’ BEST BOOKS OF THE 21ST CENTURY • A NEW YORK TIMES
 
 
 
-
-
-
 ## Thoughts
 
 ## Quotes

@@ -10,19 +10,19 @@
 
 | books                                                                    | author            | status      | own              | rating |
 | ------------------------------------------------------------------------ | ----------------- | ----------- | ---------------- | ------ |
-| [[Area/Reading/銀翼殺手\|銀翼殺手]]                                           | Philip K. Dick    | waiting     | bought           | \-     |
-| [[Area/Reading/Snow Crash\|Snow Crash]]                               | Neal Stephenson   | waiting     | bought           | \-     |
-| [[Area/Reading/Poor Things\|Poor Things]]                             | Alasdair Gray     | waiting     | bought           | \-     |
-| [[Area/Reading/Oryx and Crake\|Oryx and Crake]]                       | Margaret Atwood   | waiting     | bought           | \-     |
 | [[Area/Reading/The Left Hand of Darkness\|The Left Hand of Darkness]] | Ursula K. Le Guin | waiting     | to buy or borrow | \-     |
-| [[Area/Reading/麻風醫生與巨變中國\|麻風醫生與巨變中國]]                                 | 劉紹華               | waiting     | bought           | \-     |
+| [[Area/Reading/銀翼殺手\|銀翼殺手]]                                           | Philip K. Dick    | waiting     | bought           | \-     |
+| [[Area/Reading/Oryx and Crake\|Oryx and Crake]]                       | Margaret Atwood   | waiting     | bought           | \-     |
+| [[Area/Reading/Poor Things\|Poor Things]]                             | Alasdair Gray     | waiting     | bought           | \-     |
+| [[Area/Reading/Snow Crash\|Snow Crash]]                               | Neal Stephenson   | waiting     | bought           | \-     |
 | [[Area/Reading/階級病院\|階級病院]]                                           | 馬欣                | waiting     | bought           | \-     |
+| [[Area/Reading/麻風醫生與巨變中國\|麻風醫生與巨變中國]]                                 | 劉紹華               | waiting     | bought           | \-     |
 | [[Area/Reading/The Windup Girl\|The Windup Girl]]                     | Paolo Bacigalupi  | in progress | bought           | \-     |
 | [[Area/Reading/Never Let Me Go\|Never Let Me Go]]                     | Kazuo Ishiguro    | finished    | bought           | 4.5    |
 | [[Area/Reading/George Orwell’s 1984\|George Orwell’s 1984]]           | George Orwell     | finished    | bought           | 4.5    |
-| [[Area/Reading/Travel by Bullet\|Travel by Bullet]]                   | John Scalzi       | finished    | bought           | 3.5    |
-| [[Area/Reading/The Dispatcher\|The Dispatcher]]                       | John Scalzi       | finished    | bought           | 3.5    |
 | [[Area/Reading/Murder by Other Means\|Murder by Other Means]]         | John Scalzi       | finished    | bought           | 3.5    |
+| [[Area/Reading/The Dispatcher\|The Dispatcher]]                       | John Scalzi       | finished    | bought           | 3.5    |
+| [[Area/Reading/Travel by Bullet\|Travel by Bullet]]                   | John Scalzi       | finished    | bought           | 3.5    |
 
 { .block-language-dataview}
 
@@ -70,6 +70,7 @@
 | [[Area/Reading/阿垂阿斯家族\|阿垂阿斯家族]]                                                     | Colm Tóibín                | waiting     | bought           | \-     |
 | [[Area/Reading/黑水燈塔船\|黑水燈塔船]]                                                       | Colm Tóibín                | waiting     | bought           | \-     |
 | [[Area/Reading/For and Against a United Ireland\|For and Against a United Ireland]] | Sam McBride,Fintan O'Toole | waiting     | bought           | \-     |
+| [[Area/Reading/Prophet Song\|Prophet Song]]                                         | Paul Lynch                 | waiting     | bought           | \-     |
 | [[Area/Reading/The Bee Sting\|The Bee Sting]]                                       | Paul Murray                | waiting     | to buy or borrow | \-     |
 
 { .block-language-dataview}

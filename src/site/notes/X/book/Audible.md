@@ -138,6 +138,7 @@
 - [ ] [[Area/Reading/Snow Crash\|Snow Crash]] — Neal Stephenson
 - [ ] [[Area/Reading/The Nights Are Quiet in Tehran\|The Nights Are Quiet in Tehran]] — Shida Bazyar
 - [ ] [[Area/Reading/For and Against a United Ireland\|For and Against a United Ireland]] — Fintan O'Toole
+- [ ] [[Area/Reading/Prophet Song\|Prophet Song]] — Paul Lynch 
 
 ## US
 
@@ -195,7 +196,7 @@
 - [/] [[Area/Reading/Gentleman Jack\|Gentleman Jack]] — Angela Steidele
 - [ ] [[Area/Reading/How the Old World Ended\|How the Old World Ended]] — Jonathan Scott
 - [ ] [[Area/Reading/All That Man Is\|All That Man Is]] — David Szalay
-- [ ] [[Area/Reading/Young Mungo\|Young Mungo]] — Douglas Stuart
+- [/] [[Area/Reading/Young Mungo\|Young Mungo]] — Douglas Stuart
 - [ ] [[Area/Reading/Powerful Women Who Ruled the Ancient World\|Powerful Women Who Ruled the Ancient World]] — Kara Cooney
 - [ ] [[Area/Reading/The End of the World Is Just the Beginning\|The End of the World Is Just the Beginning]] — Peter Zeihan
 - [ ] [[Area/Reading/Possession\|Possession]] — A.S. Byatt
@@ -264,12 +265,12 @@
 - [ ] [[Area/Reading/Land of Men\|Land of Men]] — Antoine de Saint-Exupéry
 - [ ] [[Area/Reading/Year of the Monkey\|Year of the Monkey]] — Patti Smith
 - [ ] [[Area/Reading/How to Stand Up to a Dictator\|How to Stand Up to a Dictator]] — Maria Ressa
-- [ ] [[Area/Reading/A Pocketful of Holes and Dreams\|A Pocketful of Holes and Dreams]] — Jeff Pearce
+- [x] [[Area/Reading/A Pocketful of Holes and Dreams\|A Pocketful of Holes and Dreams]] — Jeff Pearce ✅ 2026-05-22
 - [ ] [[Area/Reading/Far From the Tree\|Far From the Tree]] — Andrew Solomon
 - [ ] [[Area/Reading/Big Macs & Burgundy\|Big Macs & Burgundy]] — Vanessa Price, Adam Laukhuf
-- [ ] [[Area/Reading/The Huntress\|The Huntress]] — Kate Quinn
+- [x] [[Area/Reading/The Huntress\|The Huntress]] — Kate Quinn ✅ 2026-05-22
 - [ ] [[Area/Reading/Hold Me Closer, Toni Danzig\|Hold Me Closer, Toni Danzig]] — Laura Henry
-- [ ] [[Area/Reading/Yellowface\|Yellowface]] — Rebecca F Kuang
+- [x] [[Area/Reading/Yellowface\|Yellowface]] — Rebecca F Kuang ✅ 2026-05-22
 - [ ] [[Area/Reading/David Bowie Made Me Gay\|David Bowie Made Me Gay]] — Darryl W. Bullock
 - [ ] [[Area/Reading/The Complete Sherlock Holmes\|The Complete Sherlock Holmes]] — Sir Arthur Conan Doyle
 - [ ] [[Area/Reading/An Immense World\|An Immense World]] — Ed Yong
@@ -336,7 +337,7 @@
 - [ ] [[Area/Reading/Yes, Chef\|Yes, Chef]] — Marcus Samuelsson
 - [ ] [[Area/Reading/Bossypants\|Bossypants]] — Tina Fey
 - [ ] [[Area/Reading/Kitchen Confidential\|Kitchen Confidential]] — Anthony Bourdain, Irvine Welsh
-- [ ] [[The Subtle Art of Not Giving a F\*ck\|The Subtle Art of Not Giving a F\*ck]] — Mark Manson
+- [ ] [[Area/Reading/The Subtle Art of Not Giving a Fuck\|The Subtle Art of Not Giving a Fuck]] — Mark Manson
 - [ ] [[Area/Reading/Elon Musk\|Elon Musk]] — Ashlee Vance
 - [ ] [[Area/Reading/Born a Crime\|Born a Crime]] — Trevor Noah
 - [ ] [[Area/Reading/The Soul of a Chef\|The Soul of a Chef]] — Michael Ruhlman

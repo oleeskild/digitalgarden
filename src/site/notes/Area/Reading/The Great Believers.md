@@ -12,9 +12,6 @@ In 1985 Yale Tishman's career begins to flourish, the carnage of the AIDS epidem
 
 
 
-
-
-
 ## Thoughts
 
 私心以為這本書應該列為所有醫學生、中西牙醫師繼續教育、感染科專科訓練必讀書單，書中描寫HIV傳播途徑、各種AIDS併發症之細膩比讀Harrison或學會治療指引有趣得多，也會告訴你AIDS病人清理貓咪排泄物要戴手套這種豆知識。當然1980年代初期的對AIDS的歧視氛圍也是少不了的。

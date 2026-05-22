@@ -12,12 +12,9 @@ Following one woman's journey from a troubled girlhood in working-class Copenhag
 
 
 
-
 ## Thoughts
 
-
 ## Quotes
-
 
 ## Posts
 
