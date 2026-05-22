@@ -503,7 +503,7 @@ Zadie Smith 2000
 “Full stories are as rare as honesty,” one character confides in “White Teeth,” though Smith’s debut novel, in all its chaotic, prismatic glory, does its level best to try. As her bravura book unfurls, its central narrative of a friendship between a white Londoner and a Bengali Muslim seems to divide and regenerate like starfish limbs; and so, in one stroke, a literary supernova was born.
 
 ## 30
-### [[Area/Reading/Sing Unburied Sing\|Sing, Unburied, Sing]]
+### [[Area/Reading/Sing, Unburied, Sing\|Sing, Unburied, Sing]]
 
 Jesmyn Ward 2017
 

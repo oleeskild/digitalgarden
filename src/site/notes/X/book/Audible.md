@@ -1,0 +1,344 @@
+---
+{"dg-publish":true,"permalink":"/x/book/audible/","dg-note-properties":{"date":{"created":"2026-05-22T11:05:16","updated":"2026-05-22T11:08:31"}}}
+---
+
+# Audible
+
+## UK
+
+- [x] [[Area/Reading/Never Let Me Go\|Never Let Me Go]] — Kazuo Ishiguro
+- [x] [[Area/Reading/The Emperor of Gladness\|The Emperor of Gladness]] — Ocean Vuong
+- [x] [[Area/Reading/Flesh\|Flesh]] — David Szalay
+- [x] [[Area/Reading/The Art of a Lie\|The Art of a Lie]] — Laura Shepherd-Robinson
+- [x] [[Area/Reading/Katabasis\|Katabasis]] — R.F. Kuang
+- [x] [[Area/Reading/Anil's Ghost\|Anil's Ghost]] — Michael Ondaatje
+- [x] [[Area/Reading/Everything Is Tuberculosis\|Everything Is Tuberculosis]] — John Green
+- [x] [[Area/Reading/Beautiful World, Where Are You\|Beautiful World, Where Are You]] — Sally Rooney
+- [x] [[Area/Reading/How to Fight a War\|How to Fight a War]] — Mike Martin
+- [x] [[Area/Reading/Homelands\|Homelands]] — Timothy Garton Ash
+- [x] [[Area/Reading/The Ascent of Money\|The Ascent of Money]] — Niall Ferguson
+- [x] [[Area/Reading/We Don't Know Ourselves\|We Don't Know Ourselves]] — Fintan O'Toole
+- [x] [[Area/Reading/Dubliners\|Dubliners]] — James Joyce
+- [x] [[Area/Reading/Hamnet\|Hamnet]] — Maggie O'Farrell
+- [x] [[Area/Reading/Brooklyn\|Brooklyn]] — Colm Tóibín
+- [x] [[Area/Reading/The Winner\|The Winner]] — Teddy Wayne
+- [x] [[Area/Reading/Macbeth\|Macbeth]] — Jo Nesbo, Don Bartlett
+- [x] [[Area/Reading/Small Things Like These\|Small Things Like These]] — Claire Keegan
+- [x] [[Area/Reading/The River Man\|The River Man]] — R. B. Croft
+- [x] [[Area/Reading/Childhood, Youth, Dependency\|Childhood, Youth, Dependency]] — Tove Ditlevsen, Tiina Nunnally
+- [x] [[Area/Reading/Foster\|Foster]] — Claire Keegan
+- [x] [[Area/Reading/The Road to Unfreedom\|The Road to Unfreedom]] — Timothy Snyder
+- [x] [[Area/Reading/Chip War\|Chip War]] — Chris Miller
+- [x] [[Area/Reading/The Great Believers\|The Great Believers]] — Rebecca Makkai
+- [x] [[Area/Reading/All Quiet on the Western Front\|All Quiet on the Western Front]] — Erich Maria Remarque
+- [x] [[Area/Reading/Blindness\|Blindness]] — José Saramago
+- [x] [[Area/Reading/Babel (2022)\|Babel (2022)]] — R.F. Kuang
+- [x] [[Area/Reading/Wired for Love\|Wired for Love]] — Stephanie Cacioppo
+- [x] [[Area/Reading/Guns, Germs and Steel\|Guns, Germs and Steel]] — Jared Diamond
+- [x] [[Area/Reading/Codename Villanelle\|Codename Villanelle]] — Luke Jennings
+- [/] [[Area/Reading/Wolf Hall\|Wolf Hall]] — Hilary Mantel
+- [/] [[Area/Reading/If Russia Wins\|If Russia Wins]] — Carlo Masala
+- [/] [[Area/Reading/The Land in Winter\|The Land in Winter]] — Andrew Miller
+- [/] [[Area/Reading/Milkman\|Milkman]] — Anna Burns
+- [/] [[Area/Reading/The Line of Beauty\|The Line of Beauty]] — Alan Hollinghurst
+- [/] [[Area/Reading/The Great Divergence\|The Great Divergence]] — Timothy Noah
+- [/] [[Area/Reading/How to Achieve Financial Independence and Retire Early\|How to Achieve Financial Independence and Retire Early]] — JD Roth
+- [/] [[Area/Reading/The Strange Case\|The Strange Case]] — Derek Kolstad, Mitali Jahagirdar, Laurie Kirwan-Ashman, Nick Luddington, Fallon O'Dowd
+- [/] [[Area/Reading/Medical Mysteries Across History\|Medical Mysteries Across History]] — Roy Benaroch MD
+- [/] [[Area/Reading/Robbo\|Robbo]] — Andrew Robertson
+- [/] [[Area/Reading/The Master\|The Master]] — Colm Tóibín
+- [/] [[Area/Reading/The Great Tours\|The Great Tours]] — Patrick N. Allitt
+- [/] [[Area/Reading/Notes From a Small Island\|Notes From a Small Island]] — Bill Bryson
+- [ ] [[Area/Reading/The Seven Moons of Maali Almeida\|The Seven Moons of Maali Almeida]] — Shehan Karunatilaka
+- [ ] [[Area/Reading/The Loneliness of Sonia and Sunny\|The Loneliness of Sonia and Sunny]] — Kiran Desai
+- [ ] [[Area/Reading/Trilogy\|Trilogy]] — Jon Fosse, May Brit-Akerholot
+- [ ] [[The E.M. Forster Collection\|The E.M. Forster Collection]] — E. M. Forster
+- [ ] [[Area/Reading/The Years\|The Years]] — Annie Ernaux
+- [ ] [[Area/Reading/Open, Heaven\|Open, Heaven]] — Seán Hewitt
+- [ ] [[Area/Reading/The South\|The South]] — Tash Aw
+- [ ] [[Area/Reading/The Ministry of Time\|The Ministry of Time]] — Kaliane Bradley
+- [ ] [[Area/Reading/Secret Sister\|Secret Sister]] — Sarah A. Denzil
+- [ ] [[Area/Reading/Pride and Prejudice\|Pride and Prejudice]] — Jane Austen, Lulu Raczka
+- [ ] [[Area/Reading/Baltic\|Baltic]] — Oliver Moody
+- [ ] [[Area/Reading/The Charles Dickens BBC Radio Drama Collection\|The Charles Dickens BBC Radio Drama Collection]] — Charles Dickens
+- [ ] [[Area/Reading/Sunburn\|Sunburn]] — Chloe Michelle Howarth
+- [ ] [[Area/Reading/Fundamentally\|Fundamentally]] — Nussaibah Younis
+- [ ] [[Area/Reading/Flashlight\|Flashlight]] — Susan Choi
+- [ ] [[Area/Reading/Dream Count\|Dream Count]] — Chimamanda Ngozi Adichie
+- [ ] [[Area/Reading/How the World Made the West\|How the World Made the West]] — Josephine Quinn
+- [ ] [[Area/Reading/After the End of History\|After the End of History]] — Francis Fukuyama
+- [ ] [[Area/Reading/The Magic Mountain\|The Magic Mountain]] — Thomas Mann
+- [ ] [[Area/Reading/The Coming of Neo-Feudalism\|The Coming of Neo-Feudalism]] — Joel Kotkin
+- [ ] [[Area/Reading/Books That Cook\|Books That Cook]] — Jennifer Cognard-Black
+- [ ] [[Area/Reading/George Orwell\|George Orwell]] — Michael Shelden
+- [ ] [[Area/Reading/Cultured\|Cultured]] — Janet Fletcher
+- [ ] [[Area/Reading/Sherlock Holmes\|Sherlock Holmes]] — James Krasner
+- [ ] [[Area/Reading/Medical Mysteries Across History, Pt.2\|Medical Mysteries Across History, Pt.2]] — Roy Benaroch MD
+- [ ] [[Area/Reading/Powerful Women of the Medieval World\|Powerful Women of the Medieval World]] — Dorsey Armstrong
+- [ ] [[Area/Reading/The Berlin Wall\|The Berlin Wall]] — Hope M. Harrison
+- [ ] [[Area/Reading/Those Who Leave and Those Who Stay\|Those Who Leave and Those Who Stay]] — Elena Ferrante
+- [ ] [[Area/Reading/The Story of the Lost Child\|The Story of the Lost Child]] — Elena Ferrante
+- [ ] [[Area/Reading/The Story of a New Name\|The Story of a New Name]] — Elena Ferrante
+- [ ] [[Area/Reading/Station Eleven\|Station Eleven]] — Emily St. John Mandel
+- [ ] [[Area/Reading/A Brief History of Seven Killings\|A Brief History of Seven Killings]] — Marlon James
+- [ ] [[Area/Reading/London Made Us\|London Made Us]] — Robert Elms
+- [ ] [[Area/Reading/The Great Gatsby at 100\|The Great Gatsby at 100]] — Sheila Liming
+- [ ] [[Area/Reading/Skippy Dies\|Skippy Dies]] — Paul Murray
+- [ ] [[Area/Reading/Mel & Sue\|Mel & Sue]] — Mel Giedroyc, Sue Perkins
+- [ ] [[Area/Reading/Swimming in the Dark\|Swimming in the Dark]] — Tomasz Jedrowski
+- [ ] [[Area/Reading/Giovanni's Room\|Giovanni's Room]] — James Baldwin
+- [ ] [[Area/Reading/The Postcard\|The Postcard]] — Anne Berest, Tina Kover
+- [ ] [[Area/Reading/All Creatures Great and Small\|All Creatures Great and Small]] — James Herriot
+- [ ] [[Area/Reading/War Horse\|War Horse]] — Michael Morpurgo
+- [ ] [[Area/Reading/Trust\|Trust]] — Hernan Diaz
+- [ ] [[Area/Reading/On Beauty\|On Beauty]] — Zadie Smith
+- [ ] [[Area/Reading/The Mirror and the Light\|The Mirror and the Light]] — Hilary Mantel
+- [ ] [[Area/Reading/Bring Up the Bodies\|Bring Up the Bodies]] — Hilary Mantel
+- [ ] [[Area/Reading/The Candy House\|The Candy House]] — Jennifer Egan
+- [ ] [[Area/Reading/A Visit from the Goon Squad\|A Visit from the Goon Squad]] — Jennifer Egan
+- [ ] [[Area/Reading/My Story\|My Story]] — Steven Gerrard
+- [ ] [[Area/Reading/To Paradise\|To Paradise]] — Hanya Yanagihara
+- [ ] [[Area/Reading/Exit West\|Exit West]] — Mohsin Hamid
+- [ ] [[Area/Reading/The Magician\|The Magician]] — Colm Tóibín
+- [ ] [[Area/Reading/Long Island\|Long Island]] — Colm Tóibín
+- [ ] [[Area/Reading/Evenings and Weekends\|Evenings and Weekends]] — Oisín McKenna
+- [ ] [[Area/Reading/Antarctica\|Antarctica]] — Claire Keegan
+- [ ] [[Area/Reading/Unsheltered\|Unsheltered]] — Barbara Kingsolver
+- [ ] [[Area/Reading/Prisoners of Geography\|Prisoners of Geography]] — Tim Marshall
+- [ ] [[Area/Reading/The English and Their History\|The English and Their History]] — Robert Tombs
+- [ ] [[Area/Reading/The Warmth of Other Suns\|The Warmth of Other Suns]] — Isabel Wilkerson
+- [ ] [[Area/Reading/Why Nations Fail\|Why Nations Fail]] — Daron Acemoglu, James A. Robinson
+- [ ] [[Area/Reading/All Fours\|All Fours]] — Miranda July
+- [ ] [[Area/Reading/Shuggie Bain\|Shuggie Bain]] — Douglas Stuart
+- [ ] [[Area/Reading/The Burning God\|The Burning God]] — R.F. Kuang
+- [ ] [[Area/Reading/20,000 Leagues Under the Sea\|20,000 Leagues Under the Sea]] — Jules Verne, Tony Lee
+- [ ] [[Area/Reading/The Complete Barchester Chronicles\|The Complete Barchester Chronicles]] — Anthony Trollope
+- [ ] [[Area/Reading/Unprocessed\|Unprocessed]] — Kimberley Wilson
+- [ ] [[Area/Reading/Madly, Deeply\|Madly, Deeply]] — Alan Rickman, Alan Taylor
+- [ ] [[Area/Reading/Edible Economics\|Edible Economics]] — Ha-Joon Chang
+- [ ] [[Area/Reading/Mae Martin's Guide to 21st Century Addiction and Sexuality\|Mae Martin's Guide to 21st Century Addiction and Sexuality]] — Mae Martin
+- [ ] [[Area/Reading/Gay Britannia\|Gay Britannia]] — Various
+- [ ] [[Area/Reading/Middlesex\|Middlesex]] — Jeffrey Eugenides
+- [ ] [[Area/Reading/The Remains of the Day\|The Remains of the Day]] — Kazuo Ishiguro
+- [ ] [[Area/Reading/The Lamplighters\|The Lamplighters]] — Emma Stonex
+- [ ] [[Area/Reading/Foreign Bodies\|Foreign Bodies]] — Simon Schama
+- [ ] [[Area/Reading/English Pastoral\|English Pastoral]] — James Rebanks
+- [ ] [[Area/Reading/Lady Chatterley's Lover\|Lady Chatterley's Lover]] — D. H. Lawrence, Fern Riddell
+- [ ] [[Area/Reading/The Spire\|The Spire]] — William Golding
+- [ ] [[Area/Reading/How to Not Die Alone\|How to Not Die Alone]] — Logan Ury
+- [ ] [[Area/Reading/Walk the Blue Fields\|Walk the Blue Fields]] — Claire Keegan
+- [ ] [[Area/Reading/Klara and the Sun\|Klara and the Sun]] — Kazuo Ishiguro
+- [ ] [[Area/Reading/I Never Knew That About Royal Britain\|I Never Knew That About Royal Britain]] — Christopher Winn
+- [ ] [[Area/Reading/Queen of Our Times\|Queen of Our Times]] — Robert Hardman
+- [ ] [[Area/Reading/Conquistadors\|Conquistadors]] — Michael Wood
+- [ ] [[Area/Reading/The Anarchy\|The Anarchy]] — William Dalrymple
+- [ ] [[Area/Reading/Sex, Love, and Marriage from the Middle Ages to the Enlightenment\|Sex, Love, and Marriage from the Middle Ages to the Enlightenment]] — Jennifer McNabb
+- [ ] [[Area/Reading/The Virginia Woolf Collection\|The Virginia Woolf Collection]] — Virginia Woolf
+- [ ] [[Area/Reading/The Windup Girl\|The Windup Girl]] — Paolo Bacigalupi
+- [ ] [[Area/Reading/Snow Crash\|Snow Crash]] — Neal Stephenson
+- [ ] [[Area/Reading/The Nights Are Quiet in Tehran\|The Nights Are Quiet in Tehran]] — Shida Bazyar
+- [ ] [[Area/Reading/For and Against a United Ireland\|For and Against a United Ireland]] — Fintan O'Toole
+
+## US
+
+- [x] [[Area/Reading/Project Hail Mary\|Project Hail Mary]] — Andy Weir
+- [x] [[Area/Reading/The Art of Fielding\|The Art of Fielding]] — Chad Harbach
+- [x] [[Area/Reading/The Night in Lisbon\|The Night in Lisbon]] — Erich Marie Remarque
+- [x] [[Area/Reading/Apple in China\|Apple in China]] — Patrick McGee
+- [x] [[Area/Reading/Wealth, War, and Wisdom\|Wealth, War, and Wisdom]] — Barton Biggs
+- [x] [[Area/Reading/So Late in the Day\|So Late in the Day]] — Claire Keegan
+- [x] [[Area/Reading/The Safekeep\|The Safekeep]] — Yael van der Wouden
+- [x] [[Area/Reading/Kairos\|Kairos]] — Jenny Erpenbeck
+- [x] [[Area/Reading/Say Nothing\|Say Nothing]] — Patrick Radden Keefe
+- [x] [[Area/Reading/Frankie\|Frankie]] — Graham Norton
+- [x] [[Area/Reading/Demon Copperhead\|Demon Copperhead]] — Barbara Kingsolver
+- [x] [[Area/Reading/Ebola\|Ebola]] — David Quammen
+- [x] [[Area/Reading/Prima Facie\|Prima Facie]] — Suzie Miller
+- [x] [[Area/Reading/Alan Cumming\|Alan Cumming]] — Alan Cumming
+- [x] [[Area/Reading/Six Steps to Manage Your Money\|Six Steps to Manage Your Money]] — Dr. Miranda Reiter
+- [x] [[Area/Reading/Bournville\|Bournville]] — Jonathan Coe
+- [x] [[Area/Reading/Murder by Other Means\|Murder by Other Means]] — John Scalzi
+- [x] [[Area/Reading/Travel by Bullet\|Travel by Bullet]] — John Scalzi
+- [x] [[Area/Reading/The Dispatcher\|The Dispatcher]] — John Scalzi
+- [x] [[Area/Reading/Normal People\|Normal People]] — Sally Rooney
+- [x] [[Area/Reading/A Swim in a Pond in the Rain\|A Swim in a Pond in the Rain]] — George Saunders
+- [x] [[Area/Reading/Tomorrow, and Tomorrow, and Tomorrow\|Tomorrow, and Tomorrow, and Tomorrow]] — Gabrielle Zevin
+- [x] [[Area/Reading/Narrator\|Narrator]] — Landon Beach
+- [x] [[Area/Reading/McMafia\|McMafia]] — Misha Glenny
+- [x] [[Area/Reading/Black, White, and The Grey\|Black, White, and The Grey]] — Mashama Bailey, John O. Morisano
+- [x] [[Area/Reading/A Little Life\|A Little Life]] — Hanya Yanagihara
+- [x] [[Area/Reading/Stay True\|Stay True]] — Hua Hsu
+- [x] [[Area/Reading/Chip War\|Chip War]] — Chris Miller
+- [x] [[Area/Reading/Empire of Pain\|Empire of Pain]] — Patrick Radden Keefe
+- [x] [[Area/Reading/Spillover\|Spillover]] — David Quammen
+- [x] [[Area/Reading/On Earth We're Briefly Gorgeous\|On Earth We're Briefly Gorgeous]] — Ocean Vuong
+- [x] [[Area/Reading/Caffeine\|Caffeine]] — Michael Pollan
+- [x] [[Area/Reading/Call Me by Your Name\|Call Me by Your Name]] — André Aciman
+- [x] [[Area/Reading/The Price of Salt\|The Price of Salt]] — Patricia Highsmith
+- [x] [[Area/Reading/Disobedience\|Disobedience]] — Naomi Alderman
+- [/] [[Area/Reading/Homage to Barcelona\|Homage to Barcelona]] — Colm Tóibín
+- [/] [[Area/Reading/Lisbon\|Lisbon]] — Neill Lochery
+- [/] [[Area/Reading/Mercury Pictures Presents\|Mercury Pictures Presents]] — Anthony Marra
+- [/] [[Area/Reading/Notes from an Apocalypse\|Notes from an Apocalypse]] — Mark O'Connell
+- [/] [[Area/Reading/The Knowledge\|The Knowledge]] — Lewis Dartnell
+- [/] [[Area/Reading/Plagues and Peoples\|Plagues and Peoples]] — William H. McNeill
+- [/] [[Area/Reading/The Strategy of Denial\|The Strategy of Denial]] — Elbridge A. Colby
+- [/] [[Area/Reading/Great Pharaohs of Ancient Egypt\|Great Pharaohs of Ancient Egypt]] — Bob Brier
+- [/] [[Area/Reading/Salvage the Bones\|Salvage the Bones]] — Jesmyn Ward
+- [/] [[Area/Reading/Patriot\|PATRIOT]] — Alexei Navalny, Arch Tait
+- [/] [[Area/Reading/James\|James]] — Percival Everett
+- [/] [[Area/Reading/Narconomics\|Narconomics]] — Tom Wainwright
+- [/] [[Area/Reading/The Justice\|The Justice]] — James Patterson, Aaron Cooley
+- [/] [[Area/Reading/Heart of Darkness\|Heart of Darkness]] — Joseph Conrad
+- [/] [[Area/Reading/The Reconstruction of Nations\|The Reconstruction of Nations]] — Timothy Snyder
+- [/] [[Area/Reading/The Name of the Rose\|The Name of the Rose]] — Umberto Eco
+- [/] [[Area/Reading/Gentleman Jack\|Gentleman Jack]] — Angela Steidele
+- [ ] [[Area/Reading/How the Old World Ended\|How the Old World Ended]] — Jonathan Scott
+- [ ] [[Area/Reading/All That Man Is\|All That Man Is]] — David Szalay
+- [ ] [[Area/Reading/Young Mungo\|Young Mungo]] — Douglas Stuart
+- [ ] [[Area/Reading/Powerful Women Who Ruled the Ancient World\|Powerful Women Who Ruled the Ancient World]] — Kara Cooney
+- [ ] [[Area/Reading/The End of the World Is Just the Beginning\|The End of the World Is Just the Beginning]] — Peter Zeihan
+- [ ] [[Area/Reading/Possession\|Possession]] — A.S. Byatt
+- [ ] [[Area/Reading/Careless People\|Careless People]] — Sarah Wynn-Williams
+- [ ] [[Area/Reading/The Tsar of Love and Techno\|The Tsar of Love and Techno]] — Anthony Marra
+- [ ] [[Area/Reading/The Lehman Trilogy\|The Lehman Trilogy]] — Stefano Massini
+- [ ] [[Area/Reading/Can Ireland Be One\|Can Ireland Be One]] — Malachi O'Doherty
+- [ ] [[Area/Reading/The History of Ancient Egypt\|The History of Ancient Egypt]] — Bob Brier
+- [ ] [[Area/Reading/Becoming Bulletproof\|Becoming Bulletproof]] — Evy Poumpouras
+- [ ] [[Area/Reading/48 Laws of Power\|48 Laws of Power]] — Robert Greene
+- [ ] [[Area/Reading/The Gentle Art of Swedish Death Cleaning\|The Gentle Art of Swedish Death Cleaning]] — Margareta Magnusson
+- [ ] [[Area/Reading/Care and Feeding\|Care and Feeding]] — Laurie Woolever
+- [ ] [[Area/Reading/The Dictionary of Lost Words\|The Dictionary of Lost Words]] — Pip Williams
+- [ ] [[Area/Reading/BBC Radio Shakespeare\|BBC Radio Shakespeare]] — William Shakespeare
+- [ ] [[Area/Reading/The Beatrix Potter Collection\|The Beatrix Potter Collection]] — Beatrix Potter
+- [ ] [[Area/Reading/The Well of Loneliness\|The Well of Loneliness]] — Radclyffe Hall
+- [ ] [[Area/Reading/The Picture of Dorian Gray\|The Picture of Dorian Gray]] — Oscar Wilde
+- [ ] [[Area/Reading/A Christmas Carol\|A Christmas Carol]] — Charles Dickens
+- [ ] [[Area/Reading/Bleak House\|Bleak House]] — Charles Dickens
+- [ ] [[Area/Reading/Little Women\|Little Women]] — Louisa May Alcott
+- [ ] [[Area/Reading/Madame Bovary\|Madame Bovary]] — Gustave Flaubert, Gerard Hopkins
+- [ ] [[Area/Reading/Mansfield Park\|Mansfield Park]] — Jane Austen
+- [ ] [[Area/Reading/A Tale of Two Cities\|A Tale of Two Cities]] — Charles Dickens, Simon Callow
+- [ ] [[Area/Reading/The Old Curiosity Shop\|The Old Curiosity Shop]] — Charles Dickens
+- [ ] [[Area/Reading/Mary Barton\|Mary Barton]] — Elizabeth Gaskell
+- [ ] [[Area/Reading/Around the World in 80 Days\|Around the World in 80 Days]] — Jules Verne, Anna Lea
+- [ ] [[Area/Reading/The Chekhov Collection of Short Stories\|The Chekhov Collection of Short Stories]] — Anton Chekhov
+- [ ] [[Area/Reading/The Portrait of a Lady\|The Portrait of a Lady]] — Henry James
+- [ ] [[Area/Reading/Die With Zero\|Die With Zero]] — Bill Perkins
+- [ ] [[Area/Reading/Grandma Gatewood's Walk\|Grandma Gatewood's Walk]] — Ben Montgomery
+- [ ] [[Area/Reading/Victory City\|Victory City]] — Salman Rushdie
+- [ ] [[Area/Reading/遠い太鼓\|遠い太鼓]] — 村上 春樹
+- [ ] [[Area/Reading/Pies and Prejudice\|Pies and Prejudice]] — Stuart Maconie
+- [ ] [[Area/Reading/When We Cease to Understand the World\|When We Cease to Understand the World]] — Benjamin Labatut, Adrian West
+- [ ] [[Area/Reading/H Is for Hawk\|H Is for Hawk]] — Helen Macdonald
+- [ ] [[Area/Reading/Nemesis\|Nemesis]] — Philip Roth
+- [ ] [[Area/Reading/The Plot Against America\|The Plot Against America]] — Philip Roth
+- [ ] [[Area/Reading/Gilead\|Gilead]] — Marilynne Robinson
+- [ ] [[Area/Reading/Piranesi\|Piranesi]] — Susanna Clarke
+- [ ] [[Area/Reading/You Say Potato\|You Say Potato]] — Ben Crystal, David Crystal
+- [ ] [[Area/Reading/Men We Reaped\|Men We Reaped]] — Jesmyn Ward
+- [ ] [[Area/Reading/Poor Things\|Poor Things]] — Alasdair Gray
+- [ ] [[Area/Reading/A Brief History of Earth\|A Brief History of Earth]] — Andrew H. Knoll
+- [ ] [[Area/Reading/Orbital\|Orbital]] — Samantha Harvey
+- [ ] [[Area/Reading/The Anxious Generation\|The Anxious Generation]] — Jonathan Haidt
+- [ ] [[Area/Reading/The Edinburgh Mystery\|The Edinburgh Mystery]] — Martin Edwards, Various
+- [ ] [[Area/Reading/Sing, Unburied, Sing\|Sing, Unburied, Sing]] — Jesmyn Ward
+- [ ] [[Anton Chekhov\|Anton Chekhov]] — Anton Chekhov
+- [ ] [[Area/Reading/Intermezzo\|Intermezzo]] — Sally Rooney
+- [ ] [[Area/Reading/Shakespeare\|Shakespeare]] — Judi Dench, Brendan O'Hea
+- [ ] [[Area/Reading/The Dawn of Everything\|The Dawn of Everything]] — David Graeber, David Wengrow
+- [ ] [[Area/Reading/Your Table Is Ready\|Your Table Is Ready]] — Michael Cecchi-Azzolina
+- [ ] [[Area/Reading/The Brief Wondrous Life of Oscar Wao\|The Brief Wondrous Life of Oscar Wao]] — Junot Díaz
+- [ ] [[Area/Reading/The Little Prince\|The Little Prince]] — Antoine de Saint-Exupéry, Richard Howard
+- [ ] [[Area/Reading/On Call\|On Call]] — Anthony Fauci M.D.
+- [ ] [[Area/Reading/Reading with Patrick\|Reading with Patrick]] — Michelle Kuo
+- [ ] [[Area/Reading/George Orwell’s 1984\|George Orwell’s 1984]] — George Orwell, Joe White
+- [ ] [[Area/Reading/Women Talking\|Women Talking]] — Brittany K. Allen, Sandra Delgado, ruth tang
+- [ ] [[Area/Reading/North and South\|North and South]] — Elizabeth Gaskell
+- [ ] [[Area/Reading/Ghost Stories\|Ghost Stories]] — Stephen Fry, Washington Irving, M.R. James, Amelia B. Edwards, Robert Louis Stevenson, Algernon Blackwood, Edgar Allan Poe, Charlotte Riddell, Bram Stoker
+- [ ] [[Area/Reading/Bunnyman\|Bunnyman]] — Will Sergeant
+- [ ] [[Area/Reading/El principito\|El principito]] — Antoine de Saint-Exupéry
+- [ ] [[Area/Reading/The Noonday Demon\|The Noonday Demon]] — Andrew Solomon
+- [ ] [[Area/Reading/The Motorcycle Diaries\|The Motorcycle Diaries]] — Ernesto Che Guevara, Aleida Guevara
+- [ ] [[Area/Reading/Becoming Beauvoir\|Becoming Beauvoir]] — Dr Kate Kirkpatrick
+- [ ] [[Area/Reading/Land of Men\|Land of Men]] — Antoine de Saint-Exupéry
+- [ ] [[Area/Reading/Year of the Monkey\|Year of the Monkey]] — Patti Smith
+- [ ] [[Area/Reading/How to Stand Up to a Dictator\|How to Stand Up to a Dictator]] — Maria Ressa
+- [ ] [[Area/Reading/A Pocketful of Holes and Dreams\|A Pocketful of Holes and Dreams]] — Jeff Pearce
+- [ ] [[Area/Reading/Far From the Tree\|Far From the Tree]] — Andrew Solomon
+- [ ] [[Area/Reading/Big Macs & Burgundy\|Big Macs & Burgundy]] — Vanessa Price, Adam Laukhuf
+- [ ] [[Area/Reading/The Huntress\|The Huntress]] — Kate Quinn
+- [ ] [[Area/Reading/Hold Me Closer, Toni Danzig\|Hold Me Closer, Toni Danzig]] — Laura Henry
+- [ ] [[Area/Reading/Yellowface\|Yellowface]] — Rebecca F Kuang
+- [ ] [[Area/Reading/David Bowie Made Me Gay\|David Bowie Made Me Gay]] — Darryl W. Bullock
+- [ ] [[Area/Reading/The Complete Sherlock Holmes\|The Complete Sherlock Holmes]] — Sir Arthur Conan Doyle
+- [ ] [[Area/Reading/An Immense World\|An Immense World]] — Ed Yong
+- [ ] [[Area/Reading/The Selfish Gene\|The Selfish Gene]] — Richard Dawkins
+- [ ] [[Area/Reading/Some We Love, Some We Hate, Some We Eat\|Some We Love, Some We Hate, Some We Eat]] — Hal Herzog
+- [ ] [[Area/Reading/The Life and Works of Mozart\|The Life and Works of Mozart]] — Jeremy Siepmann
+- [ ] [[Area/Reading/The Barcelona Complex\|The Barcelona Complex]] — Simon Kuper
+- [ ] [[Area/Reading/Down and Out in Paradise\|Down and Out in Paradise]] — Charles Leerhsen
+- [ ] [[Area/Reading/Far from the Madding Crowd\|Far from the Madding Crowd]] — Thomas Hardy
+- [ ] [[Area/Reading/職業としての小説家\|職業としての小説家]] — 村上 春樹
+- [ ] [[Area/Reading/The Return of the Native\|The Return of the Native]] — Thomas Hardy
+- [ ] [[Area/Reading/Remembrance of Things Past\|Remembrance of Things Past]] — Marcel Proust, Scott Moncrieff
+- [ ] [[Area/Reading/Bourdain\|Bourdain]] — Laurie Woolever
+- [ ] [[Area/Reading/Orlando\|Orlando]] — Virginia Woolf
+- [ ] [[Area/Reading/The Judgment of Paris\|The Judgment of Paris]] — Ross King
+- [ ] [[Area/Reading/In the Weeds\|In the Weeds]] — Tom Vitale
+- [ ] [[Area/Reading/This Is Your Mind on Plants\|This Is Your Mind on Plants]] — Michael Pollan
+- [ ] [[Spanish Short Stories\|Spanish Short Stories]] — Charles Mendel
+- [ ] [[Area/Reading/A Woman of the World\|A Woman of the World]] — Rebecca Gilman
+- [ ] [[Area/Reading/The Man on the Mountaintop\|The Man on the Mountaintop]] — Susan Trott, Libby Spurrier
+- [ ] [[Area/Reading/Birds, Beasts and Relatives\|Birds, Beasts and Relatives]] — Gerald Durrell
+- [ ] [[Area/Reading/Winnie-the-Pooh\|Winnie-the-Pooh]] — A. A. Milne
+- [ ] [[Area/Reading/Alice's Adventures in Wonderland\|Alice's Adventures in Wonderland]] — Lewis Carroll
+- [ ] [[Area/Reading/Inés del alma mía\|Inés del alma mía]] — Isabel Allende
+- [ ] [[Area/Reading/Veinte poemas de amor y una canción desesperada\|Veinte poemas de amor y una canción desesperada]] — Pablo Neruda
+- [ ] [[Area/Reading/Why We Sleep\|Why We Sleep]] — Matthew Walker PhD
+- [ ] [[Area/Reading/Cut and Run\|Cut and Run]] — Ben Acker, Ben Blacker
+- [ ] [[Area/Reading/My Family and Other Animals\|My Family and Other Animals]] — Gerald Durrell
+- [ ] [[The New York Times Digest\|The New York Times Digest]] — The New York Times
+- [ ] [[The Wall Street Journal Digest\|The Wall Street Journal Digest]] — The Wall Street Journal
+- [ ] [[Area/Reading/I Can't Think Straight\|I Can't Think Straight]] — Shamim Sarif
+- [ ] [[Area/Reading/M Train\|M Train]] — Patti Smith
+- [ ] [[Area/Reading/How Chefs Holiday\|How Chefs Holiday]] — Dana Cowin
+- [ ] [[Area/Reading/The Violin\|The Violin]] — David Schoenbaum
+- [ ] [[Area/Reading/The Burnout Generation\|The Burnout Generation]] — Anne Helen Petersen
+- [ ] [[Area/Reading/The Omnivore's Dilemma\|The Omnivore's Dilemma]] — Michael Pollan
+- [ ] [[Area/Reading/Treasure Island\|Treasure Island]] — Robert Louis Stevenson, Marty Ross
+- [ ] [[Area/Reading/It Burns\|It Burns]] — Marc Fennell
+- [ ] [[Area/Reading/The History of Western Art\|The History of Western Art]] — Peter Whitfield
+- [ ] [[Area/Reading/The Man Who Knew the Way to the Moon\|The Man Who Knew the Way to the Moon]] — Todd Zwillich
+- [ ] [[Area/Reading/Save Me the Plums\|Save Me the Plums]] — Ruth Reichl
+- [ ] [[Area/Reading/How to Change Your Mind\|How to Change Your Mind]] — Michael Pollan
+- [ ] [[Area/Reading/Screwball\|Screwball]] — Simon Rich
+- [ ] [[Area/Reading/Tune In\|Tune In]] — Mark Lewisohn
+- [ ] [[Area/Reading/The Wild Heart of Stevie Nicks\|The Wild Heart of Stevie Nicks]] — Rob Sheffield
+- [ ] [[Area/Reading/Black Crow, White Snow\|Black Crow, White Snow]] — Michael Livingston
+- [ ] [[Area/Reading/The Handmaid's Tale\|The Handmaid's Tale]] — Margaret Atwood, Valerie Martin
+- [ ] [[Area/Reading/Schindler's List\|Schindler's List]] — Thomas Keneally
+- [ ] [[Area/Reading/32 Yolks\|32 Yolks]] — Eric Ripert, Veronica Chambers
+- [ ] [[Area/Reading/Cooked\|Cooked]] — Michael Pollan
+- [ ] [[Area/Reading/Salt, Fat, Acid, Heat\|Salt, Fat, Acid, Heat]] — Samin Nosrat
+- [ ] [[Area/Reading/The Darkwater Bride\|The Darkwater Bride]] — Marty Ross
+- [ ] [[Area/Reading/Elizabeth II\|Elizabeth II]] — Ruth Cowen
+- [ ] [[Area/Reading/Remembering Roth\|Remembering Roth]] — James Atlas
+- [ ] [[Area/Reading/A Mind of Her Own\|A Mind of Her Own]] — Paula McLain
+- [ ] [[Area/Reading/Cork Dork\|Cork Dork]] — Bianca Bosker
+- [ ] [[Area/Reading/Adrift\|Adrift]] — Steven Callahan
+- [ ] [[Area/Reading/Medium Raw\|Medium Raw]] — Anthony Bourdain
+- [ ] [[Area/Reading/Blood, Bones & Butter\|Blood, Bones & Butter]] — Gabrielle Hamilton
+- [ ] [[Area/Reading/Garlic and Sapphires\|Garlic and Sapphires]] — Ruth Reichl
+- [ ] [[Area/Reading/Eat, Pray, Love\|Eat, Pray, Love]] — Elizabeth Gilbert
+- [ ] [[Area/Reading/Wild\|Wild]] — Cheryl Strayed
+- [ ] [[Area/Reading/The Wonderful Wizard of Oz\|The Wonderful Wizard of Oz]] — L. Frank Baum
+- [ ] [[Area/Reading/Yes, Chef\|Yes, Chef]] — Marcus Samuelsson
+- [ ] [[Area/Reading/Bossypants\|Bossypants]] — Tina Fey
+- [ ] [[Area/Reading/Kitchen Confidential\|Kitchen Confidential]] — Anthony Bourdain, Irvine Welsh
+- [ ] [[The Subtle Art of Not Giving a F\*ck\|The Subtle Art of Not Giving a F\*ck]] — Mark Manson
+- [ ] [[Area/Reading/Elon Musk\|Elon Musk]] — Ashlee Vance
+- [ ] [[Area/Reading/Born a Crime\|Born a Crime]] — Trevor Noah
+- [ ] [[Area/Reading/The Soul of a Chef\|The Soul of a Chef]] — Michael Ruhlman
+- [ ] [[Area/Reading/Shoe Dog\|Shoe Dog]] — Phil Knight
+- [ ] [[Area/Reading/Oryx and Crake\|Oryx and Crake]] — Margaret Atwood

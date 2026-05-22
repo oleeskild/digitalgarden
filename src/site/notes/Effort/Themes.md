@@ -11,15 +11,15 @@
 | books                                                                    | author            | status      | own              | rating |
 | ------------------------------------------------------------------------ | ----------------- | ----------- | ---------------- | ------ |
 | [[Area/Reading/銀翼殺手\|銀翼殺手]]                                           | Philip K. Dick    | waiting     | bought           | \-     |
-| [[Area/Reading/The Left Hand of Darkness\|The Left Hand of Darkness]] | Ursula K. Le Guin | waiting     | to buy or borrow | \-     |
 | [[Area/Reading/Snow Crash\|Snow Crash]]                               | Neal Stephenson   | waiting     | bought           | \-     |
 | [[Area/Reading/Poor Things\|Poor Things]]                             | Alasdair Gray     | waiting     | bought           | \-     |
 | [[Area/Reading/Oryx and Crake\|Oryx and Crake]]                       | Margaret Atwood   | waiting     | bought           | \-     |
+| [[Area/Reading/The Left Hand of Darkness\|The Left Hand of Darkness]] | Ursula K. Le Guin | waiting     | to buy or borrow | \-     |
 | [[Area/Reading/麻風醫生與巨變中國\|麻風醫生與巨變中國]]                                 | 劉紹華               | waiting     | bought           | \-     |
 | [[Area/Reading/階級病院\|階級病院]]                                           | 馬欣                | waiting     | bought           | \-     |
 | [[Area/Reading/The Windup Girl\|The Windup Girl]]                     | Paolo Bacigalupi  | in progress | bought           | \-     |
 | [[Area/Reading/Never Let Me Go\|Never Let Me Go]]                     | Kazuo Ishiguro    | finished    | bought           | 4.5    |
-| [[Area/Reading/1984\|1984]]                                           | George Orwell     | finished    | bought           | 4.5    |
+| [[Area/Reading/George Orwell’s 1984\|George Orwell’s 1984]]           | George Orwell     | finished    | bought           | 4.5    |
 | [[Area/Reading/Travel by Bullet\|Travel by Bullet]]                   | John Scalzi       | finished    | bought           | 3.5    |
 | [[Area/Reading/The Dispatcher\|The Dispatcher]]                       | John Scalzi       | finished    | bought           | 3.5    |
 | [[Area/Reading/Murder by Other Means\|Murder by Other Means]]         | John Scalzi       | finished    | bought           | 3.5    |
@@ -42,34 +42,35 @@
 
 ## Ireland
 
-| books                                                                | author               | status      | own              | rating |
-| -------------------------------------------------------------------- | -------------------- | ----------- | ---------------- | ------ |
-| [[Area/Reading/Hamnet\|Hamnet]]                                   | Maggie O'Farrell     | finished    | bought           | 5      |
-| [[Area/Reading/Normal People\|Normal People]]                     | Sally Rooney         | finished    | bought           | 5      |
-| [[Area/Reading/Say Nothing\|Say Nothing]]                         | Patrick Radden Keefe | finished    | bought           | 5      |
-| [[Area/Reading/We Don't Know Ourselves\|We Don't Know Ourselves]] | Fintan O'Toole       | finished    | bought           | 5      |
-| [[Area/Reading/The Rachel Incident\|The Rachel Incident]]         | Caroline O'Donoghue  | finished    | borrowed         | 4.5    |
-| [[Area/Reading/Small Things Like These\|Small Things Like These]] | Claire Keegan        | finished    | bought           | 4.5    |
-| [[Area/Reading/Brooklyn\|Brooklyn]]                               | Colm Toibin          | finished    | bought           | 4      |
-| [[Area/Reading/Dubliners\|Dubliners]]                             | James Joyce          | finished    | bought           | 4      |
-| [[Area/Reading/Foster\|Foster]]                                   | Claire Keegan        | finished    | bought           | 4      |
-| [[Area/Reading/So Late in the Day\|So Late in the Day]]           | Claire Keegan        | finished    | bought           | 4      |
-| [[Area/Reading/Homage to Barcelona\|Homage to Barcelona]]         | Colm Tóibín          | in progress | bought           | \-     |
-| [[Area/Reading/Milkman\|Milkman]]                                 | Anna Burns           | in progress | bought           | \-     |
-| [[Area/Reading/The Master\|The Master]]                           | Colm Toibin          | in progress | bought           | \-     |
-| [[Area/Reading/Antarctica\|Antarctica]]                           | Claire Keegan        | waiting     | bought           | \-     |
-| [[Area/Reading/Can Ireland Be One\|Can Ireland Be One]]           | Malachi O'Doherty    | waiting     | bought           | \-     |
-| [[Area/Reading/Intermezzo\|Intermezzo]]                           | Sally Rooney         | waiting     | bought           | \-     |
-| [[Area/Reading/Ireland\|Ireland]]                                 | Edward Rutherfurd    | waiting     | bought           | \-     |
-| [[Area/Reading/Long Island\|Long Island]]                         | Colm Toibin          | waiting     | bought           | \-     |
-| [[Area/Reading/Skippy Dies\|Skippy Dies]]                         | Paul Murray          | waiting     | bought           | \-     |
-| [[Area/Reading/The Magician\|The Magician]]                       | Colm Toibin          | waiting     | bought           | \-     |
-| [[Area/Reading/Walk the Blue Fields\|Walk the Blue Fields]]       | Claire Keegan        | waiting     | bought           | \-     |
-| [[Area/Reading/布拉格畫像\|布拉格畫像]]                                     | John Banville        | waiting     | bought           | \-     |
-| [[Area/Reading/芬尼根守靈\|芬尼根守靈]]                                     | James Joyce          | waiting     | bought           | \-     |
-| [[Area/Reading/阿垂阿斯家族\|阿垂阿斯家族]]                                   | Colm Tóibín          | waiting     | bought           | \-     |
-| [[Area/Reading/黑水燈塔船\|黑水燈塔船]]                                     | Colm Tóibín          | waiting     | bought           | \-     |
-| [[Area/Reading/The Bee Sting\|The Bee Sting]]                     | Paul Murray          | waiting     | to buy or borrow | \-     |
+| books                                                                                  | author                     | status      | own              | rating |
+| -------------------------------------------------------------------------------------- | -------------------------- | ----------- | ---------------- | ------ |
+| [[Area/Reading/Hamnet\|Hamnet]]                                                     | Maggie O'Farrell           | finished    | bought           | 5      |
+| [[Area/Reading/Normal People\|Normal People]]                                       | Sally Rooney               | finished    | bought           | 5      |
+| [[Area/Reading/Say Nothing\|Say Nothing]]                                           | Patrick Radden Keefe       | finished    | bought           | 5      |
+| [[Area/Reading/We Don't Know Ourselves\|We Don't Know Ourselves]]                   | Fintan O'Toole             | finished    | bought           | 5      |
+| [[Area/Reading/The Rachel Incident\|The Rachel Incident]]                           | Caroline O'Donoghue        | finished    | borrowed         | 4.5    |
+| [[Area/Reading/Small Things Like These\|Small Things Like These]]                   | Claire Keegan              | finished    | bought           | 4.5    |
+| [[Area/Reading/Brooklyn\|Brooklyn]]                                                 | Colm Toibin                | finished    | bought           | 4      |
+| [[Area/Reading/Dubliners\|Dubliners]]                                               | James Joyce                | finished    | bought           | 4      |
+| [[Area/Reading/Foster\|Foster]]                                                     | Claire Keegan              | finished    | bought           | 4      |
+| [[Area/Reading/So Late in the Day\|So Late in the Day]]                             | Claire Keegan              | finished    | bought           | 4      |
+| [[Area/Reading/Homage to Barcelona\|Homage to Barcelona]]                           | Colm Tóibín                | in progress | bought           | \-     |
+| [[Area/Reading/Milkman\|Milkman]]                                                   | Anna Burns                 | in progress | bought           | \-     |
+| [[Area/Reading/The Master\|The Master]]                                             | Colm Toibin                | in progress | bought           | \-     |
+| [[Area/Reading/Antarctica\|Antarctica]]                                             | Claire Keegan              | waiting     | bought           | \-     |
+| [[Area/Reading/Can Ireland Be One\|Can Ireland Be One]]                             | Malachi O'Doherty          | waiting     | bought           | \-     |
+| [[Area/Reading/Intermezzo\|Intermezzo]]                                             | Sally Rooney               | waiting     | bought           | \-     |
+| [[Area/Reading/Ireland\|Ireland]]                                                   | Edward Rutherfurd          | waiting     | bought           | \-     |
+| [[Area/Reading/Long Island\|Long Island]]                                           | Colm Toibin                | waiting     | bought           | \-     |
+| [[Area/Reading/Skippy Dies\|Skippy Dies]]                                           | Paul Murray                | waiting     | bought           | \-     |
+| [[Area/Reading/The Magician\|The Magician]]                                         | Colm Toibin                | waiting     | bought           | \-     |
+| [[Area/Reading/Walk the Blue Fields\|Walk the Blue Fields]]                         | Claire Keegan              | waiting     | bought           | \-     |
+| [[Area/Reading/布拉格畫像\|布拉格畫像]]                                                       | John Banville              | waiting     | bought           | \-     |
+| [[Area/Reading/芬尼根守靈\|芬尼根守靈]]                                                       | James Joyce                | waiting     | bought           | \-     |
+| [[Area/Reading/阿垂阿斯家族\|阿垂阿斯家族]]                                                     | Colm Tóibín                | waiting     | bought           | \-     |
+| [[Area/Reading/黑水燈塔船\|黑水燈塔船]]                                                       | Colm Tóibín                | waiting     | bought           | \-     |
+| [[Area/Reading/For and Against a United Ireland\|For and Against a United Ireland]] | Sam McBride,Fintan O'Toole | waiting     | bought           | \-     |
+| [[Area/Reading/The Bee Sting\|The Bee Sting]]                                       | Paul Murray                | waiting     | to buy or borrow | \-     |
 
 { .block-language-dataview}
 
@@ -292,12 +293,12 @@
 
 ## Shakespear
 
-| books                                                                                                | author                                           | status   | own    |
-| ---------------------------------------------------------------------------------------------------- | ------------------------------------------------ | -------- | ------ |
-| [[Area/Reading/Hamnet\|Hamnet]]                                                                   | Maggie O'Farrell                                 | finished | bought |
-| [[Area/Reading/Macbeth\|Macbeth]]                                                                 | Jo Nesbo                                         | finished | bought |
-| [[Area/Reading/Shakespeare - The Man Who Pays the Rent\|Shakespeare - The Man Who Pays the Rent]] | Judi Dench                                       | waiting  | bought |
-| [[Area/Reading/Tales from Shakespeare\|Tales from Shakespeare]]                                   | <ul><li>Charles Lamb</li><li>Mary Lamb</li></ul> | waiting  | bought |
+| books                                                              | author                                           | status   | own    |
+| ------------------------------------------------------------------ | ------------------------------------------------ | -------- | ------ |
+| [[Area/Reading/Hamnet\|Hamnet]]                                 | Maggie O'Farrell                                 | finished | bought |
+| [[Area/Reading/Macbeth\|Macbeth]]                               | Jo Nesbo                                         | finished | bought |
+| [[Area/Reading/Tales from Shakespeare\|Tales from Shakespeare]] | <ul><li>Charles Lamb</li><li>Mary Lamb</li></ul> | waiting  | bought |
+| [[Area/Reading/Shakespeare\|Shakespeare]]                       | Judi Dench                                       | waiting  | bought |
 
 { .block-language-dataview}
 
