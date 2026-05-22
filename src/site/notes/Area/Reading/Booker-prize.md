@@ -50,7 +50,7 @@
 | [[Area/Reading/The Sellout\|The Sellout]]                                                     | Paul Beatty         | 2016 | \-     | in progress |
 | [[Area/Reading/The Seven Moons of Maali Almeida\|The Seven Moons of Maali Almeida]]           | Shehan Karunatilaka | 2022 | \-     | waiting     |
 | [[Area/Reading/The South\|The South]]                                                         | Tash Aw             | 2025 | \-     | waiting     |
-| [[Area/Reading/The Story of the Lost Child\|The Story of the Lost Child]]                     | Elena Ferrante      | 2015 | \-     | \-          |
+| [[Area/Reading/The Story of the Lost Child\|The Story of the Lost Child]]                     | Elena Ferrante      | 2015 | \-     | waiting     |
 | [[Area/Reading/The Years\|The Years]]                                                         | Annie Ernaux        | 2017 | \-     | waiting     |
 | [[Area/Reading/Trust\|Trust]]                                                                 | Hernan Diaz         | 2022 | \-     | waiting     |
 | [[Area/Reading/Wolf Hall\|Wolf Hall]]                                                         | Hilary Mantel       | 2009 | \-     | in progress |
