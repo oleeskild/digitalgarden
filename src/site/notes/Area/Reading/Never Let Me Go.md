@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/area/reading/never-let-me-go/","title":"Never Let Me Go","tags":["reading","Biopunk"],"dg-note-properties":{"title":"Never Let Me Go","subtitle":"20th anniversary edition","alt_title":"別讓我走","tags":["reading","Biopunk"],"own":"bought","status":"finished","rating":4.5,"date":{"created":"2024-09-25T15:49:13","updated":"2026-04-29T20:54:38","finished":"2026-04-29T20:54:39"},"platform":"Audible_UK","format":"audiobook","language":"en","author":"Kazuo Ishiguro","year":2009}}
+{"dg-publish":true,"permalink":"/area/reading/never-let-me-go/","title":"Never Let Me Go","tags":["reading","Biopunk","Booker-prize"],"dg-note-properties":{"title":"Never Let Me Go","subtitle":"20th anniversary edition","alt_title":"別讓我走","tags":["reading","Biopunk","Booker-prize"],"own":"bought","status":"finished","rating":4.5,"date":{"created":"2024-09-25T15:49:13","updated":"2026-04-29T20:54:38","finished":"2026-04-29T20:54:39"},"platform":"Audible_UK","format":"audiobook","language":"en","author":"Kazuo Ishiguro","year":2009}}
 ---
 
 # Never Let Me Go
@@ -7,8 +7,6 @@
 <span><span>中譯：別讓我走<br></span></span><span><span>作者：Kazuo Ishiguro<br></span></span><span><span>原文出版年：2009</span></span>
 
 As children, Kathy, Ruth, and Tommy were students at Hailsham, an exclusive boarding school secluded in the English countryside. It was a place of mercurial cliques and mysterious rules where teachers were constantly reminding their charges of how special they were. Now, years later, Kathy is a young woman. Ruth and Tommy have reentered her life. And for the first time she is beginning to look back at their shared past and understand just what it is that makes them special—and how that gift will shape the rest of their time together.
-
-
 
 ## Thoughts
 

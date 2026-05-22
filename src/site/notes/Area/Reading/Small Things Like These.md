@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/area/reading/small-things-like-these/","title":"Small Things Like These","tags":["Ireland","reading"],"dg-note-properties":{"title":"Small Things Like These","alt_title":"像這樣的小事","author":"Claire Keegan","year":2021,"platform":"Audible_UK","format":"audiobook","language":"en","tags":["Ireland","reading"],"own":"bought","status":"finished","rating":4.5,"date":{"created":"2024-07-17T18:02:41","finished":"2025-03-06T12:00:34"}}}
+{"dg-publish":true,"permalink":"/area/reading/small-things-like-these/","title":"Small Things Like These","tags":["Ireland","reading","Booker-prize"],"dg-note-properties":{"title":"Small Things Like These","alt_title":"像這樣的小事","author":"Claire Keegan","year":2021,"platform":"Audible_UK","format":"audiobook","language":"en","tags":["Ireland","reading","Booker-prize"],"own":"bought","status":"finished","rating":4.5,"date":{"created":"2024-07-17T18:02:41","finished":"2025-03-06T12:00:34"}}}
 ---
 
 # Small Things Like These

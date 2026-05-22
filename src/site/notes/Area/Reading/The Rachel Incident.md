@@ -8,10 +8,6 @@
 
 A BEST BOOK OF THE YEAR • A USA TODAY BESTSELLER • A brilliantly funny novel about friends, lovers, Ireland in chaos, and a young woman desperately trying to manage all three • “O'Donoghue deepens the familiar coming-of-age premise with riveting moral complications." —People "If you’ve ever been unsure what to do with your degree in English; if you’ve ever wondered when the rug-buying part of your life will start...if you’ve ever loved the wrong person, or the right person at the wrong time…In short, if you’ve ever been young, you will love The Rachel Incident like I did.” —Gabrielle Zevin, New York Times best-selling author of Tomorrow, and Tomorrow, and Tomorrow Rachel is a student working at a bookstore when she meets James, and it’s love at first sight. Effervescent and insistently heterosexual, James soon invites Rachel to be his roommate and the two begin a friendship that changes the course of both their lives forever. Together, they run riot through the streets of Cork city, trying to maintain a bohemian existence while the threat of the financial crash looms before them. When Rachel falls in love with her married professor, Dr. Fred Byrne, James helps her devise a reading at their local bookstore, with the goal that she might seduce him afterwards. But Fred has other desires. So begins a series of secrets and compromises that intertwine the fates of James, Rachel, Fred, and Fred’s glamorous, well-connected, bourgeois wife. Aching with unrequited love, shot through with delicious, sparkling humor, The Rachel Incident is a triumph.
 
-<!-- more -->
-
-
-
 ## Thoughts
 - Rachel被男友ghosted之後期末報告寫不出來差點畢不了業的部分真是心有戚戚焉…
 - 故事背景不斷強調愛爾蘭經濟不景氣，於是男女主角一個去了倫敦一個去了紐約

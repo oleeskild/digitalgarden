@@ -10,11 +10,11 @@
 
 | books                                                                    | author            | status      | own              | rating |
 | ------------------------------------------------------------------------ | ----------------- | ----------- | ---------------- | ------ |
-| [[Area/Reading/The Left Hand of Darkness\|The Left Hand of Darkness]] | Ursula K. Le Guin | waiting     | to buy or borrow | \-     |
-| [[Area/Reading/銀翼殺手\|銀翼殺手]]                                           | Philip K. Dick    | waiting     | bought           | \-     |
 | [[Area/Reading/Oryx and Crake\|Oryx and Crake]]                       | Margaret Atwood   | waiting     | bought           | \-     |
 | [[Area/Reading/Poor Things\|Poor Things]]                             | Alasdair Gray     | waiting     | bought           | \-     |
 | [[Area/Reading/Snow Crash\|Snow Crash]]                               | Neal Stephenson   | waiting     | bought           | \-     |
+| [[Area/Reading/The Left Hand of Darkness\|The Left Hand of Darkness]] | Ursula K. Le Guin | waiting     | to buy or borrow | \-     |
+| [[Area/Reading/銀翼殺手\|銀翼殺手]]                                           | Philip K. Dick    | waiting     | bought           | \-     |
 | [[Area/Reading/階級病院\|階級病院]]                                           | 馬欣                | waiting     | bought           | \-     |
 | [[Area/Reading/麻風醫生與巨變中國\|麻風醫生與巨變中國]]                                 | 劉紹華               | waiting     | bought           | \-     |
 | [[Area/Reading/The Windup Girl\|The Windup Girl]]                     | Paolo Bacigalupi  | in progress | bought           | \-     |
@@ -59,9 +59,11 @@
 | [[Area/Reading/The Master\|The Master]]                                             | Colm Toibin                | in progress | bought           | \-     |
 | [[Area/Reading/Antarctica\|Antarctica]]                                             | Claire Keegan              | waiting     | bought           | \-     |
 | [[Area/Reading/Can Ireland Be One\|Can Ireland Be One]]                             | Malachi O'Doherty          | waiting     | bought           | \-     |
-| [[Area/Reading/Intermezzo\|Intermezzo]]                                             | Sally Rooney               | waiting     | bought           | \-     |
+| [[Area/Reading/For and Against a United Ireland\|For and Against a United Ireland]] | Sam McBride,Fintan O'Toole | waiting     | bought           | \-     |
 | [[Area/Reading/Ireland\|Ireland]]                                                   | Edward Rutherfurd          | waiting     | bought           | \-     |
+| [[Area/Reading/Intermezzo\|Intermezzo]]                                             | Sally Rooney               | waiting     | bought           | \-     |
 | [[Area/Reading/Long Island\|Long Island]]                                           | Colm Toibin                | waiting     | bought           | \-     |
+| [[Area/Reading/Prophet Song\|Prophet Song]]                                         | Paul Lynch                 | waiting     | bought           | \-     |
 | [[Area/Reading/Skippy Dies\|Skippy Dies]]                                           | Paul Murray                | waiting     | bought           | \-     |
 | [[Area/Reading/The Magician\|The Magician]]                                         | Colm Toibin                | waiting     | bought           | \-     |
 | [[Area/Reading/Walk the Blue Fields\|Walk the Blue Fields]]                         | Claire Keegan              | waiting     | bought           | \-     |
@@ -69,8 +71,6 @@
 | [[Area/Reading/芬尼根守靈\|芬尼根守靈]]                                                       | James Joyce                | waiting     | bought           | \-     |
 | [[Area/Reading/阿垂阿斯家族\|阿垂阿斯家族]]                                                     | Colm Tóibín                | waiting     | bought           | \-     |
 | [[Area/Reading/黑水燈塔船\|黑水燈塔船]]                                                       | Colm Tóibín                | waiting     | bought           | \-     |
-| [[Area/Reading/For and Against a United Ireland\|For and Against a United Ireland]] | Sam McBride,Fintan O'Toole | waiting     | bought           | \-     |
-| [[Area/Reading/Prophet Song\|Prophet Song]]                                         | Paul Lynch                 | waiting     | bought           | \-     |
 | [[Area/Reading/The Bee Sting\|The Bee Sting]]                                       | Paul Murray                | waiting     | to buy or borrow | \-     |
 
 { .block-language-dataview}
@@ -238,8 +238,8 @@
 | [[Area/Reading/English as a Global Language\|English as a Global Language]]       | David Crystal                                                     | waiting     | bought           |
 | [[Area/Reading/In Other Words\|In Other Words]]                                   | Jhumpa Lahiri                                                     | waiting     | bought           |
 | [[Area/Reading/Language and Power\|Language and Power]]                           | Benedict R. O'G. Anderson                                         | waiting     | bought           |
-| [[Area/Reading/Language in Thought and Action\|Language in Thought and Action]]   | <ul><li>Samuel Ichiyé Hayakawa</li><li>Alan R. Hayakawa</li></ul> | waiting     | bought           |
 | [[Area/Reading/Le latin ou L’empire d’un signe\|Le latin ou L’empire d’un signe]] | Françoise Waquet                                                  | waiting     | bought           |
+| [[Area/Reading/Language in Thought and Action\|Language in Thought and Action]]   | <ul><li>Samuel Ichiyé Hayakawa</li><li>Alan R. Hayakawa</li></ul> | waiting     | bought           |
 | [[Area/Reading/The Mother Tongue\|The Mother Tongue]]                             | Bill Bryson                                                       | waiting     | bought           |
 | [[Area/Reading/Through the Language Glass\|Through the Language Glass]]           | Guy Deutscher                                                     | waiting     | bought           |
 | [[Area/Reading/Un Occident kidnappé\|Un Occident kidnappé]]                       | Milan Kundera                                                     | waiting     | bought           |
@@ -298,8 +298,8 @@
 | ------------------------------------------------------------------ | ------------------------------------------------ | -------- | ------ |
 | [[Area/Reading/Hamnet\|Hamnet]]                                 | Maggie O'Farrell                                 | finished | bought |
 | [[Area/Reading/Macbeth\|Macbeth]]                               | Jo Nesbo                                         | finished | bought |
-| [[Area/Reading/Tales from Shakespeare\|Tales from Shakespeare]] | <ul><li>Charles Lamb</li><li>Mary Lamb</li></ul> | waiting  | bought |
 | [[Area/Reading/Shakespeare\|Shakespeare]]                       | Judi Dench                                       | waiting  | bought |
+| [[Area/Reading/Tales from Shakespeare\|Tales from Shakespeare]] | <ul><li>Charles Lamb</li><li>Mary Lamb</li></ul> | waiting  | bought |
 
 { .block-language-dataview}
 
@@ -437,8 +437,8 @@
 | [[Area/Entertainment/All of Us Strangers\|All of Us Strangers]]                                                           | <ul><li>Andrew Scott</li><li>Paul Mescal</li><li>Carter John Grout</li></ul>       | 2023      | finished    | 4.5    |
 | [[Area/Entertainment/Tell It to the Bees\|Tell It to the Bees]]                                                           | <ul><li>Billy Boyd</li><li>Gregor Selkirk</li><li>Anna Paquin</li></ul>            | 2018      | finished    | 4.5    |
 | [[Area/Entertainment/The Favourite\|The Favourite]]                                                                       | <ul><li>Olivia Colman</li><li>Emma Stone</li><li>Rachel Weisz</li></ul>            | 2018      | finished    | 4.5    |
-| [[Area/Entertainment/Angels in America Part I - Millennium Approaches\|Angels in America Part I - Millennium Approaches]] | <ul><li>Andrew Garfield</li><li>Nathan Lane</li><li>Denise Gough</li></ul>         | 2017      | finished    | 4.5    |
 | [[Area/Entertainment/Angels in America Part II - Perestroika\|Angels in America Part II - Perestroika]]                   | <ul><li>Andrew Garfield</li><li>Denise Gough</li><li>Nathan Lane</li></ul>         | 2017      | finished    | 4.5    |
+| [[Area/Entertainment/Angels in America Part I - Millennium Approaches\|Angels in America Part I - Millennium Approaches]] | <ul><li>Andrew Garfield</li><li>Nathan Lane</li><li>Denise Gough</li></ul>         | 2017      | finished    | 4.5    |
 | [[Area/Entertainment/Disobedience\|Disobedience]]                                                                         | <ul><li>Rachel Weisz</li><li>Rachel McAdams</li><li>Alessandro Nivola</li></ul>    | 2017      | finished    | 4.5    |
 | [[Area/Entertainment/Gypsy\|Gypsy]]                                                                                       | <ul><li>Naomi Watts</li><li>Billy Crudup</li><li>Sophie Cookson</li></ul>          | 2017      | finished    | 4.5    |
 | [[Area/Entertainment/A Single Man\|A Single Man]]                                                                         | <ul><li>Colin Firth</li><li>Julianne Moore</li><li>Matthew Goode</li></ul>         | 2009      | finished    | 4.5    |
