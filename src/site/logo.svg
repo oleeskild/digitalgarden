@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140">
+  <!-- Cream fill -->
+  <ellipse cx="100" cy="70" rx="95" ry="65" fill="#f0ead6"/>
+
+  <!-- Starburst rays: 24 lines alternating long/short, inner r=8 -->
+  <g stroke="#2c3d1a" stroke-width="0.8" opacity="0.3" stroke-linecap="round">
+    <line x1="108" y1="70" x2="122" y2="70"/>
+    <line x1="107.7" y1="72.1" x2="115.5" y2="74.1"/>
+    <line x1="106.9" y1="74" x2="119.1" y2="81"/>
+    <line x1="105.7" y1="75.7" x2="111.3" y2="81.3"/>
+    <line x1="104" y1="76.9" x2="111" y2="89"/>
+    <line x1="102.1" y1="77.7" x2="104.1" y2="85.5"/>
+    <line x1="100" y1="78" x2="100" y2="92"/>
+    <line x1="97.9" y1="77.7" x2="95.9" y2="85.5"/>
+    <line x1="96" y1="76.9" x2="89" y2="89"/>
+    <line x1="94.3" y1="75.7" x2="88.7" y2="81.3"/>
+    <line x1="93.1" y1="74" x2="80.9" y2="81"/>
+    <line x1="92.3" y1="72.1" x2="84.5" y2="74.1"/>
+    <line x1="92" y1="70" x2="78" y2="70"/>
+    <line x1="92.3" y1="67.9" x2="84.5" y2="65.9"/>
+    <line x1="93.1" y1="66" x2="80.9" y2="59"/>
+    <line x1="94.3" y1="64.3" x2="88.7" y2="58.7"/>
+    <line x1="96" y1="63.1" x2="89" y2="51"/>
+    <line x1="97.9" y1="62.3" x2="95.9" y2="54.5"/>
+    <line x1="100" y1="62" x2="100" y2="48"/>
+    <line x1="102.1" y1="62.3" x2="104.1" y2="54.5"/>
+    <line x1="104" y1="63.1" x2="111" y2="51"/>
+    <line x1="105.7" y1="64.3" x2="111.3" y2="58.7"/>
+    <line x1="106.9" y1="66" x2="119.1" y2="59"/>
+    <line x1="107.7" y1="67.9" x2="115.5" y2="65.9"/>
+  </g>
+
+  <!-- Outer border ellipse -->
+  <ellipse cx="100" cy="70" rx="95" ry="65" fill="none" stroke="#2c3d1a" stroke-width="3"/>
+  <!-- Inner border ellipse -->
+  <ellipse cx="100" cy="70" rx="87" ry="57" fill="none" stroke="#2c3d1a" stroke-width="1.5"/>
+
+  <!-- Taiwan silhouette, centered at (100, 70), ~20w x 38h -->
+  <path d="M100,52 C104,51 108,53 110,57
+           C111,61 111,66 110,71
+           C109,76 108,81 107,85
+           C105,88 102,90 100,90
+           C98,90 95,88 93,85
+           C91,81 90,75 90,69
+           C89,63 89,58 92,55
+           C95,51 98,52 100,52Z"
+        fill="#2c3d1a"/>
+
+  <!-- Left star (5-pt, R=4, r=1.6, centered at inner ellipse left edge x=13) -->
+  <path d="M13,66 L13.9,68.7 L16.8,68.8 L14.5,70.5 L15.4,73.2
+           L13,71.6 L10.7,73.2 L11.5,70.5 L9.2,68.8 L12.1,68.7Z"
+        fill="#2c3d1a"/>
+
+  <!-- Right star (mirror) -->
+  <path d="M187,66 L186.1,68.7 L183.2,68.8 L185.5,70.5 L184.7,73.2
+           L187,71.6 L189.4,73.2 L188.5,70.5 L190.8,68.8 L187.9,68.7Z"
+        fill="#2c3d1a"/>
+
+  <!-- "THE" -->
+  <text x="100" y="31" text-anchor="middle"
+        font-family="Georgia,'Times New Roman',serif"
+        font-size="17" font-weight="bold" fill="#2c3d1a" letter-spacing="5">THE</text>
+
+  <!-- "YEARS" -->
+  <text x="100" y="116" text-anchor="middle"
+        font-family="Georgia,'Times New Roman',serif"
+        font-size="17" font-weight="bold" fill="#2c3d1a" letter-spacing="4">YEARS</text>
+</svg>
