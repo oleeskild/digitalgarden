@@ -3,7 +3,7 @@ body {
       ADD YOUR CUSTOM STYLING HERE. (INSIDE THE body {...} section.)
       IT WILL TAKE PRECEDENCE OVER THE STYLING IN THE STYLE.CSS FILE.
    ***/
-    --dg-logo-height: 64px;
+    --dg-logo-height: calc(var(--dg-navbar-height) * 0.9);
     --dg-logo-height-mobile: calc(var(--dg-navbar-height) * 0.9);
 }
 
