@@ -1,70 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140">
-  <!-- Cream fill -->
-  <ellipse cx="100" cy="70" rx="95" ry="65" fill="#f0e8cf"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 185">
+  <defs>
+    <clipPath id="glass">
+      <rect x="14" y="13" width="252" height="102" rx="15"/>
+    </clipPath>
+  </defs>
 
-  <!-- Starburst: 24 rays alternating long/short from center, inner r=9 -->
-  <g stroke="#2d3e1e" stroke-width="1" opacity="0.4" stroke-linecap="round">
-    <line x1="109" y1="70" x2="124" y2="70"/>
-    <line x1="108.7" y1="72.4" x2="117.3" y2="76.1"/>
-    <line x1="107.8" y1="74.5" x2="121.6" y2="82.5"/>
-    <line x1="106.4" y1="76.4" x2="112.7" y2="83.3"/>
-    <line x1="104.5" y1="77.8" x2="113.0" y2="91.8"/>
-    <line x1="102.4" y1="78.7" x2="105.3" y2="87.3"/>
-    <line x1="100" y1="79" x2="100" y2="94"/>
-    <line x1="97.6" y1="78.7" x2="94.7" y2="87.3"/>
-    <line x1="95.5" y1="77.8" x2="87.0" y2="91.8"/>
-    <line x1="93.6" y1="76.4" x2="87.3" y2="83.3"/>
-    <line x1="92.2" y1="74.5" x2="78.4" y2="82.5"/>
-    <line x1="91.3" y1="72.4" x2="82.7" y2="76.1"/>
-    <line x1="91" y1="70" x2="76" y2="70"/>
-    <line x1="91.3" y1="67.6" x2="82.7" y2="63.9"/>
-    <line x1="92.2" y1="65.5" x2="78.4" y2="57.5"/>
-    <line x1="93.6" y1="63.6" x2="87.3" y2="56.7"/>
-    <line x1="95.5" y1="62.2" x2="87.0" y2="48.2"/>
-    <line x1="97.6" y1="61.3" x2="94.7" y2="52.7"/>
-    <line x1="100" y1="61" x2="100" y2="46"/>
-    <line x1="102.4" y1="61.3" x2="105.3" y2="52.7"/>
-    <line x1="104.5" y1="62.2" x2="113.0" y2="48.2"/>
-    <line x1="106.4" y1="63.6" x2="112.7" y2="56.7"/>
-    <line x1="107.8" y1="65.5" x2="121.6" y2="57.5"/>
-    <line x1="108.7" y1="67.6" x2="117.3" y2="63.9"/>
+  <!-- Cream window fill -->
+  <rect x="5" y="4" width="270" height="118" rx="20" fill="#f5f0e6"/>
+
+  <!-- Mountain scene, clipped to glass area -->
+  <g clip-path="url(#glass)" fill="none" stroke="#263e22">
+    <!-- Background / far foothills -->
+    <path d="M14,109 C55,105 95,101 130,99 C160,97 185,95 215,93 C235,92 252,93 266,95"
+          stroke-width="1" opacity="0.5"/>
+    <!-- Main mountain ridge -->
+    <path d="M14,102 C38,98 58,91 73,85 C86,80 94,83 105,79
+             C116,75 128,77 141,73 C153,69 163,66 171,60
+             C179,54 186,49 191,46 L197,46
+             C201,47 207,52 214,58 C223,65 235,71 266,81"
+          stroke-width="1.5"/>
+    <!-- Survey marker post -->
+    <line x1="197" y1="46" x2="197" y2="27" stroke-width="0.9"/>
+    <!-- Marker top tick -->
+    <line x1="194" y1="27" x2="200" y2="27" stroke-width="0.9"/>
+    <!-- "1°" label -->
+    <text x="202" y="27" font-family="Georgia,'Times New Roman',serif"
+          font-size="10" fill="#263e22" dominant-baseline="middle">1°</text>
   </g>
 
-  <!-- Outer border -->
-  <ellipse cx="100" cy="70" rx="95" ry="65" fill="none" stroke="#2d3e1e" stroke-width="3.5"/>
-  <!-- Inner border -->
-  <ellipse cx="100" cy="70" rx="86" ry="56" fill="none" stroke="#2d3e1e" stroke-width="1.5"/>
+  <!-- Frame borders (on top of mountains) -->
+  <rect x="2" y="2" width="276" height="123" rx="22"
+        fill="none" stroke="#263e22" stroke-width="2.5"/>
+  <rect x="5" y="4" width="270" height="118" rx="20"
+        fill="none" stroke="#263e22" stroke-width="2"/>
+  <rect x="13" y="12" width="254" height="103" rx="15"
+        fill="none" stroke="#263e22" stroke-width="1"/>
 
-  <!-- Taiwan silhouette: geographically mapped, ~18w x 42h, centered (100,70)
-       Clockwise from Fuguijiao (N) → Sandiaojiao (NE) → E coast → Eluanbi (S) → W coast → back -->
-  <path d="M104,49
-           C107,49 109,51 109,53
-           C109,57 107,62 106,66
-           C105,70 104,75 103,79
-           C102,83 100,87 99,91
-           C97,89 95,85 93,79
-           C91,73 91,67 92,62
-           C92,57 94,54 97,52
-           C99,50 102,49 104,49Z"
-        fill="#2d3e1e"/>
+  <!-- Bottom mounting legs -->
+  <rect x="24" y="124" width="15" height="30" rx="2"
+        fill="none" stroke="#263e22" stroke-width="2.5"/>
+  <rect x="241" y="124" width="15" height="30" rx="2"
+        fill="none" stroke="#263e22" stroke-width="2.5"/>
 
-  <!-- Left star (R=4.5, r=1.8, on inner ellipse left edge) -->
-  <path d="M14,65.5 L15.1,68.6 L18.4,68.7 L15.9,70.6 L16.8,73.7
-           L14,72.1 L11.2,73.7 L12.1,70.6 L9.6,68.7 L12.9,68.6Z"
-        fill="#2d3e1e"/>
+  <!-- Bottom sill -->
+  <line x1="0" y1="154" x2="280" y2="154" stroke="#263e22" stroke-width="2.5"/>
+  <line x1="0" y1="158" x2="280" y2="158" stroke="#263e22" stroke-width="1"/>
 
-  <!-- Right star (mirror) -->
-  <path d="M186,65.5 L184.9,68.6 L181.6,68.7 L184.1,70.6 L183.2,73.7
-           L186,72.1 L188.8,73.7 L187.9,70.6 L190.4,68.7 L187.1,68.6Z"
-        fill="#2d3e1e"/>
-
-  <!-- THE -->
-  <text x="100" y="40" text-anchor="middle"
+  <!-- "the years" -->
+  <text x="140" y="178" text-anchor="middle"
         font-family="Georgia,'Times New Roman',serif"
-        font-size="16" font-weight="bold" fill="#2d3e1e" letter-spacing="7">THE</text>
-
-  <!-- YEARS -->
-  <text x="100" y="118" text-anchor="middle"
-        font-family="Georgia,'Times New Roman',serif"
-        font-size="22" font-weight="bold" fill="#2d3e1e" letter-spacing="4">YEARS</text>
+        font-size="22" fill="#263e22">the years</text>
 </svg>
