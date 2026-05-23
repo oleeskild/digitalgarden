@@ -1,68 +1,69 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140">
   <!-- Cream fill -->
-  <ellipse cx="100" cy="70" rx="95" ry="65" fill="#f0ead6"/>
+  <ellipse cx="100" cy="70" rx="95" ry="65" fill="#f0e8cf"/>
 
-  <!-- Starburst rays: 24 lines alternating long/short, inner r=8 -->
-  <g stroke="#2c3d1a" stroke-width="0.8" opacity="0.3" stroke-linecap="round">
-    <line x1="108" y1="70" x2="122" y2="70"/>
-    <line x1="107.7" y1="72.1" x2="115.5" y2="74.1"/>
-    <line x1="106.9" y1="74" x2="119.1" y2="81"/>
-    <line x1="105.7" y1="75.7" x2="111.3" y2="81.3"/>
-    <line x1="104" y1="76.9" x2="111" y2="89"/>
-    <line x1="102.1" y1="77.7" x2="104.1" y2="85.5"/>
-    <line x1="100" y1="78" x2="100" y2="92"/>
-    <line x1="97.9" y1="77.7" x2="95.9" y2="85.5"/>
-    <line x1="96" y1="76.9" x2="89" y2="89"/>
-    <line x1="94.3" y1="75.7" x2="88.7" y2="81.3"/>
-    <line x1="93.1" y1="74" x2="80.9" y2="81"/>
-    <line x1="92.3" y1="72.1" x2="84.5" y2="74.1"/>
-    <line x1="92" y1="70" x2="78" y2="70"/>
-    <line x1="92.3" y1="67.9" x2="84.5" y2="65.9"/>
-    <line x1="93.1" y1="66" x2="80.9" y2="59"/>
-    <line x1="94.3" y1="64.3" x2="88.7" y2="58.7"/>
-    <line x1="96" y1="63.1" x2="89" y2="51"/>
-    <line x1="97.9" y1="62.3" x2="95.9" y2="54.5"/>
-    <line x1="100" y1="62" x2="100" y2="48"/>
-    <line x1="102.1" y1="62.3" x2="104.1" y2="54.5"/>
-    <line x1="104" y1="63.1" x2="111" y2="51"/>
-    <line x1="105.7" y1="64.3" x2="111.3" y2="58.7"/>
-    <line x1="106.9" y1="66" x2="119.1" y2="59"/>
-    <line x1="107.7" y1="67.9" x2="115.5" y2="65.9"/>
+  <!-- Starburst: 24 rays alternating long/short from center, inner r=9 -->
+  <g stroke="#2d3e1e" stroke-width="1" opacity="0.4" stroke-linecap="round">
+    <line x1="109" y1="70" x2="124" y2="70"/>
+    <line x1="108.7" y1="72.4" x2="117.3" y2="76.1"/>
+    <line x1="107.8" y1="74.5" x2="121.6" y2="82.5"/>
+    <line x1="106.4" y1="76.4" x2="112.7" y2="83.3"/>
+    <line x1="104.5" y1="77.8" x2="113.0" y2="91.8"/>
+    <line x1="102.4" y1="78.7" x2="105.3" y2="87.3"/>
+    <line x1="100" y1="79" x2="100" y2="94"/>
+    <line x1="97.6" y1="78.7" x2="94.7" y2="87.3"/>
+    <line x1="95.5" y1="77.8" x2="87.0" y2="91.8"/>
+    <line x1="93.6" y1="76.4" x2="87.3" y2="83.3"/>
+    <line x1="92.2" y1="74.5" x2="78.4" y2="82.5"/>
+    <line x1="91.3" y1="72.4" x2="82.7" y2="76.1"/>
+    <line x1="91" y1="70" x2="76" y2="70"/>
+    <line x1="91.3" y1="67.6" x2="82.7" y2="63.9"/>
+    <line x1="92.2" y1="65.5" x2="78.4" y2="57.5"/>
+    <line x1="93.6" y1="63.6" x2="87.3" y2="56.7"/>
+    <line x1="95.5" y1="62.2" x2="87.0" y2="48.2"/>
+    <line x1="97.6" y1="61.3" x2="94.7" y2="52.7"/>
+    <line x1="100" y1="61" x2="100" y2="46"/>
+    <line x1="102.4" y1="61.3" x2="105.3" y2="52.7"/>
+    <line x1="104.5" y1="62.2" x2="113.0" y2="48.2"/>
+    <line x1="106.4" y1="63.6" x2="112.7" y2="56.7"/>
+    <line x1="107.8" y1="65.5" x2="121.6" y2="57.5"/>
+    <line x1="108.7" y1="67.6" x2="117.3" y2="63.9"/>
   </g>
 
-  <!-- Outer border ellipse -->
-  <ellipse cx="100" cy="70" rx="95" ry="65" fill="none" stroke="#2c3d1a" stroke-width="3"/>
-  <!-- Inner border ellipse -->
-  <ellipse cx="100" cy="70" rx="87" ry="57" fill="none" stroke="#2c3d1a" stroke-width="1.5"/>
+  <!-- Outer border -->
+  <ellipse cx="100" cy="70" rx="95" ry="65" fill="none" stroke="#2d3e1e" stroke-width="3.5"/>
+  <!-- Inner border -->
+  <ellipse cx="100" cy="70" rx="86" ry="56" fill="none" stroke="#2d3e1e" stroke-width="1.5"/>
 
-  <!-- Taiwan silhouette, centered at (100, 70), ~20w x 38h -->
-  <path d="M100,52 C104,51 108,53 110,57
-           C111,61 111,66 110,71
-           C109,76 108,81 107,85
-           C105,88 102,90 100,90
-           C98,90 95,88 93,85
-           C91,81 90,75 90,69
-           C89,63 89,58 92,55
-           C95,51 98,52 100,52Z"
-        fill="#2c3d1a"/>
+  <!-- Taiwan silhouette, ~29w x 43h, centered at (100,70) -->
+  <path d="M101,49
+           C106,48 111,51 114,56
+           C115,60 115,65 113,70
+           C112,75 110,80 108,84
+           C106,87 103,89 101,90
+           C99,90 96,88 93,85
+           C90,81 89,76 88,70
+           C87,64 87,58 90,53
+           C93,49 98,49 101,49Z"
+        fill="#2d3e1e"/>
 
-  <!-- Left star (5-pt, R=4, r=1.6, centered at inner ellipse left edge x=13) -->
-  <path d="M13,66 L13.9,68.7 L16.8,68.8 L14.5,70.5 L15.4,73.2
-           L13,71.6 L10.7,73.2 L11.5,70.5 L9.2,68.8 L12.1,68.7Z"
-        fill="#2c3d1a"/>
+  <!-- Left star (R=4.5, r=1.8, on inner ellipse left edge) -->
+  <path d="M14,65.5 L15.1,68.6 L18.4,68.7 L15.9,70.6 L16.8,73.7
+           L14,72.1 L11.2,73.7 L12.1,70.6 L9.6,68.7 L12.9,68.6Z"
+        fill="#2d3e1e"/>
 
   <!-- Right star (mirror) -->
-  <path d="M187,66 L186.1,68.7 L183.2,68.8 L185.5,70.5 L184.7,73.2
-           L187,71.6 L189.4,73.2 L188.5,70.5 L190.8,68.8 L187.9,68.7Z"
-        fill="#2c3d1a"/>
+  <path d="M186,65.5 L184.9,68.6 L181.6,68.7 L184.1,70.6 L183.2,73.7
+           L186,72.1 L188.8,73.7 L187.9,70.6 L190.4,68.7 L187.1,68.6Z"
+        fill="#2d3e1e"/>
 
-  <!-- "THE" -->
-  <text x="100" y="31" text-anchor="middle"
+  <!-- THE -->
+  <text x="100" y="40" text-anchor="middle"
         font-family="Georgia,'Times New Roman',serif"
-        font-size="17" font-weight="bold" fill="#2c3d1a" letter-spacing="5">THE</text>
+        font-size="16" font-weight="bold" fill="#2d3e1e" letter-spacing="7">THE</text>
 
-  <!-- "YEARS" -->
-  <text x="100" y="116" text-anchor="middle"
+  <!-- YEARS -->
+  <text x="100" y="118" text-anchor="middle"
         font-family="Georgia,'Times New Roman',serif"
-        font-size="17" font-weight="bold" fill="#2c3d1a" letter-spacing="4">YEARS</text>
+        font-size="22" font-weight="bold" fill="#2d3e1e" letter-spacing="4">YEARS</text>
 </svg>
