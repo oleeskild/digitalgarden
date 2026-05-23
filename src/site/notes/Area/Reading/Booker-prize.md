@@ -7,53 +7,54 @@
 
 ## In this vault
 
-| File                                                                                             | author              | year | rating | status      |
-| ------------------------------------------------------------------------------------------------ | ------------------- | ---- | ------ | ----------- |
-| [[Area/Reading/A Little Life\|A Little Life]]                                                 | Hanya Yanagihara    | 2015 | 5      | finished    |
-| [[Area/Reading/Hamnet\|Hamnet]]                                                               | Maggie O'Farrell    | 2023 | 5      | finished    |
-| [[Area/Reading/Normal People\|Normal People]]                                                 | Sally Rooney        | 2019 | 5      | finished    |
-| [[Area/Reading/The Remains of the Day\|The Remains of the Day]]                               | Kazuo Ishiguro      | 2009 | 5      | finished    |
-| [[Area/Reading/The Safekeep\|The Safekeep]]                                                   | Yael van der Wouden | 2025 | 5      | finished    |
-| [[Area/Reading/Anil's Ghost\|Anil's Ghost]]                                                   | Michael Ondaatje    | 2001 | 4.5    | finished    |
-| [[Area/Reading/Flesh\|Flesh]]                                                                 | David Szalay        | 2025 | 4.5    | finished    |
-| [[Area/Reading/Kairos\|Kairos]]                                                               | Jenny Erpenbeck     | 2023 | 4.5    | finished    |
-| [[Area/Reading/Never Let Me Go\|Never Let Me Go]]                                             | Kazuo Ishiguro      | 2009 | 4.5    | finished    |
-| [[Area/Reading/Small Things Like These\|Small Things Like These]]                             | Claire Keegan       | 2021 | 4.5    | finished    |
-| [[Area/Reading/Brooklyn\|Brooklyn]]                                                           | Colm Toibin         | 2009 | 4      | finished    |
-| [[Area/Reading/素食者\|素食者]]                                                                     | 韓江                  | 2019 | \-     | waiting     |
-| [[Area/Reading/鯨\|鯨]]                                                                         | 千明官                 | 2025 | \-     | waiting     |
-| [[Area/Reading/A Brief History of Seven Killings\|A Brief History of Seven Killings]]         | Marlon James        | 2014 | \-     | waiting     |
-| [[Area/Reading/All That Man Is\|All That Man Is]]                                             | David Szalay        | 2016 | \-     | waiting     |
-| [[Area/Reading/Bring Up the Bodies\|Bring Up the Bodies]]                                     | Hilary Mantel       | 2012 | \-     | waiting     |
-| [[Area/Reading/When We Cease to Understand the World\|When We Cease to Understand the World]] | Benjamín Labatut    | 2020 | \-     | waiting     |
-| [[Area/Reading/Exit West\|Exit West]]                                                         | Mohsin Hamid        | 2017 | \-     | waiting     |
-| [[Area/Reading/Flashlight\|Flashlight]]                                                       | Susan Choi          | 2025 | \-     | waiting     |
-| [[Area/Reading/James\|James]]                                                                 | Percival Everett    | 2024 | \-     | waiting     |
-| [[Area/Reading/Klara and the Sun\|Klara and the Sun]]                                         | Kazuo Ishiguro      | 2021 | \-     | waiting     |
-| [[Area/Reading/Lincoln in the Bardo\|Lincoln in the Bardo]]                                   | George Saunders     | 2017 | \-     | waiting     |
-| [[Area/Reading/Milkman\|Milkman]]                                                             | Anna Burns          | 2018 | \-     | in progress |
-| [[Area/Reading/On Beauty\|On Beauty]]                                                         | Zadie Smith         | 2006 | \-     | waiting     |
-| [[Area/Reading/Orbital\|Orbital]]                                                             | Samantha Harvey     | 2023 | \-     | waiting     |
-| [[Area/Reading/Possession\|Possession]]                                                       | A.S. Byatt          | 1888 | \-     | waiting     |
-| [[Area/Reading/Prophet Song\|Prophet Song]]                                                   | Paul Lynch          | 2023 | \-     | waiting     |
-| [[Area/Reading/Shuggie Bain\|Shuggie Bain]]                                                   | Douglas Stuart      | 2020 | \-     | waiting     |
-| [[Area/Reading/Skippy Dies\|Skippy Dies]]                                                     | Paul Murray         | 2010 | \-     | waiting     |
-| [[Area/Reading/The Bee Sting\|The Bee Sting]]                                                 | Paul Murray         | 2023 | \-     | waiting     |
-| [[Area/Reading/The Handmaid's Tale\|The Handmaid's Tale]]                                     | Margaret Atwood     | 1986 | \-     | waiting     |
-| [[Area/Reading/The Land in Winter\|The Land in Winter]]                                       | Andrew Miller       | 2024 | \-     | in progress |
-| [[Area/Reading/The Line of Beauty\|The Line of Beauty]]                                       | Alan Hollinghurst   | 2004 | \-     | in progress |
-| [[Area/Reading/The Loneliness of Sonia and Sunny\|The Loneliness of Sonia and Sunny]]         | Kiran Desai         | 2025 | \-     | waiting     |
-| [[Area/Reading/The Master\|The Master]]                                                       | Colm Toibin         | 2005 | \-     | in progress |
-| [[Area/Reading/The Mirror and the Light\|The Mirror and the Light]]                           | Hilary Mantel       | 2020 | \-     | waiting     |
-| [[Area/Reading/The Nights Are Quiet in Tehran\|The Nights Are Quiet in Tehran]]               | Shida Bazyar        | 2025 | \-     | waiting     |
-| [[Area/Reading/The Overstory\|The Overstory]]                                                 | Richard Powers      | 2024 | \-     | waiting     |
-| [[Area/Reading/The Sellout\|The Sellout]]                                                     | Paul Beatty         | 2016 | \-     | in progress |
-| [[Area/Reading/The Seven Moons of Maali Almeida\|The Seven Moons of Maali Almeida]]           | Shehan Karunatilaka | 2022 | \-     | waiting     |
-| [[Area/Reading/The South\|The South]]                                                         | Tash Aw             | 2025 | \-     | waiting     |
-| [[Area/Reading/The Story of the Lost Child\|The Story of the Lost Child]]                     | Elena Ferrante      | 2015 | \-     | waiting     |
-| [[Area/Reading/The Years\|The Years]]                                                         | Annie Ernaux        | 2017 | \-     | waiting     |
-| [[Area/Reading/Trust\|Trust]]                                                                 | Hernan Diaz         | 2022 | \-     | waiting     |
-| [[Area/Reading/Wolf Hall\|Wolf Hall]]                                                         | Hilary Mantel       | 2009 | \-     | in progress |
+| File                                                                                             | author                           | year | rating | status      |
+| ------------------------------------------------------------------------------------------------ | -------------------------------- | ---- | ------ | ----------- |
+| [[Area/Reading/A Little Life\|A Little Life]]                                                 | Hanya Yanagihara                 | 2015 | 5      | finished    |
+| [[Area/Reading/Hamnet\|Hamnet]]                                                               | Maggie O'Farrell                 | 2023 | 5      | finished    |
+| [[Area/Reading/Normal People\|Normal People]]                                                 | Sally Rooney                     | 2019 | 5      | finished    |
+| [[Area/Reading/The Remains of the Day\|The Remains of the Day]]                               | Kazuo Ishiguro                   | 2009 | 5      | finished    |
+| [[Area/Reading/The Safekeep\|The Safekeep]]                                                   | Yael van der Wouden              | 2025 | 5      | finished    |
+| [[Area/Reading/臺灣漫遊錄\|臺灣漫遊錄]]                                                                 | <ul><li>楊双子</li><li>金翎</li></ul> | 2020 | 5      | finished    |
+| [[Area/Reading/Anil's Ghost\|Anil's Ghost]]                                                   | Michael Ondaatje                 | 2001 | 4.5    | finished    |
+| [[Area/Reading/Flesh\|Flesh]]                                                                 | David Szalay                     | 2025 | 4.5    | finished    |
+| [[Area/Reading/Kairos\|Kairos]]                                                               | Jenny Erpenbeck                  | 2023 | 4.5    | finished    |
+| [[Area/Reading/Never Let Me Go\|Never Let Me Go]]                                             | Kazuo Ishiguro                   | 2009 | 4.5    | finished    |
+| [[Area/Reading/Small Things Like These\|Small Things Like These]]                             | Claire Keegan                    | 2021 | 4.5    | finished    |
+| [[Area/Reading/Brooklyn\|Brooklyn]]                                                           | Colm Toibin                      | 2009 | 4      | finished    |
+| [[Area/Reading/A Brief History of Seven Killings\|A Brief History of Seven Killings]]         | Marlon James                     | 2014 | \-     | waiting     |
+| [[Area/Reading/All That Man Is\|All That Man Is]]                                             | David Szalay                     | 2016 | \-     | waiting     |
+| [[Area/Reading/Bring Up the Bodies\|Bring Up the Bodies]]                                     | Hilary Mantel                    | 2012 | \-     | waiting     |
+| [[Area/Reading/When We Cease to Understand the World\|When We Cease to Understand the World]] | Benjamín Labatut                 | 2020 | \-     | waiting     |
+| [[Area/Reading/Exit West\|Exit West]]                                                         | Mohsin Hamid                     | 2017 | \-     | waiting     |
+| [[Area/Reading/Flashlight\|Flashlight]]                                                       | Susan Choi                       | 2025 | \-     | waiting     |
+| [[Area/Reading/James\|James]]                                                                 | Percival Everett                 | 2024 | \-     | waiting     |
+| [[Area/Reading/Klara and the Sun\|Klara and the Sun]]                                         | Kazuo Ishiguro                   | 2021 | \-     | waiting     |
+| [[Area/Reading/Lincoln in the Bardo\|Lincoln in the Bardo]]                                   | George Saunders                  | 2017 | \-     | waiting     |
+| [[Area/Reading/Milkman\|Milkman]]                                                             | Anna Burns                       | 2018 | \-     | in progress |
+| [[Area/Reading/On Beauty\|On Beauty]]                                                         | Zadie Smith                      | 2006 | \-     | waiting     |
+| [[Area/Reading/Orbital\|Orbital]]                                                             | Samantha Harvey                  | 2023 | \-     | waiting     |
+| [[Area/Reading/Possession\|Possession]]                                                       | A.S. Byatt                       | 1888 | \-     | waiting     |
+| [[Area/Reading/Prophet Song\|Prophet Song]]                                                   | Paul Lynch                       | 2023 | \-     | waiting     |
+| [[Area/Reading/Shuggie Bain\|Shuggie Bain]]                                                   | Douglas Stuart                   | 2020 | \-     | waiting     |
+| [[Area/Reading/Skippy Dies\|Skippy Dies]]                                                     | Paul Murray                      | 2010 | \-     | waiting     |
+| [[Area/Reading/The Bee Sting\|The Bee Sting]]                                                 | Paul Murray                      | 2023 | \-     | waiting     |
+| [[Area/Reading/The Handmaid's Tale\|The Handmaid's Tale]]                                     | Margaret Atwood                  | 1986 | \-     | waiting     |
+| [[Area/Reading/The Land in Winter\|The Land in Winter]]                                       | Andrew Miller                    | 2024 | \-     | in progress |
+| [[Area/Reading/The Line of Beauty\|The Line of Beauty]]                                       | Alan Hollinghurst                | 2004 | \-     | in progress |
+| [[Area/Reading/The Loneliness of Sonia and Sunny\|The Loneliness of Sonia and Sunny]]         | Kiran Desai                      | 2025 | \-     | waiting     |
+| [[Area/Reading/The Master\|The Master]]                                                       | Colm Toibin                      | 2005 | \-     | in progress |
+| [[Area/Reading/The Mirror and the Light\|The Mirror and the Light]]                           | Hilary Mantel                    | 2020 | \-     | waiting     |
+| [[Area/Reading/The Nights Are Quiet in Tehran\|The Nights Are Quiet in Tehran]]               | Shida Bazyar                     | 2025 | \-     | waiting     |
+| [[Area/Reading/The Overstory\|The Overstory]]                                                 | Richard Powers                   | 2024 | \-     | waiting     |
+| [[Area/Reading/The Sellout\|The Sellout]]                                                     | Paul Beatty                      | 2016 | \-     | in progress |
+| [[Area/Reading/The Seven Moons of Maali Almeida\|The Seven Moons of Maali Almeida]]           | Shehan Karunatilaka              | 2022 | \-     | waiting     |
+| [[Area/Reading/The South\|The South]]                                                         | Tash Aw                          | 2025 | \-     | waiting     |
+| [[Area/Reading/The Story of the Lost Child\|The Story of the Lost Child]]                     | Elena Ferrante                   | 2015 | \-     | waiting     |
+| [[Area/Reading/The Years\|The Years]]                                                         | Annie Ernaux                     | 2017 | \-     | waiting     |
+| [[Area/Reading/Trust\|Trust]]                                                                 | Hernan Diaz                      | 2022 | \-     | waiting     |
+| [[Area/Reading/Wolf Hall\|Wolf Hall]]                                                         | Hilary Mantel                    | 2009 | \-     | in progress |
+| [[Area/Reading/素食者\|素食者]]                                                                     | 韓江                               | 2019 | \-     | waiting     |
+| [[Area/Reading/鯨\|鯨]]                                                                         | 千明官                              | 2025 | \-     | waiting     |
 
 { .block-language-dataview}
 
