@@ -4,7 +4,7 @@ body {
       IT WILL TAKE PRECEDENCE OVER THE STYLING IN THE STYLE.CSS FILE.
    ***/
     --dg-logo-height: 64px;
-    --dg-logo-height-mobile: 48px;
+    --dg-logo-height-mobile: calc(var(--dg-navbar-height) * 0.9);
 }
 
 @media (max-width: 768px) {
