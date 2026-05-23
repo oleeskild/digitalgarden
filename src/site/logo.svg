@@ -35,16 +35,17 @@
   <!-- Inner border -->
   <ellipse cx="100" cy="70" rx="86" ry="56" fill="none" stroke="#2d3e1e" stroke-width="1.5"/>
 
-  <!-- Taiwan silhouette, ~29w x 43h, centered at (100,70) -->
-  <path d="M101,49
-           C106,48 111,51 114,56
-           C115,60 115,65 113,70
-           C112,75 110,80 108,84
-           C106,87 103,89 101,90
-           C99,90 96,88 93,85
-           C90,81 89,76 88,70
-           C87,64 87,58 90,53
-           C93,49 98,49 101,49Z"
+  <!-- Taiwan silhouette: geographically mapped, ~18w x 42h, centered (100,70)
+       Clockwise from Fuguijiao (N) → Sandiaojiao (NE) → E coast → Eluanbi (S) → W coast → back -->
+  <path d="M104,49
+           C107,49 109,51 109,53
+           C109,57 107,62 106,66
+           C105,70 104,75 103,79
+           C102,83 100,87 99,91
+           C97,89 95,85 93,79
+           C91,73 91,67 92,62
+           C92,57 94,54 97,52
+           C99,50 102,49 104,49Z"
         fill="#2d3e1e"/>
 
   <!-- Left star (R=4.5, r=1.8, on inner ellipse left edge) -->
