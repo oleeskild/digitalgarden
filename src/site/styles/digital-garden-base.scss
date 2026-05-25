@@ -1,3 +1,4 @@
+@use "sass:meta";
 /***
 * DO NOT ADD/MODIFY STYLING HERE. IT WILL BE OVERWRITTEN IF YOU UPDATE THE TEMPLATE VERSION.
 * MODIFY THE custom-style.scss FILE INSTEAD.
@@ -1783,4 +1784,4 @@ div.dataview-error-box {
     margin-right: 4px;
 }
 
-@import "obsidian-bases";
+@include meta.load-css("obsidian-bases");
