@@ -17,6 +17,7 @@
         "src/site/styles/custom-style.scss",
         ".env",
         "src/site/favicon.svg",
+        "src/site/normalize-favicon.js",
         "src/site/img/default-note-icon.svg",
         "src/site/img/tree-1.svg",
         "src/site/img/tree-2.svg",
