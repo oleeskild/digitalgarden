@@ -17,6 +17,7 @@
         "src/site/styles/custom-style.scss",
         ".env",
         "src/site/favicon.svg",
+        "src/site/normalize-favicon.js",
         "src/site/img/default-note-icon.svg",
         "src/site/img/tree-1.svg",
         "src/site/img/tree-2.svg",
@@ -24,7 +25,17 @@
         "src/helpers/userUtils.js",
         "src/helpers/userSetup.js",
         "vercel.json",
-        "netlify.toml"
+        "netlify.toml",
+        "src/site/_includes/layouts/random.njk",
+        "src/site/random.md",
+        "src/helpers/bases-engine/index.js",
+        "src/helpers/bases-engine/exprParser.js",
+        "src/helpers/bases-engine/exprEval.js",
+        "src/helpers/bases-engine/queryEngine.js",
+        "src/helpers/bases-engine/views.js",
+        "src/helpers/basesPlugin.js",
+        "src/site/_includes/components/basesScript.njk",
+        "src/site/styles/obsidian-bases.scss"
     ],
     "filesToModify": [
         ".eleventy.js",

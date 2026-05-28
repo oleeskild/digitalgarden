@@ -1,0 +1,80 @@
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll(".obsidian-bases-views").forEach(function(container) {
+    var toggle = container.querySelector(".obsidian-bases-active-view");
+    var dropdown = container.querySelector(".obsidian-bases-dropdown");
+    var items = container.querySelectorAll(".obsidian-bases-dropdown-item");
+    var panels = container.querySelectorAll(".obsidian-bases-view-panel");
+    var nameEl = container.querySelector(".obsidian-bases-active-view-name");
+    var countEl = container.querySelector(".obsidian-bases-count-value");
+
+    if (!toggle || !dropdown) return;
+
+    // Toggle dropdown on click
+    toggle.addEventListener("click", function(e) {
+      e.stopPropagation();
+      var open = dropdown.style.display !== "none";
+      dropdown.style.display = open ? "none" : "block";
+      toggle.setAttribute("aria-expanded", !open);
+    });
+
+    // Close dropdown on outside click
+    document.addEventListener("click", function() {
+      dropdown.style.display = "none";
+      toggle.setAttribute("aria-expanded", "false");
+    });
+
+    // Switch view on item click
+    items.forEach(function(item) {
+      item.addEventListener("click", function(e) {
+        e.stopPropagation();
+        var idx = this.getAttribute("data-view-index");
+
+        // Update active states
+        items.forEach(function(el) { el.classList.remove("active"); });
+        this.classList.add("active");
+
+        // Switch panels
+        panels.forEach(function(p) { p.style.display = "none"; });
+        var target = container.querySelector('.obsidian-bases-view-panel[data-view-index="' + idx + '"]');
+        if (target) target.style.display = "block";
+
+        // Update toolbar button text and icon
+        var icon = this.querySelector(".obsidian-bases-view-icon");
+        var activeIcon = toggle.querySelector(".obsidian-bases-view-icon");
+        if (icon && activeIcon) activeIcon.replaceWith(icon.cloneNode(true));
+        if (nameEl) nameEl.textContent = this.textContent.trim();
+
+        // Update result count
+        if (countEl && target) {
+          var rows = target.querySelectorAll("tbody tr:not(.obsidian-base-group-row), .obsidian-base-card, .obsidian-base-list li");
+          countEl.textContent = rows.length;
+        }
+
+        // Close dropdown
+        dropdown.style.display = "none";
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  });
+
+  // Fill in dynamic date placeholders (today/now)
+  document.querySelectorAll(".bases-dynamic-date").forEach(function(el) {
+    var type = el.getAttribute("data-type");
+    var now = new Date();
+    if (type === "today") {
+      var y = now.getFullYear();
+      var m = String(now.getMonth() + 1).padStart(2, "0");
+      var d = String(now.getDate()).padStart(2, "0");
+      el.textContent = y + "-" + m + "-" + d;
+    } else if (type === "now") {
+      var y = now.getFullYear();
+      var m = String(now.getMonth() + 1).padStart(2, "0");
+      var d = String(now.getDate()).padStart(2, "0");
+      var h = String(now.getHours()).padStart(2, "0");
+      var min = String(now.getMinutes()).padStart(2, "0");
+      el.textContent = y + "-" + m + "-" + d + " " + h + ":" + min;
+    }
+  });
+});
+</script>

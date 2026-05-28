@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{ meta.mainLanguage }}">
+  <head>
+    <title>Random Page</title>
+    {% include "components/pageheader.njk" %}
+    <script>
+      // Get all published notes and redirect to a random one
+      const publishedNotes = [
+        {% for note in collections.note %}
+          {% if note.data['dg-publish'] %}
+            "{{ note.url }}",
+          {% endif %}
+        {% endfor %}
+      ];
+
+      if (publishedNotes.length > 0) {
+        const randomIndex = Math.floor(Math.random() * publishedNotes.length);
+        const randomUrl = publishedNotes[randomIndex];
+        window.location.href = randomUrl;
+      } else {
+        // Fallback to home if no notes found
+        window.location.href = "/";
+      }
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <p>
+        JavaScript is required for random redirect.
+        <a href="/">Go home</a>.
+      </p>
+    </noscript>
+  </body>
+</html>

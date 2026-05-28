@@ -23,7 +23,7 @@
     <main class="content cm-s-obsidian print {{contentClasses}}">
       <header>
       {% if settings.dgShowInlineTitle === true %}
-        <h1>{{ noteTitle  }}</h1>
+        <h1>{% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}</h1>
       {% endif %}
 
       <div class="header-meta">
@@ -61,7 +61,7 @@
       {% endfor %}
     </main>
 
-    {% if settings.dgShowBacklinks === true or settings.dgShowLocalGraph === true or settings.dgShowToc === true%}
+    {% if settings.dgShowBacklinks === true or settings.dgShowLocalGraph === true or settings.dgShowToc === true or dynamics.sidebar.top.length > 0 or dynamics.sidebar.bottom.length > 0%}
       {%include "components/sidebar.njk" %}
     {%endif%}
 
@@ -75,5 +75,6 @@
       {% include imp %}
     {% endfor %}
     {%include "components/lucideIcons.njk"%}
+    {%include "components/basesScript.njk"%}
     </body>
   </html>

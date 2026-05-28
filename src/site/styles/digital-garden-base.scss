@@ -3,6 +3,14 @@
 * MODIFY THE custom-style.scss FILE INSTEAD.
 ***/
 
+html {
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    scroll-margin-top: calc(var(--dg-navbar-height) + 20px);
+}
+
 body {
     /***
     * CSS VARIABLE DEFAULTS
@@ -29,8 +37,13 @@ body {
     --dg-graph-height: 250px;
     --dg-graph-border-radius: 10px;
     --dg-graph-margin-bottom: 20px;
-    --dg-graph-fullscreen-width: 600px;
-    --dg-graph-fullscreen-height: 600px;
+    --dg-graph-fullscreen-width: 90vw;
+    --dg-graph-fullscreen-height: 85vh;
+    --dg-graph-node-color: var(--text-accent);
+    --dg-graph-node-color-muted: var(--text-faint);
+    --dg-graph-label-color: var(--text-normal);
+    --dg-graph-bg: var(--background-primary);
+    --dg-graph-border-color: var(--background-secondary);
 
     /* Filetree (Left Sidebar) Variables */
     --dg-filetree-width: 250px;
@@ -41,10 +54,10 @@ body {
 
     /* TOC (Table of Contents) Variables */
     --dg-toc-padding: 5px;
-    --dg-toc-font-size: 0.9rem;
-    --dg-toc-max-height: 220px;
-    --dg-toc-title-size: 1.2rem;
-    --dg-toc-item-padding: 2px 0 2px 8px;
+    --dg-toc-font-size: 1rem;
+    --dg-toc-max-height: 70vh;
+    --dg-toc-title-size: 0.75rem;
+    --dg-toc-item-padding: 4px 0 4px 0;
     --dg-toc-indent: 1em;
 
     /* Backlinks Variables */
@@ -111,8 +124,6 @@ body {
     --dg-graph-ctrl-size: 0.7rem;
     --dg-graph-ctrl-icon-size: 14px;
     --dg-graph-ctrl-gap: 10px;
-    --dg-depth-slider-width: 50px;
-    --dg-depth-display-size: 1.1rem;
 
     /* Timestamps Variables */
     --dg-timestamps-size: 0.8em;
@@ -132,8 +143,8 @@ body {
     --note-icon-2: url(/img/tree-2.svg);
     --note-icon-3: url(/img/tree-3.svg);
     --note-icon-fallback: url(/img/default-note-icon.svg);
-    --graph-main: var(--text-accent);
-    --graph-muted: var(--text-muted);
+    --graph-main: var(--dg-graph-node-color);
+    --graph-muted: var(--dg-graph-node-color-muted);
 }
 
 .markdown-preview-view {
@@ -347,7 +358,7 @@ ul.task-list {
     height: 100%;
     min-width: var(--dg-sidebar-min-width);
     display: flex;
-    z-index: 3;
+    z-index: 11;
     max-width: var(--dg-sidebar-max-width);
 
     .graph {
@@ -378,39 +389,6 @@ body:has(.content.canvas-page) .sidebar {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-// Fullscreen graph - outside sidebar to avoid containment issues
-.graph-fs {
-    position: fixed !important;
-    top: 50% !important;
-    left: 50% !important;
-    width: var(--dg-graph-fullscreen-width) !important;
-    height: var(--dg-graph-fullscreen-height) !important;
-    max-width: 90vw !important;
-    max-height: 90vh !important;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    display: flex !important;
-    flex-direction: column;
-    background-color: var(--background-secondary);
-    border: 1px solid var(--text-accent);
-    border-radius: var(--dg-graph-border-radius);
-    padding: var(--dg-mermaid-padding);
-
-    #link-graph {
-        width: 100% !important;
-        height: 100% !important;
-        flex: 1;
-    }
-
-    #graph-controls {
-        margin-top: 10px;
-        flex-shrink: 0;
-    }
-
-    .graph-title {
-        display: none;
-    }
-}
 
 .expand-line {
     display: flex;
@@ -433,12 +411,8 @@ body:has(.content.canvas-page) .sidebar {
 
     ol {
         list-style: none;
-        padding-left: 6px;
-        margin: 0;
-    }
-
-    & > ol {
         padding-left: 0;
+        margin: 0;
     }
 }
 
@@ -454,15 +428,11 @@ body:has(.content.canvas-page) .sidebar {
         margin-top: 0 !important;
         margin-bottom: 0 !important;
         margin-left: 0;
-        // Fallback for older browsers
-        border-left: 1px solid rgba(128, 128, 128, 0.4);
-        @supports (background: color-mix(in srgb, red 50%, blue)) {
-            border-left: 1px solid color-mix(in srgb, var(--text-muted) 40%, transparent);
-        }
-    }
-    // First level - no border, no indent
-    & > ul, & > ol {
         border-left: none;
+    }
+    // First level - no indent (plugin outputs nav.toc > ol)
+    nav > ol, nav > ul,
+    & > ol, & > ul {
         padding-inline-start: 0 !important;
     }
     // Override obsidian-base nested list indent
@@ -471,9 +441,16 @@ body:has(.content.canvas-page) .sidebar {
         padding: var(--dg-toc-item-padding);
         a {
             text-decoration: none;
-            color: var(--text-accent);
+            color: var(--text-normal);
             &:hover {
                 text-decoration: underline;
+            }
+            &:focus {
+                outline: none;
+            }
+            &.toc-active {
+                color: var(--text-accent);
+                font-weight: 600;
             }
         }
     }
@@ -482,12 +459,15 @@ body:has(.content.canvas-page) .sidebar {
 .toc-title-container {
     display: flex;
     justify-content: flex-start;
-    margin-bottom: 4px;
+    margin-bottom: 8px;
     .toc-title {
         font-size: var(--dg-toc-title-size) !important;
-        color: var(--h6-color);
+        color: var(--text-muted);
         width: fit-content;
         padding: 0;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 400;
     }
 }
 
@@ -557,10 +537,17 @@ body:has(.content.canvas-page) .sidebar {
 }
 
 #link-graph {
-    background-color: var(--background-secondary);
+    background-color: var(--dg-graph-bg);
     margin-bottom: var(--dg-graph-margin-bottom);
     border-radius: var(--dg-graph-border-radius);
+    border: 1px solid var(--dg-graph-border-color);
     width: fit-content;
+
+    canvas {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
 }
 
 @media (max-width: 1400px) {
@@ -1303,11 +1290,7 @@ body.has-navbar .content {
 }
 
 .referred {
-    border: 1px dashed;
-    border-color: var(--text-accent);
-    padding: 10px;
-    margin-left: -10px;
-    margin-right: -10px;
+    border: none;
 }
 
 // Graph Controls
@@ -1325,31 +1308,44 @@ body.has-navbar .content {
 
 #full-graph {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    width: var(--dg-graph-fullscreen-width);
-    height: var(--dg-graph-fullscreen-height);
-    max-width: 90vw;
-    max-height: 90vh;
-    transform: translate(-50%, -50%);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     z-index: 9999;
     display: none;
-    background-color: var(--background-secondary);
-    border: 1px solid var(--text-accent);
-    border-radius: var(--dg-graph-border-radius);
-    padding: var(--dg-mermaid-padding);
+    background-color: color-mix(in srgb, var(--background-secondary) 85%, transparent);
+    backdrop-filter: blur(4px);
 
     #full-graph-container {
-        width: 100%;
-        height: calc(100% - 30px);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: var(--dg-graph-fullscreen-width);
+        height: var(--dg-graph-fullscreen-height);
+        background-color: var(--dg-graph-bg);
+        border: 1px solid var(--dg-graph-border-color);
+        border-radius: var(--dg-graph-border-radius);
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
     }
 
     #full-graph-close {
         position: absolute;
-        top: 10px;
-        right: 10px;
+        top: 20px;
+        right: 20px;
         cursor: pointer;
-        z-index: 9;
+        z-index: 10;
+        color: var(--text-muted);
+
+        &:hover {
+            color: var(--text-normal);
+        }
     }
 }
 
@@ -1400,73 +1396,6 @@ body.has-navbar .content {
         }
     }
 
-    .depth-control {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 8px;
-
-        label {
-            font-size: var(--dg-graph-ctrl-size);
-            opacity: 0.6;
-        }
-
-        .slider {
-            width: var(--dg-depth-slider-width);
-            display: flex;
-            align-items: center;
-
-            input[type="range"] {
-                width: 100%;
-                height: 4px;
-                -webkit-appearance: none;
-                appearance: none;
-                background: var(--text-muted);
-                border-radius: 2px;
-                outline: none;
-
-                &::-webkit-slider-thumb {
-                    -webkit-appearance: none;
-                    appearance: none;
-                    width: 12px;
-                    height: 12px;
-                    background: var(--text-normal);
-                    border-radius: 50%;
-                    cursor: pointer;
-                }
-
-                &::-moz-range-thumb {
-                    width: 12px;
-                    height: 12px;
-                    background: var(--text-normal);
-                    border-radius: 50%;
-                    cursor: pointer;
-                    border: none;
-                }
-            }
-
-            datalist {
-                display: none;
-            }
-        }
-
-        #depth-display {
-            background-color: var(--text-accent);
-            color: var(--background-primary);
-            min-width: var(--dg-depth-display-size);
-            height: var(--dg-depth-display-size);
-            font-size: 0.65rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border-radius: 50%;
-            font-weight: 600;
-        }
-    }
-}
-
-input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
 }
 
 body.title-note-icon .cm-s-obsidian > header > h1[data-note-icon]::before,
@@ -1853,3 +1782,5 @@ div.dataview-error-box {
     border: 1px solid var(--background-modifier-border);
     margin-right: 4px;
 }
+
+@import "obsidian-bases";
