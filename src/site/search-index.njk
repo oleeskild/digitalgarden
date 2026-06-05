@@ -2,7 +2,7 @@
 permalink: /searchIndex.json
 eleventyExcludeFromCollections: true
 ---
-[{% for post in collections.note %}
+[{% for post in collections.note | notHidden %}
 {
 		"title": {% if post.data.title %}{{post.data.title | jsonify | safe }}{% else %}{{post.fileSlug | jsonify | safe }}{% endif %},
 		"date":"{{ post.date }}",
