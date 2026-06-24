@@ -1433,6 +1433,12 @@ body.backlinks-note-icon .backlink[data-note-icon="3"]::before {
     background-image: var(--note-icon-3);
 }
 
+.header-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
 .timestamps {
     display: flex;
     flex-direction: row;
