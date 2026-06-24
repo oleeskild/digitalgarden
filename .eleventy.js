@@ -755,6 +755,10 @@ module.exports = function(eleventyConfig) {
     return JSON.stringify(variable) || '""';
   });
 
+  eleventyConfig.addFilter("notHidden", function (arr) {
+    return (arr || []).filter((item) => !item.data.hide);
+  });
+
   eleventyConfig.addFilter("validJson", function(variable) {
     if (Array.isArray(variable)) {
       return variable.map((x) => x.replaceAll("\\", "\\\\")).join(",");

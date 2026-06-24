@@ -131,7 +131,8 @@ async function getGraph(data) {
       neighbors: new Set(),
       backLinks: new Set(),
       noteIcon: v.data.noteIcon || process.env.NOTE_ICON_DEFAULT,
-      hide: v.data.hideInGraph || false,
+      hide: v.data.hide || v.data.hideInGraph || false,
+      private: v.data.hide || false,
     };
     stemURLs[fpath] = v.url;
     if (

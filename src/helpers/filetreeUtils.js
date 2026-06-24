@@ -113,8 +113,8 @@ function getPermalinkMeta(note, key) {
     }
     // Reason for adding the hide flag instead of removing completely from file tree is to
     // allow users to use the filetree data elsewhere without the fear of losing any data.
-    if (note.data.hide) {
-      hide = note.data.hide;
+    if (note.data.hide || note.data.hideInFiletree) {
+      hide = true;
     }
     if (note.data.pinned) {
       pinned = note.data.pinned;

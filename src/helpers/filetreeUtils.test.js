@@ -231,4 +231,30 @@ describe("filetreeUtils", () => {
       expect(keys[1]).toBe("zebra.md");
     });
   });
+
+  describe("hide flags", () => {
+    it("does not hide a normal note", () => {
+      const data = { collections: { note: [makeNote("/normal")] } };
+      const tree = getFileTree(data);
+      expect(tree["normal.md"].hide).toBeFalsy();
+    });
+
+    it("hides a note with hide:true (dg-hide)", () => {
+      const data = {
+        collections: { note: [makeNote("/secret", { hide: true })] },
+      };
+      const tree = getFileTree(data);
+      expect(tree["secret.md"].hide).toBe(true);
+    });
+
+    it("hides a note with hideInFiletree:true (dg-hide-in-filetree)", () => {
+      const data = {
+        collections: {
+          note: [makeNote("/treeonly", { hideInFiletree: true })],
+        },
+      };
+      const tree = getFileTree(data);
+      expect(tree["treeonly.md"].hide).toBe(true);
+    });
+  });
 });

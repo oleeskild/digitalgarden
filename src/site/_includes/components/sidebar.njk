@@ -63,7 +63,7 @@
                                                       </div>
                                                 {%- endif -%}
                                                 {%- for backlink in currentNode.backLinks -%}
-                                                      {%- if graph.nodes[backlink].url != page.url -%}
+                                                      {%- if graph.nodes[backlink].url != page.url and not graph.nodes[backlink].private -%}
                                                       <div class="backlink-card">
                                                             {%- if not meta.noteIconsSettings.backlinks -%}<i  data-lucide="link"></i> {%- endif -%}<a href="{{graph.nodes[backlink].url}}" data-note-icon="{{graph.nodes[backlink].noteIcon}}" class="backlink">{{graph.nodes[backlink].title}}</a>
                                                       </div>
