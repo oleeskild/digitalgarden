@@ -11,9 +11,76 @@ let basesEngine = null;
 let clearRenderCache = null;
 try {
   basesEngine = require("./bases-engine");
-  clearRenderCache = require("./basesPlugin").clearRenderCache;
+  clearRenderCache = require("./basesRenderCache").clearRenderCache;
 } catch (e) {
   // bases-engine not available, skip bases link extraction
+}
+
+const METADATA_EXCLUDE_KEYS = new Set([
+  "basesNotes",
+  "collections",
+  "content",
+  "eleventy",
+  "filetree",
+  "graph",
+  "layout",
+  "meta",
+  "noteProps",
+  "page",
+  "pagination",
+  "pkg",
+  "settings",
+  "templateContent",
+  "userComputed",
+]);
+
+function cloneMetadataValue(value, seen) {
+  if (value == null || typeof value !== "object") {
+    return value;
+  }
+
+  if (value instanceof Date) {
+    return value;
+  }
+
+  if (seen.has(value)) {
+    return undefined;
+  }
+  seen.add(value);
+
+  if (Array.isArray(value)) {
+    const items = value
+      .map((item) => cloneMetadataValue(item, seen))
+      .filter((item) => item !== undefined);
+    seen.delete(value);
+    return items;
+  }
+
+  const result = {};
+  for (const [key, childValue] of Object.entries(value)) {
+    if (typeof childValue === "function") continue;
+    const cloned = cloneMetadataValue(childValue, seen);
+    if (cloned !== undefined) {
+      result[key] = cloned;
+    }
+  }
+  seen.delete(value);
+  return result;
+}
+
+function compactNoteMetadata(data) {
+  const metadata = {};
+  for (const [key, value] of Object.entries(data || {})) {
+    if (METADATA_EXCLUDE_KEYS.has(key)) continue;
+    if (key.startsWith("eleventy")) continue;
+    if (typeof value === "function" || value === undefined) continue;
+
+    const cloned = cloneMetadataValue(value, new WeakSet());
+    if (cloned !== undefined) {
+      metadata[key] = cloned;
+    }
+  }
+  return metadata;
 }
 
 function extractLinks(content) {
@@ -178,7 +245,7 @@ async function getGraph(data) {
     return {
       path: item.filePathStem.replace("/notes/", ""),
       url: item.url,
-      metadata: item.data,
+      metadata: compactNoteMetadata(item.data),
       fileSlug: item.fileSlug,
       // Inject computed link data for bases queries
       _links: url.outBound || [],
@@ -223,4 +290,5 @@ exports.wikiLinkRegex = wikiLinkRegex;
 exports.internalLinkRegex = internalLinkRegex;
 exports.extractLinks = extractLinks;
 exports.getGraph = getGraph;
+exports.compactNoteMetadata = compactNoteMetadata;
 exports._basesNotesWithLinks = null;

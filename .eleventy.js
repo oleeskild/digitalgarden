@@ -1,4 +1,4 @@
-const slugify = require("@sindresorhus/slugify");
+const slugify = require("slugify");
 const markdownIt = require("markdown-it");
 const fs = require("fs");
 const matter = require("gray-matter");
@@ -6,7 +6,7 @@ const matter = require("gray-matter");
 // escape sequence. This custom engine strips \| before parsing. Shared between
 // Eleventy's own frontmatter parser and the manual matter() call in
 // getAnchorAttributes so that wikilink resolution can read the permalink.
-const jsYamlForMatter = require(require.resolve("js-yaml", { paths: [require.resolve("gray-matter")] }));
+const jsYamlForMatter = require("js-yaml")
 const matterOptions = {
   engines: {
     yaml: {
@@ -24,7 +24,7 @@ normalizeFavicon(FAVICON_SOURCE, FAVICON_NORMALIZED);
 const tocPlugin = require("eleventy-plugin-nesting-toc");
 const { parse } = require("node-html-parser");
 const htmlMinifier = require("html-minifier-terser");
-const pluginRss = require("@11ty/eleventy-plugin-rss");
+const { default: pluginRss } = require("@11ty/eleventy-plugin-rss");
 
 const { headerToId, namedHeadingsFilter } = require("./src/helpers/utils");
 const {
@@ -64,7 +64,7 @@ function getAnchorAttributes(filePath, linkTitle) {
 
   let noteIcon = process.env.NOTE_ICON_DEFAULT;
   const title = linkTitle ? linkTitle : fileName;
-  let permalink = `/notes/${slugify(fileName)}`;
+  let permalink = notePathToPermalink(fileName);
   let deadLink = false;
   try {
     const startPath = "./src/site/notes/";
@@ -115,10 +115,19 @@ function getAnchorAttributes(filePath, linkTitle) {
 
 const tagRegex = /(^|\s|\>)(#[^\s!@#$%^&*()=+\.,\[{\]};:'"?><]+)(?!([^<]*>))/g;
 
+function notePathToPermalink(notePath) {
+  const segments = notePath.split("/").filter(Boolean);
+  const slugged = segments.map((segment) => slugify(segment));
+  return `/notes/${slugged.join("/")}/`;
+}
+
 const markdownFileTypeRegex = /\.(md|markdown)$/i;
 const isMarkdownPage = (inputPath) => inputPath && inputPath.match(markdownFileTypeRegex);
 
-module.exports = function(eleventyConfig) {
+module.exports = async function(eleventyConfig) {
+  const mathjax3Module = await import("markdown-it-mathjax3");
+  const mathjax3 = mathjax3Module.default || mathjax3Module;
+
   eleventyConfig.setLiquidOptions({
     dynamicPartials: true,
   });
@@ -139,7 +148,7 @@ module.exports = function(eleventyConfig) {
         return '<a class="tag" onclick="toggleTagSearch(this)">';
       };
     })
-    .use(require("markdown-it-mathjax3"), {
+    .use(mathjax3, {
       tex: {
         inlineMath: [["$", "$"]],
       },
