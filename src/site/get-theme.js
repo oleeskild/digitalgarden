@@ -13,11 +13,18 @@ async function getTheme() {
     let res;
     try {
       res = await fetch(themeUrl);
+      if (!res.ok) {
+        throw new Error(`${themeUrl} returned ${res.status}`);
+      }
     } catch {
       if (themeUrl.indexOf("theme.css") > -1) {
         themeUrl = themeUrl.replace("theme.css", "obsidian.css");
       } else if (themeUrl.indexOf("obsidian.css") > -1) {
         themeUrl = themeUrl.replace("obsidian.css", "theme.css");
+      }
+      res = await fetch(themeUrl);
+      if (!res.ok) {
+        throw new Error(`${themeUrl} returned ${res.status}`);
       }
     }
 

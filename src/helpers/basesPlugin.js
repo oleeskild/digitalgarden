@@ -1,19 +1,13 @@
 const { executeBaseQuery, renderViews } = require("./bases-engine");
 const linkUtils = require("./linkUtils");
+const {
+  clearRenderCache,
+  getRenderCache,
+  getRenderCacheBuildId,
+} = require("./basesRenderCache");
 
 // Cache rendered HTML keyed by YAML + notes fingerprint to avoid re-rendering
 // identical queries within a single build. Cleared between builds.
-const renderCache = new Map();
-let renderCacheBuildId = 0;
-
-/**
- * Clear the render cache. Call at the start of each build (e.g. --watch mode)
- * to avoid serving stale HTML across rebuilds.
- */
-function clearRenderCache() {
-  renderCache.clear();
-  renderCacheBuildId++;
-}
 
 function basesPlugin(md) {
   const origFence =
@@ -53,10 +47,11 @@ function notesFingerprint(notes) {
       hash = ((hash << 5) - hash + s.charCodeAt(i)) | 0;
     }
   }
-  return renderCacheBuildId + ":" + notes.length + ":" + hash;
+  return getRenderCacheBuildId() + ":" + notes.length + ":" + hash;
 }
 
 function renderBaseBlock(yamlContent, notes) {
+  const renderCache = getRenderCache();
   const cacheKey = yamlContent + "\0" + notesFingerprint(notes);
   if (renderCache.has(cacheKey)) return renderCache.get(cacheKey);
   const result = executeBaseQuery(yamlContent, notes);
@@ -69,4 +64,4 @@ function escapeHtml(str) {
   return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
-module.exports = { basesPlugin, clearRenderCache };
+module.exports = { basesPlugin };
