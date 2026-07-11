@@ -18,7 +18,7 @@
     "author": "",
     "license": "MIT",
     "engines": {
-        "node": "22.x"
+        "node": ">=22.12.0"
     },
     "devDependencies": {
         "@11ty/eleventy": "^3.1.6",
@@ -26,9 +26,9 @@
         "cross-env": "^10.1.0",
         "html-minifier-terser": "^7.2.0",
         "js-yaml": "^5.2.0",
-        "node-html-parser": "^8.0.3",
+        "node-html-parser": "7.0.2",
         "npm-run-all": "^4.1.5",
-        "sass": "^1.101.0",
+        "sass": "1.93.2",
         "vitest": "^4.1.9"
     },
     "dependencies": {
@@ -36,7 +36,7 @@
         "dotenv": "^17.4.2",
         "eleventy-plugin-gen-favicons": "^1.1.3",
         "eleventy-plugin-nesting-toc": "^1.3.0",
-        "fs-file-tree": "^2.0.0",
+        "fs-file-tree": "1.1.1",
         "glob": "^13.0.6",
         "gray-matter": "^4.0.3",
         "jsep": "^1.4.0",

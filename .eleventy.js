@@ -24,7 +24,6 @@ normalizeFavicon(FAVICON_SOURCE, FAVICON_NORMALIZED);
 const tocPlugin = require("eleventy-plugin-nesting-toc");
 const { parse } = require("node-html-parser");
 const htmlMinifier = require("html-minifier-terser");
-const { default: pluginRss } = require("@11ty/eleventy-plugin-rss");
 
 const { headerToId, namedHeadingsFilter } = require("./src/helpers/utils");
 const {
@@ -125,6 +124,8 @@ const markdownFileTypeRegex = /\.(md|markdown)$/i;
 const isMarkdownPage = (inputPath) => inputPath && inputPath.match(markdownFileTypeRegex);
 
 module.exports = async function(eleventyConfig) {
+  const pluginRssModule = await import("@11ty/eleventy-plugin-rss");
+  const pluginRss = pluginRssModule.default || pluginRssModule;
   const mathjax3Module = await import("markdown-it-mathjax3");
   const mathjax3 = mathjax3Module.default || mathjax3Module;
 
