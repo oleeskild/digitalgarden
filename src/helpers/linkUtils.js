@@ -11,7 +11,7 @@ let basesEngine = null;
 let clearRenderCache = null;
 try {
   basesEngine = require("./bases-engine");
-  clearRenderCache = require("./basesPlugin").clearRenderCache;
+  clearRenderCache = require("./basesRenderCache").clearRenderCache;
 } catch (e) {
   // bases-engine not available, skip bases link extraction
 }
