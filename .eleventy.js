@@ -27,6 +27,7 @@ const htmlMinifier = require("html-minifier-terser");
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 const { headerToId, namedHeadingsFilter } = require("./src/helpers/utils");
+const { tagRegex, taggify } = require("./src/helpers/tagUtils");
 const {
   userMarkdownSetup,
   userEleventySetup,
@@ -113,7 +114,6 @@ function getAnchorAttributes(filePath, linkTitle) {
   }
 }
 
-const tagRegex = /(^|\s|\>)(#[^\s!@#$%^&*()=+\.,\[{\]};:'"?><]+)(?!([^<]*>))/g;
 
 const markdownFileTypeRegex = /\.(md|markdown)$/i;
 const isMarkdownPage = (inputPath) => inputPath && inputPath.match(markdownFileTypeRegex);
@@ -374,12 +374,7 @@ module.exports = function(eleventyConfig) {
   });
 
   eleventyConfig.addFilter("taggify", function(str) {
-    return (
-      str &&
-      str.replace(tagRegex, function(match, precede, tag) {
-        return `${precede}<a class="tag" onclick="toggleTagSearch(this)" data-content="${tag}">${tag}</a>`;
-      })
-    );
+    return str && taggify(str);
   });
 
   eleventyConfig.addFilter("stripForSearch", function(content) {
