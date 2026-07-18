@@ -21,5 +21,5 @@ I have a workspace for my research, thinking, and writing. It goes by the name o
 
 ## Family Archive
 
-[[Projects/family-archive/2025-09-09-171308 Family Archive\|2025-09-09-171308 Family Archive]]
+[[2025-09-09-171308 Family archive design concept\|2025-09-09-171308 Family archive design concept]]
 
