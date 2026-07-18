@@ -2,7 +2,11 @@
     <nav class="navbar">
         <div class="navbar-inner">
             <a href="/" style="text-decoration: none;">
-                <h1 style="margin: 15px !important;">{{meta.siteName}}</h1>
+                {% if meta.siteLogoPath %}
+                    <img class="site-logo" src="{{meta.siteLogoPath}}" alt="{{meta.siteName}}">
+                {% else %}
+                    <h1 style="margin: 15px !important;">{{meta.siteName}}</h1>
+                {% endif %}
             </a>
         </div>
         {% if settings.dgEnableSearch === true%}
