@@ -15,6 +15,11 @@ Maggie Appleton describes [[Digital-Garden/digital gardening\|digital gardening]
 
 When we encounter a dubious claim online, most of us ask the wrong question: is this true? Mike Caulfield (information literacy researcher, creator of [[Digital-Garden/The SIFT Method\|The SIFT Method]], and co-author of [_Verified_](https://www.amazon.com/Verified-Straight-Better-Decisions-Believe/dp/0226822060)) argues that we should instead ask: [[Digital-Garden/Is this what people think it is dg\|is this what people think it is?]] That shift in framing is the foundation of his work. Rather than chasing the slippery concept of truth, Caulfield focuses on understanding context: where a claim came from, how it's being used, what the range of informed opinion looks like, and whether the evidence behind it actually supports what's being claimed. He urges us to develop a habit: [[Digital-Garden/Get it in, track it down, follow up\|get it in, track it down, follow up]]. The goal is to make us better at navigating the information landscape before we decide what to believe. His [[Digital-Garden/Deep Background dg\|Deep Background super-prompt]] is a valuable tool in support of that purpose. 
 
-## THINKSPACE
+## ThinkSpace
 
-I have a workspace for my research, thinking, and writing. It goes by the name of THINKSPACE and now has [[Digital-Garden/A search engine for ideas\|a search engine for ideas]] built into it. 
+I have a workspace for my research, thinking, and writing. It goes by the name of ThinkSpace and now has [[Digital-Garden/A search engine for ideas\|a search engine for ideas]] built into it. 
+
+## Family Archive
+
+[[Projects/family-archive/2025-09-09-175658 Family Archive\|2025-09-09-175658 Family Archive]]
+
