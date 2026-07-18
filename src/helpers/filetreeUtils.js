@@ -1,55 +1,89 @@
-const sortTree = (unsorted) => {
-  //Sort by folder before file, then by name
-  const orderedTree = Object.keys(unsorted)
-    .sort((a, b) => {
+// Natural sort comparison - handles numbers anywhere in the string
+const naturalCompare = (a, b) => {
+  const aLower = a.toLowerCase();
+  const bLower = b.toLowerCase();
 
-      let a_pinned = unsorted[a].pinned || false;
-      let b_pinned = unsorted[b].pinned || false;
-      if (a_pinned != b_pinned) {
-        if (a_pinned) {
-          return -1;
-        } else {
-          return 1;
-        }
+  // Split into chunks of text and numbers
+  const aChunks = aLower.match(/(\d+|\D+)/g) || [];
+  const bChunks = bLower.match(/(\d+|\D+)/g) || [];
+
+  const maxLen = Math.max(aChunks.length, bChunks.length);
+
+  for (let i = 0; i < maxLen; i++) {
+    const aChunk = aChunks[i] || '';
+    const bChunk = bChunks[i] || '';
+
+    const aIsNum = /^\d+$/.test(aChunk);
+    const bIsNum = /^\d+$/.test(bChunk);
+
+    if (aIsNum && bIsNum) {
+      // Compare as numbers
+      const diff = parseInt(aChunk, 10) - parseInt(bChunk, 10);
+      if (diff !== 0) return diff;
+    } else {
+      // Compare as strings
+      if (aChunk < bChunk) return -1;
+      if (aChunk > bChunk) return 1;
+    }
+  }
+
+  return 0;
+};
+
+const sortTree = (unsorted, navigationOrder, currentPath) => {
+  const orderList = navigationOrder && navigationOrder[currentPath];
+
+  const defaultCompare = (a, b) => {
+    let a_pinned = unsorted[a].pinned || false;
+    let b_pinned = unsorted[b].pinned || false;
+    if (a_pinned != b_pinned) {
+      return a_pinned ? -1 : 1;
+    }
+    const a_is_note = a.indexOf(".md") > -1;
+    const b_is_note = b.indexOf(".md") > -1;
+    if (a_is_note && !b_is_note) return 1;
+    if (!a_is_note && b_is_note) return -1;
+    return naturalCompare(a, b);
+  };
+
+  let orderedKeys;
+
+  if (orderList && Array.isArray(orderList)) {
+    const existingKeys = new Set(Object.keys(unsorted));
+    // Build a map from ordering names to actual tree keys
+    // The ordering uses stems (e.g. "Azure") while tree keys may have ".md" (e.g. "Azure.md")
+    const resolveKey = (name) => {
+      if (existingKeys.has(name)) return name;
+      if (existingKeys.has(name + ".md")) return name + ".md";
+      return null;
+    };
+    const resolvedOrdered = [];
+    const resolvedSet = new Set();
+    for (const name of orderList) {
+      const key = resolveKey(name);
+      if (key && !resolvedSet.has(key)) {
+        resolvedOrdered.push(key);
+        resolvedSet.add(key);
       }
+    }
+    const unorderedKeys = Object.keys(unsorted)
+      .filter((k) => !resolvedSet.has(k))
+      .sort(defaultCompare);
 
-      const a_is_note = a.indexOf(".md") > -1;
-      const b_is_note = b.indexOf(".md") > -1;
+    orderedKeys = [...resolvedOrdered, ...unorderedKeys];
+  } else {
+    orderedKeys = Object.keys(unsorted).sort(defaultCompare);
+  }
 
-      if (a_is_note && !b_is_note) {
-        return 1;
-      }
-
-      if (!a_is_note && b_is_note) {
-        return -1;
-      }
-
-      //Regular expression that extracts any initial decimal number
-      const aNum = parseFloat(a.match(/^\d+(\.\d+)?/));
-      const bNum = parseFloat(b.match(/^\d+(\.\d+)?/));
-
-      const a_is_num = !isNaN(aNum);
-      const b_is_num = !isNaN(bNum);
-
-      if (a_is_num && b_is_num && aNum != bNum) {
-        return aNum - bNum; //Fast comparison between numbers
-      }
-
-      if (a.toLowerCase() > b.toLowerCase()) {
-        return 1;
-      }
-
-      return -1;
-    })
-    .reduce((obj, key) => {
-      obj[key] = unsorted[key];
-
-      return obj;
-    }, {});
+  const orderedTree = orderedKeys.reduce((obj, key) => {
+    obj[key] = unsorted[key];
+    return obj;
+  }, {});
 
   for (const key of Object.keys(orderedTree)) {
     if (orderedTree[key].isFolder) {
-      orderedTree[key] = sortTree(orderedTree[key]);
+      const childPath = currentPath === "/" ? `/${key}` : `${currentPath}/${key}`;
+      orderedTree[key] = sortTree(orderedTree[key], navigationOrder, childPath);
     }
   }
 
@@ -79,8 +113,8 @@ function getPermalinkMeta(note, key) {
     }
     // Reason for adding the hide flag instead of removing completely from file tree is to
     // allow users to use the filetree data elsewhere without the fear of losing any data.
-    if (note.data.hide) {
-      hide = note.data.hide;
+    if (note.data.hide || note.data.hideInFiletree) {
+      hide = true;
     }
     if (note.data.pinned) {
       pinned = note.data.pinned;
@@ -88,11 +122,22 @@ function getPermalinkMeta(note, key) {
     if (note.data["dg-path"]) {
       folders = note.data["dg-path"].split("/");
     } else {
-      folders = note.filePathStem
-        .split("notes/")[1]
-        .split("/");
+      // Ensure we extract everything after the LAST "notes/" occurrence
+      const parts = note.filePathStem.split("/notes/");
+      if (parts.length > 1) {
+        folders = parts.slice(-1)[0].split("/"); // Take the last part after "notes/"
+      } else {
+        folders = []; // Handle unexpected cases gracefully
+      }
     }
-    folders[folders.length - 1]+= ".md";
+    // Path rewrite rules produce a dg-path that already includes the ".md"
+    // extension (e.g. "Path Rewriting/note.md" -> "note.md"). Strip it before
+    // re-appending so we don't end up with a double extension ("note.md.md"),
+    // which would prevent the stem-based navigation ordering from matching.
+    const lastFolder = folders[folders.length - 1];
+    folders[folders.length - 1] =
+      (lastFolder.endsWith(".md") ? lastFolder.slice(0, -3) : lastFolder) +
+      ".md";
   } catch {
     //ignore
   }
@@ -101,9 +146,9 @@ function getPermalinkMeta(note, key) {
 }
 
 function assignNested(obj, keyPath, value) {
-  lastKeyIndex = keyPath.length - 1;
-  for (var i = 0; i < lastKeyIndex; ++i) {
-    key = keyPath[i];
+  const lastKeyIndex = keyPath.length - 1;
+  for (let i = 0; i < lastKeyIndex; ++i) {
+    const key = keyPath[i];
     if (!(key in obj)) {
       obj[key] = { isFolder: true };
     }
@@ -118,7 +163,8 @@ function getFileTree(data) {
     const [meta, folders] = getPermalinkMeta(note);
     assignNested(tree, folders, { isNote: true, ...meta });
   });
-  const fileTree = sortTree(tree);
+  const navigationOrder = data.navigationOrder || null;
+  const fileTree = sortTree(tree, navigationOrder, "/");
   return fileTree;
 }
 
