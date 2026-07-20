@@ -83,6 +83,23 @@ describe("renderViews", () => {
 			expect(result).toContain("<th>Year</th>");
 		});
 
+		it("resolves note.-prefixed columns (Obsidian-generated syntax)", () => {
+			const result = renderViews(
+				makeQueryResult([
+					singleView(
+						{
+							type: "table",
+							name: "My Table",
+							order: ["file.name", "note.author"],
+						},
+						basicRows,
+					),
+				]),
+			);
+			expect(result).toContain("<th>Author</th>");
+			expect(result).toContain("F. Scott Fitzgerald");
+		});
+
 		it("renders summary bar when computedSummaries has values", () => {
 			const result = renderViews(
 				makeQueryResult([
@@ -440,6 +457,141 @@ describe("renderViews", () => {
 			);
 			expect(result).toContain("object-fit: contain");
 			expect(result).toContain("aspect-ratio: 2");
+		});
+
+		it("resolves note.-prefixed image field (Obsidian-generated syntax)", () => {
+			const rows = [
+				makeRow("Test", "/notes/test/", {
+					cover: "/images/cover.jpg",
+				}),
+			];
+			const result = renderViews(
+				makeQueryResult([
+					singleView(
+						{
+							type: "cards",
+							name: "Cards",
+							image: "note.cover",
+							order: ["file.name"],
+						},
+						rows,
+					),
+				]),
+			);
+			expect(result).toContain("<img");
+			expect(result).toContain("/images/cover.jpg");
+		});
+
+		it("resolves wikilink image values to published image URLs", () => {
+			const rows = [
+				makeRow("Test", "/notes/test/", {
+					cover: "[[A Assets/cover.png]]",
+				}),
+			];
+			const result = renderViews(
+				makeQueryResult([
+					singleView(
+						{
+							type: "cards",
+							name: "Cards",
+							image: "cover",
+							order: ["file.name"],
+						},
+						rows,
+					),
+				]),
+			);
+			expect(result).toContain('src="/img/user/A Assets/cover.png"');
+		});
+
+		it("resolves embed wikilinks with alias to published image URLs", () => {
+			const rows = [
+				makeRow("Test", "/notes/test/", {
+					cover: "![[cover.png|300]]",
+				}),
+			];
+			const result = renderViews(
+				makeQueryResult([
+					singleView(
+						{
+							type: "cards",
+							name: "Cards",
+							image: "cover",
+							order: ["file.name"],
+						},
+						rows,
+					),
+				]),
+			);
+			expect(result).toContain('src="/img/user/cover.png"');
+		});
+
+		it("resolves markdown-link image values produced by older plugin exports", () => {
+			const rows = [
+				makeRow("Test", "/notes/test/", {
+					cover: "[A Assets/travolta.png](/img/user/A%20Assets/travolta.png)",
+				}),
+			];
+			const result = renderViews(
+				makeQueryResult([
+					singleView(
+						{
+							type: "cards",
+							name: "Cards",
+							image: "cover",
+							order: ["file.name"],
+						},
+						rows,
+					),
+				]),
+			);
+			expect(result).toContain(
+				'src="/img/user/A%20Assets/travolta.png"',
+			);
+		});
+
+		it("resolves embed markdown-link image values produced by older plugin exports", () => {
+			const rows = [
+				makeRow("Test", "/notes/test/", {
+					cover: "![cover](/img/user/cover.png)",
+				}),
+			];
+			const result = renderViews(
+				makeQueryResult([
+					singleView(
+						{
+							type: "cards",
+							name: "Cards",
+							image: "cover",
+							order: ["file.name"],
+						},
+						rows,
+					),
+				]),
+			);
+			expect(result).toContain('src="/img/user/cover.png"');
+		});
+
+		it("leaves external image URLs untouched", () => {
+			const rows = [
+				makeRow("Test", "/notes/test/", {
+					cover: "https://example.com/cover.png",
+				}),
+			];
+			const result = renderViews(
+				makeQueryResult([
+					singleView(
+						{
+							type: "cards",
+							name: "Cards",
+							image: "cover",
+							order: ["file.name"],
+						},
+						rows,
+					),
+				]),
+			);
+			expect(result).toContain('src="https://example.com/cover.png"');
 		});
 	});
 

@@ -96,10 +96,11 @@ function getDisplayName(column, properties) {
 
 	if (column === "file.name") return "Name";
 
-	// Strip prefixes: formula.x → x, file.folder → folder
+	// Strip prefixes: formula.x → x, file.folder → folder, note.x → x
 	let name = column;
 	if (name.startsWith("formula.")) name = name.slice(8);
 	if (name.startsWith("file.")) name = name.slice(5);
+	if (name.startsWith("note.")) name = name.slice(5);
 
 	// Capitalize first letter
 	return name.charAt(0).toUpperCase() + name.slice(1);
@@ -118,6 +119,11 @@ function getFileName(row) {
  * Get a cell value from a row for a given column.
  */
 function getCellValue(row, column) {
+	// Obsidian writes user-property references as note.x in .base files
+	if (column.startsWith("note.")) {
+		column = column.slice(5);
+	}
+
 	if (column === "file.name") {
 		return getFileName(row);
 	}
@@ -345,6 +351,33 @@ function renderCards(view, properties) {
 	return buildCardsGrid(rows, columns, cardSize, imageField, imageFit, imageAspectRatio, properties);
 }
 
+/**
+ * Resolve a frontmatter image value to a URL on the published site.
+ * Handles wikilinks ([[path]], ![[path|alias]]), markdown links
+ * ([label](url), as produced when the plugin's link conversion touched
+ * the value), vault-relative paths (rewritten to /img/user/), and
+ * absolute/external URLs (left as-is).
+ */
+function resolveImageSource(imgValue) {
+	let src = String(imgValue).trim();
+
+	const wikilink = src.match(/^!?\[\[([^\]]+)\]\]$/);
+	if (wikilink) {
+		src = wikilink[1].split("|")[0].split("#")[0].trim();
+	}
+
+	const markdownLink = src.match(/^!?\[[^\]]*\]\(([^)]+)\)$/);
+	if (markdownLink) {
+		src = markdownLink[1].trim();
+	}
+
+	if (!src.startsWith("http") && !src.startsWith("/")) {
+		src = "/img/user/" + src;
+	}
+
+	return src;
+}
+
 function buildCardsGrid(rows, columns, cardSize, imageField, imageFit, imageAspectRatio, properties) {
 	let html = `<div class="obsidian-base-cards" style="grid-template-columns: repeat(auto-fill, minmax(${cardSize}px, 1fr));">`;
 
@@ -353,14 +386,10 @@ function buildCardsGrid(rows, columns, cardSize, imageField, imageFit, imageAspe
 
 		// Image section
 		if (imageField) {
-			let imgValue = getCellValue(row, imageField);
+			const imgValue = getCellValue(row, imageField);
 			if (imgValue) {
-				imgValue = String(imgValue);
-				// Resolve vault image paths to published URLs
-				if (!imgValue.startsWith("http") && !imgValue.startsWith("/")) {
-					imgValue = "/img/user/" + imgValue;
-				}
-				html += `<div class="obsidian-base-card-image"><img src="${escapeHtml(imgValue)}" style="object-fit: ${escapeHtml(imageFit)}; aspect-ratio: ${escapeHtml(String(imageAspectRatio))};" loading="lazy" /></div>`;
+				const imgSrc = resolveImageSource(imgValue);
+				html += `<div class="obsidian-base-card-image"><img src="${escapeHtml(imgSrc)}" style="object-fit: ${escapeHtml(imageFit)}; aspect-ratio: ${escapeHtml(String(imageAspectRatio))};" loading="lazy" /></div>`;
 			}
 		}
 
