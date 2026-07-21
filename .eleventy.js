@@ -1,4 +1,4 @@
-const slugify = require("@sindresorhus/slugify");
+const slugify = require("slugify");
 const markdownIt = require("markdown-it");
 const fs = require("fs");
 const matter = require("gray-matter");
@@ -6,7 +6,7 @@ const matter = require("gray-matter");
 // escape sequence. This custom engine strips \| before parsing. Shared between
 // Eleventy's own frontmatter parser and the manual matter() call in
 // getAnchorAttributes so that wikilink resolution can read the permalink.
-const jsYamlForMatter = require(require.resolve("js-yaml", { paths: [require.resolve("gray-matter")] }));
+const jsYamlForMatter = require("js-yaml")
 const matterOptions = {
   engines: {
     yaml: {
@@ -24,7 +24,7 @@ normalizeFavicon(FAVICON_SOURCE, FAVICON_NORMALIZED);
 const tocPlugin = require("eleventy-plugin-nesting-toc");
 const { parse } = require("node-html-parser");
 const htmlMinifier = require("html-minifier-terser");
-const pluginRss = require("@11ty/eleventy-plugin-rss");
+const { default: pluginRss } = require("@11ty/eleventy-plugin-rss");
 
 const { headerToId, namedHeadingsFilter } = require("./src/helpers/utils");
 const {

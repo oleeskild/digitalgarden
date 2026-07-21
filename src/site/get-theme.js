@@ -1,5 +1,4 @@
 require("dotenv").config();
-const axios = require("axios");
 const fs = require("fs");
 const crypto = require("crypto");
 const {globSync} = require("glob");
@@ -11,8 +10,9 @@ async function getTheme() {
   if (themeUrl) {
     //https://forum.obsidian.md/t/1-0-theme-migration-guide/42537
     //Not all themes with no legacy mark have a theme.css file, so we need to check for it
+    let res;
     try {
-      await axios.get(themeUrl);
+      res = await fetch(themeUrl);
     } catch {
       if (themeUrl.indexOf("theme.css") > -1) {
         themeUrl = themeUrl.replace("theme.css", "obsidian.css");
@@ -21,7 +21,6 @@ async function getTheme() {
       }
     }
 
-    const res = await axios.get(themeUrl);
     try {
       const existing = globSync("src/site/styles/_theme.*.css");
       existing.forEach((file) => {
@@ -29,7 +28,7 @@ async function getTheme() {
       });
     } catch {}
     let skippedFirstComment = false;
-    const data = res.data.replace(themeCommentRegex, (match) => {
+    const data = (await res.text()).replace(themeCommentRegex, (match) => {
       if (skippedFirstComment) {
         return "";
       } else {
