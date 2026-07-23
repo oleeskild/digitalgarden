@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { taggify } from "../tagUtils.js";
+import { taggify, extractSearchableTags } from "../tagUtils.js";
 
 describe("taggify", () => {
   it("preserves MathJax styles while linking page tags", () => {
@@ -9,5 +9,18 @@ describe("taggify", () => {
     expect(taggify(content)).toBe(
       '<style>mjx-tip { border: 1px solid #888; }</style><p><a class="tag" href="javascript:void(0);" onclick="toggleTagSearch(this)">#statistics</a></p>',
     );
+  });
+});
+
+describe("extractSearchableTags", () => {
+  it("ignores hex colors inside style blocks and keeps page tags", () => {
+    const content =
+      '<style>mjx-tip { border: 1px solid #888; background-color: #F8F8F8; }</style><p>#calculus #series</p>';
+
+    expect(extractSearchableTags(content)).toEqual(["calculus", "series"]);
+  });
+
+  it("dedupes repeated tags", () => {
+    expect(extractSearchableTags("<p>#math #math</p>")).toEqual(["math"]);
   });
 });
