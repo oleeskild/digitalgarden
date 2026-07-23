@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { taggify, extractSearchableTags } from "../tagUtils.js";
+import { taggify, extractSearchableTags, withoutProtectedBlocks } from "../tagUtils.js";
 
 describe("taggify", () => {
   it("preserves MathJax styles while linking page tags", () => {
@@ -22,5 +22,19 @@ describe("extractSearchableTags", () => {
 
   it("dedupes repeated tags", () => {
     expect(extractSearchableTags("<p>#math #math</p>")).toEqual(["math"]);
+  });
+});
+
+describe("withoutProtectedBlocks", () => {
+  it("removes MathJax style CSS so it cannot leak into search snippets", () => {
+    const content =
+      'Integral Test <style>#mjx-61a4a83{ display:contents; }</style> Summary #calculus';
+    const stripped = withoutProtectedBlocks(content)
+      .replace(/<[^>]*>/g, "")
+      .replace(/\s+/g, " ")
+      .trim();
+
+    expect(stripped).toBe("Integral Test Summary #calculus");
+    expect(stripped).not.toContain("mjx");
   });
 });
