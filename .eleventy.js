@@ -23,7 +23,7 @@ const FAVICON_NORMALIZED = "./.cache/favicon.normalized.svg";
 normalizeFavicon(FAVICON_SOURCE, FAVICON_NORMALIZED);
 const tocPlugin = require("eleventy-plugin-nesting-toc");
 const { parse } = require("node-html-parser");
-const htmlMinifier = require("html-minifier-terser");
+const { minifyProductionHtml } = require("./src/site/minify-html.js");
 
 const { headerToId, namedHeadingsFilter } = require("./src/helpers/utils");
 const {
@@ -63,7 +63,7 @@ function getAnchorAttributes(filePath, linkTitle) {
 
   let noteIcon = process.env.NOTE_ICON_DEFAULT;
   const title = linkTitle ? linkTitle : fileName;
-  let permalink = notePathToPermalink(fileName);
+  let permalink = `/notes/${slugify(fileName)}`;
   let deadLink = false;
   try {
     const startPath = "./src/site/notes/";
@@ -113,12 +113,6 @@ function getAnchorAttributes(filePath, linkTitle) {
 }
 
 const tagRegex = /(^|\s|\>)(#[^\s!@#$%^&*()=+\.,\[{\]};:'"?><]+)(?!([^<]*>))/g;
-
-function notePathToPermalink(notePath) {
-  const segments = notePath.split("/").filter(Boolean);
-  const slugged = segments.map((segment) => slugify(segment));
-  return `/notes/${slugged.join("/")}/`;
-}
 
 const markdownFileTypeRegex = /\.(md|markdown)$/i;
 const isMarkdownPage = (inputPath) => inputPath && inputPath.match(markdownFileTypeRegex);
@@ -692,16 +686,7 @@ module.exports = async function(eleventyConfig) {
       (this.page.outputPath || "").endsWith(".html")
     ) {
       try {
-        return await htmlMinifier.minify(content, {
-          useShortDoctype: true,
-          removeComments: true,
-          collapseWhitespace: true,
-          conservativeCollapse: true,
-          preserveLineBreaks: true,
-          minifyCSS: true,
-          minifyJS: true,
-          keepClosingSlash: true,
-        });
+        return await minifyProductionHtml(content);
       } catch {
         // If the html minifying fails for some reason due to some malformed text, just return the content as is.
         return content;
