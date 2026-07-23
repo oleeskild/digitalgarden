@@ -1,5 +1,3 @@
-const fsFileTree = require("fs-file-tree");
-
 const BASE_PATH = "src/site/_includes/components/user";
 const STYLE_PATH = "src/site/styles/user";
 const NAMESPACES = ["index", "notes", "common"];
@@ -10,7 +8,18 @@ const SIDEBAR_NAMESPACE = "sidebar";
 const SIDEBAR_SLOTS = ["top", "bottom"];
 const STYLES_NAMESPACE = "styles";
 
+let fsFileTree;
+
+const getFsFileTree = async () => {
+  if (!fsFileTree) {
+    const module = await import("fs-file-tree");
+    fsFileTree = module.default || module;
+  }
+  return fsFileTree;
+};
+
 const generateComponentPaths = async (namespace, slots) => {
+  const fsFileTree = await getFsFileTree();
   const data = {};
   for (let index = 0; index < slots.length; index++) {
     const slot = slots[index];
@@ -29,6 +38,7 @@ const generateComponentPaths = async (namespace, slots) => {
 };
 
 const generateStylesPaths = async () => {
+  const fsFileTree = await getFsFileTree();
   try {
     const tree = await fsFileTree(`${STYLE_PATH}`);
     let comps = Object.keys(tree).map((p) =>
