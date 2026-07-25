@@ -1,4 +1,29 @@
 # Digital Obsidian Garden
+
+## Changes in this fork
+
+This repository is a fork of the official Public Template ([oleeskild/digitalgarden](https://github.com/oleeskild/digitalgarden)). Claude Code has applied the following CSS changes for color and font customization.
+
+### Fonts
+
+- Embedded the monospace font **PlemolJPConsole NF** (SIL OFL 1.1) via `@font-face` in [`src/site/styles/custom-style.scss`](src/site/styles/custom-style.scss) and applied it to code blocks (`pre`, `code[class*="language-"]`). Its half-width:full-width = 1:2 monospace ratio keeps box-drawing characters and ASCII art aligned in code blocks that mix Japanese text with ASCII.
+- Also disabled line wrapping via `white-space: pre` / `word-wrap: normal`, letting overflow scroll horizontally instead, to prevent ASCII diagrams from breaking their layout.
+- A template update (v1.81.2) had dropped the font passthrough-copy setting in `.eleventy.js`, causing the font above to 404; this has been restored.
+
+### Colors
+
+- Added a new file, [`src/site/styles/user/claude-diagrams.css`](src/site/styles/user/claude-diagrams.css), which reproduces the color system needed to render raw SVGs produced by Claude's "Imagine" diagramming tool (`visualize:show_widget`) correctly (light/dark aware) in Obsidian's Reading view. The exported SVGs depend on CSS classes/variables that only exist on `claude.ai` (`c-*`, `node`, `box`, `--color-*`, etc.), which are undefined in Obsidian and rendered everything as solid black. Because double-indirected `var()` references don't resolve inside embedded SVGs, this file redefines text, borders, arrows, and the color ramps (purple/teal/coral/pink/gray/blue/green/amber/red) using literal hex colors instead.
+
+### ⚠️ Caution when applying a template update (the "Update to X.X.X" button in Site Template)
+
+The `Update to X.X.X` button in the Digital Garden plugin's settings screen, under the "Site Template" section, auto-generates a PR against the official template. This PR overwrites target files wholesale, so **verify the following before merging**.
+
+- **Watch for `.eleventy.js` being overwritten**: during the past v1.81.2 update (commit `5a0750f`), this button overwrote `.eleventy.js` wholesale and silently dropped the `eleventyConfig.addPassthroughCopy("src/site/styles/fonts");` line needed to serve the font above (later restored in `e7d927c`). If the PR diff touches `.eleventy.js`, always check that this line (and any other manually added passthrough-copy settings) is still present, and re-add it before merging if it's gone.
+- **Check whether `src/site/styles/custom-style.scss` or `src/site/styles/user/claude-diagrams.css` appear in the diff**: these are this fork's own CSS customization files. If the update PR's diff touches either file (modifying or overwriting it), cross-check the contents against the "Colors" and "Fonts" sections above to make sure nothing was lost.
+- **Visually verify after merging**: a passing build does not catch the regressions above — a font falling back silently or an SVG's colors breaking doesn't cause a build error, it just renders as solid black or misaligned box-drawing characters. After merging, check the deployed site itself: confirm ASCII art/box-drawing characters in code blocks are still aligned, and that Claude Imagine SVG diagrams still show the intended colors in both light and dark mode.
+
+---
+
 This is the template to be used together with the [Digital Garden Obsidian Plugin](https://github.com/oleeskild/Obsidian-Digital-Garden).
 See the README in the plugin repo for information on how to set it up.
 
