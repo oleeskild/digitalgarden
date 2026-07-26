@@ -42,15 +42,27 @@ function filterLocalGraphData(graphData, depth) {
 
     currentNode.current = true;
 
+    // Hidden nodes (home page, index/hub pages like the-shelf or entity-index)
+    // are never rendered, but they're linked from a huge number of pages. If we
+    // let BFS walk through them as ordinary hops, they silently bridge otherwise
+    // unrelated parts of the graph together — the hidden hop then gets dropped
+    // from the output, leaving nodes that appear with no visible path to the
+    // current node. So a hidden node can only ever be a traversal *endpoint*
+    // (reached from, never walked through), except the current node itself,
+    // whose own direct links must still count even if it happens to be hidden
+    // (e.g. viewing the local graph on the home page).
+    const hiddenIds = new Set(Object.values(allNodes).filter(n => n.hide).map(n => n.id));
+    const canBridge = id => id === currentNode.id || !hiddenIds.has(id);
+
     // Build an id-based adjacency map so we can walk out to arbitrary depth
     const adjacency = {};
     for (const l of allLinks) {
+        if (!canBridge(l.source) || !canBridge(l.target)) continue;
         (adjacency[l.source] = adjacency[l.source] || new Set()).add(l.target);
         (adjacency[l.target] = adjacency[l.target] || new Set()).add(l.source);
     }
 
     // BFS out from the current node up to `depth` hops
-    const directNeighborIds = adjacency[currentNode.id] || new Set();
     const visited = new Set([currentNode.id]);
     let frontier = new Set([currentNode.id]);
     for (let i = 0; i < depth && frontier.size > 0; i++) {
@@ -66,20 +78,7 @@ function filterLocalGraphData(graphData, depth) {
         frontier = next;
     }
 
-    const nodes = Object.values(allNodes).filter(n => {
-        if (n.hide) return false;
-        return visited.has(n.id);
-    });
-
-    // If current node is not home, exclude the home node unless it's a direct neighbor
-    if (!currentNode.home) {
-        const homeNode = nodes.find(n => n.home);
-        if (homeNode && !directNeighborIds.has(homeNode.id)) {
-            const idx = nodes.indexOf(homeNode);
-            if (idx > -1) nodes.splice(idx, 1);
-        }
-    }
-
+    const nodes = Object.values(allNodes).filter(n => !n.hide && visited.has(n.id));
     const ids = nodes.map(n => n.id);
     return {
         nodes,
