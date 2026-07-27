@@ -34,7 +34,7 @@ const {
 const { basesPlugin } = require("./src/helpers/basesPlugin");
 
 const Image = require("@11ty/eleventy-img");
-const { isTransformableImage } = require("./src/helpers/imageFormat.js");
+const { isDecodableImage } = require("./src/helpers/imageFormat.js");
 function transformImage(src, cls, alt, sizes, widths = ["500", "700", "auto"]) {
   let options = {
     widths: widths,
@@ -552,7 +552,7 @@ module.exports = function(eleventyConfig) {
   }
 
 
-  eleventyConfig.addTransform("picture", function(str) {
+  eleventyConfig.addTransform("picture", async function(str) {
     if (!isMarkdownPage(this.page.inputPath)) {
       return str;
     }
@@ -563,10 +563,13 @@ module.exports = function(eleventyConfig) {
     for (const imageTag of parsed.querySelectorAll(".cm-s-obsidian img")) {
       const src = imageTag.getAttribute("src");
       if (src && src.startsWith("/") && !src.endsWith(".svg")) {
-        // Files whose content sharp can't decode (e.g. HEIC renamed to
-        // .jpg) keep their original <img> tag instead of a <picture>
-        // pointing at optimized files that will never exist.
-        if (!isTransformableImage("./src/site" + decodeURI(src))) {
+        // Files sharp can't decode (e.g. HEIC or a truncated AVIF renamed
+        // to .jpg) keep their original <img> tag instead of a <picture>
+        // pointing at optimized files that will never exist. This must be
+        // a real decode probe, not just a header check: feeding an
+        // undecodable file to eleventy-img fails the whole build via
+        // unhandled promise rejections in its internals.
+        if (!(await isDecodableImage("./src/site" + decodeURI(src)))) {
           continue;
         }
         const cls = imageTag.classList.value;

@@ -1,4 +1,14 @@
 const fs = require("fs");
+const { createRequire } = require("module");
+
+// Use the exact sharp instance eleventy-img uses, so "can we decode this?"
+// always agrees with what the optimization pipeline can actually do.
+let sharp;
+try {
+	sharp = createRequire(require.resolve("@11ty/eleventy-img"))("sharp");
+} catch {
+	sharp = require("sharp");
+}
 
 /**
  * Check whether a file's actual content is an image format the sharp-based
@@ -55,4 +65,54 @@ function isTransformableImage(filePath) {
 	return false;
 }
 
-module.exports = { isTransformableImage };
+// Probe results memoized per file version — decoding is the expensive part
+// and the same image is typically referenced from many pages.
+const decodableCache = new Map();
+
+/**
+ * Check whether sharp can actually decode a file, by decoding it.
+ *
+ * Header sniffing (isTransformableImage) is a fast first filter, but a
+ * valid header proves nothing about the bitstream: a truncated AVIF still
+ * says "ftypavif" yet fails mid-decode, and eleventy-img leaves internal
+ * promise rejections unhandled on decode failure, which kills the whole
+ * Eleventy build. Only files that pass a real decode may enter the
+ * optimization pipeline.
+ */
+async function isDecodableImage(filePath) {
+	if (!isTransformableImage(filePath)) {
+		return false;
+	}
+
+	let cacheKey;
+
+	try {
+		const stat = fs.statSync(filePath);
+		cacheKey = `${filePath}:${stat.mtimeMs}:${stat.size}`;
+	} catch {
+		return false;
+	}
+
+	if (decodableCache.has(cacheKey)) {
+		return decodableCache.get(cacheKey);
+	}
+
+	const probe = sharp(filePath)
+		.stats()
+		.then(
+			() => true,
+			(err) => {
+				console.warn(
+					`[image] ${filePath} cannot be decoded and will not be optimized: ${err.message.split("\n")[0]}`,
+				);
+
+				return false;
+			},
+		);
+
+	decodableCache.set(cacheKey, probe);
+
+	return probe;
+}
+
+module.exports = { isTransformableImage, isDecodableImage };

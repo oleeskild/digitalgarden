@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import fs from "fs";
 import os from "os";
 import path from "path";
-import { isTransformableImage } from "./imageFormat.js";
+import { isTransformableImage, isDecodableImage } from "./imageFormat.js";
 
 const writeTemp = (name, bytes) => {
 	const dir = fs.mkdtempSync(path.join(os.tmpdir(), "img-format-"));
@@ -55,5 +55,40 @@ describe("isTransformableImage", () => {
 
 	it("rejects a missing file", () => {
 		expect(isTransformableImage("/nonexistent/img.jpg")).toBe(false);
+	});
+});
+
+describe("isDecodableImage", () => {
+	it("rejects a truncated AVIF that passes header sniffing", async () => {
+		// Real-world case: a truncated AVIF renamed to .jpg has a valid
+		// ftypavif header but cannot be decoded ("bad seek to ...").
+		await expect(
+			isDecodableImage(
+				path.join(__dirname, "__fixtures__", "truncated.avif.jpg"),
+			),
+		).resolves.toBe(false);
+	});
+
+	it("accepts a real decodable image", async () => {
+		await expect(
+			isDecodableImage("src/site/img/tree-1.svg").then(Boolean),
+		).resolves.toBe(false); // svg is not in scope for the optimizer
+
+		await expect(
+			isDecodableImage("src/site/img/user/A Assets/travolta.png"),
+		).resolves.toBe(true);
+	});
+
+	it("rejects HEIC content without invoking a decode", async () => {
+		const heic = [0, 0, 0, 24, ...Buffer.from("ftypheic"), 0, 0, 0, 0];
+		await expect(
+			isDecodableImage(writeTemp("photo.jpg", heic)),
+		).resolves.toBe(false);
+	});
+
+	it("rejects a missing file", async () => {
+		await expect(isDecodableImage("/nonexistent/img.jpg")).resolves.toBe(
+			false,
+		);
 	});
 });
