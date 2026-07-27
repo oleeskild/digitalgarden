@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { renderViews } from "../views.js";
+import { createImageIndex } from "../imageIndex.js";
 
 // Mock query result helpers
 function makeRow(name, url, metadata = {}, formulas = {}) {
@@ -524,6 +525,91 @@ describe("renderViews", () => {
 				]),
 			);
 			expect(result).toContain('src="/img/user/cover.png"');
+		});
+
+		it("resolves shortest-path wikilinks via the image index", () => {
+			const rows = [
+				makeRow("American Water", "/notes/american-water/", {
+					cover: "[[AmericanWater.jpg]]",
+				}),
+			];
+			const imageIndex = createImageIndex([
+				"06 Assets/Blog/Album Covers/AmericanWater.jpg",
+			]);
+			const result = renderViews(
+				makeQueryResult([
+					singleView(
+						{
+							type: "cards",
+							name: "Cards",
+							image: "cover",
+							order: ["file.name"],
+						},
+						rows,
+					),
+				]),
+				undefined,
+				{ imageIndex },
+			);
+			expect(result).toContain(
+				'src="/img/user/06 Assets/Blog/Album Covers/AmericanWater.jpg"',
+			);
+		});
+
+		it("keeps full-path wikilinks that match an indexed file", () => {
+			const rows = [
+				makeRow("Bright Flight", "/notes/bright-flight/", {
+					cover: "[[06 Assets/Blog/Album Covers/Bright Flight.jpg]]",
+				}),
+			];
+			const imageIndex = createImageIndex([
+				"06 Assets/Blog/Album Covers/Bright Flight.jpg",
+			]);
+			const result = renderViews(
+				makeQueryResult([
+					singleView(
+						{
+							type: "cards",
+							name: "Cards",
+							image: "cover",
+							order: ["file.name"],
+						},
+						rows,
+					),
+				]),
+				undefined,
+				{ imageIndex },
+			);
+			expect(result).toContain(
+				'src="/img/user/06 Assets/Blog/Album Covers/Bright Flight.jpg"',
+			);
+		});
+
+		it("falls back to the raw linkpath when the index has no match", () => {
+			const rows = [
+				makeRow("Test", "/notes/test/", {
+					cover: "[[missing.jpg]]",
+				}),
+			];
+			const imageIndex = createImageIndex([
+				"06 Assets/Blog/Album Covers/AmericanWater.jpg",
+			]);
+			const result = renderViews(
+				makeQueryResult([
+					singleView(
+						{
+							type: "cards",
+							name: "Cards",
+							image: "cover",
+							order: ["file.name"],
+						},
+						rows,
+					),
+				]),
+				undefined,
+				{ imageIndex },
+			);
+			expect(result).toContain('src="/img/user/missing.jpg"');
 		});
 
 		it("resolves markdown-link image values produced by older plugin exports", () => {

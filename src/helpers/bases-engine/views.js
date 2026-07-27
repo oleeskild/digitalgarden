@@ -36,6 +36,10 @@ function getMetaKeys(metadata) {
 // URL-to-title lookup, populated by renderViews before rendering
 let urlTitleMap = {};
 
+// Published-image index for shortest-path wikilink resolution,
+// populated by renderViews before rendering
+let imageIndex = null;
+
 // --- Date formatting ---
 
 const ISO_DATE_REGEX = /^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}(:\d{2})?(\.\d+)?(Z|[+-]\d{2}:\d{2})?)?$/;
@@ -372,6 +376,13 @@ function resolveImageSource(imgValue) {
 	}
 
 	if (!src.startsWith("http") && !src.startsWith("/")) {
+		// Frontmatter wikilinks use Obsidian's "shortest path when
+		// possible" format ([[cover.jpg]]), so look the file up among
+		// the published images to recover its real location.
+		if (imageIndex) {
+			const resolved = imageIndex.resolve(src);
+			if (resolved) src = resolved;
+		}
 		src = "/img/user/" + src;
 	}
 
@@ -475,8 +486,10 @@ function viewTypeIcon(type) {
  * @param {object} queryResult - Output from executeBaseQuery
  * @returns {string} HTML string
  */
-function renderViews(queryResult, allNotes) {
+function renderViews(queryResult, allNotes, options) {
 	const { properties, views } = queryResult;
+
+	imageIndex = (options && options.imageIndex) || null;
 
 	// Build URL-to-title map for resolving link display names
 	urlTitleMap = {};
