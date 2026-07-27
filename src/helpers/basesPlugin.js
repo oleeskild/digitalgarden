@@ -1,10 +1,23 @@
 const { executeBaseQuery, renderViews } = require("./bases-engine");
+const { createImageIndex, scanImageDir } = require("./bases-engine/imageIndex");
 const linkUtils = require("./linkUtils");
+
+const IMAGE_ROOT = "src/site/img/user";
 
 // Cache rendered HTML keyed by YAML + notes fingerprint to avoid re-rendering
 // identical queries within a single build. Cleared between builds.
 const renderCache = new Map();
 let renderCacheBuildId = 0;
+
+// Image index for shortest-path wikilink covers, built lazily once per build
+let cachedImageIndex = null;
+
+function getImageIndex() {
+  if (!cachedImageIndex) {
+    cachedImageIndex = createImageIndex(scanImageDir(IMAGE_ROOT));
+  }
+  return cachedImageIndex;
+}
 
 /**
  * Clear the render cache. Call at the start of each build (e.g. --watch mode)
@@ -13,6 +26,7 @@ let renderCacheBuildId = 0;
 function clearRenderCache() {
   renderCache.clear();
   renderCacheBuildId++;
+  cachedImageIndex = null;
 }
 
 function basesPlugin(md) {
@@ -60,7 +74,7 @@ function renderBaseBlock(yamlContent, notes) {
   const cacheKey = yamlContent + "\0" + notesFingerprint(notes);
   if (renderCache.has(cacheKey)) return renderCache.get(cacheKey);
   const result = executeBaseQuery(yamlContent, notes);
-  const html = renderViews(result, notes);
+  const html = renderViews(result, notes, { imageIndex: getImageIndex() });
   renderCache.set(cacheKey, html);
   return html;
 }
