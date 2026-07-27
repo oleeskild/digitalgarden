@@ -33,6 +33,7 @@
         "src/helpers/bases-engine/exprEval.js",
         "src/helpers/bases-engine/queryEngine.js",
         "src/helpers/bases-engine/views.js",
+        "src/helpers/bases-engine/imageIndex.js",
         "src/helpers/basesPlugin.js",
         "src/site/_includes/components/basesScript.njk",
         "src/site/styles/obsidian-bases.scss"
