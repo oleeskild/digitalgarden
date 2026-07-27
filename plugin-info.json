@@ -24,6 +24,7 @@
         "src/site/img/tree-3.svg",
         "src/helpers/userUtils.js",
         "src/helpers/userSetup.js",
+        "src/helpers/imageFormat.js",
         "vercel.json",
         "netlify.toml",
         "src/site/_includes/layouts/random.njk",
