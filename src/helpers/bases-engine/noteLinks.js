@@ -19,7 +19,7 @@ function parseWikilink(value) {
 	const pipe = inner.indexOf("|");
 	if (pipe !== -1) {
 		alias = inner.slice(pipe + 1).trim() || null;
-		inner = inner.slice(0, pipe);
+		inner = inner.slice(0, pipe).replace(/\\$/, "");
 	}
 
 	let heading = null;
@@ -64,13 +64,13 @@ function createNoteIndex(notes) {
 
 	const index = {
 		resolve(target) {
-			const normalized = String(target).toLowerCase();
+			const normalized = String(target)
+				.toLowerCase()
+				.replace(/\.md$/i, "");
 			const exactHit = exact.get(normalized);
 			if (exactHit) return exactHit;
 
-			const candidates = byBasename.get(
-				normalized.replace(/\.md$/, "").split("/").pop(),
-			);
+			const candidates = byBasename.get(normalized.split("/").pop());
 			if (!candidates) return null;
 
 			const matches = candidates.filter((entry) => {

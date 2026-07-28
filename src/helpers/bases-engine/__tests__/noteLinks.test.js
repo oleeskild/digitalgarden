@@ -45,6 +45,14 @@ describe("parseWikilink", () => {
 		expect(parseWikilink(42)).toBe(null);
 		expect(parseWikilink(null)).toBe(null);
 	});
+
+	it("treats an escaped pipe as the alias separator (legacy healed frontmatter)", () => {
+		expect(parseWikilink("[[Artists/David Berman\\|Dave]]")).toEqual({
+			target: "Artists/David Berman",
+			heading: null,
+			alias: "Dave",
+		});
+	});
 });
 
 describe("createNoteIndex", () => {
@@ -87,6 +95,12 @@ describe("createNoteIndex", () => {
 	it("returns null for unknown targets", () => {
 		expect(index.resolve("Nope")).toBe(null);
 	});
+
+	it("falls back to shortest-path matching for bare names with a .md suffix", () => {
+		expect(index.resolve("Bright Flight.md").path).toBe(
+			"Albums/Bright Flight.md",
+		);
+	});
 });
 
 describe("wikilinkDisplayTitle", () => {
@@ -112,5 +126,11 @@ describe("wikilinkDisplayTitle", () => {
 
 	it("returns null for non-wikilinks", () => {
 		expect(wikilinkDisplayTitle("plain", index)).toBe(null);
+	});
+
+	it("prefers the alias for a legacy escaped-pipe wikilink and still resolves the target", () => {
+		expect(
+			wikilinkDisplayTitle("[[Albums/Bright Flight\\|BF]]", index),
+		).toBe("BF");
 	});
 });
