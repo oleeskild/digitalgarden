@@ -1,6 +1,11 @@
 const yaml = require("yaml");
 const { parseExpression } = require("./exprParser");
 const { evalExpr, evalFilter } = require("./exprEval");
+const {
+	parseWikilink,
+	createNoteIndex,
+	wikilinkDisplayTitle,
+} = require("./noteLinks");
 
 /**
  * Get a user property from metadata, checking "dg-note-properties" first.
@@ -35,9 +40,10 @@ function executeBaseQuery(yamlContent, notes) {
 	const formulas = parsed.formulas || {};
 	const properties = parsed.properties || {};
 	const globalSummaries = parsed.summaries || {};
+	const noteIndex = createNoteIndex(notes);
 
 	const views = parsed.views.map((viewDef) => {
-		return processView(viewDef, notes, globalFilters, formulas, globalSummaries);
+		return processView(viewDef, notes, globalFilters, formulas, globalSummaries, noteIndex);
 	});
 
 	return { properties, views };
@@ -46,7 +52,7 @@ function executeBaseQuery(yamlContent, notes) {
 /**
  * Process a single view definition.
  */
-function processView(viewDef, notes, globalFilters, formulas, globalSummaries) {
+function processView(viewDef, notes, globalFilters, formulas, globalSummaries, noteIndex) {
 	const config = {
 		type: viewDef.type || "table",
 		name: viewDef.name || "Untitled",
@@ -97,12 +103,12 @@ function processView(viewDef, notes, globalFilters, formulas, globalSummaries) {
 	}
 
 	// 4. Sort
-	rows = applySorting(rows, config);
+	rows = applySorting(rows, config, noteIndex);
 
 	// 5. Group
 	let groups = null;
 	if (config.groupBy) {
-		groups = applyGrouping(rows, config.groupBy);
+		groups = applyGrouping(rows, config.groupBy, noteIndex);
 	}
 
 	// 6. Limit
@@ -219,14 +225,20 @@ function getSortValue(note, property) {
 /**
  * Apply sorting to rows based on view config.
  */
-function applySorting(rows, config) {
+function applySorting(rows, config, noteIndex) {
 	if (config.sort && Array.isArray(config.sort) && config.sort.length > 0) {
 		return [...rows].sort((a, b) => {
 			for (const sortDef of config.sort) {
 				const prop = sortDef.property;
 				const dir = (sortDef.direction || "ASC").toUpperCase() === "DESC" ? -1 : 1;
-				const valA = getSortValue(a, prop);
-				const valB = getSortValue(b, prop);
+				let valA = getSortValue(a, prop);
+				let valB = getSortValue(b, prop);
+
+				const aTitle = wikilinkDisplayTitle(valA, noteIndex);
+				if (aTitle !== null) valA = aTitle;
+				const bTitle = wikilinkDisplayTitle(valB, noteIndex);
+				if (bTitle !== null) valB = bTitle;
+
 				const cmp = compareValues(valA, valB);
 				if (cmp !== 0) return cmp * dir;
 			}
@@ -238,8 +250,14 @@ function applySorting(rows, config) {
 	if (config.order && Array.isArray(config.order) && config.order.length > 0) {
 		const firstProp = config.order[0];
 		return [...rows].sort((a, b) => {
-			const valA = getSortValue(a, firstProp);
-			const valB = getSortValue(b, firstProp);
+			let valA = getSortValue(a, firstProp);
+			let valB = getSortValue(b, firstProp);
+
+			const aTitle = wikilinkDisplayTitle(valA, noteIndex);
+			if (aTitle !== null) valA = aTitle;
+			const bTitle = wikilinkDisplayTitle(valB, noteIndex);
+			if (bTitle !== null) valB = bTitle;
+
 			return compareValues(valA, valB);
 		});
 	}
@@ -265,22 +283,39 @@ function compareValues(a, b) {
 /**
  * Group rows by a property, optionally sorting groups.
  */
-function applyGrouping(rows, groupByDef) {
+function applyGrouping(rows, groupByDef, noteIndex) {
 	const prop = groupByDef.property;
 	const direction = (groupByDef.direction || "ASC").toUpperCase();
 
 	const groupMap = new Map();
+	const labels = new Map();
 	for (const row of rows) {
-		const key = getSortValue(row, prop);
-		const keyStr = key != null ? String(key) : "(empty)";
+		const raw = getSortValue(row, prop);
+		let keyStr;
+		let label;
+
+		const link = parseWikilink(raw);
+		if (link) {
+			const resolved = noteIndex ? noteIndex.resolve(link.target) : null;
+			label =
+				link.alias ||
+				(resolved && resolved.title) ||
+				link.target.split("/").pop();
+			keyStr = resolved ? "link:" + resolved.path : "link:" + label;
+		} else {
+			keyStr = raw != null ? String(raw) : "(empty)";
+			label = keyStr;
+		}
+
 		if (!groupMap.has(keyStr)) {
 			groupMap.set(keyStr, []);
+			labels.set(keyStr, label);
 		}
 		groupMap.get(keyStr).push(row);
 	}
 
-	let groups = Array.from(groupMap.entries()).map(([key, groupRows]) => ({
-		key,
+	let groups = Array.from(groupMap.entries()).map(([keyStr, groupRows]) => ({
+		key: labels.get(keyStr),
 		rows: groupRows,
 	}));
 
