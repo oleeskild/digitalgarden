@@ -3,6 +3,9 @@
  * Generates static HTML for table, cards, and list views.
  */
 
+const { parseWikilink, createNoteIndex } = require("./noteLinks");
+const { headerToId } = require("../utils");
+
 // --- Metadata helpers ---
 
 /**
@@ -39,6 +42,37 @@ let urlTitleMap = {};
 // Published-image index for shortest-path wikilink resolution,
 // populated by renderViews before rendering
 let imageIndex = null;
+
+// Note index for resolving wikilink property values,
+// populated by renderViews before rendering
+let noteIndex = null;
+
+/**
+ * Render a wikilink-shaped property value as an internal link, or a
+ * styled dead link when the target isn't published. Returns null when
+ * the value isn't a wikilink so callers fall through to other formats.
+ */
+function formatNoteLinkValue(value) {
+	const link = parseWikilink(value);
+	if (!link) return null;
+
+	const resolved = noteIndex ? noteIndex.resolve(link.target) : null;
+	const label =
+		link.alias ||
+		(resolved && resolved.title) ||
+		link.target.split("/").pop();
+
+	if (!resolved) {
+		return `<a href="/404" class="internal-link is-unresolved">${escapeHtml(label)}</a>`;
+	}
+
+	let href = resolved.url;
+	if (link.heading) {
+		href += "#" + headerToId(link.heading);
+	}
+
+	return `<a href="${escapeHtml(href)}" class="internal-link">${escapeHtml(label)}</a>`;
+}
 
 // --- Date formatting ---
 
@@ -191,6 +225,8 @@ function formatCellValue(value, column, row) {
 
 	if (Array.isArray(value)) {
 		return value.map((item) => {
+			const linkHtml = formatNoteLinkValue(item);
+			if (linkHtml) return linkHtml;
 			if (typeof item === "string" && item.startsWith("/")) {
 				// URL path — render as clickable internal link with title
 				const title = urlTitleMap[item]
@@ -214,6 +250,11 @@ function formatCellValue(value, column, row) {
 
 	if (value == null) {
 		return "";
+	}
+
+	if (typeof value === "string") {
+		const linkHtml = formatNoteLinkValue(value);
+		if (linkHtml) return linkHtml;
 	}
 
 	// Render ISO dates using the same pattern as the existing site —
@@ -490,6 +531,7 @@ function renderViews(queryResult, allNotes, options) {
 	const { properties, views } = queryResult;
 
 	imageIndex = (options && options.imageIndex) || null;
+	noteIndex = createNoteIndex(allNotes);
 
 	// Build URL-to-title map for resolving link display names
 	urlTitleMap = {};

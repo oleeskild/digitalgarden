@@ -920,4 +920,76 @@ describe("renderViews", () => {
 			expect(result).toContain("42");
 		});
 	});
+
+	describe("note link rendering", () => {
+		const allNotes = [
+			{
+				path: "06 Assets/Lyrics/Artists/David Berman.md",
+				url: "/06 Assets/Lyrics/Artists/David Berman/",
+				metadata: { "dg-note-properties": { title: "David Berman" } },
+			},
+		];
+
+		// No explicit `order` — auto-detect columns from row metadata so
+		// both singular ("author") and array ("authors") fields surface.
+		const renderWithNotes = (metadata) =>
+			renderViews(
+				makeQueryResult([
+					singleView(
+						{ type: "table", name: "Table" },
+						[makeRow("Test", "/notes/test/", metadata)],
+					),
+				]),
+				allNotes,
+			);
+
+		it("renders a full-path note wikilink as an internal link with the note title", () => {
+			const result = renderWithNotes({
+				author: "[[06 Assets/Lyrics/Artists/David Berman]]",
+			});
+			expect(result).toContain(
+				'<a href="/06 Assets/Lyrics/Artists/David Berman/" class="internal-link">David Berman</a>',
+			);
+		});
+
+		it("resolves legacy bare wikilinks via the fallback index", () => {
+			const result = renderWithNotes({ author: "[[David Berman]]" });
+			expect(result).toContain(
+				'<a href="/06 Assets/Lyrics/Artists/David Berman/" class="internal-link">David Berman</a>',
+			);
+		});
+
+		it("prefers the alias as the label", () => {
+			const result = renderWithNotes({
+				author: "[[David Berman|Dave]]",
+			});
+			expect(result).toContain('class="internal-link">Dave</a>');
+		});
+
+		it("appends a heading anchor", () => {
+			const result = renderWithNotes({
+				author: "[[David Berman#Early life]]",
+			});
+			expect(result).toContain(
+				'href="/06 Assets/Lyrics/Artists/David Berman/#early-life"',
+			);
+		});
+
+		it("renders unresolved wikilinks as styled dead links", () => {
+			const result = renderWithNotes({ author: "[[Missing Person]]" });
+			expect(result).toContain(
+				'<a href="/404" class="internal-link is-unresolved">Missing Person</a>',
+			);
+		});
+
+		it("renders wikilinks inside arrays", () => {
+			const result = renderWithNotes({
+				authors: ["[[David Berman]]", "[[Missing Person]]"],
+			});
+			expect(result).toContain('class="internal-link">David Berman</a>');
+			expect(result).toContain(
+				'class="internal-link is-unresolved">Missing Person</a>',
+			);
+		});
+	});
 });

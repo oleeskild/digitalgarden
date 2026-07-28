@@ -627,4 +627,62 @@ views:
 			expect(result.views[0].groups).toBeNull();
 		});
 	});
+
+	describe("link-aware grouping and sorting", () => {
+		const artistNote = {
+			path: "Artists/Bright Flight.md",
+			url: "/Artists/Bright Flight/",
+			metadata: { "dg-note-properties": { title: "Bright Flight" } },
+		};
+
+		const songNotes = [
+			{
+				path: "Songs/Song A.md",
+				url: "/Songs/Song A/",
+				metadata: {
+					"dg-note-properties": { Album: "[[Bright Flight]]" },
+				},
+			},
+			{
+				path: "Songs/Song B.md",
+				url: "/Songs/Song B/",
+				metadata: {
+					"dg-note-properties": {
+						Album: "[[Artists/Bright Flight]]",
+					},
+				},
+			},
+			{
+				path: "Songs/Song C.md",
+				url: "/Songs/Song C/",
+				metadata: { "dg-note-properties": { Album: "[[Another Album]]" } },
+			},
+		];
+
+		const yaml = `
+filters:
+  - 'file.hasProperty("Album")'
+views:
+  - type: table
+    name: Table
+    groupBy:
+      property: Album
+      direction: ASC
+    order:
+      - file.name
+`;
+
+		it("merges groups whose values resolve to the same note and uses the title as key", () => {
+			const result = executeBaseQuery(yaml, [artistNote, ...songNotes]);
+			const view = result.views[0];
+			const keys = view.groups.map((g) => g.key);
+
+			expect(keys).toEqual(["Another Album", "Bright Flight"]);
+
+			const brightFlight = view.groups.find(
+				(g) => g.key === "Bright Flight",
+			);
+			expect(brightFlight.rows).toHaveLength(2);
+		});
+	});
 });
