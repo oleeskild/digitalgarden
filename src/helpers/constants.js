@@ -1,13 +1,13 @@
-exports.ALL_NOTE_SETTINGS= [
-    "dgHomeLink",
-    "dgPassFrontmatter",
-    "dgShowBacklinks",
-    "dgShowLocalGraph",
-    "dgShowInlineTitle",
-    "dgShowFileTree",
-    "dgEnableSearch",
-    "dgShowToc",
-    "dgLinkPreview",
-    "dgShowTags"
-    "dgGraphDepthControl",
+exports.ALL_NOTE_SETTINGS = [
+  "dgHomeLink",
+  "dgPassFrontmatter",
+  "dgShowBacklinks",
+  "dgShowLocalGraph",
+  "dgShowGraphDepthControl",
+  "dgShowInlineTitle",
+  "dgShowFileTree",
+  "dgEnableSearch",
+  "dgShowToc",
+  "dgLinkPreview",
+  "dgShowTags",
 ];
