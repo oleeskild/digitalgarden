@@ -514,10 +514,12 @@ init();
     <div class="graph-title-container">
         <div class="graph-title">Connected Pages</div>
         <div id="graph-controls">
+            {% if settings.dgGraphDepthControl %}
             <div class="ctrl-left">
                 <label id="graph-depth-label" for="graph-depth-slider">Depth <span x-text="graphDepth"></span></label>
                 <input type="range" id="graph-depth-slider" min="1" max="3" step="1" x-model.number="graphDepth" x-on:input="window.__graph.setLocalGraphDepth(graphDepth)" />
             </div>
+            {% endif %}
             <div class="ctrl-right">
                 <span id="global-graph-btn" x-on:click="showFullGraph = true; window.__graph.openFullGraph()"><i data-lucide="globe" aria-hidden="true"></i></span>
                 <span id="graph-fs-btn" x-on:click="showFullGraph = true; window.__graph.openExpandedLocal()"><i data-lucide="expand" aria-hidden="true"></i></span>

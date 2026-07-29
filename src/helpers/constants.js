@@ -9,4 +9,5 @@ exports.ALL_NOTE_SETTINGS= [
     "dgShowToc",
     "dgLinkPreview",
     "dgShowTags"
+    "dgGraphDepthControl",
 ];
