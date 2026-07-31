@@ -23,8 +23,9 @@ function filterFullGraphData(graphData) {
     };
 }
 
-function filterLocalGraphData(graphData) {
+function filterLocalGraphData(graphData, depth) {
     if (!graphData) return null;
+    depth = depth || 1;
     const allNodes = JSON.parse(JSON.stringify(graphData.nodes));
     const allLinks = JSON.parse(JSON.stringify(graphData.links));
     let currentLink = decodeURI(window.location.pathname);
@@ -41,27 +42,43 @@ function filterLocalGraphData(graphData) {
 
     currentNode.current = true;
 
-    // Depth 1: collect immediate neighbors (neighbors array contains URLs)
-    const neighbourhood = new Set();
-    neighbourhood.add(currentNode.url);
-    if (currentNode.neighbors) {
-        currentNode.neighbors.forEach(n => neighbourhood.add(n));
+    // Hidden nodes (home page, index/hub pages like the-shelf or entity-index)
+    // are never rendered, but they're linked from a huge number of pages. If we
+    // let BFS walk through them as ordinary hops, they silently bridge otherwise
+    // unrelated parts of the graph together — the hidden hop then gets dropped
+    // from the output, leaving nodes that appear with no visible path to the
+    // current node. So a hidden node can only ever be a traversal *endpoint*
+    // (reached from, never walked through), except the current node itself,
+    // whose own direct links must still count even if it happens to be hidden
+    // (e.g. viewing the local graph on the home page).
+    const hiddenIds = new Set(Object.values(allNodes).filter(n => n.hide).map(n => n.id));
+    const canBridge = id => id === currentNode.id || !hiddenIds.has(id);
+
+    // Build an id-based adjacency map so we can walk out to arbitrary depth
+    const adjacency = {};
+    for (const l of allLinks) {
+        if (!canBridge(l.source) || !canBridge(l.target)) continue;
+        (adjacency[l.source] = adjacency[l.source] || new Set()).add(l.target);
+        (adjacency[l.target] = adjacency[l.target] || new Set()).add(l.source);
     }
 
-    const nodes = Object.values(allNodes).filter(n => {
-        if (n.hide) return false;
-        return neighbourhood.has(n.url);
-    });
-
-    // If current node is not home, exclude the home node unless it's a neighbor
-    if (!currentNode.home && currentNode.neighbors) {
-        const homeNode = nodes.find(n => n.home);
-        if (homeNode && !currentNode.neighbors.includes(homeNode.url)) {
-            const idx = nodes.indexOf(homeNode);
-            if (idx > -1) nodes.splice(idx, 1);
+    // BFS out from the current node up to `depth` hops
+    const visited = new Set([currentNode.id]);
+    let frontier = new Set([currentNode.id]);
+    for (let i = 0; i < depth && frontier.size > 0; i++) {
+        const next = new Set();
+        for (const id of frontier) {
+            for (const neighborId of (adjacency[id] || [])) {
+                if (!visited.has(neighborId)) {
+                    visited.add(neighborId);
+                    next.add(neighborId);
+                }
+            }
         }
+        frontier = next;
     }
 
+    const nodes = Object.values(allNodes).filter(n => !n.hide && visited.has(n.id));
     const ids = nodes.map(n => n.id);
     return {
         nodes,
@@ -430,6 +447,7 @@ let graphDataCache = null;
 let fullGraphDataCache = null;
 let localGraphCleanup = null;
 let globalGraphCleanup = null;
+let localGraphDepth = 1;
 
 async function init() {
     const { graphData, fullGraphData } = await fetchGraphData();
@@ -443,9 +461,14 @@ function renderLocal() {
         localGraphCleanup();
         localGraphCleanup = null;
     }
-    const data = filterLocalGraphData(graphDataCache);
+    const data = filterLocalGraphData(graphDataCache, localGraphDepth);
     const cleanup = renderGraph(data, 'link-graph', false);
     localGraphCleanup = cleanup;
+}
+
+function setLocalGraphDepth(depth) {
+    localGraphDepth = parseInt(depth, 10) || 1;
+    renderLocal();
 }
 
 function openModal(data) {
@@ -465,7 +488,7 @@ function openFullGraph() {
 }
 
 function openExpandedLocal() {
-    openModal(filterLocalGraphData(graphDataCache));
+    openModal(filterLocalGraphData(graphDataCache, localGraphDepth));
 }
 
 function closeFullGraph() {
@@ -477,7 +500,7 @@ function closeFullGraph() {
 }
 
 // Expose to Alpine
-window.__graph = { openFullGraph, closeFullGraph, openExpandedLocal, rerenderLocal: renderLocal };
+window.__graph = { openFullGraph, closeFullGraph, openExpandedLocal, rerenderLocal: renderLocal, setLocalGraphDepth };
 
 // Re-render when the style editor changes CSS variables
 document.addEventListener('forestry:css-changed', function() {
@@ -487,10 +510,16 @@ document.addEventListener('forestry:css-changed', function() {
 init();
 </script>
 
-<div id="graph-component" class="graph" x-data="{ showFullGraph: false }">
+<div id="graph-component" class="graph" x-data="{ showFullGraph: false, graphDepth: 1 }">
     <div class="graph-title-container">
         <div class="graph-title">Connected Pages</div>
         <div id="graph-controls">
+            {% if settings.dgShowGraphDepthControl %}
+            <div class="ctrl-left">
+                <label id="graph-depth-label" for="graph-depth-slider">Depth <span x-text="graphDepth"></span></label>
+                <input type="range" id="graph-depth-slider" min="1" max="3" step="1" x-model.number="graphDepth" x-on:input="window.__graph.setLocalGraphDepth(graphDepth)" />
+            </div>
+            {% endif %}
             <div class="ctrl-right">
                 <span id="global-graph-btn" x-on:click="showFullGraph = true; window.__graph.openFullGraph()"><i data-lucide="globe" aria-hidden="true"></i></span>
                 <span id="graph-fs-btn" x-on:click="showFullGraph = true; window.__graph.openExpandedLocal()"><i data-lucide="expand" aria-hidden="true"></i></span>
