@@ -24,3 +24,4 @@ I have a workspace for my research, thinking, and writing. It goes by the name o
 [[Projects/family-archive/2025-09-09-171308 Family Archive\|2025-09-09-171308 Family Archive]]
 
 [[Test/Test\|Test]]
+[[References/Hans Grapel\|Hans Grapel]]
