@@ -1383,6 +1383,22 @@ body.has-navbar .content {
         }
     }
 
+    .ctrl-left {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+
+        label {
+            white-space: nowrap;
+        }
+
+        input[type="range"] {
+            width: 60px;
+            accent-color: var(--text-accent);
+            cursor: pointer;
+        }
+    }
+
     .ctrl-right {
         display: flex;
         gap: 6px;
