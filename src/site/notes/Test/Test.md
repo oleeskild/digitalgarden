@@ -7,6 +7,9 @@
 ```base
 formulas:
   bornyear: if(born, born.format("YYYY"), "no born value")
+  bornyear_plain: born.format("YYYY")
+  born_string: born.toString()
+  line_check: if(line, "has line", "no line")
 properties:
   file.path:
     displayName: Path
@@ -82,7 +85,12 @@ views:
     order:
       - file.name
       - born
+      - died
+      - born-note
       - formula.bornyear
+      - formula.bornyear_plain
+      - formula.born_string
+      - formula.line_check
     sort:
       - property: born
         direction: ASC
