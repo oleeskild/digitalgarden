@@ -5,6 +5,8 @@
 
 
 ```base
+formulas:
+  bornyear: if(born, born.format("YYYY"), "no born value")
 properties:
   file.path:
     displayName: Path
@@ -64,5 +66,25 @@ views:
     order:
       - file.name
       - categories
+  - type: table
+    name: Tag test
+    filters:
+      and:
+        - file.hasTag("references")
+    order:
+      - file.name
+      - line
+  - type: table
+    name: Formula and sort test
+    filters:
+      and:
+        - file.inFolder("References")
+    order:
+      - file.name
+      - born
+      - formula.bornyear
+    sort:
+      - property: born
+        direction: ASC
 
 ```
