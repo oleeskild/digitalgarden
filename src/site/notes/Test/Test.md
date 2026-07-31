@@ -101,14 +101,14 @@ views:
     name: Siblings
     filters:
       and:
-        - 'file.name != this.file.name'
+        - file.name != this.file.name
         - or:
             - and:
-                - 'father.isTruthy()'
-                - 'father == this.father'
+                - father.isTruthy()
+                - father == this.father
             - and:
-                - 'mother.isTruthy()'
-                - 'mother == this.mother'
+                - mother.isTruthy()
+                - mother == this.mother
     order:
       - file.name
       - formula.lifespan
@@ -119,7 +119,6 @@ views:
         direction: ASC
       - property: file.name
         direction: ASC
-
   - type: table
     name: Needs work
     filters:
@@ -140,5 +139,10 @@ views:
         direction: ASC
     columnSize:
       file.name: 260
+  - type: table
+    name: temp
+    filters:
+      and:
+        - file.inFolder("References")
 
 ```
