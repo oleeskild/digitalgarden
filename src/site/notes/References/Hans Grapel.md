@@ -160,11 +160,6 @@ views:
         direction: ASC
     columnSize:
       file.name: 260
-  - type: table
-    name: temp
-    filters:
-      and:
-        - file.inFolder("References")
 
 ```
 
@@ -308,11 +303,6 @@ views:
         direction: ASC
     columnSize:
       file.name: 260
-  - type: table
-    name: temp
-    filters:
-      and:
-        - file.inFolder("References")
 
 ```
 
