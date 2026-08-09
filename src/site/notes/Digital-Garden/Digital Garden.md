@@ -25,5 +25,6 @@ I have a workspace for my research, thinking, and writing. It goes by the name o
 
 [[Test/Test\|Test]]
 [[References/Hans Grapel\|Hans Grapel]]
+[[Notes/2026-08-09-1808 Engineers' Views about next Reunion\|2026-08-09-1808 Engineers' Views about next Reunion]]
 
 ---
