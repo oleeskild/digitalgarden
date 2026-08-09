@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/digital-garden/the-sift-method/","title":["The SIFT Method"],"tags":["digital-garden"],"dg-note-properties":{"title":["The SIFT Method"],"created":"2026-03-08","tags":["digital-garden"]}}
+{"dg-publish":true,"permalink":"/digital-garden/the-sift-method/","title":["The SIFT Method"],"dg-note-properties":{"title":["The SIFT Method"],"created":"2026-03-08"}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[Digital-Garden/Digital Garden\|Digital Garden]] 

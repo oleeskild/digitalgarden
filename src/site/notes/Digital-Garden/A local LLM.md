@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/digital-garden/a-local-llm/","tags":["digital-garden"],"dg-note-properties":{"tags":["digital-garden"],"aliases":["a local LLM"],"source":null,"created":"2025-08-25"}}
+{"dg-publish":true,"permalink":"/digital-garden/a-local-llm/","dg-note-properties":{"aliases":["a local LLM"],"source":null,"created":"2025-08-25"}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[Digital-Garden/Digital Garden\|Digital Garden]]

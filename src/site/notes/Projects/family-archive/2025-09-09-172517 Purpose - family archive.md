@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/projects/family-archive/2025-09-09-172517-purpose-family-archive/","title":["family archive purpose"],"dg-note-properties":{"categories":["[[Family-Archive]]"],"title":["family archive purpose"],"description":null,"author":null,"reference":"https://fearon.co/archive/blog/purpose/","created":"2025-09-09","published":null,"cover-image":null,"tags":null}}
+{"dg-publish":true,"permalink":"/projects/family-archive/2025-09-09-172517-purpose-family-archive/","title":["family archive purpose"],"dg-note-properties":{"categories":["[[Family-Archive]]"],"title":["family archive purpose"],"description":null,"author":null,"reference":"https://fearon.co/archive/blog/purpose/","created":"2025-09-09","published":null,"cover-image":null}}
 ---
 
 I have been drawing together a number of threads. One is about stories: my daughter-in-law’s father wrote and published his own story not long before he died; my cousin travels the globe capturing stories from our relatives and asks me to help share them with the family. I wrote my father’s and my brother's stories which I, too, want to share. Our motivation is to capture these family stories with as much rich detail as possible and to make them available to our extended family as an enduring family asset. 

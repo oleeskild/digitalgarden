@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/digital-garden/setting-up-obsidian/","tags":["digital-garden"],"dg-note-properties":{"aliases":null,"tags":["digital-garden"]}}
+{"dg-publish":true,"permalink":"/digital-garden/setting-up-obsidian/","dg-note-properties":{"aliases":null}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[Digital-Garden/Digital Garden\|Digital Garden]] 

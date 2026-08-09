@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/notes/local-only-ai/","dg-note-properties":{"created":"2025-12-31","categories":["[[Local AI]]"]}}
+{"dg-publish":true,"permalink":"/notes/local-only-ai/","dg-note-properties":{"created":"2025-12-31","categories":["[[References/Local AI]]"]}}
 ---
 
 Cloud-based AIs (ChatGPT, Gemini, Claude, etc) are powerful but have drawbacks: they require per-user subscriptions, involve putting one's data into the cloud, and cannot be used off-line. We can avoid these drawbacks by running the AI locally, and recent developments make this an increasingly practicable option.

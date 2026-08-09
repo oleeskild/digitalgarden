@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/digital-garden/notebook-diary-post-2025-08-21-dg/","dg-note-properties":{"tags":null,"aliases":["My second brain part 1"],"source":null,"created":"2025-08-21"}}
+{"dg-publish":true,"permalink":"/digital-garden/notebook-diary-post-2025-08-21-dg/","dg-note-properties":{"aliases":["My second brain part 1"],"source":null,"created":"2025-08-21"}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[Digital-Garden/Digital Garden\|Digital Garden]]

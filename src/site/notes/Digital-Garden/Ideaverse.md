@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/digital-garden/ideaverse/","tags":["digital-garden"],"dg-note-properties":{"aliases":["workspace for the brain","ideaverse"],"tags":["digital-garden"]}}
+{"dg-publish":true,"permalink":"/digital-garden/ideaverse/","dg-note-properties":{"aliases":["workspace for the brain","ideaverse"]}}
 ---
 
 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/digital-garden/vpn-client-server-dg/","tags":["digital-garden"],"dg-note-properties":{"tags":["digital-garden"],"aliases":["VPN client/server","VPN for secure access"],"source":null,"created":"2025-08-24"}}
+{"dg-publish":true,"permalink":"/digital-garden/vpn-client-server-dg/","dg-note-properties":{"aliases":["VPN client/server","VPN for secure access"],"source":null,"created":"2025-08-24"}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[Digital-Garden/Digital Garden\|Digital Garden]]

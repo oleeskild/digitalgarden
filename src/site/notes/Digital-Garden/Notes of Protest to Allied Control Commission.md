@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/digital-garden/notes-of-protest-to-allied-control-commission/","dg-note-properties":{"created":"2026-01-28","categories":["[[Stanley Victor James Chambers]]","[[The Hungary File - 00 Contents]]"],"tags":null,"aliases":["Victor Chambers Notes of Protest to Allied Control Commission"]}}
+{"dg-publish":true,"permalink":"/digital-garden/notes-of-protest-to-allied-control-commission/","dg-note-properties":{"created":"2026-01-28","categories":["[[References/Stanley Victor James Chambers]]","[[Projects/The Hungary File/The Hungary File - 00 Contents]]"],"aliases":["Victor Chambers Notes of Protest to Allied Control Commission"]}}
 ---
 
 [[Digital-Garden/Victor Chambers\|Victor Chambers]] | [[Digital-Garden/Victor Chambers and the Allied Control Commission\|Allied Control Commission]]

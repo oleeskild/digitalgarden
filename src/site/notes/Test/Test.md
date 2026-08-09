@@ -78,6 +78,14 @@ views:
       - file.name
       - line
   - type: table
+    name: Date-named notes
+    filters:
+      and:
+        - '/^\d{4}-\d{2}-\d{2}$/.matches(file.basename)'
+    order:
+      - file.name
+      - file.folder
+  - type: table
     name: Formula and sort test
     filters:
       and:

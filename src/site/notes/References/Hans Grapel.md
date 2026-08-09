@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/references/hans-grapel/","tags":["references"],"dg-note-properties":{"created":"2026-01-09","categories":["[[People]]","[[Family]]"],"tags":["references"],"aliases":null,"line":"Graepel","born":"1707-04-17","born-note":"17 April 1707 per the Trump and Graepel family trees. The vault held 1704-12-07 until 30 July 2026.","birthplace":"[[References/Bergedorf\|Bergedorf]]","died":"1787-12-24","died-note":"Neither family tree carries a death date. 24 December 1787 at Jever was already in the vault and is kept, but its source is unknown and it needs confirming.","death-place":"[[References/Jever\|Jever]]","living":false,"organisation":null,"marriage-date":"1732-01-25","marriage-note":null,"marriage-place":"[[References/Jever\|Jever]]","spouse":"[[Susanna Maria Schloerholt]]","father":"[[References/Frans Gräpel\|Frans Gräpel]]","mother":null,"sources":["Graepel family - nd - history - family tree compiled by Brian and Mary Trump [not yet in the catalogue]","Graepel family - nd - history - family tree produced by the Graepel family [not yet in the catalogue]"]}}
+{"dg-publish":true,"permalink":"/references/hans-grapel/","tags":["references"],"dg-note-properties":{"created":"2026-01-09","categories":["[[Categories/People]]","[[Categories/Family]]"],"tags":["references"],"aliases":null,"line":"Graepel","born":"1707-04-17","born-note":"17 April 1707 per the Trump and Graepel family trees. The vault held 1704-12-07 until 30 July 2026.","birthplace":"[[References/Bergedorf]]","died":"1787-12-24","died-note":"Neither family tree carries a death date. 24 December 1787 at Jever was already in the vault and is kept, but its source is unknown and it needs confirming.","death-place":"[[References/Jever]]","living":false,"organisation":null,"marriage-date":"1732-01-25","marriage-note":null,"marriage-place":"[[References/Jever]]","spouse":"[[References/Susanna Maria Schloerholt]]","father":"[[References/Frans Gräpel]]","mother":null,"sources":["Graepel family - nd - history - family tree compiled by Brian and Mary Trump [not yet in the catalogue]","Graepel family - nd - history - family tree produced by the Graepel family [not yet in the catalogue]"]}}
 ---
 
 
@@ -68,42 +68,6 @@ properties:
     displayName: Sources
 views:
   - type: table
-    name: Everyone
-    order:
-      - file.name
-      - formula.lifespan
-      - formula.age
-      - father
-      - mother
-      - birthplace
-    sort:
-      - property: born
-        direction: ASC
-    columnSize:
-      file.name: 260
-      note.father: 200
-      note.mother: 200
-  - type: table
-    name: By line
-    groupBy:
-      property: line
-      direction: ASC
-    order:
-      - file.name
-      - formula.lifespan
-      - formula.age
-      - father
-      - mother
-    sort:
-      - property: file.name
-        direction: DESC
-      - property: father
-        direction: ASC
-      - property: born
-        direction: ASC
-    columnSize:
-      file.name: 260
-  - type: table
     name: Children
     filters:
       or:
@@ -118,48 +82,6 @@ views:
         direction: ASC
       - property: file.name
         direction: ASC
-  - type: table
-    name: Siblings
-    filters:
-      and:
-        - file.name != this.file.name
-        - or:
-            - and:
-                - father.isTruthy()
-                - father == this.father
-            - and:
-                - mother.isTruthy()
-                - mother == this.mother
-    order:
-      - file.name
-      - formula.lifespan
-      - father
-      - mother
-    sort:
-      - property: born
-        direction: ASC
-      - property: file.name
-        direction: ASC
-  - type: table
-    name: Needs work
-    filters:
-      or:
-        - "!born.isTruthy()"
-        - "!father.isTruthy()"
-        - "!mother.isTruthy()"
-        - "!died.isTruthy() && !living.isTruthy()"
-    order:
-      - file.name
-      - formula.lifespan
-      - born-note
-      - died-note
-      - father
-      - mother
-    sort:
-      - property: file.name
-        direction: ASC
-    columnSize:
-      file.name: 260
 
 ```
 
@@ -211,57 +133,6 @@ properties:
     displayName: Sources
 views:
   - type: table
-    name: Everyone
-    order:
-      - file.name
-      - formula.lifespan
-      - formula.age
-      - father
-      - mother
-      - birthplace
-    sort:
-      - property: born
-        direction: ASC
-    columnSize:
-      file.name: 260
-      note.father: 200
-      note.mother: 200
-  - type: table
-    name: By line
-    groupBy:
-      property: line
-      direction: ASC
-    order:
-      - file.name
-      - formula.lifespan
-      - formula.age
-      - father
-      - mother
-    sort:
-      - property: file.name
-        direction: DESC
-      - property: father
-        direction: ASC
-      - property: born
-        direction: ASC
-    columnSize:
-      file.name: 260
-  - type: table
-    name: Children
-    filters:
-      or:
-        - father == this
-        - mother == this
-    order:
-      - file.name
-      - formula.lifespan
-      - birthplace
-    sort:
-      - property: born
-        direction: ASC
-      - property: file.name
-        direction: ASC
-  - type: table
     name: Siblings
     filters:
       and:
@@ -283,26 +154,6 @@ views:
         direction: ASC
       - property: file.name
         direction: ASC
-  - type: table
-    name: Needs work
-    filters:
-      or:
-        - "!born.isTruthy()"
-        - "!father.isTruthy()"
-        - "!mother.isTruthy()"
-        - "!died.isTruthy() && !living.isTruthy()"
-    order:
-      - file.name
-      - formula.lifespan
-      - born-note
-      - died-note
-      - father
-      - mother
-    sort:
-      - property: file.name
-        direction: ASC
-    columnSize:
-      file.name: 260
 
 ```
 

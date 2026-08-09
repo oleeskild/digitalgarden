@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/digital-garden/the-bbc-hungarian-service/","dg-note-properties":{"created":"2026-01-28","categories":["[[Stanley Victor James Chambers]]","[[The Hungary File - 00 Contents]]"],"tags":null,"aliases":["Victor Chambers and the BBC Hungarian Service"]}}
+{"dg-publish":true,"permalink":"/digital-garden/the-bbc-hungarian-service/","dg-note-properties":{"created":"2026-01-28","categories":["[[References/Stanley Victor James Chambers]]","[[Projects/The Hungary File/The Hungary File - 00 Contents]]"],"aliases":["Victor Chambers and the BBC Hungarian Service"]}}
 ---
 
 [[Digital-Garden/Victor Chambers\|Victor Chambers]]
