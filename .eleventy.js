@@ -17,6 +17,8 @@ const matterOptions = {
 };
 const faviconsPlugin = require("eleventy-plugin-gen-favicons");
 const normalizeFavicon = require("./src/site/normalize-favicon.js");
+const { convertMdHrefs } = require("./src/helpers/linkUtils");
+const nodePath = require("path");
 
 const FAVICON_SOURCE = "./src/site/favicon.svg";
 const FAVICON_NORMALIZED = "./.cache/favicon.normalized.svg";
@@ -392,6 +394,33 @@ module.exports = function(eleventyConfig) {
         return getAnchorLink(fileLink, linkTitle);
       })
     );
+  });
+
+  // Resolve markdown-style relative links to .md files (e.g. [X](../a/b.md))
+  // to their real permalinks. Obsidian resolves these in-app, but they reach
+  // the rendered HTML untouched, where trailing-slash page URLs make the
+  // browser resolve them one directory too deep.
+  // pageInputPath overrides this.page for contexts like the feed, where the
+  // rendered content belongs to a looped-over note rather than the current page.
+  eleventyConfig.addFilter("resolveMdLinks", function(str, pageInputPath) {
+    const inputPath = pageInputPath || (this.page && this.page.inputPath);
+    if (!str || !inputPath) {
+      return str;
+    }
+    const notesRoot = "src/site/notes/";
+    const normalizedInput = inputPath.replace(/^\.\//, "");
+    const rootIndex = normalizedInput.indexOf(notesRoot);
+    if (rootIndex === -1) {
+      return str;
+    }
+    const vaultFilePath = normalizedInput.slice(rootIndex + notesRoot.length);
+    const sourceDir = nodePath.posix.dirname(vaultFilePath);
+    return convertMdHrefs(str, sourceDir === "." ? "" : sourceDir, (vaultPath) => {
+      const { attributes } = getAnchorAttributes(vaultPath);
+      // Unresolved targets keep getAnchorAttributes' /404 behavior, matching
+      // how dead wikilinks are handled.
+      return attributes;
+    });
   });
 
   eleventyConfig.addFilter("taggify", function(str) {
