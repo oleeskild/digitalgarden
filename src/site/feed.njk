@@ -18,7 +18,7 @@
     <title>{%- if note.title -%}{{ note.title }}{%- else -%}{{ note.fileSlug }}{%- endif -%}</title>
     <updated>{%- if note.data.updated -%}{{ note.data.updated | dateToZulu }}{%- else -%}{{ note.date | dateToRfc3339 }}{%- endif -%}</updated>
     <id>{{ meta.siteBaseUrl }}{{ note.url | url }}</id>
-    <content type="html">{{- note.templateContent | hideDataview | taggify | link | htmlToAbsoluteUrls(meta.siteBaseUrl) | xmlSafe -}}</content>
+    <content type="html">{{- note.templateContent | hideDataview | taggify | link | resolveMdLinks(note.inputPath) | htmlToAbsoluteUrls(meta.siteBaseUrl) | xmlSafe -}}</content>
     <link href="{{ meta.siteBaseUrl }}{{ note.url | url }}"/>
   </entry>
   {%- endif -%}

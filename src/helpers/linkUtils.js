@@ -1,5 +1,12 @@
+const path = require("path");
+
 const wikiLinkRegex = /\[\[(.*?\|.*?)\]\]/g;
 const internalLinkRegex = /href="\/(.*?)"/g;
+// Markdown-style links to .md files, e.g. [Feedback](../concepts/feedback.md).
+// Negative lookbehind excludes image embeds. Group 1 is the link target.
+const markdownMdLinkRegex =
+  /(?<!\!)\[[^\]]*\]\(\s*([^)\s]+?\.(?:md|markdown))(#[^)\s]*)?\s*\)/gi;
+const externalSchemeRegex = /^[a-z][a-z0-9+.-]*:/i;
 // Match iframe src for canvas embedded files (internal links only, not external URLs)
 // Format: <iframe src="/path/" class="canvas-file-iframe" ...>
 // Use non-greedy [^>]*? to avoid over-matching
@@ -16,7 +23,81 @@ try {
   // bases-engine not available, skip bases link extraction
 }
 
-function extractLinks(content) {
+/**
+ * Resolve a markdown link target to a vault-root-relative path.
+ * Returns null for external links or paths escaping the vault root.
+ * sourceDir is the vault-relative directory of the linking note ("" for root).
+ */
+function resolveVaultPath(linkTarget, sourceDir) {
+  if (!linkTarget || externalSchemeRegex.test(linkTarget)) {
+    return null;
+  }
+  let decoded = linkTarget;
+  try {
+    decoded = decodeURI(linkTarget);
+  } catch {
+    // Keep the raw target if it is not valid percent-encoding
+  }
+  const resolved = decoded.startsWith("/")
+    ? path.posix.normalize(decoded.slice(1))
+    : path.posix.normalize(path.posix.join(sourceDir || "", decoded));
+  if (resolved.startsWith("../") || resolved === "..") {
+    return null;
+  }
+  return resolved;
+}
+
+/**
+ * Extract markdown-style links to .md files, resolved against the source
+ * note's vault path and stripped of extension/fragment so they match the
+ * stem URLs used by the graph.
+ */
+function extractMarkdownLinks(content, sourcePath) {
+  const links = [];
+  const sourceDir = path.posix.dirname(sourcePath || "");
+  let match;
+  markdownMdLinkRegex.lastIndex = 0;
+  while ((match = markdownMdLinkRegex.exec(content)) !== null) {
+    const resolved = resolveVaultPath(match[1], sourceDir === "." ? "" : sourceDir);
+    if (resolved) {
+      links.push(resolved.replace(/\.(md|markdown)$/i, ""));
+    }
+  }
+  return links;
+}
+
+/**
+ * Rewrite relative .md hrefs in rendered HTML to their resolved permalinks.
+ * resolveAnchor(vaultPath, fragment, originalHref) returns an attributes
+ * object ({ href, ... }) or null to leave the anchor untouched.
+ */
+function convertMdHrefs(html, sourceDir, resolveAnchor) {
+  return html.replace(
+    /(<a\s[^>]*?href=")([^"]+)("[^>]*>)/gi,
+    (fullMatch, before, href, after) => {
+      const [target, ...fragmentParts] = href.split("#");
+      const fragment = fragmentParts.length ? `#${fragmentParts.join("#")}` : "";
+      if (
+        !/\.(md|markdown)$/i.test(target) ||
+        target.startsWith("/") ||
+        externalSchemeRegex.test(target)
+      ) {
+        return fullMatch;
+      }
+      const vaultPath = resolveVaultPath(target, sourceDir);
+      if (!vaultPath) {
+        return fullMatch;
+      }
+      const attrs = resolveAnchor(vaultPath, fragment, href);
+      if (!attrs || !attrs.href) {
+        return fullMatch;
+      }
+      return `${before}${attrs.href}${fragment}${after}`;
+    },
+  );
+}
+
+function extractLinks(content, sourcePath) {
   // Extract iframe sources for canvas embeds
   const iframeLinks = [];
   let match;
@@ -50,6 +131,7 @@ function extractLinks(content) {
           .split("#")[0]
     ),
     ...iframeLinks,
+    ...(sourcePath ? extractMarkdownLinks(content, sourcePath) : []),
   ];
 }
 
@@ -127,7 +209,7 @@ async function getGraph(data) {
         v.data["dg-home"] ||
         (v.data.tags && v.data.tags.indexOf("gardenEntry") > -1) ||
         false,
-      outBound: extractLinks(content),
+      outBound: extractLinks(content, fpath),
       neighbors: new Set(),
       backLinks: new Set(),
       noteIcon: v.data.noteIcon || process.env.NOTE_ICON_DEFAULT,
@@ -222,5 +304,7 @@ async function getGraph(data) {
 exports.wikiLinkRegex = wikiLinkRegex;
 exports.internalLinkRegex = internalLinkRegex;
 exports.extractLinks = extractLinks;
+exports.resolveVaultPath = resolveVaultPath;
+exports.convertMdHrefs = convertMdHrefs;
 exports.getGraph = getGraph;
 exports._basesNotesWithLinks = null;
