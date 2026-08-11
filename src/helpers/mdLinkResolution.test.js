@@ -61,6 +61,14 @@ describe("extractLinks with markdown-style links", () => {
     expect(links).toContain("wiki/concepts/feedback");
   });
 
+  it("extracts vault-root markdown links from nested notes", () => {
+    const links = extractLinks(
+      "[Assessment](wiki/concepts/assessment.md)",
+      "journal/2026/some-note",
+    );
+    expect(links).toContain("wiki/concepts/assessment");
+  });
+
   it("ignores image embeds and external markdown links", () => {
     const links = extractLinks(
       "![img](../img/pic.md) [ext](https://example.com/a.md)",
@@ -77,11 +85,16 @@ describe("extractLinks with markdown-style links", () => {
 });
 
 describe("convertMdHrefs", () => {
-  const resolver = (vaultPath) =>
-    ({
-      "wiki/concepts/feedback.md": { href: "/wiki/concepts/feedback/" },
-      "wiki/authors/andrade.md": { href: "/wiki/authors/andrade/" },
-    })[vaultPath] || null;
+  const knownPaths = {
+    "wiki/concepts/feedback.md": { href: "/wiki/concepts/feedback/" },
+    "wiki/authors/andrade.md": { href: "/wiki/authors/andrade/" },
+  };
+  const resolver = (candidates) => {
+    for (const vaultPath of candidates) {
+      if (knownPaths[vaultPath]) return knownPaths[vaultPath];
+    }
+    return null;
+  };
 
   it("rewrites a relative .md href to the resolved permalink", () => {
     const html =
@@ -108,8 +121,38 @@ describe("convertMdHrefs", () => {
 
   it("leaves unresolvable .md hrefs to the resolver's discretion", () => {
     const html = '<a href="../concepts/missing.md" class="internal-link">m</a>';
-    const out = convertMdHrefs(html, "wiki/concepts", (p, frag, orig) => null);
+    const out = convertMdHrefs(html, "wiki/concepts", () => null);
     expect(out).toBe(html);
+  });
+
+  it("does not rewrite data-href attributes on dataviewjs anchors", () => {
+    // DataviewJS output contains Obsidian-rendered anchors where data-href
+    // (and href) hold a vault-root path. data-href must survive untouched:
+    // the dataview-js-links transform resolves the anchor from it.
+    const html =
+      '<a data-href="wiki/concepts/feedback.md" href="wiki/concepts/feedback.md" class="internal-link" target="_blank" rel="noopener nofollow">Feedback</a>';
+    const out = convertMdHrefs(html, "wiki/concepts", resolver);
+    expect(out).toContain('data-href="wiki/concepts/feedback.md"');
+    expect(out).toContain('href="/wiki/concepts/feedback/"');
+  });
+
+  it("falls back to vault-root resolution for non-relative targets", () => {
+    // A note nested in wiki/concepts linking to a vault-root path, as
+    // dataview and Obsidian's "absolute path in vault" setting produce.
+    const html =
+      '<a href="wiki/authors/andrade.md" class="internal-link">A</a>';
+    const out = convertMdHrefs(html, "wiki/concepts", resolver);
+    expect(out).toContain('href="/wiki/authors/andrade/"');
+  });
+
+  it("prefers the note-relative interpretation when both resolve", () => {
+    const html = '<a href="feedback.md" class="internal-link">F</a>';
+    const seen = [];
+    convertMdHrefs(html, "wiki/concepts", (candidates) => {
+      seen.push(candidates);
+      return null;
+    });
+    expect(seen).toEqual([["wiki/concepts/feedback.md", "feedback.md"]]);
   });
 });
 
