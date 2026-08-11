@@ -48,9 +48,34 @@ function resolveVaultPath(linkTarget, sourceDir) {
 }
 
 /**
+ * Possible vault-root-relative interpretations of a markdown link target,
+ * most likely first. Obsidian resolves targets relative to the note, but
+ * dataview and Obsidian's "absolute path in vault" link setting emit
+ * vault-root paths with no ./ or ../ prefix, so those targets get a
+ * vault-root candidate as fallback.
+ */
+function vaultPathCandidates(linkTarget, sourceDir) {
+  const noteRelative = resolveVaultPath(linkTarget, sourceDir);
+  const candidates = noteRelative ? [noteRelative] : [];
+  if (
+    linkTarget &&
+    !linkTarget.startsWith("/") &&
+    !linkTarget.startsWith("./") &&
+    !linkTarget.startsWith("../")
+  ) {
+    const vaultRoot = resolveVaultPath(linkTarget, "");
+    if (vaultRoot && !candidates.includes(vaultRoot)) {
+      candidates.push(vaultRoot);
+    }
+  }
+  return candidates;
+}
+
+/**
  * Extract markdown-style links to .md files, resolved against the source
  * note's vault path and stripped of extension/fragment so they match the
- * stem URLs used by the graph.
+ * stem URLs used by the graph. Ambiguous targets yield every candidate
+ * interpretation; the graph drops the ones that match no note.
  */
 function extractMarkdownLinks(content, sourcePath) {
   const links = [];
@@ -58,8 +83,10 @@ function extractMarkdownLinks(content, sourcePath) {
   let match;
   markdownMdLinkRegex.lastIndex = 0;
   while ((match = markdownMdLinkRegex.exec(content)) !== null) {
-    const resolved = resolveVaultPath(match[1], sourceDir === "." ? "" : sourceDir);
-    if (resolved) {
+    for (const resolved of vaultPathCandidates(
+      match[1],
+      sourceDir === "." ? "" : sourceDir,
+    )) {
       links.push(resolved.replace(/\.(md|markdown)$/i, ""));
     }
   }
@@ -68,12 +95,15 @@ function extractMarkdownLinks(content, sourcePath) {
 
 /**
  * Rewrite relative .md hrefs in rendered HTML to their resolved permalinks.
- * resolveAnchor(vaultPath, fragment, originalHref) returns an attributes
+ * resolveAnchor(vaultPathCandidates, fragment, originalHref) receives the
+ * candidate interpretations (most likely first) and returns an attributes
  * object ({ href, ... }) or null to leave the anchor untouched.
  */
 function convertMdHrefs(html, sourceDir, resolveAnchor) {
+  // (?:[^>]*?\s)? requires href to start the tag or follow whitespace, so
+  // attributes like data-href (dataviewjs anchors) are never rewritten.
   return html.replace(
-    /(<a\s[^>]*?href=")([^"]+)("[^>]*>)/gi,
+    /(<a\s(?:[^>]*?\s)?href=")([^"]+)("[^>]*>)/gi,
     (fullMatch, before, href, after) => {
       const [target, ...fragmentParts] = href.split("#");
       const fragment = fragmentParts.length ? `#${fragmentParts.join("#")}` : "";
@@ -84,11 +114,11 @@ function convertMdHrefs(html, sourceDir, resolveAnchor) {
       ) {
         return fullMatch;
       }
-      const vaultPath = resolveVaultPath(target, sourceDir);
-      if (!vaultPath) {
+      const candidates = vaultPathCandidates(target, sourceDir);
+      if (!candidates.length) {
         return fullMatch;
       }
-      const attrs = resolveAnchor(vaultPath, fragment, href);
+      const attrs = resolveAnchor(candidates, fragment, href);
       if (!attrs || !attrs.href) {
         return fullMatch;
       }

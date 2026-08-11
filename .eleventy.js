@@ -415,11 +415,18 @@ module.exports = function(eleventyConfig) {
     }
     const vaultFilePath = normalizedInput.slice(rootIndex + notesRoot.length);
     const sourceDir = nodePath.posix.dirname(vaultFilePath);
-    return convertMdHrefs(str, sourceDir === "." ? "" : sourceDir, (vaultPath) => {
-      const { attributes } = getAnchorAttributes(vaultPath);
+    return convertMdHrefs(str, sourceDir === "." ? "" : sourceDir, (candidates) => {
+      let firstAttempt = null;
+      for (const vaultPath of candidates) {
+        const { attributes } = getAnchorAttributes(vaultPath);
+        if (!attributes.class.includes("is-unresolved")) {
+          return attributes;
+        }
+        firstAttempt = firstAttempt || attributes;
+      }
       // Unresolved targets keep getAnchorAttributes' /404 behavior, matching
       // how dead wikilinks are handled.
-      return attributes;
+      return firstAttempt;
     });
   });
 
