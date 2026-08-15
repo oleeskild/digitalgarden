@@ -22,6 +22,3 @@ I have a workspace for my research, thinking, and writing. It goes by the name o
 ## Family Archive
 
 [[ideaverse/Projects/family-archive/2025-09-09-171308 Family Archive\|2025-09-09-171308 Family Archive]]
-
-[[Test\|Test]]
-[[ideaverse/References/Hans Grapel\|Hans Grapel]]
