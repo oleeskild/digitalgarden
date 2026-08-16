@@ -22,6 +22,7 @@ try {
 } catch (e) {
   // bases-engine not available, skip bases link extraction
 }
+const { pickNoteMetadata } = require("./bases-engine/noteMetadata");
 
 /**
  * Resolve a markdown link target to a vault-root-relative path.
@@ -290,7 +291,7 @@ async function getGraph(data) {
     return {
       path: item.filePathStem.replace("/notes/", ""),
       url: item.url,
-      metadata: item.data,
+      metadata: pickNoteMetadata(item.data),
       fileSlug: item.fileSlug,
       // Inject computed link data for bases queries
       _links: url.outBound || [],
