@@ -26,6 +26,135 @@ function hasUserProperty(metadata, key) {
 // Tags injected by the plugin that aren't real user tags
 const SYSTEM_TAGS = new Set(["note", "gardenEntry"]);
 
+// --- Date coercion ---
+// Published date properties arrive as ISO strings ("1707-04-17"), not Date
+// objects, so date methods/fields/comparisons coerce them on demand.
+
+const ISO_DATE_STRING_REGEX =
+	/^\d{4}-\d{2}-\d{2}([T ]\d{2}:\d{2}(:\d{2})?(\.\d+)?(Z|[+-]\d{2}:?\d{2})?)?$/;
+
+function isISODateString(value) {
+	return typeof value === "string" && ISO_DATE_STRING_REGEX.test(value.trim());
+}
+
+/**
+ * Convert an ISO date string to a Date. Date-only strings are parsed as
+ * local time (matching Obsidian), not UTC as new Date() would.
+ */
+function coerceDate(value) {
+	if (value instanceof Date) return value;
+	if (!isISODateString(value)) return null;
+	const str = value.trim();
+	const dateOnly = str.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+	if (dateOnly) {
+		return new Date(
+			Number(dateOnly[1]),
+			Number(dateOnly[2]) - 1,
+			Number(dateOnly[3]),
+		);
+	}
+	const d = new Date(str.replace(" ", "T"));
+	return isNaN(d.getTime()) ? null : d;
+}
+
+const DATE_METHODS = new Set(["format", "date", "relative"]);
+const DATE_FIELDS = new Set([
+	"year",
+	"month",
+	"day",
+	"hour",
+	"minute",
+	"second",
+]);
+
+// --- Link values ---
+// link("Family") produces a link value; stored properties are wikilink
+// strings ("[[Family]]", "[[Categories/Family|alias]]"). Targets match the
+// way Obsidian resolves shortest paths: exact, or one path is a trailing
+// segment of the other.
+
+function makeLink(target) {
+	return { __basesLink: true, target: String(target) };
+}
+
+/**
+ * Extract a normalized link target from a link value or wikilink string.
+ * Returns null when the value is neither.
+ */
+function linkTarget(value) {
+	if (value && typeof value === "object" && value.__basesLink) {
+		return value.target.toLowerCase().replace(/\.md$/, "");
+	}
+	if (typeof value === "string") {
+		const match = value.trim().match(/^!?\[\[([^\]]+)\]\]$/);
+		if (match) {
+			const inner = match[1].split("|")[0].split("#")[0].trim();
+			return inner.toLowerCase().replace(/\.md$/, "");
+		}
+	}
+	return null;
+}
+
+function linkTargetsMatch(a, b) {
+	return a === b || a.endsWith("/" + b) || b.endsWith("/" + a);
+}
+
+/**
+ * Bases value equality: lists compare by value, links compare by target,
+ * dates compare by time, everything else falls back to loose equality.
+ */
+function valuesEqual(a, b) {
+	if (Array.isArray(a) && Array.isArray(b)) {
+		if (a.length !== b.length) return false;
+		return a.every((item, i) => valuesEqual(item, b[i]));
+	}
+	// A scalar property compares equal to a single-element list literal,
+	// matching how Obsidian treats single values and lists interchangeably.
+	if (Array.isArray(a)) {
+		return a.length === 1 && valuesEqual(a[0], b);
+	}
+	if (Array.isArray(b)) {
+		return b.length === 1 && valuesEqual(a, b[0]);
+	}
+
+	const aLink = linkTarget(a);
+	const bLink = linkTarget(b);
+	if (aLink !== null && bLink !== null) {
+		return linkTargetsMatch(aLink, bLink);
+	}
+
+	if (a instanceof Date || b instanceof Date) {
+		const aDate = coerceDate(a);
+		const bDate = coerceDate(b);
+		if (aDate && bDate) return aDate.getTime() === bDate.getTime();
+	}
+
+	// eslint-disable-next-line eqeqeq
+	return a == b;
+}
+
+/**
+ * Bases toString(): works on every type so filters like
+ * categories.toString().contains("x") behave like Obsidian.
+ */
+function basesToString(obj) {
+	if (obj == null) return "";
+	if (Array.isArray(obj)) return obj.map(basesToString).join(", ");
+	if (obj instanceof Date) return obj.toISOString();
+	if (typeof obj === "object" && obj.__basesLink) {
+		return "[[" + obj.target + "]]";
+	}
+	return String(obj);
+}
+
+/**
+ * Bases isTruthy(): like JS truthiness, but empty lists are falsy.
+ */
+function basesIsTruthy(obj) {
+	if (Array.isArray(obj)) return obj.length > 0;
+	return Boolean(obj);
+}
+
 /**
  * Resolve a property name from a note's file metadata.
  */
@@ -109,6 +238,20 @@ function callMethod(obj, method, args) {
 		return false;
 	}
 
+	// isTruthy and toString work on any type
+	if (method === "isTruthy") {
+		return basesIsTruthy(obj);
+	}
+	if (method === "toString") {
+		return basesToString(obj);
+	}
+
+	// Published date properties are ISO strings; coerce them when a date
+	// method is called so born.format("YYYY") works like in Obsidian.
+	if (DATE_METHODS.has(method) && isISODateString(obj)) {
+		obj = coerceDate(obj);
+	}
+
 	// String methods
 	if (typeof obj === "string") {
 		switch (method) {
@@ -165,11 +308,15 @@ function callMethod(obj, method, args) {
 	if (Array.isArray(obj)) {
 		switch (method) {
 			case "contains":
-				return obj.includes(args[0]);
+				return obj.some((item) => valuesEqual(item, args[0]));
 			case "containsAll":
-				return args.every((a) => obj.includes(a));
+				return args.every((a) =>
+					obj.some((item) => valuesEqual(item, a)),
+				);
 			case "containsAny":
-				return args.some((a) => obj.includes(a));
+				return args.some((a) =>
+					obj.some((item) => valuesEqual(item, a)),
+				);
 			case "join":
 				return obj.join(args[0]);
 			case "sort":
@@ -229,6 +376,11 @@ function callMethod(obj, method, args) {
 function resolveProperty(obj, prop) {
 	if (prop === "length") {
 		if (typeof obj === "string" || Array.isArray(obj)) return obj.length;
+	}
+
+	// born.year on a published ISO date string
+	if (DATE_FIELDS.has(prop) && isISODateString(obj)) {
+		obj = coerceDate(obj);
 	}
 
 	if (obj instanceof Date) {
@@ -375,16 +527,28 @@ function evalExpr(ast, note, formulas, context) {
 				);
 			}
 
-			const left = evalExpr(ast.left, note, formulas, context);
-			const right = evalExpr(ast.right, note, formulas, context);
+			let left = evalExpr(ast.left, note, formulas, context);
+			let right = evalExpr(ast.right, note, formulas, context);
+
+			// Ordering comparisons between a Date (e.g. from date()/today())
+			// and a published ISO date string compare as dates.
+			if (
+				[">", "<", ">=", "<="].includes(ast.operator) &&
+				(left instanceof Date || right instanceof Date)
+			) {
+				const leftDate = coerceDate(left);
+				const rightDate = coerceDate(right);
+				if (leftDate && rightDate) {
+					left = leftDate.getTime();
+					right = rightDate.getTime();
+				}
+			}
 
 			switch (ast.operator) {
-				/* eslint-disable eqeqeq */
 				case "==":
-					return left == right;
+					return valuesEqual(left, right);
 				case "!=":
-					return left != right;
-				/* eslint-enable eqeqeq */
+					return !valuesEqual(left, right);
 				case ">":
 					return left > right;
 				case "<":
@@ -469,7 +633,9 @@ function callGlobalFunction(name, args) {
 			return isNaN(d.getTime()) ? undefined : d;
 		}
 		case "if":
-			return args[0] ? args[1] : args[2];
+			return basesIsTruthy(args[0]) ? args[1] : args[2];
+		case "link":
+			return makeLink(args[0]);
 		case "number":
 			return Number(args[0]);
 		case "min":

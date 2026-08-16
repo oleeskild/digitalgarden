@@ -782,4 +782,177 @@ describe("exprEval", () => {
 			expect(evaluate("status", note)).toBe("nested");
 		});
 	});
+
+	// Regression tests for github.com/oleeskild/obsidian-digital-garden/issues/816
+	// and github.com/oleeskild/digitalgarden/issues/384
+	describe("bases function surface (issues 816/384)", () => {
+		const grapelNote = {
+			path: "References/Hans Grapel",
+			url: "/references/hans-grapel/",
+			metadata: {
+				tags: ["references"],
+				"dg-note-properties": {
+					line: "Graepel",
+					born: "1707-04-17",
+					died: "1787-12-24",
+					categories: ["[[People]]", "[[Family]]"],
+					emptyList: [],
+					Type: ["Dinner"],
+				},
+			},
+			fileSlug: "hans-grapel",
+		};
+
+		describe("isTruthy()", () => {
+			it("is true for a non-empty string property", () => {
+				expect(evaluate("line.isTruthy()", grapelNote)).toBe(true);
+			});
+
+			it("is false for a missing property", () => {
+				expect(evaluate("missing.isTruthy()", grapelNote)).toBe(false);
+			});
+
+			it("is false for an empty list", () => {
+				expect(evaluate("emptyList.isTruthy()", grapelNote)).toBe(false);
+			});
+
+			it("is true for a non-empty list", () => {
+				expect(evaluate("categories.isTruthy()", grapelNote)).toBe(true);
+			});
+		});
+
+		describe("toString()", () => {
+			it("returns strings unchanged", () => {
+				expect(evaluate("line.toString()", grapelNote)).toBe("Graepel");
+			});
+
+			it("stringifies date-typed properties", () => {
+				expect(evaluate("born.toString()", grapelNote)).toBe("1707-04-17");
+			});
+
+			it("joins lists so contains() works on the result", () => {
+				expect(
+					evaluate('categories.toString().contains("Family")', grapelNote),
+				).toBe(true);
+			});
+
+			it("stringifies numbers", () => {
+				const note = { path: "n", metadata: { year: 1925 } };
+				expect(evaluate("year.toString()", note)).toBe("1925");
+			});
+		});
+
+		describe("link()", () => {
+			it("matches a wikilink list entry by name", () => {
+				expect(
+					evaluate('categories.contains(link("Family"))', grapelNote),
+				).toBe(true);
+			});
+
+			it("does not match a link that is not in the list", () => {
+				expect(
+					evaluate('categories.contains(link("Missing"))', grapelNote),
+				).toBe(false);
+			});
+
+			it("matches when the link uses a fuller path than the stored value", () => {
+				expect(
+					evaluate(
+						'categories.contains(link("Categories/Family"))',
+						grapelNote,
+					),
+				).toBe(true);
+			});
+
+			it("matches when the stored value uses a fuller path than the link", () => {
+				const note = {
+					path: "n",
+					metadata: { categories: ["[[Categories/Family]]"] },
+				};
+				expect(
+					evaluate('categories.contains(link("Family"))', note),
+				).toBe(true);
+			});
+
+			it("compares equal to a single wikilink value", () => {
+				const note = { path: "n", metadata: { category: "[[Family]]" } };
+				expect(evaluate('category == link("Family")', note)).toBe(true);
+			});
+
+			it("ignores the alias when matching", () => {
+				const note = {
+					path: "n",
+					metadata: { categories: ["[[Family|The Family]]"] },
+				};
+				expect(
+					evaluate('categories.contains(link("Family"))', note),
+				).toBe(true);
+			});
+		});
+
+		describe("list equality", () => {
+			it("compares lists by value", () => {
+				expect(evaluate('Type == ["Dinner"]', grapelNote)).toBe(true);
+			});
+
+			it("matches a scalar property against a single-element list", () => {
+				const note = { path: "n", metadata: { Type: "Dinner" } };
+				expect(evaluate('Type == ["Dinner"]', note)).toBe(true);
+			});
+
+			it("does not match different lists", () => {
+				expect(evaluate('Type == ["Lunch"]', grapelNote)).toBe(false);
+			});
+
+			it("supports != on lists", () => {
+				expect(evaluate('Type != ["Lunch"]', grapelNote)).toBe(true);
+				expect(evaluate('Type != ["Dinner"]', grapelNote)).toBe(false);
+			});
+
+			it("does not match lists of different lengths", () => {
+				const note = { path: "n", metadata: { Type: ["Dinner", "Lunch"] } };
+				expect(evaluate('Type == ["Dinner"]', note)).toBe(false);
+			});
+		});
+
+		describe("date coercion of ISO strings", () => {
+			it("formats a date-typed property", () => {
+				expect(evaluate('born.format("YYYY")', grapelNote)).toBe("1707");
+			});
+
+			it("formats full dates", () => {
+				expect(evaluate('died.format("YYYY-MM-DD")', grapelNote)).toBe(
+					"1787-12-24",
+				);
+			});
+
+			it("exposes date components", () => {
+				expect(evaluate("born.year", grapelNote)).toBe(1707);
+				expect(evaluate("born.month", grapelNote)).toBe(4);
+				expect(evaluate("born.day", grapelNote)).toBe(17);
+			});
+
+			it("works inside if()", () => {
+				expect(
+					evaluate(
+						'if(born, born.format("YYYY"), "no born value")',
+						grapelNote,
+					),
+				).toBe("1707");
+			});
+
+			it("compares against date()", () => {
+				expect(evaluate('born > date("1700-01-01")', grapelNote)).toBe(true);
+				expect(evaluate('born < date("1700-01-01")', grapelNote)).toBe(false);
+			});
+
+			it("compares two date-typed properties", () => {
+				expect(evaluate("born < died", grapelNote)).toBe(true);
+			});
+
+			it("leaves non-date strings alone", () => {
+				expect(evaluate('line.format("YYYY")', grapelNote)).toBe(undefined);
+			});
+		});
+	});
 });

@@ -2,16 +2,21 @@
 <script defer>
   TIMESTAMP_FORMAT = "{{meta.timestampSettings.timestampFormat}}";
   document.querySelectorAll('.human-date').forEach(function (el) {
-    date = el.getAttribute('data-date') || el.innerText
-    parsed_date = luxon.DateTime.fromISO(date)
-    if (parsed_date.invalid != null){
-      // Date cannot be parsed
-      parsed_date = luxon.DateTime.fromSQL(date)
-    }
-    if (parsed_date.invalid != null){
-      // Date still cannot be parsed
-      parsed_date = luxon.DateTime.fromHTML(date)
-    }
-    el.innerHTML = parsed_date.toFormat(TIMESTAMP_FORMAT);
+    // One malformed date must not abort formatting of the remaining dates
+    try {
+      date = el.getAttribute('data-date') || el.innerText
+      parsed_date = luxon.DateTime.fromISO(date)
+      if (parsed_date.invalid != null){
+        // Date cannot be parsed
+        parsed_date = luxon.DateTime.fromSQL(date)
+      }
+      if (parsed_date.invalid != null){
+        // Date still cannot be parsed
+        parsed_date = luxon.DateTime.fromHTTP(date)
+      }
+      if (parsed_date.invalid == null){
+        el.innerHTML = parsed_date.toFormat(TIMESTAMP_FORMAT);
+      }
+    } catch (e) {}
   })
 </script>

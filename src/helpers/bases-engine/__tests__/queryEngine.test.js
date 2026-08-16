@@ -685,4 +685,189 @@ views:
 			expect(brightFlight.rows).toHaveLength(2);
 		});
 	});
+
+	// Regression tests for github.com/oleeskild/obsidian-digital-garden/issues/816
+	describe("filters on note properties (issue 816)", () => {
+		const grapelNote = {
+			path: "References/Hans Grapel",
+			url: "/references/hans-grapel/",
+			metadata: {
+				tags: ["references"],
+				"dg-note-properties": {
+					line: "Graepel",
+					born: "1707-04-17",
+					died: "1787-12-24",
+					"born-note": "17 April 1707 per the family trees.",
+					categories: ["[[People]]", "[[Family]]"],
+				},
+			},
+			fileSlug: "hans-grapel",
+		};
+		const otherNote = {
+			path: "notes/Unrelated",
+			url: "/notes/unrelated/",
+			metadata: { "dg-note-properties": {} },
+			fileSlug: "unrelated",
+		};
+		const notes = [grapelNote, otherNote];
+
+		it("matches line.isTruthy()", () => {
+			const yaml = `
+views:
+  - type: table
+    name: Has line
+    filters:
+      and:
+        - line.isTruthy()
+    order: [file.name, line]
+`;
+			const result = executeBaseQuery(yaml, notes);
+			expect(result.views[0].rows).toHaveLength(1);
+			expect(result.views[0].rows[0].path).toBe("References/Hans Grapel");
+		});
+
+		it("matches categories.contains(link(...))", () => {
+			const yaml = `
+views:
+  - type: table
+    name: Family
+    filters:
+      and:
+        - categories.contains(link("Family"))
+    order: [file.name, categories]
+`;
+			const result = executeBaseQuery(yaml, notes);
+			expect(result.views[0].rows).toHaveLength(1);
+		});
+
+		it("matches categories.toString().contains(...)", () => {
+			const yaml = `
+views:
+  - type: table
+    name: Family via string
+    filters:
+      and:
+        - categories.toString().contains("Family")
+    order: [file.name, categories]
+`;
+			const result = executeBaseQuery(yaml, notes);
+			expect(result.views[0].rows).toHaveLength(1);
+		});
+
+		it("evaluates date formulas on published date strings", () => {
+			const yaml = `
+formulas:
+  bornyear: if(born, born.format("YYYY"), "no born value")
+  born_string: born.toString()
+views:
+  - type: table
+    name: Formulas
+    filters:
+      and:
+        - file.inFolder("References")
+    order: [file.name, formula.bornyear, formula.born_string]
+`;
+			const result = executeBaseQuery(yaml, notes);
+			const row = result.views[0].rows[0];
+			expect(row.__formulas.bornyear).toBe("1707");
+			expect(row.__formulas.born_string).toBe("1707-04-17");
+		});
+
+		it("returns the else branch of if() when the property is missing", () => {
+			const yaml = `
+formulas:
+  bornyear: if(born, born.format("YYYY"), "no born value")
+views:
+  - type: table
+    name: Missing
+    filters:
+      and:
+        - file.inFolder("notes")
+    order: [file.name, formula.bornyear]
+`;
+			const result = executeBaseQuery(yaml, notes);
+			expect(result.views[0].rows[0].__formulas.bornyear).toBe(
+				"no born value",
+			);
+		});
+
+		it("sorts by date-typed properties", () => {
+			const older = {
+				path: "References/Older",
+				url: "/references/older/",
+				metadata: { "dg-note-properties": { born: "1650-01-02" } },
+				fileSlug: "older",
+			};
+			const yaml = `
+views:
+  - type: table
+    name: Sorted
+    filters:
+      and:
+        - born.isTruthy()
+    sort:
+      - property: born
+        direction: ASC
+`;
+			const result = executeBaseQuery(yaml, [grapelNote, older]);
+			expect(result.views[0].rows.map((r) => r.path)).toEqual([
+				"References/Older",
+				"References/Hans Grapel",
+			]);
+		});
+	});
+
+	// Regression test for github.com/oleeskild/digitalgarden/issues/384
+	describe("list equality in cards filters (issue 384)", () => {
+		const notes = [
+			{
+				path: "Recipes/Lasagna",
+				url: "/recipes/lasagna/",
+				metadata: {
+					"dg-note-properties": {
+						Type: ["Dinner"],
+						image: "https://example.com/lasagna.jpg",
+					},
+				},
+				fileSlug: "lasagna",
+			},
+			{
+				path: "Recipes/Tacos",
+				url: "/recipes/tacos/",
+				metadata: {
+					"dg-note-properties": { Type: "Dinner", image: "[[taco.jpg]]" },
+				},
+				fileSlug: "tacos",
+			},
+			{
+				path: "Recipes/Cereal",
+				url: "/recipes/cereal/",
+				metadata: {
+					"dg-note-properties": { Type: ["Breakfast"] },
+				},
+				fileSlug: "cereal",
+			},
+		];
+
+		it("matches list-typed and scalar-typed properties against a list literal", () => {
+			const yaml = `
+filters: file.inFolder("Recipes")
+views:
+  - type: cards
+    name: Dinner
+    filters:
+      and:
+        - file.ext == "md"
+        - Type == ["Dinner"]
+    order:
+      - file.name
+    image: note.image
+`;
+			const result = executeBaseQuery(yaml, notes);
+			expect(result.views[0].rows.map((r) => r.fileSlug).sort()).toEqual([
+				"lasagna",
+				"tacos",
+			]);
+		});
+	});
 });
