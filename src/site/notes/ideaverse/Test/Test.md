@@ -21,7 +21,7 @@ views:
     name: B date columns
     filters:
       and:
-        - file.inFolder("References")
+        - file.inFolder("ideaverse/References")
     order:
       - file.name
       - born
