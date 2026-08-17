@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { renderViews } from "../views.js";
+import { renderViews, formatCellValue } from "../views.js";
 import { createImageIndex } from "../imageIndex.js";
 
 // Mock query result helpers
@@ -991,5 +991,39 @@ describe("renderViews", () => {
 				'class="internal-link is-unresolved">Missing Person</a>',
 			);
 		});
+	});
+});
+
+describe("formatCellValue date rendering", () => {
+	const row = { url: "/notes/test/", metadata: {} };
+
+	it("keeps a date-only string date-only in the human-date span", () => {
+		const html = formatCellValue("1707-04-17", "born", row);
+		expect(html).toBe('<span class="human-date" data-date="1707-04-17"></span>');
+	});
+
+	it("keeps time in a datetime string", () => {
+		const html = formatCellValue("2024-01-15T14:30:00Z", "meeting", row);
+		expect(html).toBe(
+			'<span class="human-date" data-date="2024-01-15T14:30:00Z"></span>',
+		);
+	});
+
+	it("renders a UTC-midnight Date (YAML date-only) as a date-only value", () => {
+		// js-yaml parses unquoted `born: 1707-04-17` to a Date at UTC midnight
+		const html = formatCellValue(new Date("1707-04-17T00:00:00.000Z"), "born", row);
+		expect(html).toBe('<span class="human-date" data-date="1707-04-17"></span>');
+	});
+
+	it("renders a local-midnight Date (coerceDate output) as a date-only value", () => {
+		const html = formatCellValue(new Date(2024, 0, 15), "born", row);
+		expect(html).toBe('<span class="human-date" data-date="2024-01-15"></span>');
+	});
+
+	it("keeps full ISO for a Date with a real time component", () => {
+		const html = formatCellValue(new Date("2024-01-15T14:30:00.000Z"), "meeting", row);
+		expect(html).toBe(
+			'<span class="human-date" data-date="2024-01-15T14:30:00.000Z"></span>',
+		);
 	});
 });

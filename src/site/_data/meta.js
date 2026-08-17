@@ -63,6 +63,7 @@ module.exports = async (data) => {
 
   let timestampSettings = {
     timestampFormat: process.env.TIMESTAMP_FORMAT || "MMM dd, yyyy h:mm a",
+    dateFormat: process.env.DATE_FORMAT || "MMM dd, yyyy",
     showCreated: process.env.SHOW_CREATED_TIMESTAMP == "true",
     showUpdated: process.env.SHOW_UPDATED_TIMESTAMP == "true",
   };

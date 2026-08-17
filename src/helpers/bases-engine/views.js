@@ -82,6 +82,36 @@ function isISODate(str) {
 	return ISO_DATE_REGEX.test(str);
 }
 
+/**
+ * Return the YYYY-MM-DD calendar date for a Date that represents a
+ * date-only value, or null if it has a real time component.
+ * Date-only values reach us as UTC midnight (js-yaml parses unquoted
+ * `born: 1707-04-17` that way) or local midnight (coerceDate in
+ * exprEval builds dates in local time to match Obsidian). Serializing
+ * them with toISOString() would let the client's timezone conversion
+ * shift the displayed day and append a spurious midnight timestamp.
+ */
+function dateOnlyString(date) {
+	if (
+		date.getUTCHours() === 0 &&
+		date.getUTCMinutes() === 0 &&
+		date.getUTCSeconds() === 0 &&
+		date.getUTCMilliseconds() === 0
+	) {
+		return date.toISOString().slice(0, 10);
+	}
+	if (
+		date.getHours() === 0 &&
+		date.getMinutes() === 0 &&
+		date.getSeconds() === 0 &&
+		date.getMilliseconds() === 0
+	) {
+		const pad = (n) => String(n).padStart(2, "0");
+		return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+	}
+	return null;
+}
+
 // --- Helper functions ---
 
 /**
@@ -272,7 +302,8 @@ function formatCellValue(value, column, row) {
 		if (value._basesType === "now") {
 			return '<span class="bases-dynamic-date" data-type="now"></span>';
 		}
-		return `<span class="human-date" data-date="${escapeHtml(value.toISOString())}"></span>`;
+		const dateOnly = dateOnlyString(value);
+		return `<span class="human-date" data-date="${escapeHtml(dateOnly || value.toISOString())}"></span>`;
 	}
 
 	return escapeHtml(String(value));
