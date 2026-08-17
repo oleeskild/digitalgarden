@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/collection/using-ai-with-your-second-brain/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":null}}
+{"dg-publish":true,"permalink":"/ideaverse/collection/using-ai-with-your-second-brain/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":null,"provenance":"alec"}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[ideaverse/Collection/Digital Garden\|Digital Garden]] 

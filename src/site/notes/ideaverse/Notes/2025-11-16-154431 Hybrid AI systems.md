@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/notes/2025-11-16-154431-hybrid-ai-systems/","title":"2025-11-16-154431 Hybrid AI systems","dg-note-properties":{"title":"2025-11-16-154431 Hybrid AI systems","description":null,"aliases":["hybrid AI systems"],"reference":null,"created":"2025-11-16"}}
+{"dg-publish":true,"permalink":"/ideaverse/notes/2025-11-16-154431-hybrid-ai-systems/","title":"2025-11-16-154431 Hybrid AI systems","dg-note-properties":{"title":"2025-11-16-154431 Hybrid AI systems","description":null,"aliases":["hybrid AI systems"],"reference":null,"created":"2025-11-16","categories":["[[ideaverse/Collection/System architecture]]","[[ideaverse/Collection/Garden]]"],"provenance":"collaborative"}}
 ---
 
  <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[ideaverse/Collection/Digital Garden\|Digital Garden]] 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/collection/notebook-diary-post-2025-08-21-dg/","dg-note-properties":{"aliases":["My second brain part 1"],"source":null,"created":"2025-08-21","categories":["[[ideaverse/Collection/Garden]]"]}}
+{"dg-publish":true,"permalink":"/ideaverse/collection/notebook-diary-post-2025-08-21-dg/","dg-note-properties":{"aliases":["My second brain part 1"],"source":null,"created":"2025-08-21","categories":["[[ideaverse/Collection/Garden]]"],"provenance":"alec"}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[ideaverse/Collection/Digital Garden\|Digital Garden]]

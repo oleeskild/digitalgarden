@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/collection/the-bbc-hungarian-service/","dg-note-properties":{"created":"2026-01-28","categories":["[[ideaverse/References/Stanley Victor James Chambers]]","[[ideaverse/Projects/The Hungary File/The Hungary File - 00 Contents]]","[[ideaverse/Collection/Garden]]"],"aliases":["Victor Chambers and the BBC Hungarian Service"]}}
+{"dg-publish":true,"permalink":"/ideaverse/collection/the-bbc-hungarian-service/","dg-note-properties":{"created":"2026-01-28","categories":["[[ideaverse/References/Stanley Victor James Chambers]]","[[ideaverse/Projects/The Hungary File/The Hungary File - 00 Contents]]","[[ideaverse/Collection/Garden]]"],"aliases":["Victor Chambers and the BBC Hungarian Service"],"provenance":"collaborative"}}
 ---
 
 [[ideaverse/Collection/Victor Chambers\|Victor Chambers]]

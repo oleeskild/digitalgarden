@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/collection/victor-chambers/","dg-note-properties":{"created":"2026-01-28","categories":["[[ideaverse/References/Stanley Victor James Chambers]]","[[ideaverse/Projects/The Hungary File/The Hungary File - 00 Contents]]","[[ideaverse/Collection/Garden]]"],"aliases":["Victor Chambers Biography"]}}
+{"dg-publish":true,"permalink":"/ideaverse/collection/victor-chambers/","dg-note-properties":{"created":"2026-01-28","categories":["[[ideaverse/References/Stanley Victor James Chambers]]","[[ideaverse/Projects/The Hungary File/The Hungary File - 00 Contents]]","[[ideaverse/Collection/Garden]]"],"aliases":["Victor Chambers Biography"],"provenance":"collaborative"}}
 ---
 
 # Biography: Stanley Victor James Chambers, OBE (1887–1954)

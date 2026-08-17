@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/collection/victor-chambers-and-the-allied-control-commission/","dg-note-properties":{"created":"2026-01-28","categories":["[[ideaverse/References/Stanley Victor James Chambers]]","[[ideaverse/Projects/The Hungary File/The Hungary File - 00 Contents]]","[[ideaverse/Collection/Garden]]"],"aliases":["Victor Chambers and the Allied Control Commission"]}}
+{"dg-publish":true,"permalink":"/ideaverse/collection/victor-chambers-and-the-allied-control-commission/","dg-note-properties":{"created":"2026-01-28","categories":["[[ideaverse/References/Stanley Victor James Chambers]]","[[ideaverse/Projects/The Hungary File/The Hungary File - 00 Contents]]","[[ideaverse/Collection/Garden]]"],"aliases":["Victor Chambers and the Allied Control Commission"],"provenance":"collaborative"}}
 ---
 
 [[ideaverse/Collection/Victor Chambers\|Victor Chambers]]

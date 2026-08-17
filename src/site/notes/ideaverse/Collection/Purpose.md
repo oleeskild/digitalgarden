@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/collection/purpose/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":null}}
+{"dg-publish":true,"permalink":"/ideaverse/collection/purpose/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":null,"provenance":"alec"}}
 ---
 
 # Reflecting on Purpose

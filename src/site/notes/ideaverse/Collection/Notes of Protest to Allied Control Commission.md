@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/collection/notes-of-protest-to-allied-control-commission/","dg-note-properties":{"created":"2026-01-28","categories":["[[ideaverse/References/Stanley Victor James Chambers]]","[[ideaverse/Projects/The Hungary File/The Hungary File - 00 Contents]]","[[ideaverse/Collection/Garden]]"],"aliases":["Victor Chambers Notes of Protest to Allied Control Commission"]}}
+{"dg-publish":true,"permalink":"/ideaverse/collection/notes-of-protest-to-allied-control-commission/","dg-note-properties":{"created":"2026-01-28","categories":["[[ideaverse/References/Stanley Victor James Chambers]]","[[ideaverse/Projects/The Hungary File/The Hungary File - 00 Contents]]","[[ideaverse/Collection/Garden]]"],"aliases":["Victor Chambers Notes of Protest to Allied Control Commission"],"provenance":"collaborative"}}
 ---
 
 [[ideaverse/Collection/Victor Chambers\|Victor Chambers]] | [[ideaverse/Collection/Victor Chambers and the Allied Control Commission\|Allied Control Commission]]

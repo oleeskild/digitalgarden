@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/collection/values-ethics-culture-and-ethos/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":["values, ethics, culture, and ethos","ethos of caring"]}}
+{"dg-publish":true,"permalink":"/ideaverse/collection/values-ethics-culture-and-ethos/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":["values, ethics, culture, and ethos","ethos of caring"],"provenance":"collaborative"}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[ideaverse/Collection/Digital Garden\|Digital Garden]] 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/collection/what-81-000-people-want-from-ai/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":null}}
+{"dg-publish":true,"permalink":"/ideaverse/collection/what-81-000-people-want-from-ai/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":null,"provenance":"alec"}}
 ---
 
 # What 81,000 People Want from AI

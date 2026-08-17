@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/collection/exploring-a-collaboration/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":["a collaboration"]}}
+{"dg-publish":true,"permalink":"/ideaverse/collection/exploring-a-collaboration/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":["a collaboration"],"provenance":"collaborative"}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[ideaverse/Collection/Digital Garden\|Digital Garden]] 

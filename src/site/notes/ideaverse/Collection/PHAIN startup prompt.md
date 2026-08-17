@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/collection/phain-startup-prompt/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":["startup prompt"]}}
+{"dg-publish":true,"permalink":"/ideaverse/collection/phain-startup-prompt/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":["startup prompt"],"provenance":"collaborative"}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[ideaverse/Collection/Digital Garden\|Digital Garden]] 

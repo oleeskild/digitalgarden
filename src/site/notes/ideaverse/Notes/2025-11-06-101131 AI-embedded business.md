@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/notes/2025-11-06-101131-ai-embedded-business/","title":"2025-11-06-101131 AI-embedded business","dg-note-properties":{"title":"2025-11-06-101131 AI-embedded business","description":null,"aliases":["AI-embedded business"],"reference":null,"created":"2025-11-06"}}
+{"dg-publish":true,"permalink":"/ideaverse/notes/2025-11-06-101131-ai-embedded-business/","title":"2025-11-06-101131 AI-embedded business","dg-note-properties":{"title":"2025-11-06-101131 AI-embedded business","description":null,"aliases":["AI-embedded business"],"reference":null,"created":"2025-11-06","categories":["[[ideaverse/Collection/Anapoly]]","[[ideaverse/Collection/Garden]]"],"provenance":"alec"}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[ideaverse/Collection/Digital Garden\|Digital Garden]] 

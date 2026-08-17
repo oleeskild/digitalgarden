@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/collection/a-local-llm/","dg-note-properties":{"aliases":["a local LLM"],"source":null,"created":"2025-08-25","categories":["[[ideaverse/Collection/Garden]]"]}}
+{"dg-publish":true,"permalink":"/ideaverse/collection/a-local-llm/","dg-note-properties":{"aliases":["a local LLM"],"source":null,"created":"2025-08-25","categories":["[[ideaverse/Collection/Garden]]"],"provenance":"collaborative"}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[ideaverse/Collection/Digital Garden\|Digital Garden]]

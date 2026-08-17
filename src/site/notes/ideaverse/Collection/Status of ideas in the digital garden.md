@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/collection/status-of-ideas-in-the-digital-garden/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":["Status"]}}
+{"dg-publish":true,"permalink":"/ideaverse/collection/status-of-ideas-in-the-digital-garden/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":["Status"],"provenance":"alec"}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[ideaverse/Collection/Digital Garden\|Digital Garden]] 

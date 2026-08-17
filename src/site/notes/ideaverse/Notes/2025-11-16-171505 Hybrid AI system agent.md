@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/notes/2025-11-16-171505-hybrid-ai-system-agent/","title":"2025-11-16-171505 Hybrid AI system agent","dg-note-properties":{"title":"2025-11-16-171505 Hybrid AI system agent","description":null,"aliases":["agent"],"reference":null,"created":"2025-11-16"}}
+{"dg-publish":true,"permalink":"/ideaverse/notes/2025-11-16-171505-hybrid-ai-system-agent/","title":"2025-11-16-171505 Hybrid AI system agent","dg-note-properties":{"title":"2025-11-16-171505 Hybrid AI system agent","description":null,"aliases":["agent"],"reference":null,"created":"2025-11-16","categories":["[[ideaverse/Collection/System architecture]]","[[ideaverse/Collection/Garden]]"],"provenance":"peka"}}
 ---
 
  <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[ideaverse/Collection/Digital Garden\|Digital Garden]] 

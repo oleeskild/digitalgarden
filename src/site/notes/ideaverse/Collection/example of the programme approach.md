@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/collection/example-of-the-programme-approach/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":["policy framework example"]}}
+{"dg-publish":true,"permalink":"/ideaverse/collection/example-of-the-programme-approach/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":["policy framework example"],"provenance":"collaborative"}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[ideaverse/Collection/Digital Garden\|Digital Garden]] 

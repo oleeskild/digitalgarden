@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/collection/example-of-the-project-approach/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":["staff onboarding procedure"]}}
+{"dg-publish":true,"permalink":"/ideaverse/collection/example-of-the-project-approach/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":["staff onboarding procedure"],"provenance":"collaborative"}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[ideaverse/Collection/Digital Garden\|Digital Garden]] 

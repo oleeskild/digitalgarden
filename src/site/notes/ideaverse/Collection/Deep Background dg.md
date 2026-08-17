@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/collection/deep-background-dg/","dg-note-properties":{"created":"2026-03-08","categories":["[[ideaverse/References/Mike Caulfield]]","[[ideaverse/Collection/Prompts]]","[[ideaverse/Collection/Fact checking]]","[[ideaverse/Collection/Garden]]"]}}
+{"dg-publish":true,"permalink":"/ideaverse/collection/deep-background-dg/","dg-note-properties":{"created":"2026-03-08","categories":["[[ideaverse/References/Mike Caulfield]]","[[ideaverse/Collection/Prompts]]","[[ideaverse/Collection/Fact checking]]","[[ideaverse/Collection/Garden]]"],"provenance":"external","source":"https://checkplease.neocities.org"}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[ideaverse/Collection/Digital Garden\|Digital Garden]] 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/collection/what-is-context/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":["context"]}}
+{"dg-publish":true,"permalink":"/ideaverse/collection/what-is-context/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":["context"],"provenance":"alec"}}
 ---
 
 ,<a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[ideaverse/Collection/Digital Garden\|Digital Garden]] 

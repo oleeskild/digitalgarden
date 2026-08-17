@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/notes/local-only-ai/","dg-note-properties":{"created":"2025-12-31","categories":["[[ideaverse/References/Local AI]]"]}}
+{"dg-publish":true,"permalink":"/ideaverse/notes/local-only-ai/","dg-note-properties":{"created":"2025-12-31","categories":["[[ideaverse/References/Local AI]]"],"provenance":"alec"}}
 ---
 
 Cloud-based AIs (ChatGPT, Gemini, Claude, etc) are powerful but have drawbacks: they require per-user subscriptions, involve putting one's data into the cloud, and cannot be used off-line. We can avoid these drawbacks by running the AI locally, and recent developments make this an increasingly practicable option.

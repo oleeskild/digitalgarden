@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/ideaverse/collection/refined-key-questions-for-the-literature-review/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":["key questions for the literature review"]}}
+{"dg-publish":true,"permalink":"/ideaverse/collection/refined-key-questions-for-the-literature-review/","dg-note-properties":{"categories":["[[ideaverse/Collection/Garden]]"],"aliases":["key questions for the literature review"],"provenance":"collaborative"}}
 ---
 
 <a href="https://anapoly.co.uk/labs">Anapoly Notebook</a> | [[ideaverse/Collection/Digital Garden\|Digital Garden]] 
