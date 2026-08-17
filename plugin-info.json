@@ -28,18 +28,7 @@
         "vercel.json",
         "netlify.toml",
         "src/site/_includes/layouts/random.njk",
-        "src/site/random.md",
-        "src/helpers/bases-engine/index.js",
-        "src/helpers/bases-engine/exprParser.js",
-        "src/helpers/bases-engine/exprEval.js",
-        "src/helpers/bases-engine/queryEngine.js",
-        "src/helpers/bases-engine/views.js",
-        "src/helpers/bases-engine/imageIndex.js",
-        "src/helpers/bases-engine/noteLinks.js",
-        "src/helpers/bases-engine/noteMetadata.js",
-        "src/helpers/basesPlugin.js",
-        "src/site/_includes/components/basesScript.njk",
-        "src/site/styles/obsidian-bases.scss"
+        "src/site/random.md"
     ],
     "filesToModify": [
         ".eleventy.js",
@@ -83,6 +72,17 @@
         "src/site/get-theme.js",
         "src/site/_data/eleventyComputed.js",
         "src/site/graph.njk",
-        "src/site/search-index.njk"
+        "src/site/search-index.njk",
+        "src/helpers/bases-engine/index.js",
+        "src/helpers/bases-engine/exprParser.js",
+        "src/helpers/bases-engine/exprEval.js",
+        "src/helpers/bases-engine/queryEngine.js",
+        "src/helpers/bases-engine/views.js",
+        "src/helpers/bases-engine/imageIndex.js",
+        "src/helpers/bases-engine/noteLinks.js",
+        "src/helpers/bases-engine/noteMetadata.js",
+        "src/helpers/basesPlugin.js",
+        "src/site/_includes/components/basesScript.njk",
+        "src/site/styles/obsidian-bases.scss"
     ]
 }
