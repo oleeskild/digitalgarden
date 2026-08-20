@@ -8,7 +8,7 @@
         "dev": "npm-run-all get-theme build:sass --parallel watch:*",
         "watch:sass": "sass --watch src/site/styles:dist/styles",
         "watch:eleventy": "cross-env ELEVENTY_ENV=dev eleventy --serve",
-        "build:eleventy": "cross-env ELEVENTY_ENV=prod UV_THREADPOOL_SIZE=16 NODE_OPTIONS=--max-old-space-size=2048 eleventy",
+        "build:eleventy": "cross-env ELEVENTY_ENV=prod UV_THREADPOOL_SIZE=16 NODE_OPTIONS=--max-old-space-size=3072 eleventy",
         "build:sass": "sass src/site/styles:dist/styles --style compressed",
         "get-theme": "node src/site/get-theme.js",
         "build": "npm-run-all get-theme build:*",
