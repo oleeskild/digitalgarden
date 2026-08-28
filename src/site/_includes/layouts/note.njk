@@ -6,6 +6,8 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
   <head>
     <title>{% if title %}{{ title }}{% else %}{{ page.fileSlug }}{% endif %}</title>
     {%include "components/pageheader.njk"%}
+    {% set slotName = "common.head" %}{% include "components/pluginSlot.njk" %}
+    {% set slotName = "notes.head" %}{% include "components/pluginSlot.njk" %}
     {% for imp in dynamics.common.head %}
       {% include imp %}
     {% endfor %}
@@ -15,16 +17,10 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
   </head>
   <body class="theme-{{meta.baseTheme}} markdown-preview-view markdown-rendered markdown-preview-section {% if settings.dgShowFileTree !== true %}no-filetree{% endif %} {% if settings.dgHomeLink === true and settings.dgShowFileTree !== true %}has-navbar{% endif %} {{meta.bodyClasses}}">
     {%include "components/notegrowthhistory.njk"%}
-    
-    {% if settings.dgShowFileTree !== true %}
-      {%include "components/navbar.njk"%}
-    {%else%}
-      {%include "components/filetree.njk"%}
-    {% endif %}
 
-    {% if settings.dgEnableSearch === true %}
-      {%include "components/searchContainer.njk"%}
-    {% endif %}
+    {% set regionName = "navigation" %}
+    {% set regionFallback = "components/navbar.njk" %}
+    {% include "components/pluginRegion.njk" %}
 
     <main class="content cm-s-obsidian print {{contentClasses}}">
       <header>
@@ -36,24 +32,16 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
             <div class="header-tags">
               {% for tag in tags %}
                 {% if tag != 'gardenEntry' and tag !='note' %}
-                  <a class="tag" onclick="toggleTagSearch(this)">
+                  <a class="tag">
                     #{{tag}}
                   </a>
                 {% endif %}
               {% endfor %}
             </div>
           {% endif %}
-          {%- if meta.timestampSettings.showCreated or meta.timestampSettings.showUpdated -%}
-          <div class="timestamps">
-            {%- if meta.timestampSettings.showCreated and created -%}
-            <div><i data-lucide="calendar-plus"></i> <span class="human-date" data-date="{{created}}"></span></div>
-            {%- endif -%}
-            {%- if meta.timestampSettings.showUpdated and updated -%}
-            <div><i data-lucide="calendar-clock"></i> <span class="human-date" data-date="{{updated}}"></span></div>
-            {%- endif -%}
-          </div>
-          {%- endif -%}
         </div>
+      {% set slotName = "common.header" %}{% include "components/pluginSlot.njk" %}
+      {% set slotName = "notes.header" %}{% include "components/pluginSlot.njk" %}
       {% for imp in dynamics.common.header %}
         {% include imp %}
       {% endfor %}
@@ -61,6 +49,8 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
         {% include imp %}
       {% endfor %}
       </header>
+      {% set slotName = "common.beforeContent" %}{% include "components/pluginSlot.njk" %}
+      {% set slotName = "notes.beforeContent" %}{% include "components/pluginSlot.njk" %}
       {% for imp in dynamics.common.beforeContent %}
         {% include imp %}
       {% endfor %}
@@ -68,6 +58,8 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
         {% include imp %}
       {% endfor %}
       {{ content | hideDataview | taggify | link | resolveMdLinks | safe}}
+      {% set slotName = "common.afterContent" %}{% include "components/pluginSlot.njk" %}
+      {% set slotName = "notes.afterContent" %}{% include "components/pluginSlot.njk" %}
       {% for imp in dynamics.common.afterContent %}
         {% include imp %}
       {% endfor %}
@@ -76,15 +68,13 @@ permalink: "notes/{{ page.fileSlug | slugify }}/"
       {% endfor %}
     </main>
 
-    {% if settings.dgShowBacklinks === true or settings.dgShowLocalGraph === true or settings.dgShowToc === true or dynamics.sidebar.top.length > 0 or dynamics.sidebar.bottom.length > 0%}
+    {% if settings.dgShowBacklinks === true or settings.dgShowLocalGraph === true or settings.dgShowToc === true or dynamics.sidebar.top.length > 0 or dynamics.sidebar.bottom.length > 0 or plugins.slots["sidebar.top"] or plugins.slots["sidebar.bottom"] %}
       {%include "components/sidebar.njk"%}
     {% endif %}
 
-    {% if settings.dgLinkPreview === true %}
-      {%include "components/linkPreview.njk"%}
-    {% endif %}
     {% include "components/references.njk" %}
-    {% include "components/timestamps.njk" %}
+    {% set slotName = "common.footer" %}{% include "components/pluginSlot.njk" %}
+    {% set slotName = "notes.footer" %}{% include "components/pluginSlot.njk" %}
     {% for imp in dynamics.common.footer %}
       {% include imp %}
     {% endfor %}

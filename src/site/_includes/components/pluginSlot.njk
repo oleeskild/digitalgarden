@@ -1,0 +1,21 @@
+{#
+  Renders every enabled plugin's templates for one slot. Usage from a layout
+  or component (Nunjucks includes share scope, so slotName is visible here):
+
+    {% set slotName = "notes.footer" %}{% include "components/pluginSlot.njk" %}
+
+  Slot templates are copies synced into _includes/plugins/ by the plugin
+  loader, so they receive the full data cascade like any other include,
+  plus pluginSettings — the rendering plugin's own resolved settings.
+  pluginSettings is bound as a loop variable (frame-local) rather than via
+  {% set %}: sets inside included templates leak into the includer's
+  context in Nunjucks, which would let one plugin's binding clobber
+  another's when slots render nested inside a plugin template.
+#}
+{%- if plugins and plugins.slots[slotName] -%}
+  {%- for pluginSlotEntry in plugins.slots[slotName] -%}
+    {%- for pluginSettings in [plugins.settings[pluginSlotEntry.pluginId]] -%}
+      {% include pluginSlotEntry.file %}
+    {%- endfor -%}
+  {%- endfor -%}
+{%- endif -%}

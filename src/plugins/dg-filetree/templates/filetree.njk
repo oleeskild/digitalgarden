@@ -1,4 +1,7 @@
-{% macro menuItem(fileOrFolderName, fileOrFolder, step, currentPath) %}
+{% if settings.dgShowFileTree !== true %}
+  {% include "components/navbar.njk" %}
+{% else %}
+  {% macro menuItem(fileOrFolderName, fileOrFolder, step, currentPath) %}
     {%if fileOrFolder.isNote or fileOrFolder.isFolder%}
         <div x-show="isOpen" style="display:none" class="{{'filelist' if step>0}}">
             {%if fileOrFolder.isNote and not fileOrFolder.hide %}
@@ -20,15 +23,36 @@
         </div>
         {%endif%}
     {% endmacro %}
-    
+
     <div x-init="isDesktop = (window.innerWidth>=1000) ? true: false;"
             x-on:resize.window="isDesktop = (window.innerWidth>=1000) ? true : false;"
             x-data="{isDesktop: true, showFilesMobile: false}">
 
         <div x-show.important="!isDesktop" style="display: none;">
-            {%include "components/filetreeNavbar.njk"%}
+            <nav class="navbar">
+                <div class="navbar-inner">
+                    <span style="font-size: 1.5rem; margin-right: 10px;" @click="showFilesMobile=!showFilesMobile"><i  data-lucide="menu"></i></span>
+                    {% for imp in dynamics.filetree.beforeTitle %}
+                        {% include imp %}
+                    {% endfor %}
+                    {% if meta.siteLogoPath %}
+                    <a href="/" style="text-decoration: none; flex: 1; display: flex; justify-content: center;">
+                            <img class="site-logo" src="{{meta.siteLogoPath}}" alt="{{meta.siteName}}">
+                    </a>
+                    {% else %}
+                    <a href="/" style="text-decoration: none; text-align: center;">
+                            <h1 style="margin: 15px !important;">{{meta.siteName}}</h1>
+                    </a>
+                    {% endif %}
+                    {% for imp in dynamics.filetree.afterTitle %}
+                        {% include imp %}
+                    {% endfor %}
+                </div>
+
+                {% set slotName = "navbar.actions" %}{% include "components/pluginSlot.njk" %}
+            </nav>
         </div>
-        
+
         <div x-show="showFilesMobile && !isDesktop" @click="showFilesMobile = false" style="display:none;" class="fullpage-overlay"></div>
 
       <div class="filetree-wrapper" x-show.important="isDesktop || showFilesMobile" style="display: none;">
@@ -48,9 +72,7 @@
          {% for imp in dynamics.filetree.afterTitle %}
             {% include imp %}
         {% endfor %}
-        {% if settings.dgEnableSearch === true%}
-            {% include "components/searchButton.njk" %}
-        {%endif%}
+        {% set slotName = "filetree.actions" %}{% include "components/pluginSlot.njk" %}
          <div class="folder" x-data="{isOpen: true}">
                {%- for fileOrFolderName, fileOrFolder in filetree -%}
                   {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
@@ -59,3 +81,4 @@
       </nav>
       </div>
     </div>
+{% endif %}

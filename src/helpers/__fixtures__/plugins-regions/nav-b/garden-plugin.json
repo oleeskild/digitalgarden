@@ -1,0 +1,8 @@
+{
+  "id": "nav-b",
+  "name": "Nav B",
+  "version": "1.0.0",
+  "description": "Second region claimant",
+  "author": "Fixture",
+  "regions": { "navigation": "templates/nav.njk" }
+}

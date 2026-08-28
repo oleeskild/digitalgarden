@@ -9,14 +9,10 @@
                 {% endif %}
             </a>
         </div>
-        {% if settings.dgEnableSearch === true%}
-            {% include "components/searchButton.njk" %}
-        {%endif%}
+        {% set slotName = "navbar.actions" %}{% include "components/pluginSlot.njk" %}
     </nav>
     {%else%}
     <div class="empty-navbar" >
-        {% if settings.dgEnableSearch === true%}
-            {% include "components/searchButton.njk" %}
-        {%endif%}
+        {% set slotName = "navbar.actions" %}{% include "components/pluginSlot.njk" %}
     </div>
 {%endif%}

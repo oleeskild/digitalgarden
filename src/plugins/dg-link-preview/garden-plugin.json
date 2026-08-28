@@ -1,0 +1,11 @@
+{
+  "id": "dg-link-preview",
+  "name": "Link Preview",
+  "version": "1.0.0",
+  "description": "Shows a hover preview tooltip for internal links.",
+  "author": "Ole Eskild Steensen",
+  "slots": {
+    "common.footer": "templates/linkPreview.njk"
+  },
+  "noteSettings": ["dgLinkPreview"]
+}

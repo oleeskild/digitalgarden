@@ -1,0 +1,14 @@
+{
+  "id": "dg-search",
+  "name": "Search",
+  "version": "1.0.0",
+  "description": "Full text search with previews, powered by FlexSearch.",
+  "author": "Ole Eskild Steensen",
+  "hooks": "index.js",
+  "slots": {
+    "common.footer": "templates/searchContainer.njk",
+    "navbar.actions": "templates/searchButton.njk",
+    "filetree.actions": "templates/searchButton.njk"
+  },
+  "noteSettings": ["dgEnableSearch"]
+}

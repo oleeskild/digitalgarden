@@ -1,0 +1,11 @@
+{
+  "id": "dg-filetree",
+  "name": "File Tree",
+  "version": "1.0.0",
+  "description": "Sidebar navigation showing your notes as a collapsible folder tree.",
+  "author": "Ole Eskild Steensen",
+  "regions": {
+    "navigation": "templates/filetree.njk"
+  },
+  "noteSettings": ["dgShowFileTree"]
+}

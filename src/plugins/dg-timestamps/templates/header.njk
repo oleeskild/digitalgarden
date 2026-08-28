@@ -1,0 +1,10 @@
+{%- if pluginSettings.showCreated or pluginSettings.showUpdated -%}
+<div class="timestamps">
+  {%- if pluginSettings.showCreated and created -%}
+  <div><i data-lucide="calendar-plus"></i> <span class="human-date" data-date="{{created}}"></span></div>
+  {%- endif -%}
+  {%- if pluginSettings.showUpdated and updated -%}
+  <div><i data-lucide="calendar-clock"></i> <span class="human-date" data-date="{{updated}}"></span></div>
+  {%- endif -%}
+</div>
+{%- endif -%}

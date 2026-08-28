@@ -1,7 +1,8 @@
+{%- if pluginSettings.showCreated or pluginSettings.showUpdated -%}
 <script src=" https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js "></script>
 <script defer>
-  TIMESTAMP_FORMAT = "{{meta.timestampSettings.timestampFormat}}";
-  DATE_FORMAT = "{{meta.timestampSettings.dateFormat}}";
+  TIMESTAMP_FORMAT = "{{pluginSettings.timestampFormat}}";
+  DATE_FORMAT = "{{pluginSettings.dateFormat}}";
   document.querySelectorAll('.human-date').forEach(function (el) {
     // One malformed date must not abort formatting of the remaining dates
     try {
@@ -25,3 +26,4 @@
     } catch (e) {}
   })
 </script>
+{%- endif -%}

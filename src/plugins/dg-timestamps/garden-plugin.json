@@ -1,0 +1,45 @@
+{
+  "id": "dg-timestamps",
+  "name": "Timestamps",
+  "version": "1.0.0",
+  "description": "Shows created/updated timestamps in the note header.",
+  "author": "Ole Eskild Steensen",
+  "slots": {
+    "notes.header": "templates/header.njk",
+    "notes.footer": "templates/formatter.njk"
+  },
+  "settings": [
+    {
+      "key": "showCreated",
+      "name": "Show created timestamp",
+      "description": "Show the note's created date in the header.",
+      "type": "boolean",
+      "default": false,
+      "env": "SHOW_CREATED_TIMESTAMP"
+    },
+    {
+      "key": "showUpdated",
+      "name": "Show updated timestamp",
+      "description": "Show the note's updated date in the header.",
+      "type": "boolean",
+      "default": false,
+      "env": "SHOW_UPDATED_TIMESTAMP"
+    },
+    {
+      "key": "timestampFormat",
+      "name": "Timestamp format",
+      "description": "Luxon format string for values with a time component.",
+      "type": "text",
+      "default": "MMM dd, yyyy h:mm a",
+      "env": "TIMESTAMP_FORMAT"
+    },
+    {
+      "key": "dateFormat",
+      "name": "Date format",
+      "description": "Luxon format string for date-only values.",
+      "type": "text",
+      "default": "MMM dd, yyyy",
+      "env": "DATE_FORMAT"
+    }
+  ]
+}

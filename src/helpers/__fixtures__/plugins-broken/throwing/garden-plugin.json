@@ -1,0 +1,8 @@
+{
+  "id": "throwing",
+  "name": "Throwing",
+  "version": "1.0.0",
+  "description": "hooks that throw",
+  "author": "Fixture",
+  "hooks": "index.js"
+}

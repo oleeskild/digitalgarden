@@ -1,0 +1,8 @@
+{
+  "id": "dg-math",
+  "name": "Math",
+  "version": "1.0.0",
+  "description": "Renders $inline$ and $$block$$ math with MathJax.",
+  "author": "Ole Eskild Steensen",
+  "hooks": "index.js"
+}

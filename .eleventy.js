@@ -33,6 +33,7 @@ const {
   userMarkdownSetup,
   userEleventySetup,
 } = require("./src/helpers/userSetup");
+const pluginLoader = require("./src/helpers/pluginLoader");
 const { basesPlugin } = require("./src/helpers/basesPlugin");
 
 const Image = require("@11ty/eleventy-img");
@@ -159,32 +160,8 @@ module.exports = function(eleventyConfig) {
     .use(require("markdown-it-footnote"))
     .use(function(md) {
       md.renderer.rules.hashtag_open = function(tokens, idx) {
-        return '<a class="tag" onclick="toggleTagSearch(this)">';
+        return '<a class="tag">';
       };
-    })
-    .use(require("markdown-it-mathjax3"), {
-      tex: {
-        inlineMath: [["$", "$"]],
-      },
-      options: {
-        skipHtmlTags: { "[-]": ["pre"] },
-      },
-    })
-    .use(function(md) {
-      // mathjax-full 3.2.2 throws on characters outside its operator
-      // dictionary (e.g. "€") — a stray $...€...$ span in prose would
-      // otherwise abort the entire build. Fall back to the raw text.
-      for (const rule of ["math_inline", "math_block"]) {
-        const original = md.renderer.rules[rule];
-        if (!original) continue;
-        md.renderer.rules[rule] = function(tokens, idx, options, env, self) {
-          try {
-            return original(tokens, idx, options, env, self);
-          } catch (e) {
-            return md.utils.escapeHtml(tokens[idx].content);
-          }
-        };
-      }
     })
     .use(require("markdown-it-attrs"))
     .use(require("markdown-it-task-checkbox"), {
@@ -389,6 +366,7 @@ module.exports = function(eleventyConfig) {
         return defaultLinkRule(tokens, idx, options, env, self);
       };
     })
+    .use((md) => pluginLoader.applyMarkdownHooks(md))
     .use(userMarkdownSetup);
 
   eleventyConfig.setLibrary("md", markdownLib);
@@ -450,33 +428,9 @@ module.exports = function(eleventyConfig) {
     return (
       str &&
       str.replace(tagRegex, function(match, precede, tag) {
-        return `${precede}<a class="tag" onclick="toggleTagSearch(this)" data-content="${tag}">${tag}</a>`;
+        return `${precede}<a class="tag" data-content="${tag}">${tag}</a>`;
       })
     );
-  });
-
-  eleventyConfig.addFilter("stripForSearch", function(content) {
-    return content
-      .replace(/<[^>]*>/g, '')
-      .replace(/\s+/g, ' ')
-      .trim();
-  });
-
-  eleventyConfig.addFilter("searchableTags", function(str) {
-    let tags;
-    let match = str && str.match(tagRegex);
-    if (match) {
-      tags = match
-        .map((m) => {
-          return `"${m.split("#")[1]}"`;
-        })
-        .join(", ");
-    }
-    if (tags) {
-      return `${tags},`;
-    } else {
-      return "";
-    }
   });
 
   eleventyConfig.addFilter("hideDataview", function(str) {
@@ -711,7 +665,7 @@ module.exports = function(eleventyConfig) {
     return (
       str &&
       str.replace(tagRegex, function(match, precede, tag) {
-        return `${precede}<a class="tag" onclick="toggleTagSearch(this)" data-content="${tag}">${tag}</a>`;
+        return `${precede}<a class="tag" data-content="${tag}">${tag}</a>`;
       })
     );
   }
@@ -849,21 +803,14 @@ module.exports = function(eleventyConfig) {
     return (arr || []).filter((item) => !item.data.hide);
   });
 
-  eleventyConfig.addFilter("validJson", function(variable) {
-    if (Array.isArray(variable)) {
-      return variable.map((x) => x.replaceAll("\\", "\\\\")).join(",");
-    } else if (typeof variable === "string") {
-      return variable.replaceAll("\\", "\\\\");
-    }
-    return variable;
-  });
-
   eleventyConfig.addPlugin(pluginRss, {
     posthtmlRenderOptions: {
       closingSingleTag: "slash",
       singleTags: ["link"],
     },
   });
+
+  pluginLoader.applyEleventyHooks(eleventyConfig);
 
   userEleventySetup(eleventyConfig);
 
