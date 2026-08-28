@@ -9,7 +9,7 @@
 
   The providing plugin's template receives the full data cascade plus
   pluginSettings (its own resolved settings), bound as a frame-local loop
-  variable so nested slot renders can't clobber it. See docs/PLUGINS.md.
+  variable so nested slot renders can't clobber it.
 #}
 {%- if plugins and plugins.regions[regionName] -%}
   {%- for pluginSettings in [plugins.settings[plugins.regions[regionName].pluginId]] -%}

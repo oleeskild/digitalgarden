@@ -202,6 +202,6 @@ From the template/garden checkout:
 - Plugin code runs in the site build and in visitors' browsers — keep it
   small, readable, and dependency-light so users can audit it.
 
-For deeper reference, the template repo has `docs/PLUGINS.md` (author
-guide) and four first-party plugins under `src/plugins/` to read as
-examples — `dg-link-preview` is the smallest.
+For deeper reference, read the first-party plugins under `src/plugins/`
+in the template repo — `dg-link-preview` is the smallest, `dg-search`
+the most complete, and `dg-filetree` the navigation reference.

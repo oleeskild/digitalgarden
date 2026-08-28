@@ -12,7 +12,7 @@
  *
  * Contract: a broken plugin (malformed manifest, unsafe path, throwing hook)
  * must never fail the build — every failure is a console.warn + skip.
- * Plugin docs live in docs/PLUGINS.md.
+ * Plugin docs: https://docs.forestry.md/
  */
 
 const fs = require("fs");

@@ -11,7 +11,6 @@
   {% set %}: sets inside included templates leak into the includer's
   context in Nunjucks, which would let one plugin's binding clobber
   another's when slots render nested inside a plugin template.
-  See docs/PLUGINS.md for the contract.
 #}
 {%- if plugins and plugins.slots[slotName] -%}
   {%- for pluginSlotEntry in plugins.slots[slotName] -%}

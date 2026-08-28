@@ -18,8 +18,8 @@ build-time Eleventy/markdown-it hooks. Core features like search
 (`dg-timestamps`), and math (`dg-math`) are themselves plugins built on
 this API — `dg-link-preview` is the smallest one to read first.
 
-- Writing a plugin: [docs/PLUGINS.md](docs/PLUGINS.md)
-- Installer & community registry contract: [docs/PLUGIN_INSTALLER_SPEC.md](docs/PLUGIN_INSTALLER_SPEC.md)
+- Docs (installing plugins, writing your own): [docs.forestry.md](https://docs.forestry.md/)
+- Reference code: the first-party plugins under [`src/plugins/`](src/plugins/)
 - Building plugins with an AI agent: this repo ships a
   [`garden-plugin-author` skill](skills/garden-plugin-author/SKILL.md) in
   the open [Agent Skills](https://skills.sh) format, teaching agents how
