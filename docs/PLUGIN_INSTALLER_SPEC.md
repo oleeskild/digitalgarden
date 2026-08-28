@@ -5,8 +5,7 @@ user's garden: the Obsidian plugin (to be built into the rewrite), the
 Forestry dashboard, or any other tool. The template side (loader, manifest
 format, slots) is implemented in this repo — see `docs/PLUGINS.md`.
 
-Design principles (borrowed from Obsidian community plugins and Omarchy
-Quattro shell plugins):
+Design principles:
 
 1. **A plugin is a public GitHub repo** with `garden-plugin.json` at its
    root. Installation = fetching files and committing them into the
