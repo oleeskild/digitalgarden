@@ -1,8 +1,4 @@
-// override: the committed .env is the source of truth for site settings (the
-// Obsidian plugin writes it). Hosting dashboards sometimes pre-create empty
-// env vars (e.g. Vercel imports .env.example keys), which would otherwise
-// shadow every value here.
-require("dotenv").config({ override: true });
+require("dotenv").config();
 const settings = require("../../helpers/constants");
 const { pickNoteMetadata } = require("../../helpers/bases-engine/noteMetadata");
 const pluginLoader = require("../../helpers/pluginLoader");
