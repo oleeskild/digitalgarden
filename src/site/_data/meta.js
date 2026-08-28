@@ -61,6 +61,9 @@ module.exports = async (data) => {
     bodyClasses.push(styleSettingsBodyClasses);
   }
 
+  // Deprecated: timestamps are rendered by the dg-timestamps plugin, which
+  // reads these env vars itself. Kept here because user components may
+  // still reference meta.timestampSettings.
   let timestampSettings = {
     timestampFormat: process.env.TIMESTAMP_FORMAT || "MMM dd, yyyy h:mm a",
     dateFormat: process.env.DATE_FORMAT || "MMM dd, yyyy",

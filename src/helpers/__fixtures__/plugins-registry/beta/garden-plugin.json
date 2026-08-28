@@ -1,0 +1,10 @@
+{
+  "id": "beta",
+  "name": "Beta",
+  "version": "1.0.0",
+  "description": "settings from registry",
+  "author": "Fixture",
+  "settings": [
+    { "key": "color", "name": "Color", "type": "text", "default": "red", "env": "BETA_COLOR" }
+  ]
+}

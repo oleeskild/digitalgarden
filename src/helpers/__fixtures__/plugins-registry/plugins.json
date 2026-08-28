@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "plugins": {
+    "alpha": { "enabled": false },
+    "beta": { "enabled": true, "settings": { "color": "blue" } }
+  }
+}

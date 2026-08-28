@@ -1,0 +1,10 @@
+{
+  "id": "aaa-first",
+  "name": "First",
+  "version": "1.0.0",
+  "description": "Ordering fixture",
+  "author": "Fixture",
+  "slots": {
+    "notes.footer": "templates/first.njk"
+  }
+}

@@ -1,6 +1,7 @@
 <aside>
       <div class="sidebar">
             <div class="sidebar-container">
+                  {% set slotName = "sidebar.top" %}{% include "components/pluginSlot.njk" %}
                   {% for imp in dynamics.sidebar.top %}
                         {% include imp %}
                   {% endfor %}
@@ -74,6 +75,7 @@
                               </div>
                         {%endif%}
                   {%endif%}
+                  {% set slotName = "sidebar.bottom" %}{% include "components/pluginSlot.njk" %}
                   {% for imp in dynamics.sidebar.bottom %}
                         {% include imp %}
                   {% endfor %}

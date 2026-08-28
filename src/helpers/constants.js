@@ -1,3 +1,5 @@
+// Core note settings. dgEnableSearch and dgLinkPreview moved to the
+// dg-search / dg-link-preview plugins' manifest "noteSettings".
 exports.ALL_NOTE_SETTINGS = [
   "dgHomeLink",
   "dgPassFrontmatter",
@@ -6,8 +8,6 @@ exports.ALL_NOTE_SETTINGS = [
   "dgShowGraphDepthControl",
   "dgShowInlineTitle",
   "dgShowFileTree",
-  "dgEnableSearch",
   "dgShowToc",
-  "dgLinkPreview",
   "dgShowTags",
 ];

@@ -50,6 +50,12 @@
 {%- for style in dynamics.styles -%}
 <link href="{{style}}?v={{meta.buildDate|isoDate}}" rel="stylesheet">
 {%- endfor -%}
+{%- for style in plugins.styles -%}
+<link href="{{style}}?v={{meta.buildDate|isoDate}}" rel="stylesheet">
+{%- endfor -%}
+{%- for script in plugins.scripts -%}
+<script defer src="{{script}}?v={{meta.buildDate|isoDate}}"></script>
+{%- endfor -%}
 
 {% favicons './.cache/favicon.normalized.svg', appleIconBgColor='#123' %}
 

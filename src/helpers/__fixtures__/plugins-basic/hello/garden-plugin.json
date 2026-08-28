@@ -1,0 +1,19 @@
+{
+  "id": "hello",
+  "name": "Hello",
+  "version": "1.0.0",
+  "description": "Test fixture plugin",
+  "author": "Fixture",
+  "hooks": "index.js",
+  "slots": {
+    "notes.footer": ["templates/footer.njk", "templates/missing.njk"],
+    "bogus.slot": "templates/footer.njk"
+  },
+  "styles": ["styles/hello.scss", "styles/plain.css"],
+  "scripts": ["assets/client.js"],
+  "settings": [
+    { "key": "greeting", "name": "Greeting", "type": "text", "default": "hi", "env": "HELLO_GREETING" },
+    { "key": "fancy", "name": "Fancy", "type": "boolean", "default": false, "env": "HELLO_FANCY" }
+  ],
+  "noteSettings": ["dgHello"]
+}
