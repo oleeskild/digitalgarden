@@ -1,0 +1,18 @@
+{#
+  Renders a replaceable region. Unlike slots (additive), a region has at
+  most one provider: the first enabled plugin claiming it renders instead
+  of the core default. Usage:
+
+    {% set regionName = "navigation" %}
+    {% set regionFallback = "components/navbar.njk" %}
+    {% include "components/pluginRegion.njk" %}
+
+  The providing plugin's template receives the full data cascade plus
+  pluginSettings (its own resolved settings). See docs/PLUGINS.md.
+#}
+{%- if plugins and plugins.regions[regionName] -%}
+  {%- set pluginSettings = plugins.settings[plugins.regions[regionName].pluginId] -%}
+  {% include plugins.regions[regionName].file %}
+{%- elif regionFallback -%}
+  {% include regionFallback %}
+{%- endif -%}

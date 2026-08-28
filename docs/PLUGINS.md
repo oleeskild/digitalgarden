@@ -100,6 +100,35 @@ Ordering within a slot: plugins alphabetically by id, files in manifest
 order — and user components (`src/site/_includes/components/user/…`)
 always render *after* plugin output, so site owners keep the last word.
 
+## Regions
+
+Where slots are additive, a **region** is exclusive: at most one plugin
+provides it, replacing the core's built-in default (like Omarchy's `bar`
+plugin kind replaces the built-in bar). Declare one with:
+
+```jsonc
+"regions": { "navigation": "templates/my-nav.njk" }
+```
+
+| Region | Core default | Replaced by |
+|---|---|---|
+| `navigation` | the navbar (`components/navbar.njk`) | `dg-filetree` (shipped), or any custom navigation plugin |
+
+The first enabled plugin (alphabetically by id) claiming a region wins;
+later claimants are skipped with a warning. To use a custom navigation
+plugin, disable `dg-filetree` in the registry and enable yours. Region
+templates get the full data cascade like slot templates — a custom
+navigation can consume the core `filetree` data (folder tree honoring
+`dg-path`, `pinned`, and the navigation order) or build its own via a
+`setupEleventy` hook. They may also include core components — this is how
+`dg-filetree` falls back to `components/navbar.njk` when
+`dgShowFileTree` is off — and render sub-slots by including
+`components/pluginSlot.njk`.
+
+Note the `no-filetree` / `has-navbar` body classes are driven by the
+core `dgHomeLink` / `dgShowFileTree` flags; a custom navigation plugin
+that needs different layout classes should ship its own CSS.
+
 Slot templates are plain Nunjucks fragments: no front matter, and they
 should gate themselves on their own settings (e.g.
 `{% if settings.dgMyFlag === true %}…{% endif %}`), because the loader

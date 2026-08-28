@@ -53,6 +53,13 @@ const KNOWN_SLOTS = new Set([
   "navbar.actions",
 ]);
 
+/**
+ * Regions are exclusive render sites: the core renders its built-in default
+ * unless exactly one enabled plugin claims the region. Unlike slots (which
+ * are additive), a region has at most one provider.
+ */
+const KNOWN_REGIONS = new Set(["navigation"]);
+
 let cache = null;
 let cacheRoot = null;
 
@@ -163,6 +170,7 @@ function normalizePlugin(root, dirName, manifest, registryEntry) {
   const declaredPaths = [
     ...asArray(manifest.hooks),
     ...Object.values(manifest.slots || {}).flatMap(asArray),
+    ...Object.values(manifest.regions || {}).flatMap(asArray),
     ...asArray(manifest.styles),
     ...asArray(manifest.scripts),
     ...asArray(manifest.assets),
@@ -192,6 +200,19 @@ function normalizePlugin(root, dirName, manifest, registryEntry) {
     if (existing.length > 0) slots[slotName] = existing;
   }
 
+  const regions = {};
+  for (const [regionName, file] of Object.entries(manifest.regions || {})) {
+    if (!KNOWN_REGIONS.has(regionName)) {
+      warn(`${manifest.id}: unknown region "${regionName}"; ignoring it`);
+      continue;
+    }
+    const [existing] = existingOnly(
+      asArray(file).slice(0, 1),
+      `region "${regionName}"`
+    );
+    if (existing) regions[regionName] = existing;
+  }
+
   let hooksPath = null;
   if (manifest.hooks !== undefined) {
     const [hooks] = existingOnly(asArray(manifest.hooks).slice(0, 1), "hooks");
@@ -203,6 +224,7 @@ function normalizePlugin(root, dirName, manifest, registryEntry) {
     dir: pluginDir,
     manifest,
     slots,
+    regions,
     hooksPath,
     styles: existingOnly(asArray(manifest.styles), "style"),
     scripts: existingOnly(asArray(manifest.scripts), "script"),
@@ -350,10 +372,12 @@ function syncSlotTemplates(options) {
 
     const expected = new Map();
     for (const plugin of enabledPlugins(options)) {
-      for (const files of Object.values(plugin.slots)) {
-        for (const file of files) {
-          expected.set(path.join(plugin.id, file), path.join(plugin.dir, file));
-        }
+      const files = [
+        ...Object.values(plugin.slots).flat(),
+        ...Object.values(plugin.regions),
+      ];
+      for (const file of files) {
+        expected.set(path.join(plugin.id, file), path.join(plugin.dir, file));
       }
     }
 
@@ -443,7 +467,14 @@ function getNoteSettingKeys(options) {
  * src/site/_includes, pointing at the copies written by syncSlotTemplates.
  */
 function getTemplateData(options) {
-  const data = { enabled: [], slots: {}, styles: [], scripts: [], settings: {} };
+  const data = {
+    enabled: [],
+    slots: {},
+    regions: {},
+    styles: [],
+    scripts: [],
+    settings: {},
+  };
 
   for (const plugin of enabledPlugins(options)) {
     data.enabled.push(plugin.id);
@@ -457,6 +488,20 @@ function getTemplateData(options) {
           pluginId: plugin.id,
         });
       }
+    }
+
+    for (const [regionName, file] of Object.entries(plugin.regions)) {
+      if (data.regions[regionName]) {
+        warn(
+          `${plugin.id}: region "${regionName}" is already provided by ` +
+            `${data.regions[regionName].pluginId}; ignoring this plugin's template`
+        );
+        continue;
+      }
+      data.regions[regionName] = {
+        file: `plugins/${plugin.id}/${file}`,
+        pluginId: plugin.id,
+      };
     }
 
     for (const style of plugin.styles) {

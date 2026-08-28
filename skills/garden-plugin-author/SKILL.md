@@ -79,6 +79,24 @@ slots render unconditionally.
 Manifest form: `"slots": { "<slot>": "file.njk" }` or a list of files.
 Use `common.footer` for anything with a `<script>` or overlay markup.
 
+## Regions (exclusive replacement)
+
+A region replaces a core UI area instead of adding to it — at most one
+enabled plugin provides each region (first by id wins; conflicts warn).
+Currently: `navigation` (default: the core navbar; the shipped
+`dg-filetree` plugin claims it to render the folder-tree sidebar).
+
+```jsonc
+"regions": { "navigation": "templates/my-nav.njk" }
+```
+
+A custom navigation plugin gets the full data cascade, including the
+core-computed `filetree` data structure, and may include core components
+(e.g. fall back to `{% include "components/navbar.njk" %}`) and render
+sub-slots via `components/pluginSlot.njk`. Users switch navigations by
+disabling `dg-filetree` and enabling yours. Read
+`src/plugins/dg-filetree/` in the template as the reference.
+
 ## Build hooks (`"hooks": "index.js"`)
 
 ```js

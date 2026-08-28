@@ -141,6 +141,70 @@ describe("getTemplateData", () => {
 	});
 });
 
+describe("regions", () => {
+	const REGIONS = fixtureRoot("plugins-regions");
+
+	it("assigns a region to the first enabled plugin and warns on conflict", () => {
+		const data = getTemplateData({ root: REGIONS, force: true });
+
+		expect(data.regions.navigation).toEqual({
+			file: "plugins/nav-a/templates/nav.njk",
+			pluginId: "nav-a",
+		});
+
+		expect(warnSpy).toHaveBeenCalledWith(
+			expect.stringContaining('region "navigation" is already provided'),
+		);
+	});
+
+	it("drops unknown region names but keeps the plugin", () => {
+		const { plugins } = load(REGIONS);
+		const navA = plugins.find((p) => p.id === "nav-a");
+		expect(Object.keys(navA.regions)).toEqual(["navigation"]);
+	});
+
+	it("leaves a region unclaimed when its provider is disabled", () => {
+		const disabledRoot = fixtureRoot("plugins-regions");
+		const fs = require("fs");
+		const registryFile = path.join(disabledRoot, "plugins.json");
+
+		fs.writeFileSync(
+			registryFile,
+			JSON.stringify({
+				version: 1,
+				plugins: { "nav-a": { enabled: false } },
+			}),
+		);
+
+		try {
+			const data = getTemplateData({ root: disabledRoot, force: true });
+
+			expect(data.regions.navigation.pluginId).toBe("nav-b");
+		} finally {
+			fs.rmSync(registryFile);
+		}
+	});
+
+	it("syncs region templates alongside slot templates", () => {
+		const fs = require("fs");
+		const os = require("os");
+
+		const includesRoot = fs.mkdtempSync(
+			path.join(os.tmpdir(), "dg-includes-"),
+		);
+
+		try {
+			syncSlotTemplates({ root: REGIONS, includesRoot });
+
+			expect(
+				fs.existsSync(path.join(includesRoot, "nav-a", "templates", "nav.njk")),
+			).toBe(true);
+		} finally {
+			fs.rmSync(includesRoot, { recursive: true, force: true });
+		}
+	});
+});
+
 describe("syncSlotTemplates", () => {
 	it("copies slot templates for enabled plugins and removes orphans", () => {
 		const includesRoot = fs.mkdtempSync(path.join(os.tmpdir(), "dg-includes-"));
