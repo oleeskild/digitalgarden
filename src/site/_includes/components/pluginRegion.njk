@@ -8,11 +8,13 @@
     {% include "components/pluginRegion.njk" %}
 
   The providing plugin's template receives the full data cascade plus
-  pluginSettings (its own resolved settings). See docs/PLUGINS.md.
+  pluginSettings (its own resolved settings), bound as a frame-local loop
+  variable so nested slot renders can't clobber it. See docs/PLUGINS.md.
 #}
 {%- if plugins and plugins.regions[regionName] -%}
-  {%- set pluginSettings = plugins.settings[plugins.regions[regionName].pluginId] -%}
-  {% include plugins.regions[regionName].file %}
+  {%- for pluginSettings in [plugins.settings[plugins.regions[regionName].pluginId]] -%}
+    {% include plugins.regions[regionName].file %}
+  {%- endfor -%}
 {%- elif regionFallback -%}
   {% include regionFallback %}
 {%- endif -%}
