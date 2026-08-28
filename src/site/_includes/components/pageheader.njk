@@ -47,10 +47,11 @@
 <link href="/styles/digital-garden-base.css" rel="stylesheet">
 
 <link href="/styles/custom-style.css" rel="stylesheet">
-{%- for style in dynamics.styles -%}
+{#- Plugin styles load before user styles so user CSS keeps the last word -#}
+{%- for style in plugins.styles -%}
 <link href="{{style}}?v={{meta.buildDate|isoDate}}" rel="stylesheet">
 {%- endfor -%}
-{%- for style in plugins.styles -%}
+{%- for style in dynamics.styles -%}
 <link href="{{style}}?v={{meta.buildDate|isoDate}}" rel="stylesheet">
 {%- endfor -%}
 {%- for script in plugins.scripts -%}

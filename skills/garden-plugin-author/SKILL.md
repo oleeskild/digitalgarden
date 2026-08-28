@@ -97,6 +97,14 @@ sub-slots via `components/pluginSlot.njk`. Users switch navigations by
 disabling `dg-filetree` and enabling yours. Read
 `src/plugins/dg-filetree/` in the template as the reference.
 
+A navigation plugin MUST render the surfaces other extensions rely on,
+in its own markup: the `navbar.actions` and `filetree.actions` plugin
+slots (the search button lives there), and the site owner's custom
+filetree components —
+`{% for imp in dynamics.filetree.beforeTitle %}{% include imp %}{% endfor %}`
+plus the same for `dynamics.filetree.afterTitle`. `dg-filetree` does
+both; copy its template as the starting point.
+
 ## Build hooks (`"hooks": "index.js"`)
 
 ```js

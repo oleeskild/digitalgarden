@@ -129,6 +129,18 @@ Note the `no-filetree` / `has-navbar` body classes are driven by the
 core `dgHomeLink` / `dgShowFileTree` flags; a custom navigation plugin
 that needs different layout classes should ship its own CSS.
 
+A navigation plugin takes over surfaces other extensions rely on, so it
+should render them in its own markup:
+
+- the `navbar.actions` and `filetree.actions` plugin slots (via
+  `{% set slotName = "…" %}{% include "components/pluginSlot.njk" %}`) —
+  this is where the search button lives;
+- the site owner's own filetree components:
+  `{% for imp in dynamics.filetree.beforeTitle %}{% include imp %}{% endfor %}`
+  and the same for `dynamics.filetree.afterTitle`.
+
+`dg-filetree` does both — copy its template as the starting point.
+
 Slot templates are plain Nunjucks fragments: no front matter, and they
 should gate themselves on their own settings (e.g.
 `{% if settings.dgMyFlag === true %}…{% endif %}`), because the loader
