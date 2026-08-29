@@ -332,6 +332,14 @@ describe("exprEval", () => {
 			expect(evaluate("list(1, 2, 3)", sampleNote)).toEqual([1, 2, 3]);
 		});
 
+		it("date-only string uses local calendar day", () => {
+			const result = evaluate('date("2024-01-15")', sampleNote);
+			expect(result instanceof Date).toBe(true);
+			expect(result.getFullYear()).toBe(2024);
+			expect(result.getMonth()).toBe(0);
+			expect(result.getDate()).toBe(15);
+		});
+
 		it("date() returns Date object", () => {
 			const result = evaluate('date("2024-01-15")', sampleNote);
 			expect(result instanceof Date).toBe(true);
