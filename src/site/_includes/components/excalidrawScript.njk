@@ -1,0 +1,56 @@
+<style>
+  .excalidraw-svg .excalidraw-embedded-note-content {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    /* Same theming as the link preview tooltip, so the note content is
+       styled coherently with the rest of the site */
+    background: var(--background-primary);
+    color: var(--text-normal);
+    padding: 0.5em 1em;
+    font-size: 0.8em;
+    border: 1px solid var(--background-modifier-border, #e3e3e3);
+    border-radius: 4px;
+    box-sizing: border-box;
+    unicode-bidi: plaintext;
+  }
+</style>
+<script>
+  // Embedded notes inside Excalidraw drawings are published as same-origin
+  // iframes of the note's page. Like the link preview tooltip, extract just
+  // the note content from the loaded page and show that instead of the
+  // full framed page with all its UI.
+  window.addEventListener("load", function () {
+    document
+      .querySelectorAll("iframe.excalidraw-embedded-note")
+      .forEach(function (frame) {
+        function showNoteContent() {
+          var doc;
+          try {
+            doc = frame.contentDocument;
+          } catch (e) {
+            return;
+          }
+          if (!doc) return;
+
+          var content = doc.querySelector(".content");
+          if (!content) return;
+
+          var noteDiv = document.createElement("div");
+          noteDiv.className = "excalidraw-embedded-note-content";
+          noteDiv.innerHTML = content.innerHTML;
+          frame.parentNode.replaceChild(noteDiv, frame);
+        }
+
+        if (
+          frame.contentDocument &&
+          frame.contentDocument.readyState === "complete" &&
+          frame.contentDocument.querySelector(".content")
+        ) {
+          showNoteContent();
+        } else {
+          frame.addEventListener("load", showNoteContent);
+        }
+      });
+  });
+</script>

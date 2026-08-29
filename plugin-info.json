@@ -61,6 +61,7 @@
         "src/site/_includes/components/navbar.njk",
         "src/site/_includes/components/calloutScript.njk",
         "src/site/_includes/components/canvasScript.njk",
+        "src/site/_includes/components/excalidrawScript.njk",
         "src/site/_includes/components/lucideIcons.njk",
         "src/site/_includes/components/pluginSlot.njk",
         "src/site/_includes/components/pluginRegion.njk",
