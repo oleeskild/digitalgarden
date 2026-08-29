@@ -74,9 +74,14 @@ describe("isDecodableImage", () => {
 			isDecodableImage("src/site/img/tree-1.svg").then(Boolean),
 		).resolves.toBe(false); // svg is not in scope for the optimizer
 
-		await expect(
-			isDecodableImage("src/site/img/user/A Assets/travolta.png"),
-		).resolves.toBe(true);
+		// A valid 1x1 transparent PNG — small but fully decodable.
+		const png = Buffer.from(
+			"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==",
+			"base64",
+		);
+		await expect(isDecodableImage(writeTemp("real.png", png))).resolves.toBe(
+			true,
+		);
 	});
 
 	it("rejects HEIC content without invoking a decode", async () => {
