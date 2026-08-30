@@ -1,3 +1,10 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="img/digital-garden-dark.svg">
+    <img src="img/digital-garden.svg" alt="Digital Garden logo" width="128" height="128">
+  </picture>
+</p>
+
 # Digital Obsidian Garden
 This is the template to be used together with the [Digital Garden Obsidian Plugin](https://github.com/oleeskild/Obsidian-Digital-Garden).
 See the README in the plugin repo for information on how to set it up.
