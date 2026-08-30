@@ -65,5 +65,14 @@
         {{ meta.styleSettingsCss | safe }}
     </style>
 {% endif %}
+{% if meta.logoHeight %}
+    <style>
+        :root {
+            --dg-logo-height: {{ meta.logoHeight }};
+            --dg-logo-height-mobile: {{ meta.logoHeight }};
+            --dg-filetree-logo-height: {{ meta.logoHeight }};
+        }
+    </style>
+{% endif %}
 <style>
 </style>
