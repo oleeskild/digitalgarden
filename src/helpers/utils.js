@@ -1,7 +1,25 @@
 const slugify = require("@sindresorhus/slugify");
 
+// slugify rebuilds its transliteration/escape regexes on every call, which
+// makes it one of the most expensive functions in a build (it runs for every
+// heading and every wikilink). The same strings repeat constantly, so memoize.
+const slugifyCache = new Map();
+const SLUGIFY_CACHE_MAX = 50000;
+
+function cachedSlugify(input) {
+    if (slugifyCache.has(input)) {
+        return slugifyCache.get(input);
+    }
+    const result = slugify(input);
+    if (slugifyCache.size >= SLUGIFY_CACHE_MAX) {
+        slugifyCache.clear();
+    }
+    slugifyCache.set(input, result);
+    return result;
+}
+
 function headerToId(heading) {
-    var slugifiedHeader = slugify(heading);
+    var slugifiedHeader = cachedSlugify(heading);
     if(!slugifiedHeader){
         return heading;
     }
@@ -49,3 +67,4 @@ exports.namedHeadingsFilter = function (md, options) {
 }
 
 exports.headerToId = headerToId;
+exports.cachedSlugify = cachedSlugify;
