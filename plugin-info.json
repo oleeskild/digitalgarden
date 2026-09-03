@@ -104,6 +104,8 @@
         "src/site/index.njk",
         "src/site/index.11tydata.js",
         "src/helpers/homePage.js",
-        "src/helpers/matterOptions.js"
+        "src/helpers/matterOptions.js",
+        "src/site/dg-fallback-index-marker.njk",
+        "src/site/dg-fallback-index-marker.11tydata.js"
     ]
 }
