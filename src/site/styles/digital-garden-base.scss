@@ -1806,3 +1806,33 @@ div.dataview-error-box {
 }
 
 @import "obsidian-bases";
+
+/* Fallback front page, shown while no note is set as the garden's home page
+   (src/site/index.njk). */
+.dg-fallback-index-intro {
+    color: var(--text-muted);
+}
+
+.dg-fallback-index-list {
+    columns: 2 18rem;
+    column-gap: 2rem;
+    padding-left: 1.2rem;
+
+    li {
+        break-inside: avoid;
+        margin-bottom: 0.3rem;
+    }
+}
+
+.dg-fallback-index-hint {
+    margin-top: 2.5rem;
+    padding: 0.9rem 1.1rem;
+    border-radius: 8px;
+    background-color: var(--background-secondary);
+    color: var(--text-muted);
+    font-size: 0.9em;
+
+    p {
+        margin: 0;
+    }
+}

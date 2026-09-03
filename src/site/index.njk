@@ -1,0 +1,20 @@
+<div class="dg-fallback-index">
+  {% if publishedNotes.length > 0 %}
+    <p class="dg-fallback-index-intro">{{ publishedNotes.length }} note{% if publishedNotes.length != 1 %}s{% endif %} in this garden.</p>
+    <ul class="dg-fallback-index-list">
+      {% for note in publishedNotes %}
+        <li><a class="internal-link" href="{{ note.url }}">{{ note.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="dg-fallback-index-intro">Nothing has been published here yet.</p>
+  {% endif %}
+
+  <aside class="dg-fallback-index-hint">
+    <p>
+      <strong>Tending this garden?</strong> It has no home page yet, so visitors land on this list.
+      In Obsidian, open the note you want as your front page, run the command
+      <em>Set as Garden Home Page</em>, then publish it.
+    </p>
+  </aside>
+</div>
