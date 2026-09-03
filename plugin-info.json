@@ -1,8 +1,6 @@
 {
     "filesToDelete": [
         "src/site/styles/style.css",
-        "src/site/index.njk",
-        "src/site/index.11tydata.js",
         "src/site/_data/filetree.js",
         "api/search.js",
         "netlify/functions/search/search.js",
@@ -102,6 +100,10 @@
         "src/helpers/bases-engine/noteMetadata.js",
         "src/helpers/basesPlugin.js",
         "src/site/_includes/components/basesScript.njk",
-        "src/site/styles/obsidian-bases.scss"
+        "src/site/styles/obsidian-bases.scss",
+        "src/site/index.njk",
+        "src/site/index.11tydata.js",
+        "src/helpers/homePage.js",
+        "src/helpers/matterOptions.js"
     ]
 }
