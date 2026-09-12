@@ -305,7 +305,7 @@ function renderGraph(graphData, containerId, isFullScreen) {
         d3Drag()
             .container(() => app.view)
             .subject(() => {
-                if (!hoveredNodeId) return null;
+                if (hoveredNodeId === null) return null;
                 const node = nodes.find(n => n.id === hoveredNodeId);
                 if (!node) return null;
                 return {
