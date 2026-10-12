@@ -216,7 +216,7 @@ describe("renderViews", () => {
 					singleView({ type: "table", name: "Tags", order: ["file.name", "file.tags"] }, rows),
 				]),
 			);
-			expect(result).toContain('<a class="tag" data-content="#guide">#guide</a> <a class="tag" data-content="#health">#health</a>');
+			expect(result).toContain('<a class="tag" data-content="#guide">&#35;guide</a> <a class="tag" data-content="#health">&#35;health</a>');
 			expect(result).not.toContain("#note");
 		});
 
@@ -227,7 +227,19 @@ describe("renderViews", () => {
 					singleView({ type: "table", name: "Tags", order: ["file.name", "tags"] }, rows),
 				]),
 			);
-			expect(result).toContain('<a class="tag" data-content="#guide">#guide</a>');
+			expect(result).toContain('<a class="tag" data-content="#guide">&#35;guide</a>');
+		});
+
+		it("survives the taggify filter the note layout runs over content", () => {
+			// Same pattern as tagRegex in .eleventy.js
+			const tagRegex = /(^|\s|\>)(#[^\s!@#$%^&*()=+\.,\[{\]};:'"?><]+)(?!([^<]*>))/g;
+			const rows = [makeRow("Test", "/notes/test/", { tags: ["food", "help"] })];
+			const result = renderViews(
+				makeQueryResult([
+					singleView({ type: "table", name: "Tags", order: ["file.name", "file.tags"] }, rows),
+				]),
+			);
+			expect(result.match(tagRegex)).toBeNull();
 		});
 	});
 
