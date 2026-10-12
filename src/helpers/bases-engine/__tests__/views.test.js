@@ -189,7 +189,7 @@ describe("renderViews", () => {
 		it("renders arrays joined with comma-space", () => {
 			const rows = [
 				makeRow("Test", "/notes/test/", {
-					tags: ["fiction", "classic"],
+					genres: ["fiction", "classic"],
 				}),
 			];
 			const result = renderViews(
@@ -198,13 +198,75 @@ describe("renderViews", () => {
 						{
 							type: "table",
 							name: "Arrays",
-							order: ["file.name", "tags"],
+							order: ["file.name", "genres"],
 						},
 						rows,
 					),
 				]),
 			);
 			expect(result).toContain("fiction, classic");
+		});
+	});
+
+	describe("file.tags", () => {
+		it("renders tags as clickable tag links without system tags", () => {
+			const rows = [makeRow("Test", "/notes/test/", { tags: ["note", "guide", "health"] })];
+			const result = renderViews(
+				makeQueryResult([
+					singleView({ type: "table", name: "Tags", order: ["file.name", "file.tags"] }, rows),
+				]),
+			);
+			expect(result).toContain('<a class="tag" data-content="#guide">#guide</a> <a class="tag" data-content="#health">#health</a>');
+			expect(result).not.toContain("#note");
+		});
+
+		it("renders the tags property as tag links too", () => {
+			const rows = [makeRow("Test", "/notes/test/", { tags: ["guide"] })];
+			const result = renderViews(
+				makeQueryResult([
+					singleView({ type: "table", name: "Tags", order: ["file.name", "tags"] }, rows),
+				]),
+			);
+			expect(result).toContain('<a class="tag" data-content="#guide">#guide</a>');
+		});
+	});
+
+	describe("image() values", () => {
+		it("renders an image value as an <img> in table cells and as the card cover", () => {
+			const rows = [makeRow("Test", "/notes/test/", {}, { co: { __basesImage: true, src: "logs/cover.png" } })];
+			const table = renderViews(
+				makeQueryResult([
+					singleView({ type: "table", name: "T", order: ["file.name", "formula.co"] }, rows),
+				]),
+			);
+			expect(table).toContain('<img class="obsidian-base-image" src="/img/user/logs/cover.png" loading="lazy" />');
+
+			const cards = renderViews(
+				makeQueryResult([
+					singleView({ type: "cards", name: "C", order: ["file.name"], image: "formula.co" }, rows),
+				]),
+			);
+			expect(cards).toContain('<div class="obsidian-base-card-image"><img src="/img/user/logs/cover.png"');
+		});
+	});
+
+	describe("file.ctime / file.mtime", () => {
+		it("keeps the plugin's ctime/mtime keys out of auto-detected columns", () => {
+			const rows = [makeRow("Test", "/notes/test/", { author: "A", ctime: "2026-01-01", mtime: "2026-02-01" })];
+			const result = renderViews(makeQueryResult([singleView({ type: "table", name: "T" }, rows)]));
+			expect(result).toContain("<th>Author</th>");
+			expect(result).not.toContain("<th>Ctime</th>");
+			expect(result).not.toContain("<th>Mtime</th>");
+		});
+
+		it("renders the published created timestamp", () => {
+			const rows = [makeRow("Test", "/notes/test/", { created: "2026-03-25T11:34:41.346-05:00" })];
+			const result = renderViews(
+				makeQueryResult([
+					singleView({ type: "table", name: "T", order: ["file.name", "file.ctime"] }, rows),
+				]),
+			);
+			expect(result).toContain('<span class="human-date" data-date="2026-03-25T16:34:41.346Z"></span>');
 		});
 	});
 

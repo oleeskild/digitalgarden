@@ -45,3 +45,21 @@ describe("linkUtils getGraph hide flags", () => {
     expect(graph.nodes["/treeonly/"].private).toBe(false);
   });
 });
+
+describe("linkUtils bases link data", () => {
+  it("exposes outbound links as vault paths so link() filters can match them", async () => {
+    const todo = makeNote("collections/links/todo", { permalink: "/todo-list/" });
+    todo.url = "/todo-list/";
+    const log = makeNote("logs/entry");
+    log.template = {
+      read: async () => ({ content: "Still [[collections/links/todo\\|todo]] here" }),
+    };
+    const linkUtils = await import("./linkUtils.js");
+    await buildGraph([todo, log]);
+    const entry = linkUtils._basesNotesWithLinks.find((n) => n.path === "logs/entry");
+    expect(entry._links).toEqual(["/todo-list/"]);
+    expect(entry._linkPaths).toEqual(["collections/links/todo"]);
+    const target = linkUtils._basesNotesWithLinks.find((n) => n.path === "collections/links/todo");
+    expect(target._backlinkPaths).toEqual(["logs/entry"]);
+  });
+});

@@ -20,6 +20,8 @@ const CASCADE_KEYS = new Set([
 	"eleventyNavigation",
 	"content",
 	"templateContent",
+	"templateEngineOverride",
+	"eleventy",
 	// Global data files and computed data from this template
 	"basesNotes",
 	"settings",
