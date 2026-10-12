@@ -91,8 +91,36 @@ describe("exprEval", () => {
 					mtime: "2024-06-01",
 				},
 			};
-			expect(evaluate("file.ctime", note)).toBe("2024-01-01");
-			expect(evaluate("file.mtime", note)).toBe("2024-06-01");
+			expect(evaluate("file.ctime", note)).toEqual(new Date(2024, 0, 1));
+			expect(evaluate("file.mtime", note)).toEqual(new Date(2024, 5, 1));
+		});
+
+		it("resolves file.ctime and file.mtime from the published created/updated timestamps", () => {
+			const note = {
+				...sampleNote,
+				metadata: {
+					...sampleNote.metadata,
+					created: "2026-03-25T11:34:41.346-05:00",
+					updated: "2026-08-15T16:47:40.133-05:00",
+				},
+			};
+			expect(evaluate("file.ctime", note)).toEqual(new Date("2026-03-25T16:34:41.346Z"));
+			expect(evaluate("file.mtime", note)).toEqual(new Date("2026-08-15T21:47:40.133Z"));
+		});
+
+		it("resolves file.properties as the note's user properties", () => {
+			const note = {
+				...sampleNote,
+				metadata: { "dg-note-properties": { coverImage: "logs/cover.png" } },
+			};
+			expect(evaluate("file.properties.coverImage", note)).toBe("logs/cover.png");
+		});
+
+		it("matches file.links against link() by vault path", () => {
+			const note = { ...sampleNote, _links: ["/collections/links/todo/"], _linkPaths: ["collections/links/todo"] };
+			expect(evaluate('file.links.contains(link("todo"))', note)).toBe(true);
+			expect(evaluate('file.links.contains(link("collections/links/todo"))', note)).toBe(true);
+			expect(evaluate('file.links.contains(link("other"))', note)).toBe(false);
 		});
 	});
 
@@ -580,6 +608,22 @@ describe("exprEval", () => {
 				sampleNote,
 			);
 			expect(result).toBe("2024-06-15");
+		});
+
+		it(".format() supports month names, ordinals, weekdays and 12-hour time", () => {
+			const note = { ...sampleNote, metadata: { timeline: "2025-10-04" } };
+			expect(evaluate('timeline.format("MMMM DD, YYYY")', note)).toBe("October 04, 2025");
+			expect(evaluate('timeline.format("MMM Do YY")', note)).toBe("Oct 4th 25");
+			expect(evaluate('timeline.format("dddd, D/M")', note)).toBe("Saturday, 4/10");
+			expect(
+				evaluate('date("2024-06-15T14:05:09").format("hh:mm:ss A [on] ddd")', sampleNote),
+			).toBe("02:05:09 PM on Sat");
+		});
+
+		it("image() produces an image value", () => {
+			const note = { ...sampleNote, metadata: { coverImage: "logs/cover.png" } };
+			expect(evaluate("image(coverImage)", note)).toEqual({ __basesImage: true, src: "logs/cover.png" });
+			expect(evaluate("image(missing)", note)).toBe(undefined);
 		});
 
 		it(".isEmpty() returns false for dates", () => {

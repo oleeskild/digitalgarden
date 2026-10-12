@@ -67,6 +67,71 @@ const DATE_FIELDS = new Set([
 	"second",
 ]);
 
+// --- Date formatting ---
+// Moment.js-style tokens, which is what Obsidian's date.format() uses.
+// Text in [brackets] is emitted literally.
+
+const MONTH_NAMES = [
+	"January", "February", "March", "April", "May", "June",
+	"July", "August", "September", "October", "November", "December",
+];
+const WEEKDAY_NAMES = [
+	"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",
+];
+
+const FORMAT_TOKEN_REGEX =
+	/\[([^\]]*)\]|YYYY|YY|MMMM|MMM|MM|M|Do|DD|D|dddd|ddd|dd|d|HH|H|hh|h|mm|m|ss|s|SSS|A|a/g;
+
+function ordinal(n) {
+	const s = ["th", "st", "nd", "rd"];
+	const v = n % 100;
+	return n + (s[(v - 20) % 10] || s[v] || s[0]);
+}
+
+function formatDate(date, fmt) {
+	const pad = (n, len = 2) => String(n).padStart(len, "0");
+	const hours12 = date.getHours() % 12 || 12;
+	return String(fmt).replace(FORMAT_TOKEN_REGEX, (token, literal) => {
+		if (literal !== undefined) return literal;
+		switch (token) {
+			case "YYYY": return String(date.getFullYear());
+			case "YY": return pad(date.getFullYear() % 100);
+			case "MMMM": return MONTH_NAMES[date.getMonth()];
+			case "MMM": return MONTH_NAMES[date.getMonth()].slice(0, 3);
+			case "MM": return pad(date.getMonth() + 1);
+			case "M": return String(date.getMonth() + 1);
+			case "Do": return ordinal(date.getDate());
+			case "DD": return pad(date.getDate());
+			case "D": return String(date.getDate());
+			case "dddd": return WEEKDAY_NAMES[date.getDay()];
+			case "ddd": return WEEKDAY_NAMES[date.getDay()].slice(0, 3);
+			case "dd": return WEEKDAY_NAMES[date.getDay()].slice(0, 2);
+			case "d": return String(date.getDay());
+			case "HH": return pad(date.getHours());
+			case "H": return String(date.getHours());
+			case "hh": return pad(hours12);
+			case "h": return String(hours12);
+			case "mm": return pad(date.getMinutes());
+			case "m": return String(date.getMinutes());
+			case "ss": return pad(date.getSeconds());
+			case "s": return String(date.getSeconds());
+			case "SSS": return pad(date.getMilliseconds(), 3);
+			case "A": return date.getHours() < 12 ? "AM" : "PM";
+			case "a": return date.getHours() < 12 ? "am" : "pm";
+			default: return token;
+		}
+	});
+}
+
+// --- Image values ---
+// image(path) produces a value the views render as an <img>.
+
+function makeImage(src) {
+	if (src == null || src === "") return undefined;
+	if (src && typeof src === "object" && src.__basesImage) return src;
+	return { __basesImage: true, src: String(src) };
+}
+
 // --- Link values ---
 // link("Family") produces a link value; stored properties are wikilink
 // strings ("[[Family]]", "[[Categories/Family|alias]]"). Targets match the
@@ -155,6 +220,32 @@ function basesIsTruthy(obj) {
 	return Boolean(obj);
 }
 
+function toWikilink(path) {
+	return "[[" + path + "]]";
+}
+
+/**
+ * All user properties of a note as one object (file.properties).
+ */
+function userProperties(metadata) {
+	if (!metadata) return {};
+	return { ...metadata, ...(metadata["dg-note-properties"] || {}) };
+}
+
+/**
+ * file.ctime / file.mtime. The plugin publishes the vault timestamps as
+ * "created" / "updated" (or the user's configured timestamp properties).
+ */
+function fileTimestamp(metadata, prop) {
+	if (!metadata) return undefined;
+	const raw =
+		metadata[prop] !== undefined
+			? metadata[prop]
+			: metadata[prop === "ctime" ? "created" : "updated"];
+	if (raw == null || raw === "") return undefined;
+	return coerceDate(raw) || raw;
+}
+
 /**
  * Resolve a property name from a note's file metadata.
  */
@@ -179,13 +270,19 @@ function resolveFileProperty(prop, note) {
 		case "tags":
 			return ((note.metadata && note.metadata.tags) || []).filter((t) => !SYSTEM_TAGS.has(t));
 		case "links":
+			// Vault paths as wikilinks, so contains(link("x")) can match them
+			if (note._linkPaths) return note._linkPaths.map(toWikilink);
 			return note._links || (note.metadata && note.metadata.links) || [];
 		case "backlinks":
+			if (note._backlinkPaths) return note._backlinkPaths.map(toWikilink);
 			return note._backlinks || (note.metadata && note.metadata.backlinks) || [];
+		case "properties":
+			return userProperties(note.metadata);
 		case "size":
+			return note.metadata ? note.metadata.size : undefined;
 		case "ctime":
 		case "mtime":
-			return note.metadata ? note.metadata[prop] : undefined;
+			return fileTimestamp(note.metadata, prop);
 		default:
 			return undefined;
 	}
@@ -337,17 +434,8 @@ function callMethod(obj, method, args) {
 	// Date methods
 	if (obj instanceof Date) {
 		switch (method) {
-			case "format": {
-				const fmt = args[0] || "YYYY-MM-DD";
-				return fmt
-					.replace("YYYY", String(obj.getFullYear()))
-					.replace("MM", String(obj.getMonth() + 1).padStart(2, "0"))
-					.replace("DD", String(obj.getDate()).padStart(2, "0"))
-					.replace("HH", String(obj.getHours()).padStart(2, "0"))
-					.replace("mm", String(obj.getMinutes()).padStart(2, "0"))
-					.replace("ss", String(obj.getSeconds()).padStart(2, "0"));
-			}
-			// falls through not possible due to return above
+			case "format":
+				return formatDate(obj, args[0] || "YYYY-MM-DD");
 			case "date":
 				return new Date(
 					obj.getFullYear(),
@@ -636,6 +724,8 @@ function callGlobalFunction(name, args) {
 			return basesIsTruthy(args[0]) ? args[1] : args[2];
 		case "link":
 			return makeLink(args[0]);
+		case "image":
+			return makeImage(args[0]);
 		case "number":
 			return Number(args[0]);
 		case "min":
@@ -665,4 +755,4 @@ function evalFilter(expression, note, formulas) {
 	}
 }
 
-module.exports = { evalExpr, evalFilter };
+module.exports = { evalExpr, evalFilter, resolveFileProperty, coerceDate, formatDate };

@@ -5,6 +5,7 @@
 
 const { parseWikilink, createNoteIndex } = require("./noteLinks");
 const { headerToId } = require("../utils");
+const { resolveFileProperty } = require("./exprEval");
 
 // --- Metadata helpers ---
 
@@ -130,7 +131,7 @@ function escapeHtml(str) {
 /**
  * Internal keys to skip during column auto-detection.
  */
-const INTERNAL_KEY_PATTERN = /^(tags|dg-.*|__formulas)$/;
+const INTERNAL_KEY_PATTERN = /^(tags|dg-.*|__formulas|ctime|mtime)$/;
 
 /**
  * Determine the list of columns for a view.
@@ -215,7 +216,10 @@ function getCellValue(row, column) {
 		return row._backlinks || [];
 	}
 	if (column === "file.tags") {
-		return (row.metadata && row.metadata.tags) || [];
+		return resolveFileProperty("tags", row) || [];
+	}
+	if (column === "file.ctime" || column === "file.mtime" || column === "file.size") {
+		return resolveFileProperty(column.slice(5), row);
 	}
 	// Handle formula.* columns
 	if (column.startsWith("formula.")) {
@@ -246,6 +250,14 @@ function formatCellValue(value, column, row) {
 		return `<a href="${escapeHtml(url)}" class="internal-link">${escapeHtml(name)}</a>`;
 	}
 
+	if ((column === "file.tags" || column === "tags" || column === "note.tags") && Array.isArray(value)) {
+		return value.map(formatTag).join(" ");
+	}
+
+	if (isImageValue(value)) {
+		return formatImage(value);
+	}
+
 	if (value === true) {
 		return '<input type="checkbox" checked disabled />';
 	}
@@ -257,6 +269,7 @@ function formatCellValue(value, column, row) {
 		return value.map((item) => {
 			const linkHtml = formatNoteLinkValue(item);
 			if (linkHtml) return linkHtml;
+			if (isImageValue(item)) return formatImage(item);
 			if (typeof item === "string" && item.startsWith("/")) {
 				// URL path — render as clickable internal link with title
 				const title = urlTitleMap[item]
@@ -307,6 +320,23 @@ function formatCellValue(value, column, row) {
 	}
 
 	return escapeHtml(String(value));
+}
+
+function isImageValue(value) {
+	return Boolean(value && typeof value === "object" && value.__basesImage);
+}
+
+function formatImage(value) {
+	return `<img class="obsidian-base-image" src="${escapeHtml(resolveImageSource(value))}" loading="lazy" />`;
+}
+
+/**
+ * Render a tag as the same <a class="tag"> the note header uses, so the
+ * search plugin's delegated click handler opens a tag search for it.
+ */
+function formatTag(tag) {
+	const name = String(tag).replace(/^#/, "");
+	return `<a class="tag" data-content="#${escapeHtml(name)}">#${escapeHtml(name)}</a>`;
 }
 
 /**
@@ -435,6 +465,7 @@ function renderCards(view, properties) {
  * absolute/external URLs (left as-is).
  */
 function resolveImageSource(imgValue) {
+	if (isImageValue(imgValue)) imgValue = imgValue.src;
 	let src = String(imgValue).trim();
 
 	const wikilink = src.match(/^!?\[\[([^\]]+)\]\]$/);

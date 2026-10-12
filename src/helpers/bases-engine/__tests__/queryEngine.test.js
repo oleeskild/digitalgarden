@@ -121,6 +121,15 @@ views:
 	});
 
 	describe("filtering", () => {
+		it("leaves out dg-hide notes", () => {
+			const notes = [
+				{ path: "a.md", url: "/a/", metadata: {} },
+				{ path: "b.md", url: "/b/", metadata: { hide: true } },
+			];
+			const result = executeBaseQuery("views:\n  - type: table\n    name: t\n", notes);
+			expect(result.views[0].rows.map((r) => r.path)).toEqual(["a.md"]);
+		});
+
 		it("filters by string expression (year > 1940)", () => {
 			const yaml = `
 filters:
@@ -230,6 +239,39 @@ views:
 	});
 
 	describe("sorting", () => {
+		const datedNotes = [
+			{ path: "a.md", url: "/a/", metadata: { date: "2024-03-01", created: "2026-01-01T10:00:00.000-05:00" } },
+			{ path: "b.md", url: "/b/", metadata: { created: "2026-03-01T10:00:00.000+02:00" } },
+			{ path: "c.md", url: "/c/", metadata: { date: "2025-01-15T09:30:00", created: "2025-06-01T10:00:00.000Z" } },
+			{ path: "d.md", url: "/d/", metadata: { date: "2024-11-30" } },
+		];
+		const names = (result) => result.views[0].rows.map((r) => r.path);
+
+		it("keeps notes without a value last when sorting DESC", () => {
+			const yaml = `
+views:
+  - type: table
+    name: t
+    sort:
+      - property: date
+        direction: DESC
+    limit: 3
+`;
+			expect(names(executeBaseQuery(yaml, datedNotes))).toEqual(["c.md", "d.md", "a.md"]);
+		});
+
+		it("sorts by file.ctime using the published created timestamp", () => {
+			const yaml = `
+views:
+  - type: table
+    name: t
+    sort:
+      - property: file.ctime
+        direction: DESC
+`;
+			expect(names(executeBaseQuery(yaml, datedNotes))).toEqual(["b.md", "a.md", "c.md", "d.md"]);
+		});
+
 		it("sorts by metadata field ASC", () => {
 			const yaml = `
 filters:

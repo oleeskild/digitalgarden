@@ -1,6 +1,6 @@
 const yaml = require("yaml");
 const { parseExpression } = require("./exprParser");
-const { evalExpr, evalFilter } = require("./exprEval");
+const { evalExpr, evalFilter, resolveFileProperty, coerceDate } = require("./exprEval");
 const {
 	parseWikilink,
 	createNoteIndex,
@@ -80,7 +80,11 @@ function processView(viewDef, notes, globalFilters, formulas, globalSummaries, n
 		}
 	});
 
-	let rows = notes.map((note) => {
+	// dg-hide notes are published but kept out of navigation, so bases
+	// shouldn't list them either
+	const visibleNotes = notes.filter((note) => !(note.metadata && note.metadata.hide === true));
+
+	let rows = visibleNotes.map((note) => {
 		const computed = {};
 		for (const [key, ast] of parsedFormulas) {
 			try {
@@ -202,22 +206,14 @@ function getSortValue(note, property) {
 		return parts[parts.length - 1].replace(/\.[^.]+$/, "");
 	}
 	if (property.startsWith("file.")) {
-		const prop = property.slice(5);
-		// Reuse the simple file property resolution
-		switch (prop) {
-			case "path":
-				return note.path || "";
-			case "folder": {
-				const idx = (note.path || "").lastIndexOf("/");
-				return idx === -1 ? "" : (note.path || "").substring(0, idx);
-			}
-			default:
-				return getUserProperty(note.metadata, prop);
-		}
+		return resolveFileProperty(property.slice(5), note);
 	}
 	if (property.startsWith("formula.")) {
 		const formulaKey = property.slice(8);
 		return note.__formulas ? note.__formulas[formulaKey] : undefined;
+	}
+	if (property.startsWith("note.")) {
+		property = property.slice(5);
 	}
 	return getUserProperty(note.metadata, property);
 }
@@ -238,6 +234,14 @@ function applySorting(rows, config, noteIndex) {
 				if (aTitle !== null) valA = aTitle;
 				const bTitle = wikilinkDisplayTitle(valB, noteIndex);
 				if (bTitle !== null) valB = bTitle;
+
+				// Empty values sort last in both directions, like Obsidian
+				const aEmpty = isEmptySortValue(valA);
+				const bEmpty = isEmptySortValue(valB);
+				if (aEmpty || bEmpty) {
+					if (aEmpty && bEmpty) continue;
+					return aEmpty ? 1 : -1;
+				}
 
 				const cmp = compareValues(valA, valB);
 				if (cmp !== 0) return cmp * dir;
@@ -265,6 +269,10 @@ function applySorting(rows, config, noteIndex) {
 	return rows;
 }
 
+function isEmptySortValue(value) {
+	return value == null || value === "" || (Array.isArray(value) && value.length === 0);
+}
+
 /**
  * Compare two values for sorting.
  */
@@ -272,6 +280,14 @@ function compareValues(a, b) {
 	if (a == null && b == null) return 0;
 	if (a == null) return 1;
 	if (b == null) return -1;
+	// Dates arrive as Date objects or ISO strings with differing precision
+	// and offsets ("2025-10-04", "2026-02-12 14:26:00", "...-05:00"), so
+	// compare them chronologically rather than as text
+	if (a instanceof Date || b instanceof Date || (typeof a === "string" && typeof b === "string")) {
+		const aDate = coerceDate(a);
+		const bDate = coerceDate(b);
+		if (aDate && bDate) return aDate.getTime() - bDate.getTime();
+	}
 	if (typeof a === "string" && typeof b === "string") {
 		return a.localeCompare(b);
 	}

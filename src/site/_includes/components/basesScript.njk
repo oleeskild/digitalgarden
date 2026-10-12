@@ -58,6 +58,30 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
+  // Format date cells. The timestamps plugin formats .human-date spans with
+  // the garden's configured format when it's enabled; any left empty here
+  // get a locale format so date columns never render blank.
+  document.querySelectorAll(".obsidian-bases-views .human-date").forEach(function(el) {
+    if (el.textContent.trim() !== "") return;
+    var value = (el.getAttribute("data-date") || "").trim();
+    var dateOnly = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    // Date-only values are calendar days, not instants: build them in
+    // local time so the viewer's timezone can't shift the day
+    var date = dateOnly
+      ? new Date(Number(dateOnly[1]), Number(dateOnly[2]) - 1, Number(dateOnly[3]))
+      : new Date(value);
+    if (isNaN(date.getTime())) {
+      el.textContent = value;
+      return;
+    }
+    var options = { year: "numeric", month: "short", day: "numeric" };
+    if (!dateOnly) {
+      options.hour = "numeric";
+      options.minute = "2-digit";
+    }
+    el.textContent = date.toLocaleString(undefined, options);
+  });
+
   // Fill in dynamic date placeholders (today/now)
   document.querySelectorAll(".bases-dynamic-date").forEach(function(el) {
     var type = el.getAttribute("data-type");
