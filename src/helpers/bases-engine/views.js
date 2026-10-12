@@ -333,10 +333,13 @@ function formatImage(value) {
 /**
  * Render a tag as the same <a class="tag"> the note header uses, so the
  * search plugin's delegated click handler opens a tag search for it.
+ * The visible "#" is written as &#35; because the note layout runs the
+ * taggify filter over rendered content, and a literal ">#tag" would get
+ * wrapped in a second, nested <a class="tag">.
  */
 function formatTag(tag) {
-	const name = String(tag).replace(/^#/, "");
-	return `<a class="tag" data-content="#${escapeHtml(name)}">#${escapeHtml(name)}</a>`;
+	const name = escapeHtml(String(tag).replace(/^#/, ""));
+	return `<a class="tag" data-content="#${name}">&#35;${name}</a>`;
 }
 
 /**
