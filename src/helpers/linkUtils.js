@@ -251,8 +251,17 @@ async function computeGraph(data) {
     const content = templateContent?.content || "";
     noteContents.push(content);
 
+    const graphColor = v.data["dg-note-properties"]?.["graph-color"] ?? v.data["graph-color"];
+    const hexColor = typeof graphColor === "string" ? graphColor.trim() : "";
+    let color;
+    if (/^#(?:[0-9a-f]{3}|[0-9a-f]{6})$/i.test(hexColor)) {
+      const hex = hexColor.slice(1);
+      color = parseInt(hex.length === 3 ? hex.replace(/./g, "$&$&") : hex, 16);
+    }
+
     nodes[v.url] = {
       id: idx,
+      color,
       title: v.data.title || v.fileSlug,
       url: v.url,
       group,
