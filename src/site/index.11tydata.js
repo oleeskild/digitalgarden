@@ -21,8 +21,10 @@ const allSettings = [
   ...pluginLoader.getNoteSettingKeys(),
 ];
 
+// Frontmatter titles aren't always strings (`title: 2024` parses as a
+// number), and the listing sorts them with localeCompare
 function noteTitle(note) {
-  return (note.data && note.data.title) || note.fileSlug || note.url;
+  return String((note.data && note.data.title) || note.fileSlug || note.url);
 }
 
 module.exports = {
