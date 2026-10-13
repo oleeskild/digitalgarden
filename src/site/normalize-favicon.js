@@ -3,8 +3,44 @@ const path = require("path");
 
 const MAX_DIM = 512;
 
+const RASTER_SIGNATURES = [
+  { mime: "image/png", bytes: [0x89, 0x50, 0x4e, 0x47] },
+  { mime: "image/jpeg", bytes: [0xff, 0xd8, 0xff] },
+  { mime: "image/gif", bytes: [0x47, 0x49, 0x46, 0x38] },
+  { mime: "image/webp", bytes: [0x52, 0x49, 0x46, 0x46], extra: [8, [0x57, 0x45, 0x42, 0x50]] },
+];
+
+function rasterMimeType(buffer) {
+  const startsWith = (offset, bytes) => bytes.every((b, i) => buffer[offset + i] === b);
+  const match = RASTER_SIGNATURES.find(
+    (sig) => startsWith(0, sig.bytes) && (!sig.extra || startsWith(sig.extra[0], sig.extra[1]))
+  );
+  return match ? match.mime : null;
+}
+
+// A PNG/JPEG/GIF/WebP uploaded as favicon.svg can't be read by the favicon
+// generator, which failed the whole build. Embed it in an SVG instead.
+function wrapRaster(buffer, mime) {
+  const href = `data:${mime};base64,${buffer.toString("base64")}`;
+  return (
+    `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ` +
+    `width="${MAX_DIM}" height="${MAX_DIM}" viewBox="0 0 ${MAX_DIM} ${MAX_DIM}">` +
+    `<image width="${MAX_DIM}" height="${MAX_DIM}" preserveAspectRatio="xMidYMid meet" ` +
+    `href="${href}" xlink:href="${href}"/></svg>`
+  );
+}
+
 function normalizeFavicon(inputPath, outputPath) {
-  const content = fs.readFileSync(inputPath, "utf8");
+  const buffer = fs.readFileSync(inputPath);
+
+  const mime = rasterMimeType(buffer);
+  if (mime) {
+    fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+    fs.writeFileSync(outputPath, wrapRaster(buffer, mime));
+    return;
+  }
+
+  const content = buffer.toString("utf8");
 
   const svgTagMatch = content.match(/<svg\b[^>]*>/i);
   if (!svgTagMatch) {
