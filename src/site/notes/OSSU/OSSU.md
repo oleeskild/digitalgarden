@@ -16,8 +16,8 @@
   ></a>
 </p>
 </div>
-## - [X]  Intro CS
-  - [X] [Introduction to Computer Science and Programming using Python]
+##  Intro CS
+  - [x] [Introduction to Computer Science and Programming using Python]
 ## Core CS
 - [ ] Core programming
   - [ ] [Systematic Program Design](https://github.com/ossu/computer-science/blob/master/coursepages/spd/README.md) | [[OSSU/Systematic Program Design\|Systematic Program Design]]
