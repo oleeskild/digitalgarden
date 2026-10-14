@@ -1,0 +1,89 @@
+<label for="themeSwitcher">Theme:</label>
+<select id="themeSwitcher"><option value="">Loading...</option></select>
+
+<script type="text/javascript">
+    // Find the tag linking the css theme
+    function findThemeLink() {
+        const linkElements = document.head.getElementsByTagName('link');
+
+        for (let i = 0; i < linkElements.length; i++) {
+            const link = linkElements[i];
+
+            if (link.href && link.href.includes('_theme.')) {
+                return link;
+            }
+        }
+
+        return null;
+    }
+    function setStyle(themeUrl) {
+        if (!themeLink)
+            return;
+
+        themeLink.href = themeUrl;
+    }
+    async function dropdownChange(event) {
+        let selectedUrl = event.target.value;
+        // WORKAROUND: Check if theme file exists
+        // This is necessary, because some themes only supply an obsidian.css and not a theme.css,
+        // but are not correctly labeled as "legacy" in the community-css-themes.json, 
+        // so the code in populateDropdown does not catch this and tries to load the wrong file
+        // (some examples: Moonlight, Panic Mode, etc.)
+        try {
+            const response = await fetch(selectedUrl, { method: 'HEAD' });
+            // when the theme file is not found the server generates a 404, which
+            // cannot be fetched due to CORS, so we don't need to check the response code
+            // but just in case this changes some day, we do it anyway
+            if (!response.ok) {
+                throw new Error();
+            }
+        } catch (error) {
+            selectedUrl = selectedUrl.replace('theme.css', 'obsidian.css');
+        }
+        setStyle(selectedUrl);
+    }
+    function populateDropdown(themes) {
+        const dropdown = document.getElementById('themeSwitcher');
+        if (!dropdown)
+        {
+            console.error("Theme switcher could not find dropdown element to fill with themes. Should be at the top of theme-switcher.njk...");
+            return;
+        }
+
+        // remove previous option elements
+        dropdown.innerHTML = '';
+
+        // using https://raw.githack.com/ to convert raw github files to proper served css files
+        // this service serves files from raw.githubusercontent with proper content-type header
+        // if it goes down, you will need to look for a replacement (linking directly does not work!)
+        // see: https://medium.com/@twistblogg/how-to-use-github-for-hosting-css-javascript-and-other-files-311413924e69
+        themes.forEach(theme => {
+            const option = document.createElement('option');
+            option.value = `https://rawcdn.githack.com/${theme.repo}/${theme.branch || "HEAD"}/${theme.legacy ? "obsidian.css" : "theme.css"}`;
+            option.textContent = theme.name;
+            dropdown.appendChild(option);
+        });
+
+        // remove previous listener if this is called multiple times (for example manually for testing)
+        dropdown.removeEventListener('change', dropdownChange);
+        dropdown.addEventListener('change', dropdownChange);
+    }
+    // Get themes and call a function with the data afterwards
+    async function fetchThemes(url, updateCall) {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Failed to fetch ' + url + ' - Network response was not ok: ' + response.statusText);
+        }
+        const data = await response.json();
+        data.sort((a,b) => (a.name).localeCompare(b.name));
+        updateCall(data);
+    }
+
+    const themeLink = findThemeLink();
+    if (!themeLink)
+    {
+        console.error("Theme switcher could not find link-tag with theme file and will not work. Maybe something changed in the template? (theme-switcher.njk is looking for a link tag with a href value containing '_theme.')");
+    }
+
+    fetchThemes("https://raw.githubusercontent.com/obsidianmd/obsidian-releases/master/community-css-themes.json", populateDropdown);
+</script>
