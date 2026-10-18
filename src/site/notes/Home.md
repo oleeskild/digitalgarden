@@ -5,6 +5,8 @@
 
 | Cover                        | Title                                                   | Description |
 | ---------------------------- | ------------------------------------------------------- | ----------- |
+| ![assets/Pengin.png\|100](/img/user/assets/Pengin.png)  | [[Home\|Home]]                                       |             |
+| ![assets/Pengin.png\|100](/img/user/assets/Pengin.png)  | [[About\|About]]                                     |             |
 | ![assets/gardens.gif\|100](/img/user/assets/gardens.gif) | [[~Notes_dump/Digital Gardening\|Digital Gardening]] | Gardens!    |
 
 { .block-language-dataview}
