@@ -1,9 +1,11 @@
 ---
-{"dg-publish":true,"permalink":"/notes-dump/vault-configuration/","dg-note-properties":{}}
+{"dg-publish":true,"permalink":"/notes-dump/vault-configuration/","created":"2026-10-18T06:37:40.639-05:00","dg-note-properties":{}}
 ---
 
+#digitalgarden
+
 ```
-	  ┌────────┐            ┌─────────────────────────────────────┐          
+      ┌────────┐            ┌─────────────────────────────────────┐          
       │Obsidian├────────────┤For Note Taking and website building │          
       └───┬────┘            └─────────────────────────────────────┘          
           │                 ┌──────────────────────────────────────────┐     
