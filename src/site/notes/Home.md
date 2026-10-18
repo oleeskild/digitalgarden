@@ -2,5 +2,4 @@
 {"dg-publish":true,"permalink":"/home/","tags":["gardenEntry"],"dg-note-properties":{}}
 ---
 
-new test
-## Categories
+new test 2
