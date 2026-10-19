@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/about/","contentClasses":"cards cards-1-1","tags":["gardenEntry"],"dg-note-properties":{"cover":null,"description":"About","cssclasses":["cards","cards-1-1"],"tags":null}}
+{"dg-publish":false,"permalink":"/about/","contentClasses":"cards cards-1-1","tags":["gardenEntry"],"dg-note-properties":{"cover":null,"description":"About","cssclasses":["cards","cards-1-1"],"tags":null}}
 ---
 
 ## #TODO Who Am I?
