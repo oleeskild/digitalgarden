@@ -1,3 +1,4 @@
+{%- if page.url != "/" or pluginSettings.showOnHome -%}
 {%- if pluginSettings.showCreated or pluginSettings.showUpdated -%}
 <script src=" https://fastly.jsdelivr.net/npm/luxon@3.2.1/build/global/luxon.min.js "></script>
 <script defer>
@@ -26,4 +27,5 @@
     } catch (e) {}
   })
 </script>
+{%- endif -%}
 {%- endif -%}

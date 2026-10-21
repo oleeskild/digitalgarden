@@ -1,3 +1,4 @@
+{%- if page.url != "/" or pluginSettings.showOnHome -%}
 {%- if pluginSettings.showCreated or pluginSettings.showUpdated -%}
 <div class="timestamps">
   {%- if pluginSettings.showCreated and created -%}
@@ -7,4 +8,5 @@
   <div><i data-lucide="calendar-clock"></i> <span class="human-date" data-date="{{updated}}"></span></div>
   {%- endif -%}
 </div>
+{%- endif -%}
 {%- endif -%}
