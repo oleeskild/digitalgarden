@@ -1,20 +1,22 @@
 {
   "id": "dg-timestamps",
   "name": "Timestamps",
-  "version": "1.1.0",
-  "description": "Shows created/updated timestamps in the note header.",
+  "version": "1.2.0",
+  "description": "Shows created/updated timestamps at the top or bottom of notes.",
   "author": "Ole Eskild Steensen",
   "slots": {
     "notes.header": "templates/header.njk",
+    "notes.afterContent": "templates/header.njk",
     "notes.footer": "templates/formatter.njk",
     "index.header": "templates/header.njk",
+    "index.afterContent": "templates/header.njk",
     "index.footer": "templates/formatter.njk"
   },
   "settings": [
     {
       "key": "showCreated",
       "name": "Show created timestamp",
-      "description": "Show the note's created date in the header.",
+      "description": "Show the note's created date.",
       "type": "boolean",
       "default": false,
       "env": "SHOW_CREATED_TIMESTAMP"
@@ -22,10 +24,19 @@
     {
       "key": "showUpdated",
       "name": "Show updated timestamp",
-      "description": "Show the note's updated date in the header.",
+      "description": "Show the note's updated date.",
       "type": "boolean",
       "default": false,
       "env": "SHOW_UPDATED_TIMESTAMP"
+    },
+    {
+      "key": "position",
+      "name": "Timestamp position",
+      "description": "Where timestamps are shown: in the header at the top, after the content at the bottom, or both.",
+      "type": "select",
+      "options": ["top", "bottom", "both"],
+      "default": "top",
+      "env": "TIMESTAMPS_POSITION"
     },
     {
       "key": "showOnHome",
