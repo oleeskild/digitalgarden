@@ -1,12 +1,14 @@
 {
   "id": "dg-timestamps",
   "name": "Timestamps",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Shows created/updated timestamps in the note header.",
   "author": "Ole Eskild Steensen",
   "slots": {
     "notes.header": "templates/header.njk",
-    "notes.footer": "templates/formatter.njk"
+    "notes.footer": "templates/formatter.njk",
+    "index.header": "templates/header.njk",
+    "index.footer": "templates/formatter.njk"
   },
   "settings": [
     {
@@ -26,9 +28,17 @@
       "env": "SHOW_UPDATED_TIMESTAMP"
     },
     {
+      "key": "showOnHome",
+      "name": "Show on home page",
+      "description": "Also show timestamps on the home page.",
+      "type": "boolean",
+      "default": true,
+      "env": "TIMESTAMPS_SHOW_ON_HOME"
+    },
+    {
       "key": "timestampFormat",
       "name": "Timestamp format",
-      "description": "Luxon format string for values with a time component.",
+      "description": "Luxon format string for values with a time component. Tokens are case-sensitive: use yyyy for the year, not YYYY.",
       "type": "text",
       "default": "MMM dd, yyyy h:mm a",
       "env": "TIMESTAMP_FORMAT"
@@ -36,7 +46,7 @@
     {
       "key": "dateFormat",
       "name": "Date format",
-      "description": "Luxon format string for date-only values.",
+      "description": "Luxon format string for date-only values. Tokens are case-sensitive: use yyyy for the year, not YYYY.",
       "type": "text",
       "default": "MMM dd, yyyy",
       "env": "DATE_FORMAT"
