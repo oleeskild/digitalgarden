@@ -1,45 +1,252 @@
+/* Epilogue and Manrope (SIL Open Font License), served from the garden itself
+   rather than a font CDN. Relative to /styles/style.css, so gardens served
+   under a subpath find them too. */
+@font-face {
+    font-family: "Epilogue";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url("../img/fonts/epilogue-latin-ext-wght-normal.woff2") format("woff2");
+    unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+@font-face {
+    font-family: "Epilogue";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url("../img/fonts/epilogue-latin-wght-normal.woff2") format("woff2");
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
+@font-face {
+    font-family: "Manrope";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url("../img/fonts/manrope-latin-ext-wght-normal.woff2") format("woff2");
+    unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF;
+}
+
+@font-face {
+    font-family: "Manrope";
+    font-style: normal;
+    font-display: swap;
+    font-weight: 100 900;
+    src: url("../img/fonts/manrope-latin-wght-normal.woff2") format("woff2");
+    unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+}
+
 /***
+* The default theme: the look a garden gets when no community theme is
+* chosen. Misty green-grey paper with one forest green doing the colour work,
+* Epilogue headings over Manrope body text, in light and dark.
+*
 * DO NOT ADD/MODIFY STYLING HERE. IT WILL BE OVERWRITTEN IF YOU UPDATE THE TEMPLATE VERSION.
 * MODIFY THE custom-style.scss FILE INSTEAD.
 ***/
 
 :root {
-    --background-primary: rgb(32, 31, 31);
-    --background-secondary: rgb(57, 56, 56);
-    --text-normal: #dcddde;
-    --text-accent: rgb(97, 186, 245);
+    --font-default: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-text-theme: var(--font-default);
+    --font-interface-theme: var(--font-default);
+    --font-heading: "Epilogue", var(--font-default);
+    --font-monospace: ui-monospace, SFMono-Regular, "JetBrains Mono", Menlo, Consolas, monospace;
     --file-margins: 32px;
+
+    --radius-s: 6px;
+    --radius-m: 12px;
+    --radius-l: 16px;
 
     --callout-border-width: 0px;
     --callout-border-opacity: 0.25;
-    --callout-padding: 12px 12px 12px 24px;
-    --callout-radius: 4px;
-    --callout-blend-mode: lighten;
+    --callout-padding: 14px 18px;
+    --callout-radius: var(--radius-m);
+    --callout-blend-mode: normal;
     --callout-title-padding: 0;
     --callout-title-size: inherit;
     --callout-content-padding: 0;
 }
 
+/* :where() keeps these at zero specificity, so overrides in custom-style.scss
+   (`body { --text-normal: ... }`, as the README shows) still win. */
+:where(.theme-light) {
+    color-scheme: light;
+    --background-primary: #f8faf8;
+    --background-primary-alt: #f2f4f2;
+    --background-secondary: #f2f4f2;
+    --background-secondary-alt: #eceeec;
+    --background-modifier-border: #e1e3e1;
+    --background-modifier-hover: #e6e9e7;
+    --surface: #ffffff;
+    --surface-inset: #eceeec;
+    --text-normal: #191c1b;
+    --text-muted: #42493e;
+    --text-faint: #6f7769;
+    --text-accent: #33602d;
+    --text-accent-hover: #4b7a43;
+    --text-on-accent: #ffffff;
+    --interactive-accent: #33602d;
+    --interactive-accent-hover: #4b7a43;
+    --interactive-normal: #e6e9e7;
+    --interactive-hover: #e1e3e1;
+    --link-color: var(--text-accent);
+    --link-color-hover: var(--text-accent-hover);
+    --text-selection: rgba(51, 96, 45, 0.18);
+    --text-highlight-bg: rgba(214, 196, 90, 0.35);
+    --rule: #c2c9bb;
+    --accent-wash: rgba(51, 96, 45, 0.09);
+}
+
+:where(.theme-dark) {
+    color-scheme: dark;
+    --background-primary: #121512;
+    --background-primary-alt: #181c18;
+    --background-secondary: #171b17;
+    --background-secondary-alt: #1e231d;
+    --background-modifier-border: #2a3129;
+    --background-modifier-hover: #232922;
+    --surface: #1a1f1a;
+    --surface-inset: #222821;
+    --text-normal: #e3e7e1;
+    --text-muted: #aab4a5;
+    --text-faint: #788273;
+    --text-accent: #9cc98f;
+    --text-accent-hover: #b6dcaa;
+    --text-on-accent: #10200d;
+    --interactive-accent: #8cbf7f;
+    --interactive-accent-hover: #a6d299;
+    --interactive-normal: #232922;
+    --interactive-hover: #2a3129;
+    --link-color: var(--text-accent);
+    --link-color-hover: var(--text-accent-hover);
+    --text-selection: rgba(156, 201, 143, 0.25);
+    --text-highlight-bg: rgba(214, 196, 90, 0.3);
+    --rule: #333b31;
+    --accent-wash: rgba(156, 201, 143, 0.1);
+}
+
+:where(.theme-dark, .theme-light) {
+    background: var(--background-primary);
+    color: var(--text-normal);
+    font-family: var(--font-default);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+    background: var(--text-selection);
+}
+
+/* Headings: Epilogue, tight and confident, one ink colour. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+    color: var(--text-normal);
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    margin: 1.6em 0 0.5em;
+}
+
 h1 {
-    color: #ffef60;
+    font-size: 2.25rem;
+    font-weight: 800;
+    line-height: 1.15;
 }
 
 h2 {
-    color: #f06449;
+    font-size: 1.6rem;
+    font-weight: 700;
 }
 
 h3 {
-    color: #d4fcc3;
+    font-size: 1.3rem;
+    font-weight: 700;
 }
 
 h4 {
-    color: #72dcff;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+h5,
+h6 {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+h6 {
+    color: var(--text-muted);
+}
+
+strong,
+b {
+    font-weight: 700;
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, currentColor 35%, transparent);
+    text-underline-offset: 0.18em;
+    transition: color 150ms ease-out, text-decoration-color 150ms ease-out;
+}
+
+a:hover {
+    color: var(--link-color-hover);
+    text-decoration-color: currentColor;
+}
+
+mark {
+    background: var(--text-highlight-bg);
+    color: inherit;
+    border-radius: 3px;
+    padding: 0 0.15em;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 2.5em 0;
+}
+
+ul,
+ol {
+    padding-left: 1.5em;
+}
+
+li::marker {
+    color: var(--text-faint);
+}
+
+li {
+    margin: 0.2em 0;
+}
+
+input[type="checkbox"] {
+    accent-color: var(--interactive-accent);
+}
+
+img {
+    border-radius: var(--radius-m);
 }
 
 button {
     border: none;
-    color: white;
+    border-radius: 9999px;
+    color: var(--text-on-accent);
+    background: var(--interactive-accent);
     padding: 5px 15px;
+    font-family: var(--font-default);
+}
+
+button:hover {
+    background: var(--interactive-accent-hover);
 }
 
 .centered {
@@ -50,63 +257,97 @@ button {
     text-align: center;
 }
 
-.theme-dark {
-    background: var(--background-primary);
-    color: var(--text-normal);
-    font-family: var(--font-default);
-}
-
-.theme-light {
-    background: white;
-    color: black;
-    font-family: var(--font-default);
-}
-
-
 .font-bg {
     font-size: 92px;
 }
 
 blockquote {
-    background: #ffffff17;
-    border-left: 10px solid #c1dbe3;
-    margin: 1.5em 10px;
-    padding: 0.5em 10px;
-    quotes: "\201C""\201D""\2018""\2019";
-}
-
-blockquote:before {
-    color: #ccc;
-    content: open-quote;
-    font-size: 4em;
-    line-height: 0.1em;
-    margin-right: 0.1em;
-    vertical-align: -0.4em;
+    margin: 1.5em 0;
+    padding: 0.1em 0 0.1em 1.25em;
+    border-left: 3px solid var(--interactive-accent);
+    color: var(--text-muted);
+    font-style: italic;
 }
 
 blockquote p {
-    display: inline;
+    margin: 0.4em 0;
 }
 
-p > code {
-    //Inline code
-    color: #c7254e;
-    background-color: #1a1a1a;
+/* Inline code: a quiet chip. Code blocks stay dark, like Obsidian itself. */
+code {
+    font-family: var(--font-monospace);
+    font-size: 0.88em;
+}
+
+:not(pre) > code {
+    color: var(--text-normal);
+    background-color: var(--surface-inset);
+    border-radius: 4px;
+    padding: 0.12em 0.4em;
+}
+
+pre[class*="language-"],
+pre {
+    border-radius: var(--radius-m);
+    padding: 1.1em 1.25em;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+:where(.theme-dark) pre[class*="language-"],
+:where(.theme-dark) pre {
+    border: 1px solid var(--background-modifier-border);
+}
+
+table {
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.95rem;
+}
+
+th,
+td {
+    padding: 0.55em 1em;
+    text-align: left;
+    border-bottom: 1px solid var(--background-modifier-border);
+}
+
+th {
+    font-weight: 700;
+    border-bottom: 2px solid var(--rule);
+}
+
+/* Tags read as small pills, like forestry.md's badges. */
+a.tag,
+.tag {
+    display: inline-block;
+    background: var(--accent-wash);
+    color: var(--text-accent);
+    border-radius: 9999px;
+    padding: 0.05em 0.65em;
+    font-size: 0.82em;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+a.tag:hover {
+    color: var(--text-accent-hover);
+    text-decoration: none;
 }
 
 .callout {
-    --callout-color: 68, 138, 255;
+    --callout-color: 45, 100, 130;
     --callout-icon: lucide-pencil;
 }
 .callout[data-callout="abstract"],
 .callout[data-callout="summary"],
 .callout[data-callout="tldr"] {
-    --callout-color: 0, 176, 255;
+    --callout-color: 45, 120, 150;
     --callout-icon: lucide-clipboard-list;
 }
 .callout[data-callout="info"],
 .callout[data-callout="todo"] {
-    --callout-color: 0, 184, 212;
+    --callout-color: 45, 100, 130;
 }
 .callout[data-callout="info"] {
     --callout-icon: lucide-info;
@@ -117,60 +358,108 @@ p > code {
 .callout[data-callout="tip"],
 .callout[data-callout="hint"],
 .callout[data-callout="important"] {
-    --callout-color: 0, 191, 165;
+    --callout-color: 61, 120, 54;
     --callout-icon: lucide-flame;
 }
 .callout[data-callout="success"],
 .callout[data-callout="check"],
 .callout[data-callout="done"] {
-    --callout-color: 0, 200, 83;
+    --callout-color: 61, 120, 54;
     --callout-icon: lucide-check;
 }
 .callout[data-callout="question"],
 .callout[data-callout="help"],
 .callout[data-callout="faq"] {
-    --callout-color: 100, 221, 23;
+    --callout-color: 125, 120, 40;
     --callout-icon: help-circle;
 }
 .callout[data-callout="warning"],
 .callout[data-callout="caution"],
 .callout[data-callout="attention"] {
-    --callout-color: 255, 145, 0;
+    --callout-color: 190, 110, 20;
     --callout-icon: lucide-alert-triangle;
 }
 .callout[data-callout="failure"],
 .callout[data-callout="fail"],
 .callout[data-callout="missing"] {
-    --callout-color: 255, 82, 82;
+    --callout-color: 186, 26, 26;
     --callout-icon: lucide-x;
 }
 .callout[data-callout="danger"],
 .callout[data-callout="error"] {
-    --callout-color: 255, 23, 68;
+    --callout-color: 186, 26, 26;
     --callout-icon: lucide-zap;
 }
 .callout[data-callout="bug"] {
-    --callout-color: 245, 0, 87;
+    --callout-color: 170, 40, 80;
     --callout-icon: lucide-bug;
 }
 .callout[data-callout="example"] {
-    --callout-color: 124, 77, 255;
+    --callout-color: 100, 80, 170;
     --callout-icon: lucide-list;
 }
 .callout[data-callout="quote"],
 .callout[data-callout="cite"] {
-    --callout-color: 158, 158, 158;
+    --callout-color: 111, 119, 105;
     --callout-icon: lucide-quote;
 }
+
+/* Dark mode lifts every callout colour so titles stay readable. */
+:where(.theme-dark) .callout {
+    --callout-color: 120, 175, 205;
+}
+:where(.theme-dark) .callout[data-callout="abstract"],
+:where(.theme-dark) .callout[data-callout="summary"],
+:where(.theme-dark) .callout[data-callout="tldr"],
+:where(.theme-dark) .callout[data-callout="info"],
+:where(.theme-dark) .callout[data-callout="todo"] {
+    --callout-color: 120, 175, 205;
+}
+:where(.theme-dark) .callout[data-callout="tip"],
+:where(.theme-dark) .callout[data-callout="hint"],
+:where(.theme-dark) .callout[data-callout="important"],
+:where(.theme-dark) .callout[data-callout="success"],
+:where(.theme-dark) .callout[data-callout="check"],
+:where(.theme-dark) .callout[data-callout="done"] {
+    --callout-color: 150, 200, 135;
+}
+:where(.theme-dark) .callout[data-callout="question"],
+:where(.theme-dark) .callout[data-callout="help"],
+:where(.theme-dark) .callout[data-callout="faq"] {
+    --callout-color: 205, 195, 110;
+}
+:where(.theme-dark) .callout[data-callout="warning"],
+:where(.theme-dark) .callout[data-callout="caution"],
+:where(.theme-dark) .callout[data-callout="attention"] {
+    --callout-color: 230, 160, 80;
+}
+:where(.theme-dark) .callout[data-callout="failure"],
+:where(.theme-dark) .callout[data-callout="fail"],
+:where(.theme-dark) .callout[data-callout="missing"],
+:where(.theme-dark) .callout[data-callout="danger"],
+:where(.theme-dark) .callout[data-callout="error"] {
+    --callout-color: 235, 120, 110;
+}
+:where(.theme-dark) .callout[data-callout="bug"] {
+    --callout-color: 230, 120, 160;
+}
+:where(.theme-dark) .callout[data-callout="example"] {
+    --callout-color: 170, 150, 235;
+}
+:where(.theme-dark) .callout[data-callout="quote"],
+:where(.theme-dark) .callout[data-callout="cite"] {
+    --callout-color: 170, 180, 165;
+}
+
 .callout {
     overflow: hidden;
     border-style: solid;
     border-color: rgba(var(--callout-color), var(--callout-border-opacity));
     border-width: var(--callout-border-width);
     border-radius: var(--callout-radius);
-    margin: 1em 0;
+    margin: 1.25em 0;
     mix-blend-mode: var(--callout-blend-mode);
-    background-color: rgba(var(--callout-color), 0.1);
+    background-color: rgba(var(--callout-color), 0.09);
     padding: var(--callout-padding);
 }
 .callout.is-collapsible .callout-title {
@@ -179,7 +468,7 @@ p > code {
 .callout-title {
     padding: var(--callout-title-padding);
     display: flex;
-    gap: 4px;
+    gap: 6px;
     font-size: var(--callout-title-size);
     color: rgb(var(--callout-color));
     line-height: 1.3;
@@ -187,6 +476,12 @@ p > code {
 .callout-content {
     overflow-x: auto;
     padding: var(--callout-content-padding);
+}
+.callout-content > :first-child {
+    margin-top: 0.4em;
+}
+.callout-content > :last-child {
+    margin-bottom: 0;
 }
 .callout-icon {
     flex: 0 0 auto;
@@ -197,7 +492,7 @@ p > code {
     color: rgb(var(--callout-color));
 }
 .callout-title-inner {
-    font-weight: 600;
+    font-weight: 700;
 }
 .callout-fold {
     display: flex;
