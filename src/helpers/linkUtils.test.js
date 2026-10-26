@@ -16,6 +16,34 @@ async function buildGraph(notes) {
   return getGraph({ collections: { note: notes } });
 }
 
+describe("linkUtils graph-color", () => {
+  it.each([
+    ["#ff6b6b", 0xff6b6b],
+    [" #AbC ", 0xaabbcc],
+    ["#000000", 0],
+  ])("exports HEX color %s from published properties", async (value, expected) => {
+    const graph = await buildGraph([
+      makeNote("colored", { "dg-note-properties": { "graph-color": value } }),
+    ]);
+    expect(graph.nodes["/colored/"].color).toBe(expected);
+  });
+
+  it("reads passed-through frontmatter", async () => {
+    const graph = await buildGraph([makeNote("colored", { "graph-color": "#123456" })]);
+    expect(graph.nodes["/colored/"].color).toBe(0x123456);
+  });
+
+  it.each([undefined, null, "", "red", "#12345", "#gggggg", 123, ["#fff"]])(
+    "uses the theme for missing or invalid color %j", async (value) => {
+      const graph = await buildGraph([
+        makeNote("normal", { "dg-note-properties": { "graph-color": value } }),
+      ]);
+      expect(graph.nodes["/normal/"].color).toBeUndefined();
+      expect(JSON.parse(JSON.stringify(graph)).nodes["/normal/"]).not.toHaveProperty("color");
+    },
+  );
+});
+
 describe("linkUtils getGraph hide flags", () => {
   it("does not hide or privatize a normal note", async () => {
     const graph = await buildGraph([makeNote("normal")]);
