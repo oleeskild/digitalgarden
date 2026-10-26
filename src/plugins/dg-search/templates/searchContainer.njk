@@ -184,6 +184,8 @@
             const doc = parser.parseFromString(html, 'text/html');
 
             const content = doc.querySelector('.content, .cm-s-obsidian, article, main');
+            // The preview panel renders its own tag row above the body
+            content?.querySelectorAll('.header-tags').forEach(el => el.remove());
             const htmlContent = content ? content.innerHTML : '';
             previewCache.set(url, htmlContent);
             return htmlContent;

@@ -17,7 +17,8 @@
   transition: opacity 100ms;
   unicode-bidi: plaintext;
   overflow-y: scroll;
-  z-index: 10;
+  /* Above the file tree (10) and the right sidebar (11) */
+  z-index: 1000;
 }
 
 #tooltip-wrapper:after {
@@ -50,6 +51,8 @@
   var opacityTimeout;
   var contentTimeout;
   var transitionDurationMs = 100;
+  // Long enough to move the pointer across the gap from the link into the tooltip
+  var hideDelayMs = 300;
 
   var iframe = document.getElementById('link-preview-iframe')
   var tooltipWrapper = document.getElementById('tooltip-wrapper')
@@ -64,57 +67,56 @@
         tooltipContent.innerHTML = '';
         tooltipWrapper.style.display = 'none';
       }, transitionDurationMs + 1);
-    }, transitionDurationMs)
+    }, hideDelayMs)
   }
 
+  // Pointer position when the link was entered; the tooltip opens under it
+  var pointerX = null;
+  var pointerY = null;
+
   function positionTooltip(elem) {
-    var elem_props = elem.getClientRects()[elem.getClientRects().length - 1];
+    var rects = elem.getClientRects();
+    var elem_props = rects[rects.length - 1];
+    // For links that wrap over several lines, anchor to the line under the pointer
+    if (pointerY !== null) {
+      for (var i = 0; i < rects.length; i++) {
+        if (pointerY >= rects[i].top && pointerY <= rects[i].bottom) {
+          elem_props = rects[i];
+          break;
+        }
+      }
+    }
     var viewportWidth = document.documentElement.clientWidth;
     var viewportHeight = window.innerHeight;
-    var gap = 12;
     var edgePadding = 10;
+    // Keep the pointer inside the tooltip's horizontal span, a little in from its left edge
+    var pointerInset = 24;
+    // Overlap the link by a pixel so subpixel rounding never leaves a gap
+    var overlap = 1;
+    var tooltipHeight = tooltipWrapper.getBoundingClientRect().height;
 
-    var spaceAbove = elem_props.top;
-    var spaceBelow = viewportHeight - (elem_props.top + elem_props.height);
-    var spaceLeft = elem_props.left;
-    var spaceRight = viewportWidth - (elem_props.left + elem_props.width);
-
-    // Prefer edge placement away from the pointer: top/bottom and left/right.
-    var placeVertical = spaceBelow >= tooltipWrapper.offsetHeight + gap ? "bottom" : "top";
-    var placeHorizontal = spaceRight >= tooltipWrapper.offsetWidth + gap ? "right" : "left";
-
-    if (placeVertical === "bottom") {
-      tooltipWrapper.style.top = (elem_props.top + elem_props.height + gap) + "px";
+    // Open flush against the link, directly below (or above) the pointer, so
+    // moving the mouse straight down/up enters the tooltip without crossing a gap.
+    var spaceBelow = viewportHeight - elem_props.bottom;
+    if (spaceBelow >= tooltipHeight + edgePadding || spaceBelow >= elem_props.top) {
+      tooltipWrapper.style.top = (elem_props.bottom - overlap) + "px";
     } else {
-      tooltipWrapper.style.top = (elem_props.top - tooltipWrapper.offsetHeight - gap) + "px";
+      tooltipWrapper.style.top = Math.max(edgePadding, elem_props.top - tooltipHeight + overlap) + "px";
     }
 
-    if (placeHorizontal === "right") {
-      tooltipWrapper.style.left = (elem_props.left + elem_props.width + gap) + "px";
-    } else {
-      tooltipWrapper.style.left = (elem_props.left - tooltipWrapper.offsetWidth - gap) + "px";
-    }
-
-    // Clamp to viewport edges.
-    var currentTop = parseFloat(tooltipWrapper.style.top);
-    var currentLeft = parseFloat(tooltipWrapper.style.left);
-
-    if (currentTop < edgePadding) {
-      tooltipWrapper.style.top = edgePadding + "px";
-    } else if (currentTop + tooltipWrapper.offsetHeight + edgePadding > viewportHeight) {
-      tooltipWrapper.style.top = (viewportHeight - tooltipWrapper.offsetHeight - edgePadding) + "px";
-    }
-
-    if (currentLeft < edgePadding) {
-      tooltipWrapper.style.left = edgePadding + "px";
-    } else if (currentLeft + tooltipWrapper.offsetWidth + edgePadding > viewportWidth) {
-      tooltipWrapper.style.left = (viewportWidth - tooltipWrapper.offsetWidth - edgePadding) + "px";
-    }
+    var anchorX = pointerX !== null ? pointerX : elem_props.left;
+    var left = anchorX - pointerInset;
+    var maxLeft = viewportWidth - tooltipWrapper.offsetWidth - edgePadding;
+    tooltipWrapper.style.left = Math.max(edgePadding, Math.min(left, maxLeft)) + "px";
   }
 
   function showTooltip(event) {
     var elem = event.currentTarget || event.target;
     if (!elem) return;
+    if (typeof event.clientX === 'number') {
+      pointerX = event.clientX;
+      pointerY = event.clientY;
+    }
     var url = elem.getAttribute("href");
     if (url.indexOf("http") === -1 || url.indexOf(window.location.host) !== -1) {
       tooltipWrapper.style.display = 'block';
