@@ -239,8 +239,8 @@ function renderGraph(graphData, containerId, isFullScreen) {
         gfx.hitArea = new Circle(0, 0, r + 2);
         gfx._nodeId = n.id;
 
-        // Draw node circle — current node gets main color, others get muted
-        const nodeColor = n.current ? color : mutedColor;
+        // Keep custom colors while retaining the current-node outline.
+        const nodeColor = n.color ?? (n.current ? color : mutedColor);
         gfx.beginFill(nodeColor);
         gfx.drawCircle(0, 0, r);
         gfx.endFill();
