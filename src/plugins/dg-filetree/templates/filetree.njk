@@ -1,29 +1,6 @@
 {% if settings.dgShowFileTree !== true %}
   {% include "components/navbar.njk" %}
 {% else %}
-  {% macro menuItem(fileOrFolderName, fileOrFolder, step, currentPath) %}
-    {%if fileOrFolder.isNote or fileOrFolder.isFolder%}
-        <div x-show="isOpen" style="display:none" class="{{'filelist' if step>0}}">
-            {%if fileOrFolder.isNote and not fileOrFolder.hide %}
-                <div @click.stop class="notelink {{ 'active-note' if fileOrFolder.permalink === permalink}}">
-                    <a data-note-icon="{{fileOrFolder.noteIcon}}" style="text-decoration: none;" class="filename" href="{{fileOrFolder.permalink}}">{{fileOrFolder.name}} </a>
-                </div>
-            {% elif fileOrFolder.isFolder%}
-                <div class="folder inner-folder"  x-data="{isOpen: $persist(false).as({{currentPath | dump}})}" @click.stop="isOpen=!isOpen">
-                    <div class="foldername-wrapper align-icon">
-                    <i x-show="isOpen" style="display: none;"  data-lucide="chevron-down"></i>
-                    <i x-show="!isOpen"  data-lucide="chevron-right"></i>
-                    <span class="foldername">{{fileOrFolderName}}</span>
-                    </div>
-                    {% for fileOrFolderName, child in fileOrFolder %}
-                        {{menuItem(fileOrFolderName, child, step+1, (currentPath+"/"+fileOrFolderName))}}
-                    {% endfor %}
-                </div>
-            {% endif %}
-        </div>
-        {%endif%}
-    {% endmacro %}
-
     <div x-init="isDesktop = (window.innerWidth>=1000) ? true: false;"
             x-on:resize.window="isDesktop = (window.innerWidth>=1000) ? true : false;"
             x-data="{isDesktop: true, showFilesMobile: false}">
@@ -76,11 +53,31 @@
             {% include imp %}
         {% endfor %}
         {% set slotName = "filetree.actions" %}{% include "components/pluginSlot.njk" %}
-         <div class="folder" x-data="{isOpen: true}">
-               {%- for fileOrFolderName, fileOrFolder in filetree -%}
-                  {{menuItem(fileOrFolderName, fileOrFolder, 0, fileOrFolderName)}}
-               {%- endfor -%}
-         </div>
+         {#- The tree itself is rendered once to /filetree.html (see ../index.js) rather than into every page. -#}
+         <div class="folder" x-data="{isOpen: true}"></div>
+         <script>
+           (function () {
+             var root = document.currentScript.previousElementSibling;
+             var trim = function (p) { return p.replace(/\/+$/, "") || "/"; };
+             fetch("/filetree.html?v={{ meta.buildDate | isoDate }}")
+               .then(function (res) {
+                 if (!res.ok) throw new Error("HTTP " + res.status);
+                 return res.text();
+               })
+               .then(function (html) {
+                 root.innerHTML = html;
+                 var here = trim(location.pathname);
+                 root.querySelectorAll("a.filename").forEach(function (a) {
+                   if (trim(new URL(a.getAttribute("href"), location.href).pathname) === here) {
+                     a.parentElement.classList.add("active-note");
+                   }
+                 });
+                 // Icons in the tree arrive after lucideIcons.njk ran on DOMContentLoaded.
+                 if (window.lucide) lucide.createIcons({ attrs: { class: ["svg-icon"] } });
+               })
+               .catch(function (err) { console.warn("Could not load the file tree:", err); });
+           })();
+         </script>
       </nav>
       </div>
     </div>
