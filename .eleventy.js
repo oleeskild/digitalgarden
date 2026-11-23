@@ -115,6 +115,7 @@ const { basesPlugin } = require("./src/helpers/basesPlugin");
 
 const Image = require("@11ty/eleventy-img");
 const { isDecodableImage } = require("./src/helpers/imageFormat.js");
+const { bundleUsedLucideIcons } = require("./src/helpers/buildLucide");
 
 // Build containers have few CPUs and little memory; the default queue
 // concurrency of 10 holds ~10 decoded images in memory at once without
@@ -851,14 +852,19 @@ module.exports = function(eleventyConfig) {
     normalizeFavicon(FAVICON_SOURCE, FAVICON_NORMALIZED);
     anchorAttributesCache.clear();
   });
-  eleventyConfig.on("eleventy.after", async () => {
+
+  eleventyConfig.on("eleventy.after", async ({ directories, dir }) => {
     if (pendingImageJobs.length > 0) {
       console.log(`[image] Waiting for ${pendingImageJobs.length} image optimization jobs...`);
       await Promise.all(pendingImageJobs);
       console.log(`[image] Image optimization complete`);
       pendingImageJobs.length = 0;
     }
+
+    const outputDir = (directories && directories.output) || (dir && dir.output) || "dist";
+    await bundleUsedLucideIcons(outputDir);
   });
+
   eleventyConfig.addWatchTarget(FAVICON_SOURCE);
   eleventyConfig.addPlugin(faviconsPlugin, { outputDir: "dist" });
   eleventyConfig.addPlugin(tocPlugin, {
