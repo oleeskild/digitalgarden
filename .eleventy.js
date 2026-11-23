@@ -860,6 +860,30 @@ module.exports = function(eleventyConfig) {
     }
   });
   eleventyConfig.addWatchTarget(FAVICON_SOURCE);
+
+  for (const method of ["addAsyncShortcode", "addNunjucksAsyncShortcode"]) {
+    if (typeof eleventyConfig[method] === "function") {
+      const orig = eleventyConfig[method].bind(eleventyConfig);
+      eleventyConfig[method] = (name, fn) => {
+        if (name !== "favicons") return orig(name, fn);
+        let cached = null;
+        let cachedBuildId = -1;
+        return orig(name, function (...args) {
+          if (!cached || cachedBuildId !== faviconBuildId) {
+            cachedBuildId = faviconBuildId;
+            cached = Promise.resolve()
+              .then(() => fn.apply(this, args))
+              .catch((err) => {
+                cached = null;
+                throw err;
+              });
+          }
+          return cached;
+        });
+      };
+    }
+  }
+
   eleventyConfig.addPlugin(faviconsPlugin, { outputDir: "dist" });
   eleventyConfig.addPlugin(tocPlugin, {
     ul: true,
